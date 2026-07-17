@@ -29,7 +29,7 @@
         ::-webkit-scrollbar-thumb { background: linear-gradient(#bf953f, #aa771c); border-radius: 10px; }
 
         .tool-wrapper {
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto;
         }
 
@@ -59,7 +59,7 @@
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 30px;
+            font-size: 32px;
             color: #ffffff;
             margin-bottom: 8px;
             text-align: center;
@@ -79,7 +79,7 @@
             border: 2px dashed rgba(212, 175, 55, 0.25);
             background: rgba(255, 255, 255, 0.02);
             border-radius: 20px;
-            padding: 40px 20px;
+            padding: 45px 20px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
@@ -158,7 +158,7 @@
         }
 
         /* ==========================================
-           PREVIEW & DOWNLOAD SECTION
+           PREVIEW & DOWNLOAD SECTION WITH AD LAYOUT
         ========================================== */
         .preview-section {
             margin-top: 35px;
@@ -167,11 +167,12 @@
             padding-top: 30px;
         }
 
+        /* 💰 Dynamic Ad Slot right inside the activation frame */
         .preview-ad-slot {
             background: rgba(15, 22, 36, 0.6);
             border: 1px dashed rgba(212, 175, 55, 0.25);
             border-radius: 20px;
-            padding: 20px;
+            padding: 22px;
             text-align: center;
             font-size: 11px;
             color: rgba(212, 175, 55, 0.6);
@@ -185,15 +186,15 @@
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 20px;
-            padding: 30px 20px;
+            padding: 35px 20px;
             text-align: center;
         }
 
-        .success-icon { font-size: 35px; color: #4ade80; margin-bottom: 10px; display: block; }
-        .preview-title { font-size: 16px; font-weight: 600; color: #ffffff; margin-bottom: 5px; }
-        .preview-info { font-size: 12px; color: #64748b; margin-bottom: 25px; }
+        .success-icon { font-size: 35px; color: #4ade80; margin-bottom: 12px; display: block; }
+        .preview-title { font-size: 18px; font-weight: 600; color: #ffffff; margin-bottom: 6px; }
+        .preview-info { font-size: 13px; color: #64748b; margin-bottom: 30px; }
 
-        /* Responsive Button Group inside Preview Box */
+        /* Responsive Action Grid Buttons Layout */
         .btn-group {
             display: flex;
             flex-direction: column;
@@ -211,10 +212,10 @@
             justify-content: center;
             gap: 8px;
             width: 100%;
-            padding: 15px;
+            padding: 16px;
             border-radius: 14px;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: all 0.2s;
@@ -225,7 +226,33 @@
             box-shadow: 0 6px 20px rgba(34, 197, 94, 0.3);
         }
 
-        /* 🏠 PREMIUM BACK TO MAIN MENU BUTTON */
+        /* 👁️ PREMIUM LIVE PREVIEW PDF BUTTON */
+        .preview-btn {
+            background: linear-gradient(135deg, rgba(191, 149, 63, 0.2), rgba(170, 119, 28, 0.2));
+            color: #dfba6b;
+            border: 1px solid #bf953f;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+        }
+        .preview-btn:hover {
+            background: linear-gradient(135deg, #bf953f, #aa771c);
+            color: #090d16;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        /* 🏠 PREMIUM BACK TO HOME BUTTON */
         .back-menu-btn {
             background: rgba(255, 255, 255, 0.04);
             color: #ffffff;
@@ -236,28 +263,27 @@
             justify-content: center;
             gap: 8px;
             width: 100%;
-            padding: 15px;
+            padding: 16px;
             border-radius: 14px;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: all 0.2s;
         }
         .back-menu-btn:hover {
             background: rgba(255, 255, 255, 0.08);
-            border-color: #dfba6b;
-            color: #dfba6b;
+            border-color: #ffffff;
             transform: translateY(-2px);
         }
 
-        @media (min-width: 480px) {
+        @media (min-width: 620px) {
             .btn-group {
                 flex-direction: row;
             }
-            .download-btn, .back-menu-btn {
+            .download-btn, .preview-btn, .back-menu-btn {
                 width: auto;
-                padding: 14px 30px;
+                padding: 14px 24px;
             }
         }
     </style>
@@ -301,7 +327,7 @@
                     [ 💰 ADSENSE PREVIEW BANNER: AD WILL LOAD HERE TO UNLOCK PREVIEW ]
                 </div>
 
-                <!-- Verified Download Component with both Actions -->
+                <!-- Verified Download Component with 3 Elite Actions -->
                 <div class="preview-box">
                     <span class="success-icon">✨</span>
                     <div class="preview-title">Your Merged PDF is Ready!</div>
@@ -309,10 +335,13 @@
                     
                     <div class="btn-group">
                         <a href="#" id="real-download-link" download="PDFGridBox_Merged.pdf" class="download-btn">
-                            📥 Download Merged PDF
+                            📥 Download PDF
+                        </a>
+                        <a href="#" id="real-preview-link" target="_blank" class="preview-btn">
+                            👁️ Preview PDF
                         </a>
                         <a href="index.html" class="back-menu-btn">
-                            🏠 Back to Main Menu
+                            🏠 Back to Home
                         </a>
                     </div>
                 </div>
@@ -382,8 +411,9 @@
                 const pdfBlob = new Blob([mergedPdfBytes], { type: 'application/pdf' });
                 const blobUrl = URL.createObjectURL(pdfBlob);
 
-                const downloadLink = document.getElementById('real-download-link');
-                downloadLink.href = blobUrl;
+                // Inject local link into Download & Preview structure
+                document.getElementById('real-download-link').href = blobUrl;
+                document.getElementById('real-preview-link').href = blobUrl;
 
                 setTimeout(() => {
                     loader.style.display = 'none';
