@@ -194,13 +194,14 @@
         .preview-title { font-size: 18px; font-weight: 600; color: #ffffff; margin-bottom: 6px; }
         .preview-info { font-size: 13px; color: #64748b; margin-bottom: 30px; }
 
-        /* Responsive Action Grid Buttons Layout */
+        /* Mobile-Friendly Vertical Button Stack Layout */
         .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            align-items: center;
-            justify-content: center;
+            gap: 14px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
         }
 
         .download-btn {
@@ -215,7 +216,7 @@
             padding: 16px;
             border-radius: 14px;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: all 0.2s;
@@ -226,11 +227,11 @@
             box-shadow: 0 6px 20px rgba(34, 197, 94, 0.3);
         }
 
-        /* 👁️ PREMIUM LIVE PREVIEW PDF BUTTON */
+        /* 👁️ NEW LUXURY LIVE PREVIEW PDF BUTTON */
         .preview-btn {
-            background: linear-gradient(135deg, rgba(191, 149, 63, 0.2), rgba(170, 119, 28, 0.2));
+            background: rgba(212, 175, 55, 0.05);
             color: #dfba6b;
-            border: 1px solid #bf953f;
+            border: 2px solid #bf953f;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -240,16 +241,17 @@
             padding: 16px;
             border-radius: 14px;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.05);
         }
         .preview-btn:hover {
             background: linear-gradient(135deg, #bf953f, #aa771c);
             color: #090d16;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
         }
 
         /* 🏠 PREMIUM BACK TO HOME BUTTON */
@@ -266,7 +268,7 @@
             padding: 16px;
             border-radius: 14px;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: all 0.2s;
@@ -275,16 +277,6 @@
             background: rgba(255, 255, 255, 0.08);
             border-color: #ffffff;
             transform: translateY(-2px);
-        }
-
-        @media (min-width: 620px) {
-            .btn-group {
-                flex-direction: row;
-            }
-            .download-btn, .preview-btn, .back-menu-btn {
-                width: auto;
-                padding: 14px 24px;
-            }
         }
     </style>
 </head>
@@ -327,7 +319,7 @@
                     [ 💰 ADSENSE PREVIEW BANNER: AD WILL LOAD HERE TO UNLOCK PREVIEW ]
                 </div>
 
-                <!-- Verified Download Component with 3 Elite Actions -->
+                <!-- Verified Download Component with 3 Verified Actions -->
                 <div class="preview-box">
                     <span class="success-icon">✨</span>
                     <div class="preview-title">Your Merged PDF is Ready!</div>
@@ -335,13 +327,13 @@
                     
                     <div class="btn-group">
                         <a href="#" id="real-download-link" download="PDFGridBox_Merged.pdf" class="download-btn">
-                            📥 Download PDF
+                            📥 Download Merged PDF
                         </a>
                         <a href="#" id="real-preview-link" target="_blank" class="preview-btn">
-                            👁️ Preview PDF
+                            👁️ Preview Merged PDF
                         </a>
                         <a href="index.html" class="back-menu-btn">
-                            🏠 Back to Home
+                            🏠 Back to Main Menu
                         </a>
                     </div>
                 </div>
