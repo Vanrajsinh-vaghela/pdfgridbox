@@ -3,171 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDFGridBox - Free Online PDF & Image Tools</title>
-    <!-- Tailwind CSS for Modern UI -->
+    <title>PDFGridBox - All-in-One PDF & Image Tools</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- pdf-lib Library for Client-Side PDF Processing -->
-    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-    <!-- Header / Navigation Menu -->
+    <!-- Header -->
     <header class="bg-white shadow-sm border-b border-gray-200 py-4 sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <h1 class="text-2xl font-bold text-indigo-600 tracking-tight cursor-pointer" onclick="location.href='index.html'">PDFGrid<span class="text-gray-700">Box</span></h1>
-            <nav class="flex flex-wrap justify-center text-sm font-medium text-gray-600 gap-4 md:gap-6">
-                <a href="index.html" class="text-indigo-600 border-b-2 border-indigo-600 pb-1">Merge PDF</a>
-                <a href="resize.html" class="hover:text-indigo-600 transition-colors">Photo/Sign Resizer</a>
-                <a href="pdf-to-excel.html" class="hover:text-indigo-600 transition-colors">PDF to Excel</a>
-                <a href="#" class="text-gray-400 cursor-not-allowed flex items-center gap-1">PDF to Word <span class="text-[10px] bg-amber-100 text-amber-700 px-1.5 py-0.2 rounded font-semibold">Soon</span></a>
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-indigo-600 tracking-tight">PDFGrid<span class="text-gray-700">Box</span></h1>
+            <nav class="text-sm font-medium text-gray-600">
+                <a href="index.html" class="text-indigo-600">All Tools</a>
             </nav>
         </div>
     </header>
 
-    <!-- AD PLACEHOLDER (TOP BANNER) -->
-    <div class="max-w-4xl mx-auto my-4 text-center">
-        <div class="bg-gray-100 border border-dashed border-gray-300 py-3 text-xs text-gray-400 rounded">
-            [Adsterra Normal Banner Ad Space - 728x90]
-        </div>
-    </div>
+    <!-- Hero Section -->
+    <section class="max-w-6xl mx-auto px-4 py-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Your All-in-One Toolkit</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">Free, secure, and instant PDF & Image tools. Everything runs in your browser, no upload required.</p>
+    </section>
 
-    <!-- Main Tool Container (Merge PDF) -->
-    <main class="max-w-3xl mx-auto px-4 py-8">
-        <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 text-center">
-            <h2 class="text-xl font-semibold mb-2 text-gray-900">Merge PDF Files Instantly</h2>
-            <p class="text-gray-500 text-sm mb-6">Combine multiple PDF files into one single document right in your browser securely.</p>
+    <!-- Tools Dashboard Grid -->
+    <main class="max-w-6xl mx-auto px-4 pb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            <!-- Upload Area -->
-            <div id="drop-zone" class="border-2 border-dashed border-indigo-200 hover:border-indigo-400 rounded-xl p-8 bg-indigo-50/30 cursor-pointer transition-colors">
-                <input type="file" id="file-input" multiple accept="application/pdf" class="hidden">
-                <svg class="w-12 h-12 mx-auto text-indigo-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                <p class="text-sm font-medium text-indigo-600">Click to upload or drag & drop PDFs</p>
-                <p class="text-xs text-gray-400 mt-1">Select 2 or more PDF files</p>
-            </div>
+            <!-- Merge PDF -->
+            <a href="index.html" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all group">
+                <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-indigo-600 transition-colors">
+                    <svg class="w-6 h-6 text-indigo-600 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900">Merge PDF</h3>
+                <p class="text-sm text-gray-500 mt-1">Combine multiple PDFs into one.</p>
+            </a>
 
-            <!-- Selected Files List -->
-            <div id="file-list" class="mt-4 text-left space-y-2 max-h-40 overflow-y-auto hidden"></div>
+            <!-- Compress PDF -->
+            <a href="compress.html" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all group">
+                <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-indigo-600 transition-colors">
+                    <svg class="w-6 h-6 text-indigo-600 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900">Compress PDF</h3>
+                <p class="text-sm text-gray-500 mt-1">Reduce PDF file size instantly.</p>
+            </a>
 
-            <!-- Action Button -->
-            <button id="merge-btn" class="mt-6 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-xl shadow-sm transition-colors cursor-pointer hidden">
-                Merge PDFs Now
-            </button>
+            <!-- Split PDF -->
+            <a href="split.html" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all group">
+                <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-indigo-600 transition-colors">
+                    <svg class="w-6 h-6 text-indigo-600 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900">Split PDF</h3>
+                <p class="text-sm text-gray-500 mt-1">Extract specific pages from PDF.</p>
+            </a>
+
+            <!-- JPG to PDF -->
+            <a href="jpg-to-pdf.html" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all group">
+                <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-indigo-600 transition-colors">
+                    <svg class="w-6 h-6 text-indigo-600 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900">JPG to PDF</h3>
+                <p class="text-sm text-gray-500 mt-1">Convert images to PDF format.</p>
+            </a>
+
+            <!-- PDF to JPG -->
+            <a href="pdf-to-jpg.html" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all group">
+                <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-indigo-600 transition-colors">
+                    <svg class="w-6 h-6 text-indigo-600 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900">PDF to JPG</h3>
+                <p class="text-sm text-gray-500 mt-1">Convert PDF pages to images.</p>
+            </a>
+
+            <!-- Image Resizer -->
+            <a href="resize.html" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all group">
+                <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-indigo-600 transition-colors">
+                    <svg class="w-6 h-6 text-indigo-600 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0-4v2m0 6V12m0 0a2 2 0 100 4m0-4a2 2 0 110 4m12-8a2 2 0 100-4m0 4a2 2 0 110 4m0 0v2m0 6V12"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900">Image Resizer</h3>
+                <p class="text-sm text-gray-500 mt-1">Resize photo/signature for forms.</p>
+            </a>
+
+            <!-- PDF to Excel -->
+            <a href="pdf-to-excel.html" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all group">
+                <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-indigo-600 transition-colors">
+                    <svg class="w-6 h-6 text-indigo-600 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M9 17v-2m0 2h2m-2 0H7m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900">PDF to Excel</h3>
+                <p class="text-sm text-gray-500 mt-1">Convert PDF data to Excel sheet.</p>
+            </a>
+
         </div>
     </main>
 
-    <!-- AD PLACEHOLDER (BOTTOM BANNER) -->
-    <div class="max-w-4xl mx-auto my-4 text-center">
-        <div class="bg-gray-100 border border-dashed border-gray-300 py-3 text-xs text-gray-400 rounded">
-            [Adsterra Normal Banner Ad Space - 300x250 or 728x90]
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="text-center text-xs text-gray-400 py-8 border-t border-gray-100 mt-12">
-        &copy; 2026 PDFGridBox. All tools are 100% free and secure (Client-Side).
-    </footer>
-
-    <!-- Javascript Logic for Merging -->
-    <script>
-        const fileInput = document.getElementById('file-input');
-        const dropZone = document.getElementById('drop-zone');
-        const fileList = document.getElementById('file-list');
-        const mergeBtn = document.getElementById('merge-btn');
-        let selectedFiles = [];
-
-        dropZone.addEventListener('click', () => fileInput.click());
-
-        dropZone.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            dropZone.classList.add('bg-indigo-50');
-        });
-
-        dropZone.addEventListener('dragleave', () => {
-            dropZone.classList.remove('bg-indigo-50');
-        });
-
-        dropZone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            dropZone.classList.remove('bg-indigo-50');
-            handleFiles(e.dataTransfer.files);
-        });
-
-        fileInput.addEventListener('change', (e) => {
-            handleFiles(e.target.files);
-        });
-
-        function handleFiles(files) {
-            for (let file of files) {
-                if (file.type === "application/pdf") {
-                    selectedFiles.push(file);
-                }
-            }
-            updateUI();
-        }
-
-        function updateUI() {
-            if (selectedFiles.length > 0) {
-                fileList.innerHTML = '<p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Selected Files:</p>';
-                selectedFiles.forEach((file, index) => {
-                    fileList.innerHTML += `
-                        <div class="flex justify-between items-center bg-gray-100 p-2 text-xs rounded border border-gray-200">
-                            <span class="truncate pr-4">${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)</span>
-                            <button onclick="removeFile(${index})" class="text-red-500 hover:text-red-700 font-bold cursor-pointer">Remove</button>
-                        </div>
-                    `;
-                });
-                fileList.classList.remove('hidden');
-                if (selectedFiles.length >= 2) {
-                    mergeBtn.classList.remove('hidden');
-                } else {
-                    mergeBtn.classList.add('hidden');
-                }
-            } else {
-                fileList.classList.add('hidden');
-                mergeBtn.classList.add('hidden');
-            }
-        }
-
-        window.removeFile = function(index) {
-            selectedFiles.splice(index, 1);
-            updateUI();
-        };
-
-        mergeBtn.addEventListener('click', async () => {
-            if (selectedFiles.length < 2) return;
-            
-            mergeBtn.disabled = true;
-            mergeBtn.innerText = "Processing... Please wait";
-            
-            try {
-                const mergedPdf = await PDFLib.PDFDocument.create();
-                
-                for (let file of selectedFiles) {
-                    const arrayBuffer = await file.arrayBuffer();
-                    const pdf = await PDFLib.PDFDocument.load(arrayBuffer);
-                    const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
-                    copiedPages.forEach((page) => mergedPdf.addPage(page));
-                }
-                
-                const mergedPdfBytes = await mergedPdf.save();
-                const blob = new Blob([mergedPdfBytes], { type: 'application/pdf' });
-                const url = URL.createObjectURL(blob);
-                
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `merged_${Date.now()}.pdf`;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                
-                mergeBtn.disabled = false;
-                mergeBtn.innerText = "Merge PDFs Now";
-            } catch (error) {
-                alert("Error merging files: " + error.message);
-                mergeBtn.disabled = false;
-                mergeBtn.innerText = "Merge PDFs Now";
-            }
-        });
-    </script>
+    <footer class="text-center text-xs text-gray-400 py-8 border-t border-gray-100 mt-12">&copy; 2026 PDFGridBox.</footer>
 </body>
 </html>
