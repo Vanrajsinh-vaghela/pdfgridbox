@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compress PDF - Reduce PDF Size Online - PDFGridBox</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- PDF Lib & PDF.js for advanced extraction & rendering -->
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Unified Navigation Menu -->
+    <header class="bg-white shadow-sm border-b border-gray-200 py-4 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <h1 class="text-2xl font-bold text-indigo-600 tracking-tight cursor-pointer" onclick="location.href='index.html'">PDFGrid<span class="text-gray-700">Box</span></h1>
+            <nav class="flex flex-wrap justify-center text-sm font-medium text-gray-600 gap-4 md:gap-6">
+                <a href="index.html" class="hover:text-indigo-600 transition-colors">Merge PDF</a>
+                <a href="compress.html" class="text-indigo-600 border-b-2 border-indigo-600 pb-1">Compress PDF</a>
+                <a href="split.html" class="hover:text-indigo-600 transition-colors">Split PDF</a>
+                <a href="jpg-to-pdf.html" class="hover:text-indigo-600 transition-colors">JPG to PDF</a>
+                <a href="pdf-to-jpg.html" class="hover:text-indigo-600 transition-colors">PDF to JPG</a>
+                <a href="resize.html" class="hover:text-indigo-600 transition-colors">Photo/Sign Resizer</a>
+                <a href="pdf-to-excel.html" class="hover:text-indigo-600 transition-colors">PDF to Excel</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- AD PLACEHOLDER -->
+    <div class="max-w-4xl mx-auto my-4 text-center">
+        <div class="bg-gray-100 border border-dashed border-gray-300 py-3 text-xs text-gray-400 rounded">[Adsterra Top Banner Space]</div>
+    </div>
+
+    <!-- Main Tool Block -->
+    <main class="max-w-3xl mx-auto px-4 py-8">
+        <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 text-center">
+            <h2 class="text-xl font-semibold mb-2 text-gray-900">Compress PDF Files</h2>
+            <p class="text-gray-500 text-sm mb-6">Reduce the file size of your PDF documents instantly while keeping acceptable quality.</p>
+            
+            <div id="drop-zone" class="border-2 border-dashed border-indigo-200 hover:border-indigo-400 rounded-xl p-8 bg-indigo-50/30 cursor-pointer transition-colors">
+                <input type="file" id="pdf-input" accept="application/pdf" class="hidden">
+                <svg class="w-12 h-12 mx-auto text-indigo-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                <p id="upload-text" class="text-sm font-medium text-indigo-600">Click to upload or drag & drop PDF</p>
+            </div>
+
+            <!-- Compression Level Setting -->
+            <div class="mt-6 text-left max-w-xs mx-auto">
+                <label class="block text-xs font-semibold text-gray-600 uppercase mb-2">Compression Level</label>
+                <select id="compression-level" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-indigo-500 bg-white">
+                    <option value="0.6">Medium Compression (Good Quality)</option>
+                    <option value="0.3">High Compression (Smallest Size)</option>
+                </select>
+            </div>
+
+            <button id="compress-btn" class="mt-6 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-xl shadow-sm transition-colors cursor-pointer hidden">
+                Compress PDF Now
+            </button>
+        </div>
+    </main>
+
+    <!-- AD PLACEHOLDER -->
+    <div class="max-w-4xl mx-auto my-4 text-center">
+        <div class="bg-gray-100 border border-dashed border-gray-300 py-3 text-xs text-gray-400 rounded">[Adsterra Bottom Banner Space]</div>
+    </div>
+
+    <footer class="text-center text-xs text-gray-400 py-8 border-t border-gray-100 mt-12">&copy; 2026 PDFGridBox. 100% Free & Secure Client-Side Engine.</footer>
+
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        const fileInput = document.getElementById('pdf-input');
+        const dropZone = document.getElementById('drop-zone');
+        const compressBtn = document.getElementById('compress-btn');
+        const uploadText = document.getElementById('upload-text');
+        let selectedPdf = null;
+
+        dropZone.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => {
+            if(e.target.files[0]) {
+                selectedPdf = e.target.files[0];
+                uploadText.innerText = `Selected: ${selectedPdf.name} (${(selectedPdf.size/1024).toFixed(1)} KB)`;
+                compressBtn.classList.remove('hidden');
+            }
+        });
+
+        compressBtn.addEventListener('click', async () => {
+            if(!selectedPdf) return;
+            compressBtn.disabled = true;
+            compressBtn.innerText = "Compressing... Please wait (takes a few seconds)";
+
+            try {
+                const compressionQuality = parseFloat(document.getElementById('compression-level').value);
+                const fileReader = new FileReader();
+                
+                fileReader.onload = async function() {
+                    const typedarray = new Uint8Array(this.result);
+                    const loadingTask = pdfjsLib.getDocument(typedarray);
+                    const pdf = await loadingTask.promise;
+                    
+                    const compressedPdfDoc = await PDFLib.PDFDocument.create();
+                    
+                    for (let i = 1; i <= pdf.numPages; i++) {
+                        const page = await pdf.getPage(i);
+                        const viewport = page.getViewport({ scale: 1.5 }); // Optimal rendering scale
+                        
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+                        
+                        await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+                        
+                        // Squeeze page image layer metrics directly into optimized JPEG matrix
+                        const imgDataUrl = canvas.toDataURL('image/jpeg', compressionQuality);
+                        const imgBytes = await fetch(imgDataUrl).then(res => res.arrayBuffer());
+                        
+                        const embeddedImg = await compressedPdfDoc.embedJpg(imgBytes);
+                        const newPage = compressedPdfDoc.addPage([viewport.width, viewport.height]);
+                        newPage.drawImage(embeddedImg, {
+                            x: 0,
+                            y: 0,
+                            width: viewport.width,
+                            height: viewport.height,
+                        });
+                    }
+                    
+                    const compressedPdfBytes = await compressedPdfDoc.save();
+                    const blob = new Blob([compressedPdfBytes], { type: 'application/pdf' });
+                    
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = `compressed_${Date.now()}.pdf`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+
+                    compressBtn.disabled = false;
+                    compressBtn.innerText = "Compress PDF Now";
+                };
+                
+                fileReader.readAsArrayBuffer(selectedPdf);
+            } catch (error) {
+                alert("Error compressing PDF: " + error.message);
+                compressBtn.disabled = false;
+                compressBtn.innerText = "Compress PDF Now";
+            }
+        });
+    </script>
+</body>
+</html>
