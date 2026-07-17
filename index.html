@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDFGridBox - Free Online PDF Tools</title>
+    <title>PDFGridBox - Free Online PDF & Image Tools</title>
     <!-- Tailwind CSS for Modern UI -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- pdf-lib Library for Client-Side PDF Processing -->
@@ -11,14 +11,15 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-    <!-- Header -->
-    <header class="bg-white shadow-sm border-b border-gray-200 py-4">
-        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-indigo-600 tracking-tight">PDFGrid<span class="text-gray-700">Box</span></h1>
-            <nav class="text-sm font-medium text-gray-500 space-x-4">
-                <a href="#" class="text-indigo-600 border-b-2 border-indigo-600 pb-1">Merge PDF</a>
-                <span class="text-gray-300">|</span>
-                <span class="cursor-not-allowed text-gray-400">Compress (Coming Soon)</span>
+    <!-- Header / Navigation Menu -->
+    <header class="bg-white shadow-sm border-b border-gray-200 py-4 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <h1 class="text-2xl font-bold text-indigo-600 tracking-tight cursor-pointer" onclick="location.href='index.html'">PDFGrid<span class="text-gray-700">Box</span></h1>
+            <nav class="flex flex-wrap justify-center text-sm font-medium text-gray-600 gap-4 md:gap-6">
+                <a href="index.html" class="text-indigo-600 border-b-2 border-indigo-600 pb-1">Merge PDF</a>
+                <a href="resize.html" class="hover:text-indigo-600 transition-colors">Photo/Sign Resizer</a>
+                <a href="pdf-to-excel.html" class="hover:text-indigo-600 transition-colors">PDF to Excel</a>
+                <a href="#" class="text-gray-400 cursor-not-allowed flex items-center gap-1">PDF to Word <span class="text-[10px] bg-amber-100 text-amber-700 px-1.5 py-0.2 rounded font-semibold">Soon</span></a>
             </nav>
         </div>
     </header>
@@ -30,7 +31,7 @@
         </div>
     </div>
 
-    <!-- Main Tool Container -->
+    <!-- Main Tool Container (Merge PDF) -->
     <main class="max-w-3xl mx-auto px-4 py-8">
         <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 text-center">
             <h2 class="text-xl font-semibold mb-2 text-gray-900">Merge PDF Files Instantly</h2>
@@ -66,7 +67,7 @@
         &copy; 2026 PDFGridBox. All tools are 100% free and secure (Client-Side).
     </footer>
 
-    <!-- Client-Side Javascript Logic -->
+    <!-- Javascript Logic for Merging -->
     <script>
         const fileInput = document.getElementById('file-input');
         const dropZone = document.getElementById('drop-zone');
