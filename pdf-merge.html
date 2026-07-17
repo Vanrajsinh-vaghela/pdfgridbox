@@ -33,7 +33,7 @@
             margin: 0 auto;
         }
 
-        /* Back Button */
+        /* Back Button Top */
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -124,7 +124,7 @@
         .file-name { color: #e2e8f0; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 80%; }
         .file-size { color: #64748b; font-size: 11px; }
 
-        /* Action Buttons (No Ads Nearby) */
+        /* Action Buttons */
         .action-btn {
             background: linear-gradient(135deg, #bf953f, #aa771c);
             color: #090d16;
@@ -158,7 +158,7 @@
         }
 
         /* ==========================================
-           PREVIEW & DOWNLOAD SECTION (WITH AD SLOT)
+           PREVIEW & DOWNLOAD SECTION
         ========================================== */
         .preview-section {
             margin-top: 35px;
@@ -167,7 +167,6 @@
             padding-top: 30px;
         }
 
-        /* 💰 Target Ad Placement right inside the Preview Wrapper */
         .preview-ad-slot {
             background: rgba(15, 22, 36, 0.6);
             border: 1px dashed rgba(212, 175, 55, 0.25);
@@ -186,13 +185,22 @@
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 20px;
-            padding: 25px;
+            padding: 30px 20px;
             text-align: center;
         }
 
         .success-icon { font-size: 35px; color: #4ade80; margin-bottom: 10px; display: block; }
         .preview-title { font-size: 16px; font-weight: 600; color: #ffffff; margin-bottom: 5px; }
-        .preview-info { font-size: 12px; color: #64748b; margin-bottom: 20px; }
+        .preview-info { font-size: 12px; color: #64748b; margin-bottom: 25px; }
+
+        /* Responsive Button Group inside Preview Box */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            justify-content: center;
+        }
 
         .download-btn {
             background: linear-gradient(135deg, #22c55e, #15803d);
@@ -202,7 +210,8 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 14px 35px;
+            width: 100%;
+            padding: 15px;
             border-radius: 14px;
             font-weight: 700;
             font-size: 14px;
@@ -215,12 +224,48 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(34, 197, 94, 0.3);
         }
+
+        /* 🏠 PREMIUM BACK TO MAIN MENU BUTTON */
+        .back-menu-btn {
+            background: rgba(255, 255, 255, 0.04);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 15px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+        }
+        .back-menu-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #dfba6b;
+            color: #dfba6b;
+            transform: translateY(-2px);
+        }
+
+        @media (min-width: 480px) {
+            .btn-group {
+                flex-direction: row;
+            }
+            .download-btn, .back-menu-btn {
+                width: auto;
+                padding: 14px 30px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="tool-wrapper">
-        <!-- Return to Dashboard Link -->
+        <!-- Return to Dashboard Link Top -->
         <a href="index.html" class="back-link">← Back to PDFGridBox.in</a>
 
         <!-- Main Workspace -->
@@ -248,7 +293,7 @@
             <!-- Real-time Processing Loader -->
             <div class="loader" id="process-loader">⚡ Executing Core Merging Engine... Please wait...</div>
 
-            <!-- PREVIEW SECTION (Loads instantly post-merge with Ads) -->
+            <!-- PREVIEW SECTION -->
             <div class="preview-section" id="result-preview-section">
                 
                 <!-- 💰 ADSENSE SLOT: PREVIEW BANNER AD -->
@@ -256,14 +301,20 @@
                     [ 💰 ADSENSE PREVIEW BANNER: AD WILL LOAD HERE TO UNLOCK PREVIEW ]
                 </div>
 
-                <!-- Verified Download Component -->
+                <!-- Verified Download Component with both Actions -->
                 <div class="preview-box">
                     <span class="success-icon">✨</span>
                     <div class="preview-title">Your Merged PDF is Ready!</div>
                     <div class="preview-info">All selected structures have been successfully combined into a secure sandbox compilation.</div>
-                    <a href="#" id="real-download-link" download="PDFGridBox_Merged.pdf" class="download-btn">
-                        📥 Download Merged PDF
-                    </a>
+                    
+                    <div class="btn-group">
+                        <a href="#" id="real-download-link" download="PDFGridBox_Merged.pdf" class="download-btn">
+                            📥 Download Merged PDF
+                        </a>
+                        <a href="index.html" class="back-menu-btn">
+                            🏠 Back to Main Menu
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -302,7 +353,6 @@
                 alert("Please select at least 2 PDF files to merge.");
             }
             
-            // Hide preview if files change
             document.getElementById('result-preview-section').style.display = 'none';
         });
 
@@ -319,10 +369,8 @@
             previewSection.style.display = 'none';
 
             try {
-                // Initialize clean PDF Document mapping
                 const mergedPdfDoc = await PDFLib.PDFDocument.create();
 
-                // Loop through and read each selected file as arrayBuffer
                 for (const file of selectedFileObjects) {
                     const fileArrayBuffer = await file.arrayBuffer();
                     const pdfDocToCopy = await PDFLib.PDFDocument.load(fileArrayBuffer);
@@ -330,18 +378,13 @@
                     copiedPages.forEach((page) => mergedPdfDoc.addPage(page));
                 }
 
-                // Save compile byte streams
                 const mergedPdfBytes = await mergedPdfDoc.save();
-
-                // Transform bytes directly into a secure local Blob Link
                 const pdfBlob = new Blob([mergedPdfBytes], { type: 'application/pdf' });
                 const blobUrl = URL.createObjectURL(pdfBlob);
 
-                // Inject local link into Download Button structure
                 const downloadLink = document.getElementById('real-download-link');
                 downloadLink.href = blobUrl;
 
-                // Execution success animations
                 setTimeout(() => {
                     loader.style.display = 'none';
                     previewSection.style.display = 'block';
