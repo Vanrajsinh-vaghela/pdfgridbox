@@ -3,201 +3,712 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free PDF Tools - Online PDF Editor</title>
+    <title>PDFGridBox.in - Ultra Luxury Free PDF Tools</title>
+    
+    <!-- Premium SEO Meta Tags -->
+    <meta name="description" content="Use PDFGridBox.in by Vanrajsinh Vaghela. 100% Free ultra-premium tools to Merge, Split, Compress, Sign PDFs, and Resize Photos online with no signup.">
+    <meta name="keywords" content="pdf merge, pdf split, compress pdf, word to pdf, photo resize, sign pdf, free pdf tools, pdfgridbox, Vanrajsinh Vaghela">
+    <meta name="author" content="Vanrajsinh Vaghela">
+
+    <!-- Google Fonts: Elegant Luxury Serif + Modern Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            background-color: #f7f9fa;
-            color: #333;
-            padding: 15px;
-            max-width: 600px; /* Mobile-first dashboard look */
-            margin: 0 auto;
+            background-color: #090d16; /* Deep Midnight Luxury Background */
+            color: #f1f5f9;
+            padding-bottom: 150px; /* Space for footer links & sticky bottom ad */
         }
 
-        /* Section Styling */
-        .section-container {
+        /* 👑 LUXURY CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#bf953f, #aa771c);
+            border-radius: 10px;
+        }
+
+        /* ✨ LUXURY TEXT SELECTION GLOW */
+        ::selection {
+            background: rgba(212, 175, 55, 0.3);
+            color: #ffffff;
+        }
+
+        /* Premium Ticker / Live Status Bar */
+        .breaking-bar {
+            background: linear-gradient(90deg, #b38728, #bf953f, #aa771c);
+            color: #090d16;
+            padding: 10px 15px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 20px rgba(179, 135, 40, 0.2);
+            text-align: center;
+        }
+
+        .breaking-tag {
+            background: #090d16;
+            color: #fbf5b7;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+        }
+
+        /* Main Wrapper */
+        .main-wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 30px 15px;
+        }
+
+        /* Velvet Experience Inspired Header */
+        .header-banner {
+            text-align: center;
             margin-bottom: 25px;
+            padding: 45px 20px;
+            background: linear-gradient(135deg, rgba(20, 27, 43, 0.8), rgba(11, 15, 25, 0.9));
+            border: 1px solid rgba(212, 175, 55, 0.15); /* Soft gold edge */
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-banner h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px; 
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        /* High-Contrast Owner Name Card with Crown */
+        .owner-badge-container {
+            margin: 18px 0;
+        }
+
+        .owner-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #090d16; 
+            color: #fcf6ba; 
+            padding: 10px 26px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid #bf953f; 
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .crown-icon {
+            font-size: 16px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+        }
+
+        .header-banner p {
+            font-size: 13px;
+            color: #94a3b8;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* Privacy & Trust Badge Custom Design */
+        .privacy-badge {
+            text-align: center; 
+            margin: -10px 0 25px 0; 
+            font-size: 11px; 
+            color: #64748b; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 6px;
+        }
+
+        /* Sleek Centered Social Buttons */
+        .social-buttons-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            white-space: nowrap; 
+        }
+
+        .btn-whatsapp {
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+        }
+        .btn-whatsapp:hover {
+            background: rgba(34, 197, 94, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(34, 197, 94, 0.2);
+        }
+
+        .btn-telegram {
+            background: rgba(14, 165, 233, 0.15);
+            color: #38bdf8;
+        }
+        .btn-telegram:hover {
+            background: rgba(14, 165, 233, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.2);
+        }
+
+        /* Section Look */
+        .section-container {
+            margin-bottom: 35px;
         }
 
         .section-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #dfba6b; 
+            margin-bottom: 18px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            letter-spacing: 0.5px;
         }
 
-        /* Responsive Grid Layout */
+        /* Responsive Ultra Grid */
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* Desktop/Tablet 4 columns */
-            gap: 10px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
         }
 
-        /* Card Styling */
+        /* Velvet Experience Ultra Premium Card */
         .tool-card {
-            background: #ffffff;
-            border: 1px solid #eef2f5;
-            border-radius: 12px;
-            padding: 15px 8px;
-            text-align: center;
+            background: rgba(22, 29, 45, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 20px;
+            padding: 24px 16px;
             text-decoration: none;
-            color: #444;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            background: rgba(30, 41, 64, 0.9);
+            border-color: rgba(212, 175, 55, 0.4); 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Luxurious Minimal Icon Box */
+        .icon-box {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 16px;
+            transition: all 0.3s;
+        }
+
+        .tool-card:hover .icon-box {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: scale(1.05);
+        }
+
+        .tool-main-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .tool-sub-name {
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        /* ==========================================
+           PREMIUM LUXURY AD SLOTS (10 SLOTS)
+        ========================================== */
+        .ad-slot-horizontal {
+            background: rgba(15, 22, 36, 0.6);
+            border: 1px dashed rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 22px;
+            text-align: center;
+            margin: 25px 0;
+            font-size: 10px;
+            color: rgba(212, 175, 55, 0.5);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .ad-slot-grid {
+            background: rgba(11, 15, 25, 0.5);
+            border: 1px dashed rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-            transition: transform 0.2s, box-shadow 0.2s;
+            padding: 24px 16px;
+            font-size: 10px;
+            color: #475569;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* ==========================================
+           FOOTER PAGES & LINKS STYLING
+        ========================================== */
+        .site-footer {
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .footer-link {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            transition: color 0.2s;
             cursor: pointer;
         }
 
-        .tool-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        .footer-link:hover {
+            color: #dfba6b; 
         }
 
-        .tool-icon {
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-
-        .tool-name {
-            font-size: 12px;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-
-        /* Google AdSense Placeholder Box */
-        .ads-container {
-            background: #ffffff;
-            border: 1px dashed #ccc;
-            border-radius: 12px;
-            padding: 12px;
-            text-align: center;
-            margin: 20px 0;
+        .footer-copyright {
             font-size: 11px;
-            color: #777;
-            font-weight: bold;
+            color: #475569;
+            margin-top: 10px;
         }
 
-        /* Mobile Optimization (2 columns on small screens) */
-        @media (max-width: 480px) {
+        /* Luxury Modal Popups for Footer Content */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: #0f172a;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #dfba6b;
+            margin-bottom: 15px;
+        }
+
+        .modal-body {
+            font-size: 13px;
+            color: #94a3b8;
+            line-height: 1.6;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .modal-close-btn {
+            background: linear-gradient(135deg, #bf953f, #aa771c);
+            color: #090d16;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ad-slot-sticky-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(9, 13, 22, 0.95);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 14px;
+            text-align: center;
+            font-size: 11px;
+            color: #dfba6b;
+            font-weight: bold;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+            z-index: 9999;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 580px) {
             .tools-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+            .header-banner h1 {
+                font-size: 34px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- CATEGORY 1: Organize & Edit -->
-    <div class="section-container">
-        <h2 class="section-title">🛠️ Organize & Edit PDF</h2>
-        <div class="tools-grid">
-            <a href="#merge" class="tool-card">
-                <div class="tool-icon">🧩</div>
-                <div class="tool-name">PDF Merge</div>
+    <!-- Top Luxury Ticker - Now 100% Real & Attractive Static Hook -->
+    <div class="breaking-bar">
+        <span class="breaking-tag">SYSTEM STATUS</span>
+        <span>⚡ PREMIUM CLOUD ENGINE ONLINE — 💎 100% FREE FOREVER & NO SIGNUP REQUIRED</span>
+    </div>
+
+    <!-- Main Wrapper Start -->
+    <div class="main-wrapper">
+
+        <!-- Velvet Styled Brand Header with Large Brand Text -->
+        <div class="header-banner">
+            <h1>PDFGridBox.in</h1>
+            <div class="owner-badge-container">
+                <div class="owner-badge"><span class="crown-icon">👑</span> BY VANRAJSINH VAGHELA</div>
+            </div>
+            <p>The Ultimate Luxury Experience For Free File Tools</p>
+        </div>
+
+        <!-- Privacy & Security Trust Note -->
+        <div class="privacy-badge">
+            <span>🔒 Privacy Guaranteed: All files are automatically deleted securely within 1 hour.</span>
+        </div>
+
+        <!-- Perfectly Sized, One-Line Social Buttons -->
+        <div class="social-buttons-container">
+            <a href="https://whatsapp.com/channel/0029Vb8W4BpF6sn1JZQTff1n" target="_blank" class="social-btn btn-whatsapp">
+                Join WhatsApp
             </a>
-            <a href="#split" class="tool-card">
-                <div class="tool-icon">✂️</div>
-                <div class="tool-name">PDF Split</div>
+            <a href="https://t.me/pdfgridbox" target="_blank" class="social-btn btn-telegram">
+                Join Telegram
             </a>
-            <a href="#rotate" class="tool-card">
-                <div class="tool-icon">🔄</div>
-                <div class="tool-name">Rotate PDF</div>
-            </a>
-            <a href="#delete" class="tool-card">
-                <div class="tool-icon">🗑️</div>
-                <div class="tool-name">Delete Pages</div>
-            </a>
-            <a href="#extract" class="tool-card">
-                <div class="tool-icon">📄</div>
-                <div class="tool-name">Extract Pages</div>
-            </a>
-            <a href="#reorder" class="tool-card">
-                <div class="tool-icon">🔀</div>
-                <div class="tool-name">Reorder Pages</div>
-            </a>
+        </div>
+
+        <!-- AD SLOT 1 -->
+        <div class="ad-slot-horizontal">[ 💰 AD SLOT 1: TOP PREMIUM BANNER ]</div>
+
+        <!-- SECTION 1: ORGANIZE & EDIT -->
+        <div class="section-container">
+            <h2 class="section-title">📂 Organize & Edit PDF</h2>
+            <div class="tools-grid">
+                <a href="#merge" class="tool-card">
+                    <div class="icon-box">🧩</div>
+                    <div class="tool-main-name">PDF Merge</div>
+                    <div class="tool-sub-name">Combine multiple files smoothly</div>
+                </a>
+                <a href="#split" class="tool-card">
+                    <div class="icon-box">✂️</div>
+                    <div class="tool-main-name">PDF Split</div>
+                    <div class="tool-sub-name">Separate pages instantly</div>
+                </a>
+                <a href="#sign" class="tool-card">
+                    <div class="icon-box">✍️</div>
+                    <div class="tool-main-name">Sign PDF</div>
+                    <div class="tool-sub-name">Add your digital signature</div>
+                </a>
+                <a href="#rotate" class="tool-card">
+                    <div class="icon-box">🔄</div>
+                    <div class="tool-main-name">Rotate PDF</div>
+                    <div class="tool-sub-name">Turn landscape/portrait pages</div>
+                </a>
+                <a href="#delete" class="tool-card">
+                    <div class="icon-box">🗑️</div>
+                    <div class="tool-main-name">Delete Pages</div>
+                    <div class="tool-sub-name">Remove unwanted pages easily</div>
+                </a>
+                
+                <!-- AD SLOT 2 -->
+                <div class="ad-slot-grid">
+                    <span>💰 AD SLOT 2<br>[ INTEGRATED NATIVE ]</span>
+                </div>
+
+                <a href="#extract" class="tool-card">
+                    <div class="icon-box">📄</div>
+                    <div class="tool-main-name">Extract Pages</div>
+                    <div class="tool-sub-name">Save specific chosen pages</div>
+                </a>
+                <a href="#reorder" class="tool-card">
+                    <div class="icon-box">🔀</div>
+                    <div class="tool-main-name">Reorder Pages</div>
+                    <div class="tool-sub-name">Rearrange your page flow</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- AD SLOT 3 -->
+        <div class="ad-slot-horizontal">[ 💰 AD SLOT 3: VELVET MID BANNER ]</div>
+
+        <!-- SECTION 2: CONVERT TO PDF -->
+        <div class="section-container">
+            <h2 class="section-title">📥 Convert to PDF</h2>
+            <div class="tools-grid">
+                <a href="#word-to-pdf" class="tool-card">
+                    <div class="icon-box">📝</div>
+                    <div class="tool-main-name">Word to PDF</div>
+                    <div class="tool-sub-name">Make DOCX files into PDF</div>
+                </a>
+                <a href="#jpg-to-pdf" class="tool-card">
+                    <div class="icon-box">🖼️</div>
+                    <div class="tool-main-name">JPG to PDF</div>
+                    <div class="tool-sub-name">Turn images into PDF layout</div>
+                </a>
+                
+                <!-- AD SLOT 4 -->
+                <div class="ad-slot-grid">
+                    <span>💰 AD SLOT 4<br>[ IN-GRID SPONSOR ]</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- AD SLOT 5 -->
+        <div class="ad-slot-horizontal">[ 💰 AD SLOT 5: SECTION SEPARATOR ]</div>
+
+        <!-- SECTION 3: CONVERT FROM PDF -->
+        <div class="section-container">
+            <h2 class="section-title">📤 Convert From PDF</h2>
+            <div class="tools-grid">
+                <a href="#pdf-to-word" class="tool-card">
+                    <div class="icon-box">📘</div>
+                    <div class="tool-main-name">PDF to Word</div>
+                    <div class="tool-sub-name">Convert PDF to editable text</div>
+                </a>
+                <a href="#pdf-to-jpg" class="tool-card">
+                    <div class="icon-box">📷</div>
+                    <div class="tool-main-name">PDF to JPG</div>
+                    <div class="tool-sub-name">Extract images out of PDF</div>
+                </a>
+                <a href="#pdf-to-excel" class="tool-card">
+                    <div class="icon-box">📊</div>
+                    <div class="tool-main-name">PDF to Excel</div>
+                    <div class="tool-sub-name">Extract tables to clean sheets</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- AD SLOT 6 -->
+        <div class="ad-slot-horizontal">[ 💰 AD SLOT 6: PRE-SECURITY SPLIT ]</div>
+
+        <!-- SECTION 4: SECURITY & OPTIMIZATION -->
+        <div class="section-container">
+            <h2 class="section-title">🛡️ Security & Optimization</h2>
+            <div class="tools-grid">
+                <a href="#compress" class="tool-card">
+                    <div class="icon-box">🗜️</div>
+                    <div class="tool-main-name">Compress PDF</div>
+                    <div class="tool-sub-name">Drastically reduce file size</div>
+                </a>
+                <a href="#protect" class="tool-card">
+                    <div class="icon-box">🔒</div>
+                    <div class="tool-main-name">Protect PDF</div>
+                    <div class="tool-sub-name">Set high-grade secure password</div>
+                </a>
+                <a href="#unlock" class="tool-card">
+                    <div class="icon-box">🔓</div>
+                    <div class="tool-main-name">Unlock PDF</div>
+                    <div class="tool-sub-name">Remove your active PDF lock</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- AD SLOT 7 -->
+        <div class="ad-slot-horizontal">[ 💰 AD SLOT 7: INTERSTITIAL BANNER ]</div>
+
+        <!-- SECTION 5: CUSTOMIZATION & UTILITIES -->
+        <div class="section-container">
+            <h2 class="section-title">🔢 Customization & Utilities</h2>
+            <div class="tools-grid">
+                <a href="#page-numbers" class="tool-card">
+                    <div class="icon-box">🔢</div>
+                    <div class="tool-main-name">Page Numbers</div>
+                    <div class="tool-sub-name">Number your documents perfectly</div>
+                </a>
+                
+                <!-- AD SLOT 8 -->
+                <div class="ad-slot-grid">
+                    <span>💰 AD SLOT 8<br>[ UTILITY BALANCER ]</span>
+                </div>
+
+                <a href="#watermark" class="tool-card">
+                    <div class="icon-box">🏷️</div>
+                    <div class="tool-main-name">Add Watermark</div>
+                    <div class="tool-sub-name">Stamp copyright or brand texts</div>
+                </a>
+                <a href="#resize" class="tool-card">
+                    <div class="icon-box">📐</div>
+                    <div class="tool-main-name">Photo Resize</div>
+                    <div class="tool-sub-name">Change image width & height</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- AD SLOT 9 -->
+        <div class="ad-slot-horizontal">[ 💰 AD SLOT 9: FOOTER PREVIEW BANNER ]</div>
+
+        <!-- BRAND FOOTER SECTION -->
+        <footer class="site-footer">
+            <div class="footer-links">
+                <span class="footer-link" onclick="openModal('about')">About Us</span>
+                <span class="footer-link" onclick="openModal('privacy')">Privacy Policy</span>
+                <span class="footer-link" onclick="openModal('disclaimer')">Disclaimer</span>
+                <span class="footer-link" onclick="openModal('contact')">Contact Us</span>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2026 PDFGridBox.in. Crafted for Elite Performance by Vanrajsinh Vaghela.
+            </div>
+        </footer>
+
+    </div>
+    <!-- Main Wrapper End -->
+
+    <!-- AD SLOT 10 -->
+    <div class="ad-slot-sticky-bottom">
+        [ 💰 AD SLOT 10: LUXURY STICKY ANCHOR GOLD AD ]
+    </div>
+
+
+    <!-- ==========================================
+         DYNAMIC PAGES MODAL WINDOWS (POP-UPS)
+    ========================================== -->
+    <div class="modal-overlay" id="modal-container" onclick="closeModal(event)">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div class="modal-title" id="modal-title-target">Title</div>
+            <div class="modal-body" id="modal-body-target">Body content goes here...</div>
+            <button class="modal-close-btn" onclick="closeModal(force=true)">Close</button>
         </div>
     </div>
 
-    <!-- CATEGORY 2: Convert to PDF -->
-    <div class="section-container">
-        <h2 class="section-title">📥 Convert to PDF</h2>
-        <div class="tools-grid">
-            <a href="#word-to-pdf" class="tool-card">
-                <div class="tool-icon">📝</div>
-                <div class="tool-name">Word to PDF</div>
-            </a>
-            <a href="#jpg-to-pdf" class="tool-card">
-                <div class="tool-icon">🖼️</div>
-                <div class="tool-name">JPG to PDF</div>
-            </a>
-        </div>
-    </div>
 
-    <!-- Google AdSense Placement Like Image -->
-    <div class="ads-container">
-        [ 💰 GOOGLE ADSENSE IN-FEED RESPONSIVE AD ]
-    </div>
+    <script>
+        // 1. Instant Interaction logic for file triggering
+        document.querySelectorAll('.tools-grid .tool-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                e.preventDefault(); 
+                const toolName = card.querySelector('.tool-main-name').innerText;
+                console.log("Initializing premium engine for: " + toolName);
+                document.getElementById('global-file-input').click();
+            });
+        });
 
-    <!-- CATEGORY 3: Convert From PDF -->
-    <div class="section-container">
-        <h2 class="section-title">📤 Convert From PDF</h2>
-        <div class="tools-grid">
-            <a href="#pdf-to-word" class="tool-card">
-                <div class="tool-icon">📘</div>
-                <div class="tool-name">PDF to Word</div>
-            </a>
-            <a href="#pdf-to-jpg" class="tool-card">
-                <div class="tool-icon">📷</div>
-                <div class="tool-name">PDF to JPG</div>
-            </a>
-        </div>
-    </div>
+        // 2. File selection detection
+        document.getElementById('global-file-input').addEventListener('change', function() {
+            if(this.files.length > 0) {
+                alert("✨ Premium Processing Engine: " + this.files.length + " file(s) selected successfully! Secure cloud connection starting...");
+            }
+        });
 
-    <!-- CATEGORY 4: Optimization & Security -->
-    <div class="section-container">
-        <h2 class="section-title">🔒 Security & Size</h2>
-        <div class="tools-grid">
-            <a href="#compress" class="tool-card">
-                <div class="tool-icon">🗜️</div>
-                <div class="tool-name">Compress PDF</div>
-            </a>
-            <a href="#protect" class="tool-card">
-                <div class="tool-icon">🔒</div>
-                <div class="tool-name">Protect PDF</div>
-            </a>
-            <a href="#unlock" class="tool-card">
-                <div class="tool-icon">🔓</div>
-                <div class="tool-name">Unlock PDF</div>
-            </a>
-        </div>
-    </div>
+        // 3. Luxury Footer Modals Data & Operations
+        const modalData = {
+            about: {
+                title: "About PDFGridBox.in",
+                body: "Welcome to <strong>PDFGridBox.in</strong>, founded and owned by <strong>Vanrajsinh Vaghela</strong>. We are a premier digital workspace dedicated to providing web users across the globe with top-tier, ultra-fast, and completely free file-handling software. Our web-app features 18 robust tools capable of merging, splitting, compressing, locking, and organizing PDFs seamlessly, alongside advanced high-speed image resizing features. Built on static next-gen cloud structures, we ensure lightning-fast execution without ever putting a price tag on your workflow."
+            },
+            privacy: {
+                title: "Privacy Policy",
+                body: "At PDFGridBox.in, your data privacy is our sacred oath. We enforce a strict zero-retention cloud standard. When you upload documents to any of our 18 tools, the files are handled inside isolated, ephemeral premium sandbox memory channels. <strong>Absolutely no user files are saved, indexed, or shared.</strong> All data is permanently wiped out automatically within 1 hour from our computing cores. You do not need an account or email to use our network, keeping your digital identity 100% anonymous."
+            },
+            disclaimer: {
+                title: "Disclaimer",
+                body: "The tools provided by PDFGridBox.in are delivered on an 'as-is' and 'as-available' basis for free public utility. While owner Vanrajsinh Vaghela guarantees top-tier performance standards, security channels, and data wiping protocols, PDFGridBox.in shall not be held liable for any accidental errors or loss of operational configurations arising during custom personal use. Third-party advertising blocks displayed across the platform follow strict standard integration guidelines to keep our cloud core completely free for everyone."
+            },
+            contact: {
+                title: "Contact Us",
+                body: "We value community feedback and structural feature inquiries immensely. As the single-owner network platform, you can reach out directly to <strong>Vanrajsinh Vaghela</strong> via our premium social support channels:<br><br>• <strong>Telegram Support Channel:</strong> <a href='https://t.me/pdfgridbox' style='color:#dfba6b;' target='_blank'>t.me/pdfgridbox</a><br>• <strong>WhatsApp Community Broadcast:</strong> <a href='https://whatsapp.com/channel/0029Vb8W4BpF6sn1JZQTff1n' style='color:#dfba6b;' target='_blank'>Follow WhatsApp Channel</a><br><br>Drop a query anytime, our team is always ready to assist you!"
+            }
+        };
 
-    <!-- CATEGORY 5: Page Customization -->
-    <div class="section-container">
-        <h2 class="section-title">🔢 Page Layouts</h2>
-        <div class="tools-grid">
-            <a href="#page-numbers" class="tool-card">
-                <div class="tool-icon">🔢</div>
-                <div class="tool-name">Add Numbers</div>
-            </a>
-            <a href="#watermark" class="tool-card">
-                <div class="tool-icon">🏷️</div>
-                <div class="tool-name">Add Watermark</div>
-            </a>
-        </div>
-    </div>
+        function openModal(type) {
+            const container = document.getElementById('modal-container');
+            document.getElementById('modal-title-target').innerHTML = modalData[type].title;
+            document.getElementById('modal-body-target').innerHTML = modalData[type].body;
+            container.style.display = 'flex';
+        }
+
+        function closeModal(e, force = false) {
+            if (force || e.target === document.getElementById('modal-container')) {
+                document.getElementById('modal-container').style.display = 'none';
+            }
+        }
+    </script>
+    
+    <!-- Hidden File Input Component for Premium Engagement Trigger -->
+    <input type="file" id="global-file-input" style="display: none;" multiple>
 
 </body>
 </html>
