@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo & Signature Resizer - PDFGridBox</title>
+    <!-- Tailwind CSS for Modern UI -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Header / Navigation Menu -->
+    <header class="bg-white shadow-sm border-b border-gray-200 py-4 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <h1 class="text-2xl font-bold text-indigo-600 tracking-tight cursor-pointer" onclick="location.href='index.html'">PDFGrid<span class="text-gray-700">Box</span></h1>
+            <nav class="flex flex-wrap justify-center text-sm font-medium text-gray-600 gap-4 md:gap-6">
+                <a href="index.html" class="hover:text-indigo-600 transition-colors">Merge PDF</a>
+                <a href="resize.html" class="text-indigo-600 border-b-2 border-indigo-600 pb-1">Photo/Sign Resizer</a>
+                <a href="pdf-to-excel.html" class="hover:text-indigo-600 transition-colors">PDF to Excel</a>
+                <a href="#" class="text-gray-400 cursor-not-allowed flex items-center gap-1">PDF to Word <span class="text-[10px] bg-amber-100 text-amber-700 px-1.5 py-0.2 rounded font-semibold">Soon</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- AD PLACEHOLDER (TOP BANNER) -->
+    <div class="max-w-4xl mx-auto my-4 text-center">
+        <div class="bg-gray-100 border border-dashed border-gray-300 py-3 text-xs text-gray-400 rounded">
+            [Adsterra Normal Banner Ad Space - 728x90]
+        </div>
+    </div>
+
+    <!-- Main Resizer Container -->
+    <main class="max-w-4xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Left Side: Inputs & Configurations -->
+        <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 md:col-span-2">
+            <h2 class="text-xl font-semibold mb-2 text-gray-900">Photo & Signature Resizer</h2>
+            <p class="text-gray-500 text-sm mb-6">Resize and compress images to custom KB sizes perfectly for government exam portals.</p>
+            
+            <!-- Upload Zone -->
+            <div id="drop-zone" class="border-2 border-dashed border-indigo-200 hover:border-indigo-400 rounded-xl p-6 bg-indigo-50/30 cursor-pointer transition-colors text-center">
+                <input type="file" id="image-input" accept="image/jpeg, image/png" class="hidden">
+                <svg class="w-10 h-10 mx-auto text-indigo-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <p id="upload-status-text" class="text-sm font-medium text-indigo-600">Choose Image or Drag & Drop</p>
+                <p class="text-xs text-gray-400 mt-1">Supports JPG, JPEG, PNG formats</p>
+            </div>
+
+            <!-- Custom Settings Form -->
+            <div class="grid grid-cols-2 gap-4 mt-6">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 uppercase mb-1">Width (Pixels)</label>
+                    <input type="number" id="width-input" placeholder="e.g. 300" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 uppercase mb-1">Height (Pixels)</label>
+                    <input type="number" id="height-input" placeholder="e.g. 400" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-indigo-500">
+                </div>
+                <div class="col-span-2">
+                    <label class="block text-xs font-semibold text-gray-600 uppercase mb-1">Maximum File Size (Target KB)</label>
+                    <input type="number" id="kb-input" placeholder="e.g. 50" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-indigo-500">
+                    <p class="text-[11px] text-gray-400 mt-1">Leave blank if you only want to resize dimensions without squeezing file size.</p>
+                </div>
+            </div>
+
+            <button id="resize-btn" class="mt-6 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-xl shadow-sm transition-colors cursor-pointer hidden">
+                Compress & Resize Image Now
+            </button>
+        </div>
+
+        <!-- Right Side: Realtime Preview & Info -->
+        <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 flex flex-col justify-between">
+            <div>
+                <h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider border-b pb-2 border-gray-100 mb-4">Preview Box</h3>
+                <div class="bg-gray-50 border border-gray-200 rounded-xl aspect-square flex items-center justify-center overflow-hidden p-2">
+                    <img id="preview-img" class="max-w-full max-h-full object-contain hidden" alt="Uploaded Preview">
+                    <span id="preview-placeholder" class="text-xs text-gray-400">No Image Selected</span>
+                </div>
+            </div>
+            
+            <div id="file-info" class="mt-4 text-xs text-gray-500 space-y-1 hidden border-t pt-4 border-gray-100">
+                <p><strong>Original Size:</strong> <span id="orig-size">-</span> KB</p>
+                <p><strong>New Size:</strong> <span id="new-size">-</span> KB</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- AD PLACEHOLDER (BOTTOM BANNER) -->
+    <div class="max-w-4xl mx-auto my-4 text-center">
+        <div class="bg-gray-100 border border-dashed border-gray-300 py-3 text-xs text-gray-400 rounded">
+            [Adsterra Normal Banner Ad Space - 300x250 or 728x90]
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-xs text-gray-400 py-8 border-t border-gray-100 mt-12">
+        &copy; 2026 PDFGridBox. All tools are 100% free and secure (Client-Side).
+    </footer>
+
+    <!-- Image Resizer Logic -->
+    <script>
+        const imageInput = document.getElementById('image-input');
+        const dropZone = document.getElementById('drop-zone');
+        const resizeBtn = document.getElementById('resize-btn');
+        const previewImg = document.getElementById('preview-img');
+        const previewPlaceholder = document.getElementById('preview-placeholder');
+        const fileInfo = document.getElementById('file-info');
+        const origSizeSpan = document.getElementById('orig-size');
+        const newSizeSpan = document.getElementById('new-size');
+        const uploadStatusText = document.getElementById('upload-status-text');
+
+        let originalImageSrc = null;
+
+        dropZone.addEventListener('click', () => imageInput.click());
+        
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('bg-indigo-50'); });
+        dropZone.addEventListener('dragleave', () => { dropZone.classList.remove('bg-indigo-50'); });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('bg-indigo-50');
+            if(e.dataTransfer.files[0]) loadOriginalImage(e.dataTransfer.files[0]);
+        });
+
+        imageInput.addEventListener('change', (e) => { 
+            if(e.target.files[0]) loadOriginalImage(e.target.files[0]); 
+        });
+
+        function loadOriginalImage(file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                originalImageSrc = event.target.result;
+                previewImg.src = originalImageSrc;
+                previewImg.classList.remove('hidden');
+                previewPlaceholder.classList.add('hidden');
+                
+                uploadStatusText.innerText = `Selected: ${file.name}`;
+                origSizeSpan.innerText = (file.size / 1024).toFixed(1);
+                fileInfo.classList.remove('hidden');
+                resizeBtn.classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        resizeBtn.addEventListener('click', () => {
+            if (!originalImageSrc) return;
+
+            const targetWidth = parseInt(document.getElementById('width-input').value);
+            const targetHeight = parseInt(document.getElementById('height-input').value);
+            const targetKB = parseInt(document.getElementById('kb-input').value);
+
+            const img = new Image();
+            img.src = originalImageSrc;
+            img.onload = function() {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+
+                canvas.width = targetWidth || img.width;
+                canvas.height = targetHeight || img.height;
+
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                let quality = 0.92;
+                let dataUrl = canvas.toDataURL('image/jpeg', quality);
+
+                // Smart loop compression logic to meet government target KB rules
+                if (targetKB) {
+                    let iterations = 0;
+                    while ((dataUrl.length * 0.75) / 1024 > targetKB && quality > 0.05 && iterations < 20) {
+                        quality -= 0.05;
+                        dataUrl = canvas.toDataURL('image/jpeg', quality);
+                        iterations++;
+                    }
+                }
+
+                const finalSizeKB = ((dataUrl.length * 0.75) / 1024).toFixed(1);
+                newSizeSpan.innerText = finalSizeKB;
+
+                const a = document.createElement('a');
+                a.href = dataUrl;
+                a.download = `resized_${Date.now()}.jpg`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            };
+        });
+    </script>
+</body>
+</html>
