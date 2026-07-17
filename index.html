@@ -3,61 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Grid Box - Welcome</title>
+    <title>Free PDF Tools - Online PDF Editor</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f7f9fa;
             color: #333;
+            padding: 15px;
+            max-width: 600px; /* Mobile-first dashboard look */
+            margin: 0 auto;
         }
-        .container {
-            text-align: center;
-            background: white;
-            padding: 40px;
+
+        /* Section Styling */
+        .section-container {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Responsive Grid Layout */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Desktop/Tablet 4 columns */
+            gap: 10px;
+        }
+
+        /* Card Styling */
+        .tool-card {
+            background: #ffffff;
+            border: 1px solid #eef2f5;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            max-width: 500px;
-            width: 90%;
+            padding: 15px 8px;
+            text-align: center;
+            text-decoration: none;
+            color: #444;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
         }
-        h1 {
-            color: #2563eb;
-            margin-bottom: 10px;
+
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
-        p {
-            font-size: 18px;
-            color: #555;
-            line-height: 1.6;
+
+        .tool-icon {
+            font-size: 22px;
+            margin-bottom: 8px;
         }
-        .success-badge {
-            background-color: #d1fae5;
-            color: #065f46;
-            padding: 8px 15px;
-            border-radius: 20px;
-            display: inline-block;
+
+        .tool-name {
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* Google AdSense Placeholder Box */
+        .ads-container {
+            background: #ffffff;
+            border: 1px dashed #ccc;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 11px;
+            color: #777;
             font-weight: bold;
-            margin-bottom: 20px;
         }
-        .footer {
-            margin-top: 25px;
-            font-size: 14px;
-            color: #888;
+
+        /* Mobile Optimization (2 columns on small screens) */
+        @media (max-width: 480px) {
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="success-badge">🟢 Cloudflare Pages Live!</div>
-        <h1>PDF Grid Box</h1>
-        <p>Bhai, aapki website ekdum kamyabi se live ho chuki hai! GitHub aur Cloudflare ka connection perfect kaam kar raha hai.</p>
-        <p>Ab aap yahan apne saare 7-in-1 PDF tools ka HTML/JS code daal sakte ho.</p>
-        <div class="footer">Built with ❤️ by Vanrajsinh</div>
+    <!-- CATEGORY 1: Organize & Edit -->
+    <div class="section-container">
+        <h2 class="section-title">🛠️ Organize & Edit PDF</h2>
+        <div class="tools-grid">
+            <a href="#merge" class="tool-card">
+                <div class="tool-icon">🧩</div>
+                <div class="tool-name">PDF Merge</div>
+            </a>
+            <a href="#split" class="tool-card">
+                <div class="tool-icon">✂️</div>
+                <div class="tool-name">PDF Split</div>
+            </a>
+            <a href="#rotate" class="tool-card">
+                <div class="tool-icon">🔄</div>
+                <div class="tool-name">Rotate PDF</div>
+            </a>
+            <a href="#delete" class="tool-card">
+                <div class="tool-icon">🗑️</div>
+                <div class="tool-name">Delete Pages</div>
+            </a>
+            <a href="#extract" class="tool-card">
+                <div class="tool-icon">📄</div>
+                <div class="tool-name">Extract Pages</div>
+            </a>
+            <a href="#reorder" class="tool-card">
+                <div class="tool-icon">🔀</div>
+                <div class="tool-name">Reorder Pages</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- CATEGORY 2: Convert to PDF -->
+    <div class="section-container">
+        <h2 class="section-title">📥 Convert to PDF</h2>
+        <div class="tools-grid">
+            <a href="#word-to-pdf" class="tool-card">
+                <div class="tool-icon">📝</div>
+                <div class="tool-name">Word to PDF</div>
+            </a>
+            <a href="#jpg-to-pdf" class="tool-card">
+                <div class="tool-icon">🖼️</div>
+                <div class="tool-name">JPG to PDF</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Google AdSense Placement Like Image -->
+    <div class="ads-container">
+        [ 💰 GOOGLE ADSENSE IN-FEED RESPONSIVE AD ]
+    </div>
+
+    <!-- CATEGORY 3: Convert From PDF -->
+    <div class="section-container">
+        <h2 class="section-title">📤 Convert From PDF</h2>
+        <div class="tools-grid">
+            <a href="#pdf-to-word" class="tool-card">
+                <div class="tool-icon">📘</div>
+                <div class="tool-name">PDF to Word</div>
+            </a>
+            <a href="#pdf-to-jpg" class="tool-card">
+                <div class="tool-icon">📷</div>
+                <div class="tool-name">PDF to JPG</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- CATEGORY 4: Optimization & Security -->
+    <div class="section-container">
+        <h2 class="section-title">🔒 Security & Size</h2>
+        <div class="tools-grid">
+            <a href="#compress" class="tool-card">
+                <div class="tool-icon">🗜️</div>
+                <div class="tool-name">Compress PDF</div>
+            </a>
+            <a href="#protect" class="tool-card">
+                <div class="tool-icon">🔒</div>
+                <div class="tool-name">Protect PDF</div>
+            </a>
+            <a href="#unlock" class="tool-card">
+                <div class="tool-icon">🔓</div>
+                <div class="tool-name">Unlock PDF</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- CATEGORY 5: Page Customization -->
+    <div class="section-container">
+        <h2 class="section-title">🔢 Page Layouts</h2>
+        <div class="tools-grid">
+            <a href="#page-numbers" class="tool-card">
+                <div class="tool-icon">🔢</div>
+                <div class="tool-name">Add Numbers</div>
+            </a>
+            <a href="#watermark" class="tool-card">
+                <div class="tool-icon">🏷️</div>
+                <div class="tool-name">Add Watermark</div>
+            </a>
+        </div>
     </div>
 
 </body>
