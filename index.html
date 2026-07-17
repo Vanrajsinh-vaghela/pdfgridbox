@@ -24,7 +24,7 @@
         body {
             background-color: #090d16; /* Deep Midnight Luxury Background */
             color: #f1f5f9;
-            padding-bottom: 150px; /* Space for footer links & sticky bottom ad */
+            padding-bottom: 110px; /* Space for sticky bottom ad */
         }
 
         /* 👑 LUXURY CUSTOM SCROLLBAR */
@@ -305,97 +305,6 @@
             letter-spacing: 1px;
         }
 
-        /* ==========================================
-           FOOTER PAGES & LINKS STYLING
-        ========================================== */
-        .site-footer {
-            text-align: center;
-            padding: 30px 15px;
-            margin-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
-        }
-
-        .footer-link {
-            color: #64748b;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 500;
-            transition: color 0.2s;
-            cursor: pointer;
-        }
-
-        .footer-link:hover {
-            color: #dfba6b; 
-        }
-
-        .footer-copyright {
-            font-size: 11px;
-            color: #475569;
-            margin-top: 10px;
-        }
-
-        /* Luxury Modal Popups for Footer Content */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(8px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            padding: 20px;
-        }
-
-        .modal-card {
-            background: #0f172a;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 24px;
-            max-width: 500px;
-            width: 100%;
-            padding: 30px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-            position: relative;
-        }
-
-        .modal-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            color: #dfba6b;
-            margin-bottom: 15px;
-        }
-
-        .modal-body {
-            font-size: 13px;
-            color: #94a3b8;
-            line-height: 1.6;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .modal-close-btn {
-            background: linear-gradient(135deg, #bf953f, #aa771c);
-            color: #090d16;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 12px;
-            cursor: pointer;
-            margin-top: 20px;
-            width: 100%;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
         .ad-slot-sticky-bottom {
             position: fixed;
             bottom: 0;
@@ -428,7 +337,7 @@
 </head>
 <body>
 
-    <!-- Top Luxury Ticker - Now 100% Real & Attractive Static Hook -->
+    <!-- Top Luxury Ticker - 100% Genuine Static Hook -->
     <div class="breaking-bar">
         <span class="breaking-tag">SYSTEM STATUS</span>
         <span>⚡ PREMIUM CLOUD ENGINE ONLINE — 💎 100% FREE FOREVER & NO SIGNUP REQUIRED</span>
@@ -621,42 +530,19 @@
         <!-- AD SLOT 9 -->
         <div class="ad-slot-horizontal">[ 💰 AD SLOT 9: FOOTER PREVIEW BANNER ]</div>
 
-        <!-- BRAND FOOTER SECTION -->
-        <footer class="site-footer">
-            <div class="footer-links">
-                <span class="footer-link" onclick="openModal('about')">About Us</span>
-                <span class="footer-link" onclick="openModal('privacy')">Privacy Policy</span>
-                <span class="footer-link" onclick="openModal('disclaimer')">Disclaimer</span>
-                <span class="footer-link" onclick="openModal('contact')">Contact Us</span>
-            </div>
-            <div class="footer-copyright">
-                &copy; 2026 PDFGridBox.in. Crafted for Elite Performance by Vanrajsinh Vaghela.
-            </div>
-        </footer>
-
     </div>
     <!-- Main Wrapper End -->
 
-    <!-- AD SLOT 10 -->
+    <!-- AD SLOT 10 (Sticky Bottom) -->
     <div class="ad-slot-sticky-bottom">
         [ 💰 AD SLOT 10: LUXURY STICKY ANCHOR GOLD AD ]
     </div>
 
-
-    <!-- ==========================================
-         DYNAMIC PAGES MODAL WINDOWS (POP-UPS)
-    ========================================== -->
-    <div class="modal-overlay" id="modal-container" onclick="closeModal(event)">
-        <div class="modal-card" onclick="event.stopPropagation()">
-            <div class="modal-title" id="modal-title-target">Title</div>
-            <div class="modal-body" id="modal-body-target">Body content goes here...</div>
-            <button class="modal-close-btn" onclick="closeModal(force=true)">Close</button>
-        </div>
-    </div>
-
+    <!-- Hidden File Input Component for Premium Engagement Trigger -->
+    <input type="file" id="global-file-input" style="display: none;" multiple>
 
     <script>
-        // 1. Instant Interaction logic for file triggering
+        // Instant Interaction logic for file triggering
         document.querySelectorAll('.tools-grid .tool-card').forEach(card => {
             card.addEventListener('click', (e) => {
                 e.preventDefault(); 
@@ -666,49 +552,13 @@
             });
         });
 
-        // 2. File selection detection
+        // File selection feedback detection
         document.getElementById('global-file-input').addEventListener('change', function() {
             if(this.files.length > 0) {
                 alert("✨ Premium Processing Engine: " + this.files.length + " file(s) selected successfully! Secure cloud connection starting...");
             }
         });
-
-        // 3. Luxury Footer Modals Data & Operations
-        const modalData = {
-            about: {
-                title: "About PDFGridBox.in",
-                body: "Welcome to <strong>PDFGridBox.in</strong>, founded and owned by <strong>Vanrajsinh Vaghela</strong>. We are a premier digital workspace dedicated to providing web users across the globe with top-tier, ultra-fast, and completely free file-handling software. Our web-app features 18 robust tools capable of merging, splitting, compressing, locking, and organizing PDFs seamlessly, alongside advanced high-speed image resizing features. Built on static next-gen cloud structures, we ensure lightning-fast execution without ever putting a price tag on your workflow."
-            },
-            privacy: {
-                title: "Privacy Policy",
-                body: "At PDFGridBox.in, your data privacy is our sacred oath. We enforce a strict zero-retention cloud standard. When you upload documents to any of our 18 tools, the files are handled inside isolated, ephemeral premium sandbox memory channels. <strong>Absolutely no user files are saved, indexed, or shared.</strong> All data is permanently wiped out automatically within 1 hour from our computing cores. You do not need an account or email to use our network, keeping your digital identity 100% anonymous."
-            },
-            disclaimer: {
-                title: "Disclaimer",
-                body: "The tools provided by PDFGridBox.in are delivered on an 'as-is' and 'as-available' basis for free public utility. While owner Vanrajsinh Vaghela guarantees top-tier performance standards, security channels, and data wiping protocols, PDFGridBox.in shall not be held liable for any accidental errors or loss of operational configurations arising during custom personal use. Third-party advertising blocks displayed across the platform follow strict standard integration guidelines to keep our cloud core completely free for everyone."
-            },
-            contact: {
-                title: "Contact Us",
-                body: "We value community feedback and structural feature inquiries immensely. As the single-owner network platform, you can reach out directly to <strong>Vanrajsinh Vaghela</strong> via our premium social support channels:<br><br>• <strong>Telegram Support Channel:</strong> <a href='https://t.me/pdfgridbox' style='color:#dfba6b;' target='_blank'>t.me/pdfgridbox</a><br>• <strong>WhatsApp Community Broadcast:</strong> <a href='https://whatsapp.com/channel/0029Vb8W4BpF6sn1JZQTff1n' style='color:#dfba6b;' target='_blank'>Follow WhatsApp Channel</a><br><br>Drop a query anytime, our team is always ready to assist you!"
-            }
-        };
-
-        function openModal(type) {
-            const container = document.getElementById('modal-container');
-            document.getElementById('modal-title-target').innerHTML = modalData[type].title;
-            document.getElementById('modal-body-target').innerHTML = modalData[type].body;
-            container.style.display = 'flex';
-        }
-
-        function closeModal(e, force = false) {
-            if (force || e.target === document.getElementById('modal-container')) {
-                document.getElementById('modal-container').style.display = 'none';
-            }
-        }
     </script>
-    
-    <!-- Hidden File Input Component for Premium Engagement Trigger -->
-    <input type="file" id="global-file-input" style="display: none;" multiple>
 
 </body>
 </html>
