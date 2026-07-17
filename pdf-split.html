@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium PDF Split - PDFGridBox.in</title>
+    
+    <!-- Google Fonts & PDF-Lib Library for Client-Side Processing ($0 Server Cost) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #090d16; /* Midnight Velvet Background */
+            color: #f1f5f9;
+            padding: 30px 15px;
+        }
+
+        /* 👑 LUXURY CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #090d16; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(#bf953f, #aa771c); border-radius: 10px; }
+
+        .tool-wrapper {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        /* Back Button Top */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: #dfba6b; }
+
+        /* Main Tool Container */
+        .tool-container {
+            background: linear-gradient(135deg, rgba(20, 27, 43, 0.8), rgba(11, 15, 25, 0.9));
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 24px;
+            padding: 35px 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Luxury Upload Box */
+        .upload-box {
+            border: 2px dashed rgba(212, 175, 55, 0.25);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 45px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .upload-box:hover {
+            border-color: #dfba6b;
+            background: rgba(212, 175, 55, 0.04);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.05);
+        }
+
+        .upload-icon { font-size: 40px; margin-bottom: 15px; display: block; }
+        .upload-text { font-size: 15px; font-weight: 600; color: #ffffff; margin-bottom: 5px; }
+        .upload-subtext { font-size: 12px; color: #64748b; }
+
+        #file-input { display: none; }
+
+        /* File Information & Split Config Section */
+        .config-container {
+            margin-top: 25px;
+            display: none;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .file-info-header {
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 10px;
+        }
+        .total-pages-badge { color: #dfba6b; font-weight: 700; }
+
+        .range-selector-title {
+            font-size: 12px;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Luxury Input Fields for Page Range */
+        .input-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .input-box-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .input-box-wrapper label {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .page-field {
+            background: #090d16;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 12px;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .page-field:focus {
+            border-color: #dfba6b;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Action Trigger Button */
+        .action-btn {
+            background: linear-gradient(135deg, #bf953f, #aa771c);
+            color: #090d16;
+            border: none;
+            width: 100%;
+            padding: 16px;
+            border-radius: 16px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(179, 135, 40, 0.2);
+            display: none;
+        }
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Loader Animation */
+        .loader {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #dfba6b;
+            font-weight: 500;
+        }
+
+        /* ==========================================
+           PREVIEW & DOWNLOAD SECTION WITH AD LAYOUT
+        ========================================== */
+        .preview-section {
+            margin-top: 35px;
+            display: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 30px;
+        }
+
+        .preview-ad-slot {
+            background: rgba(15, 22, 36, 0.6);
+            border: 1px dashed rgba(212, 175, 55, 0.25);
+            border-radius: 20px;
+            padding: 22px;
+            text-align: center;
+            font-size: 11px;
+            color: rgba(212, 175, 55, 0.6);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .preview-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        .success-icon { font-size: 35px; color: #4ade80; margin-bottom: 12px; display: block; }
+        .preview-title { font-size: 18px; font-weight: 600; color: #ffffff; margin-bottom: 6px; }
+        .preview-info { font-size: 13px; color: #64748b; margin-bottom: 30px; }
+
+        /* Vertical Stack for Buttons on Mobile */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #22c55e, #15803d);
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.2);
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.3);
+        }
+
+        .preview-btn {
+            background: rgba(212, 175, 55, 0.05);
+            color: #dfba6b;
+            border: 2px solid #bf953f;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+        }
+        .preview-btn:hover {
+            background: linear-gradient(135deg, #bf953f, #aa771c);
+            color: #090d16;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+        }
+
+        .back-menu-btn {
+            background: rgba(255, 255, 255, 0.04);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+        }
+        .back-menu-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tool-wrapper">
+        <!-- Return to Dashboard Link Top -->
+        <a href="index.html" class="back-link">← Back to PDFGridBox.in</a>
+
+        <!-- Main Workspace -->
+        <div class="tool-container">
+            <h1>Split PDF File</h1>
+            <div class="subtitle">Secure Client-Side Cloud Processing</div>
+
+            <!-- Drag & Drop Upload Trigger -->
+            <div class="upload-box" onclick="document.getElementById('file-input').click()">
+                <span class="upload-icon">✂️</span>
+                <div class="upload-text">Choose PDF File</div>
+                <div class="upload-subtext">or drag and drop your file here</div>
+                <input type="file" id="file-input" accept=".pdf">
+            </div>
+
+            <!-- Configuration & Options Layout (Appears after upload) -->
+            <div class="config-container" id="config-panel">
+                <div class="file-info-header">
+                    <span id="file-name-display">📄 document.pdf</span>
+                    <span class="total-pages-badge">Total Pages: <span id="total-pages-count">0</span></span>
+                </div>
+                
+                <div class="range-selector-title">Select Page Range to Extract</div>
+                <div class="input-group">
+                    <div class="input-box-wrapper">
+                        <label>From Page:</label>
+                        <input type="number" id="start-page" class="page-field" min="1" value="1">
+                    </div>
+                    <div class="input-box-wrapper">
+                        <label>To Page:</label>
+                        <input type="number" id="end-page" class="page-field" min="1" value="1">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Trigger Button -->
+            <button class="action-btn" id="split-trigger-btn" onclick="processAndSplitPDF()">Split PDF Instantly</button>
+            
+            <!-- Real-time Processing Loader -->
+            <div class="loader" id="process-loader">⚡ Extracting Specified Page Structure... Please wait...</div>
+
+            <!-- PREVIEW SECTION -->
+            <div class="preview-section" id="result-preview-section">
+                
+                <!-- 💰 ADSENSE SLOT: PREVIEW BANNER AD -->
+                <div class="preview-ad-slot">
+                    [ 💰 ADSENSE PREVIEW BANNER: AD WILL LOAD HERE TO UNLOCK PREVIEW ]
+                </div>
+
+                <!-- Verified Download Component with 3 Verified Actions -->
+                <div class="preview-box">
+                    <span class="success-icon">✨</span>
+                    <div class="preview-title">Your Split PDF is Ready!</div>
+                    <div class="preview-info">The specified page range has been successfully separated into an isolated standalone document.</div>
+                    
+                    <div class="btn-group">
+                        <a href="#" id="real-download-link" download="PDFGridBox_Split.pdf" class="download-btn">
+                            📥 Download Split PDF
+                        </a>
+                        <a href="#" id="real-preview-link" target="_blank" class="preview-btn">
+                            👁️ Preview Split PDF
+                        </a>
+                        <a href="index.html" class="back-menu-btn">
+                            🏠 Back to Main Menu
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let uploadedFileBuffer = null;
+        let totalPdfPages = 0;
+
+        // Load file arrayBuffer and extract total page counts dynamically
+        document.getElementById('file-input').addEventListener('change', async function(e) {
+            const file = e.target.files[0];
+            if(!file) return;
+
+            document.getElementById('file-name-display').innerText = "📄 " + file.name;
+            document.getElementById('result-preview-section').style.display = 'none';
+
+            try {
+                uploadedFileBuffer = await file.arrayBuffer();
+                // Load dummy instance just to read layout rules
+                const pdfDoc = await PDFLib.PDFDocument.load(uploadedFileBuffer);
+                totalPdfPages = pdfDoc.getPageCount();
+
+                // Inject limits dynamically into inputs
+                document.getElementById('total-pages-count').innerText = totalPdfPages;
+                
+                const startInp = document.getElementById('start-page');
+                const endInp = document.getElementById('end-page');
+                
+                startInp.max = totalPdfPages;
+                startInp.value = 1;
+                endInp.max = totalPdfPages;
+                endInp.value = totalPdfPages;
+
+                document.getElementById('config-panel').style.display = 'block';
+                document.getElementById('split-trigger-btn').style.display = 'block';
+
+            } catch (error) {
+                console.error("Initialization failure:", error);
+                alert("Failed to read PDF structure. Ensure the file is not password locked.");
+            }
+        });
+
+        // CORE ENGINE: Client side sub-document extraction logic via pdf-lib
+        async function processAndSplitPDF() {
+            if(!uploadedFileBuffer) return;
+
+            const startPage = parseInt(document.getElementById('start-page').value);
+            const endPage = parseInt(document.getElementById('end-page').value);
+
+            // Bounds validations
+            if (isNaN(startPage) || isNaN(endPage) || startPage < 1 || endPage > totalPdfPages || startPage > endPage) {
+                alert("Please enter a valid page range sequence within 1 and " + totalPdfPages);
+                return;
+            }
+
+            const loader = document.getElementById('process-loader');
+            const previewSection = document.getElementById('result-preview-section');
+            const splitBtn = document.getElementById('split-trigger-btn');
+
+            loader.style.display = 'block';
+            splitBtn.style.display = 'none';
+            previewSection.style.display = 'none';
+
+            try {
+                const sourcePdfDoc = await PDFLib.PDFDocument.load(uploadedFileBuffer);
+                const subSplitDoc = await PDFLib.PDFDocument.create();
+
+                // Compute exact zero-based index mapping array
+                const pageIndicesToExtract = [];
+                for (let i = startPage - 1; i <= endPage - 1; i++) {
+                    pageIndicesToExtract.push(i);
+                }
+
+                // Copy stream fragments smoothly
+                const copiedPages = await subSplitDoc.copyPages(sourcePdfDoc, pageIndicesToExtract);
+                copiedPages.forEach((page) => subSplitDoc.addPage(page));
+
+                const splitBytes = await subSplitDoc.save();
+                const splitBlob = new Blob([splitBytes], { type: 'application/pdf' });
+                const blobUrl = URL.createObjectURL(splitBlob);
+
+                // Mapping outputs to responsive buttons
+                document.getElementById('real-download-link').href = blobUrl;
+                document.getElementById('real-preview-link').href = blobUrl;
+
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    previewSection.style.display = 'block';
+                    splitBtn.style.display = 'block';
+                }, 1500);
+
+            } catch (error) {
+                console.error("Execution error logs:", error);
+                alert("An anomaly occurred during extraction. Processing halted.");
+                loader.style.display = 'none';
+                splitBtn.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
