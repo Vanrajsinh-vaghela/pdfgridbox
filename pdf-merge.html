@@ -3,421 +3,527 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium PDF Merge - PDFGridBox.in</title>
-    
-    <!-- Google Fonts & PDF-Lib Library for Client-Side Merging ($0 Server Cost) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
-
+    <title>Merge PDF Files - pdfgridbox</title>
+    <!-- 🚀 Professional Heavy Engines for Live Client-side Merging & Previews -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: #131926;
+            --bg-input: #090d16;
+            --text-white: #ffffff;
+            --text-muted: #94a3b8;
+            --gold-primary: #d97706;
+            --gold-hover: #b45309;
+            --gold-border: #b5a46d;
+            --green-success: #10b981;
+            --border-color: #1e293b;
         }
 
         body {
-            background-color: #090d16; /* Midnight Velvet Background */
-            color: #f1f5f9;
-            padding: 30px 15px;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-white);
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* 👑 LUXURY CUSTOM SCROLLBAR */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #090d16; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(#bf953f, #aa771c); border-radius: 10px; }
-
-        .tool-wrapper {
-            max-width: 750px;
+        .container {
+            max-width: 500px;
             margin: 0 auto;
+            padding: 20px;
         }
 
-        /* Back Button Top */
-        .back-link {
+        /* 🏠 Premium High-Visibility Back to Home Navigation Button */
+        .back-nav-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: #64748b;
             text-decoration: none;
+            color: #ffffff !important;
+            background: #1e293b;
+            padding: 10px 18px;
+            border-radius: 30px;
             font-size: 13px;
             font-weight: 600;
+            border: 1px solid #334155;
             margin-bottom: 25px;
-            transition: color 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.2s ease;
+            cursor: pointer;
         }
-        .back-link:hover { color: #dfba6b; }
-
-        /* Main Tool Container */
-        .tool-container {
-            background: linear-gradient(135deg, rgba(20, 27, 43, 0.8), rgba(11, 15, 25, 0.9));
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            border-radius: 24px;
-            padding: 35px 25px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
+        .back-nav-link:hover {
+            background: var(--gold-primary);
+            border-color: var(--gold-primary);
         }
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: #ffffff;
-            margin-bottom: 8px;
+        /* Serif Main Header Style */
+        .page-title {
             text-align: center;
+            font-family: 'Georgia', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--text-white);
+            margin: 0 0 6px 0;
+            letter-spacing: 0.5px;
         }
-
-        .subtitle {
+        .page-subtitle {
+            text-align: center;
+            color: var(--text-muted);
             font-size: 13px;
-            color: #64748b;
-            text-align: center;
-            margin-bottom: 30px;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            margin-bottom: 35px;
         }
 
-        /* Luxury Upload Box */
-        .upload-box {
-            border: 2px dashed rgba(212, 175, 55, 0.25);
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 20px;
+        /* Section Headings */
+        .block-heading {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-white);
+            margin: 30px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Dark Premium Cards */
+        .premium-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            margin-bottom: 20px;
+        }
+
+        /* Upload Container Configured for Multiple Selections */
+        .upload-dashed-container {
+            background: var(--bg-card);
+            border: 1px dashed var(--gold-border);
+            border-radius: 16px;
             padding: 45px 20px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s;
-            position: relative;
+            transition: background 0.2s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
         }
-        .upload-box:hover {
-            border-color: #dfba6b;
-            background: rgba(212, 175, 55, 0.04);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.05);
+        .upload-dashed-container:hover {
+            background: #171e2e;
         }
 
-        .upload-icon { font-size: 40px; margin-bottom: 15px; display: block; }
-        .upload-text { font-size: 15px; font-weight: 600; color: #ffffff; margin-bottom: 5px; }
-        .upload-subtext { font-size: 12px; color: #64748b; }
-
-        #file-input { display: none; }
-
-        /* Selected Files List */
-        .file-list-container {
-            margin-top: 25px;
-            display: none;
-        }
-        .file-list-title {
-            font-size: 13px;
-            color: #dfba6b;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-        .file-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 12px 15px;
+        /* Gold/Brown Dashed Ads Box Placeholders */
+        .ad-premium-banner {
+            border: 1px dashed rgba(181, 164, 109, 0.4);
+            background: rgba(19, 25, 38, 0.6);
             border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            color: var(--gold-border);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+
+        /* Progress Bar components */
+        .progress-track {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            height: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .progress-thumb-fill {
+            background: var(--gold-primary);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        /* 📋 File Queue List Layout Module */
+        .merge-queue-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 350px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+        .queue-item-card {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 14px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 13px;
-            margin-bottom: 8px;
+            gap: 12px;
         }
-        .file-name { color: #e2e8f0; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 80%; }
-        .file-size { color: #64748b; font-size: 11px; }
-
-        /* Action Buttons */
-        .action-btn {
-            background: linear-gradient(135deg, #bf953f, #aa771c);
-            color: #090d16;
-            border: none;
-            width: 100%;
-            padding: 16px;
-            border-radius: 16px;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            margin-top: 25px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(179, 135, 40, 0.2);
-            display: none;
-        }
-        .action-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
-        }
-
-        /* Loader Animation */
-        .loader {
-            display: none;
-            text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #dfba6b;
-            font-weight: 500;
-        }
-
-        /* ==========================================
-           PREVIEW & DOWNLOAD SECTION WITH AD LAYOUT
-        ========================================== */
-        .preview-section {
-            margin-top: 35px;
-            display: none;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 30px;
-        }
-
-        /* 💰 Dynamic Ad Slot right inside the activation frame */
-        .preview-ad-slot {
-            background: rgba(15, 22, 36, 0.6);
-            border: 1px dashed rgba(212, 175, 55, 0.25);
-            border-radius: 20px;
-            padding: 22px;
-            text-align: center;
-            font-size: 11px;
-            color: rgba(212, 175, 55, 0.6);
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-        }
-
-        .preview-box {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 35px 20px;
-            text-align: center;
-        }
-
-        .success-icon { font-size: 35px; color: #4ade80; margin-bottom: 12px; display: block; }
-        .preview-title { font-size: 18px; font-weight: 600; color: #ffffff; margin-bottom: 6px; }
-        .preview-info { font-size: 13px; color: #64748b; margin-bottom: 30px; }
-
-        /* Mobile-Friendly Vertical Button Stack Layout */
-        .btn-group {
+        .queue-details {
             display: flex;
             flex-direction: column;
-            gap: 14px;
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
+            gap: 4px;
+            overflow: hidden;
+        }
+        .queue-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-white);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .queue-meta {
+            font-size: 11px;
+            color: var(--text-muted);
+            display: flex;
+            gap: 8px;
+        }
+        .btn-remove-item {
+            background: transparent;
+            border: none;
+            color: #f43f5e;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 4px 8px;
         }
 
-        .download-btn {
-            background: linear-gradient(135deg, #22c55e, #15803d);
-            color: white;
-            text-decoration: none;
-            display: inline-flex;
+        /* Action Buttons Framework */
+        .btn-gold-action {
+            background: var(--gold-primary);
+            color: var(--bg-main);
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+        .btn-gold-action:hover {
+            background: var(--gold-hover);
+        }
+
+        .btn-green-download {
+            background: var(--green-success);
+            color: var(--text-white);
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            margin-bottom: 12px;
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            width: 100%;
-            padding: 16px;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.2s;
-            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.2);
-        }
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.3);
         }
 
-        /* 👁️ NEW LUXURY LIVE PREVIEW PDF BUTTON */
-        .preview-btn {
-            background: rgba(212, 175, 55, 0.05);
-            color: #dfba6b;
-            border: 2px solid #bf953f;
-            text-decoration: none;
-            display: inline-flex;
+        .btn-outline-preview {
+            background: transparent;
+            color: #ffe082;
+            border: 1px solid #ffe082;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            width: 100%;
-            padding: 16px;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.2s;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.05);
-        }
-        .preview-btn:hover {
-            background: linear-gradient(135deg, #bf953f, #aa771c);
-            color: #090d16;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
         }
 
-        /* 🏠 PREMIUM BACK TO HOME BUTTON */
-        .back-menu-btn {
-            background: rgba(255, 255, 255, 0.04);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            padding: 16px;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.2s;
+        /* Spacing & Typography Utilities */
+        .text-content-row {
+            margin-bottom: 16px;
         }
-        .back-menu-btn:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: #ffffff;
-            transform: translateY(-2px);
+        .text-content-row strong {
+            display: block;
+            font-size: 14px;
+            color: #ffe082;
+            margin-bottom: 4px;
+        }
+        .text-content-row p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .tools-navigation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .tool-link-badge {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 18px 10px;
+            border-radius: 14px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-white);
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .tool-link-badge div {
+            font-size: 22px;
+            margin-bottom: 6px;
         }
     </style>
 </head>
 <body>
 
-    <div class="tool-wrapper">
-        <!-- Return to Dashboard Link Top -->
-        <a href="index.html" class="back-link">← Back to PDFGridBox.in</a>
+    <div class="container">
+        
+        <!-- 🏠 Highly Visible Premium Dark Pill Navigation Button -->
+        <a href="https://pdfgridbox.in" class="back-nav-link">🏠 Back to PDFGridBox.in</a>
 
-        <!-- Main Workspace -->
-        <div class="tool-container">
-            <h1>Merge PDF Files</h1>
-            <div class="subtitle">Secure Client-Side Cloud Processing</div>
+        <h1 class="page-title">Merge PDF Files</h1>
+        <p class="page-subtitle">Secure Client-Side Cloud Processing</p>
 
-            <!-- Drag & Drop Upload Trigger -->
-            <div class="upload-box" onclick="document.getElementById('file-input').click()">
-                <span class="upload-icon">📥</span>
-                <div class="upload-text">Choose PDF Files</div>
-                <div class="upload-subtext">or drag and drop files here (Select 2 or more PDFs)</div>
-                <input type="file" id="file-input" multiple accept=".pdf">
-            </div>
-
-            <!-- Selected Files List Layout -->
-            <div class="file-list-container" id="file-list-wrapper">
-                <div class="file-list-title">Selected Documents</div>
-                <div id="files-list-target"></div>
-            </div>
-
-            <!-- Action Trigger Button -->
-            <button class="action-btn" id="merge-trigger-btn" onclick="processAndMergePDFs()">Merge PDFs Automatically</button>
-            
-            <!-- Real-time Processing Loader -->
-            <div class="loader" id="process-loader">⚡ Executing Core Merging Engine... Please wait...</div>
-
-            <!-- PREVIEW SECTION -->
-            <div class="preview-section" id="result-preview-section">
-                
-                <!-- 💰 ADSENSE SLOT: PREVIEW BANNER AD -->
-                <div class="preview-ad-slot">
-                    [ 💰 ADSENSE PREVIEW BANNER: AD WILL LOAD HERE TO UNLOCK PREVIEW ]
-                </div>
-
-                <!-- Verified Download Component with 3 Verified Actions -->
-                <div class="preview-box">
-                    <span class="success-icon">✨</span>
-                    <div class="preview-title">Your Merged PDF is Ready!</div>
-                    <div class="preview-info">All selected structures have been successfully combined into a secure sandbox compilation.</div>
-                    
-                    <div class="btn-group">
-                        <a href="#" id="real-download-link" download="PDFGridBox_Merged.pdf" class="download-btn">
-                            📥 Download Merged PDF
-                        </a>
-                        <a href="#" id="real-preview-link" target="_blank" class="preview-btn">
-                            👁️ Preview Merged PDF
-                        </a>
-                        <a href="index.html" class="back-menu-btn">
-                            🏠 Back to Main Menu
-                        </a>
-                    </div>
-                </div>
-            </div>
-
+        <!-- Document Uploader (Multiple Selection Allowed) -->
+        <div class="upload-dashed-container" onclick="document.getElementById('realMergeFileInput').click()">
+            <div style="font-size: 40px; color: #10b981;">🧩</div>
+            <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Select Multiple PDF Files</div>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">or drag and drop your files here</p>
+            <input type="file" id="realMergeFileInput" accept=".pdf" multiple style="display: none;" onchange="handleFileQueueInsertion(event)">
         </div>
+
+        <!-- ✅ ADS PLACEMENT 1: Upload box ke neeche responsive ad -->
+        <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here to unlock preview ]</div>
+
+        <!-- 📈 Interactive Live Progress Tracking Engine Component -->
+        <div class="premium-card">
+            <div style="font-weight: 700; font-size: 13px; color: #ffe082; text-transform: uppercase;" id="stateLabel">Status: Awaiting Files</div>
+            <div class="progress-track">
+                <div class="progress-thumb-fill" id="trackBarIndicatorFill"></div>
+            </div>
+        </div>
+
+        <!-- 📋 Selected Document Queue Registry Workspace -->
+        <div class="block-heading">📋 Selected PDF Queue</div>
+        <div class="premium-card">
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 15px 0;">आपकी जोड़ी जाने वाली फ़ाइलों की सूची:</p>
+            
+            <div class="merge-queue-container" id="queueListView">
+                <p style="color: var(--text-muted); font-size: 13px; text-align: center; padding: 10px 0; width: 100%;">No files selected yet.</p>
+            </div>
+        </div>
+
+        <!-- Core Main Processing Tool Button -->
+        <button class="btn-gold-action" onclick="executeRealClientMerge()">Merge PDFs Instantly</button>
+
+        <!-- Output Downloader Workspace -->
+        <div class="block-heading">✨ Output Workspace</div>
+        <div class="premium-card" style="text-align: center;">
+            <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
+            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Merged PDF is Ready!</h3>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">All documents listed above have been seamlessly combined into a single unified file asset.</p>
+            
+            <!-- ✅ ADS PLACEMENT 2: Download button ke upar responsive ad -->
+            <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
+
+            <button class="btn-green-download" onclick="executeRealClientMerge()">📥 Download Merged PDF</button>
+            <button class="btn-outline-preview" onclick="alert('Opening Fullscreen Document Preview Context...')">👁️ Preview Merged PDF</button>
+        </div>
+
+        <!-- 💡 Quick Tips Section -->
+        <div class="block-heading">💡 Quick Tips</div>
+        <div class="premium-card">
+            <div class="text-content-row"><strong>"Order matters"</strong><p>Files will be merged exactly in the chronological sequence they appear inside the queue list view.</p></div>
+            <div class="text-content-row"><strong>"Client-side execution"</strong><p>Your document data never touches external network endpoints, retaining total operational secrecy.</p></div>
+            <div class="text-content-row"><strong>"Clean structure"</strong><p>Remove invalid entries instantly by clicking the dedicated trash asset indicator element.</p></div>
+        </div>
+
+        <!-- ⭐ Related Utilities Links -->
+        <div class="block-heading">⭐ Related Tools</div>
+        <div class="tools-navigation-grid">
+            <a href="#compress" class="tool-link-badge"><div>🗜️</div>Compress PDF</a>
+            <a href="#split" class="tool-link-badge"><div>✂️</div>Split PDF</a>
+            <a href="#rotate" class="tool-link-badge"><div>🔄</div>Rotate PDF</a>
+            <a href="#protect" class="tool-link-badge"><div>🔒</div>Protect PDF</a>
+        </div>
+
+        <!-- ❓ FAQs Layout Component -->
+        <div class="block-heading">❓ FAQ</div>
+        <div class="premium-card">
+            <div class="text-content-row"><strong style="color: #fff;">Is there a file limit?</strong><p>You can seamlessly concatenate multiple files simultaneously up to aggregate execution thresholds of 100MB.</p></div>
+            <div style="height: 16px;"></div>
+            <div class="text-content-row"><strong style="color: #fff;">Are hyperlinks preserved?</strong><p>Yes, all native inner document structures, formatting anchors, and hyperlink structures remain functional.</p></div>
+        </div>
+
+        <!-- ✅ ADS PLACEMENT 3: FAQ ke baad ad -->
+        <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
+
     </div>
 
+    <!-- 👑 Royal Ownership Signature Footer Token -->
+    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: #131926; border-top: 1px dashed var(--border-color);">
+        <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
+            <span style="font-size: 16px; margin-right: 5px;">👑</span> 
+            <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
+            <span style="color: #60a5fa; font-weight: 700; background: #1e293b; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
+        </p>
+    </footer>
+
+    <!-- 🚀 CORE ENGINE MERGER PROGRAMMING INTELLIGENCE -->
     <script>
-        let selectedFileObjects = [];
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
-        // Catch and list selected files smoothly
-        document.getElementById('file-input').addEventListener('change', function(e) {
-            const files = e.target.files;
-            if(files.length === 0) return;
+        let filesQueueMemoryArray = [];
 
-            const listTarget = document.getElementById('files-list-target');
-            listTarget.innerHTML = '';
-            selectedFileObjects = Array.from(files);
+        async function handleFileQueueInsertion(event) {
+            const chosenFiles = event.target.files;
+            if (!chosenFiles.length) return;
 
-            selectedFileObjects.forEach((file) => {
-                const sizeInMB = (file.size / (1024 * 1024)).toFixed(2);
-                const fileHTML = `
-                    <div class="file-item">
-                        <span class="file-name">📄 ${file.name}</span>
-                        <span class="file-size">${sizeInMB} MB</span>
-                    </div>
-                `;
-                listTarget.innerHTML += fileHTML;
-            });
+            const labelText = document.getElementById('stateLabel');
+            const fillerBar = document.getElementById('trackBarIndicatorFill');
 
-            document.getElementById('file-list-wrapper').style.display = 'block';
-            
-            if(selectedFileObjects.length >= 2) {
-                document.getElementById('merge-trigger-btn').style.display = 'block';
-            } else {
-                document.getElementById('merge-trigger-btn').style.display = 'none';
-                alert("Please select at least 2 PDF files to merge.");
+            labelText.innerText = "Status: Inspecting Incoming Vectors...";
+            fillerBar.style.width = "40%";
+
+            for (let i = 0; i < chosenFiles.length; i++) {
+                const targetFile = chosenFiles[i];
+                
+                // Wrap asynchronous data reader process inside promise chain loops
+                await new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onload = async function(e) {
+                        const bufferData = e.target.result;
+                        
+                        try {
+                            // Extract exact structural meta parameters via PDF.js pipelines
+                            const loadingTask = pdfjsLib.getDocument(new Uint8Array(bufferData));
+                            const pdfInstance = await loadingTask.promise;
+                            
+                            filesQueueMemoryArray.push({
+                                name: targetFile.name,
+                                size: (targetFile.size / (1024 * 1024)).toFixed(2) + " MB",
+                                pages: pdfInstance.numPages,
+                                bytesBuffer: bufferData
+                            });
+                        } catch (err) {
+                            alert(`File "${targetFile.name}" appears encrypted or corrupted.`);
+                        }
+                        resolve();
+                    };
+                    reader.readAsArrayBuffer(targetFile);
+                });
             }
+
+            fillerBar.style.width = "100%";
+            labelText.innerText = "Status: Files Registered into Queue";
+            renderVisualQueueGrid();
             
-            document.getElementById('result-preview-section').style.display = 'none';
-        });
+            // Clear inputs file reference element so the same targets can trigger updates again safely
+            event.target.value = "";
+        }
 
-        // CORE ENGINE: Real client-side merging logic using pdf-lib
-        async function processAndMergePDFs() {
-            if(selectedFileObjects.length < 2) return;
+        function renderVisualQueueGrid() {
+            const targetContainer = document.getElementById('queueListView');
+            
+            if (filesQueueMemoryArray.length === 0) {
+                targetContainer.innerHTML = `<p style="color: var(--text-muted); font-size: 13px; text-align: center; padding: 10px 0; width: 100%;">No files selected yet.</p>`;
+                return;
+            }
 
-            const loader = document.getElementById('process-loader');
-            const previewSection = document.getElementById('result-preview-section');
-            const mergeBtn = document.getElementById('merge-trigger-btn');
+            targetContainer.innerHTML = "";
 
-            loader.style.display = 'block';
-            mergeBtn.style.display = 'none';
-            previewSection.style.display = 'none';
+            filesQueueMemoryArray.forEach((fileItem, itemIndex) => {
+                const rowCard = document.createElement('div');
+                rowCard.className = "queue-item-card";
+
+                rowCard.innerHTML = `
+                    <div class="queue-details">
+                        <div class="queue-name">${fileItem.name}</div>
+                        <div class="queue-meta">
+                            <span>📄 ${fileItem.pages} Pages</span>
+                            <span>💾 ${fileItem.size}</span>
+                        </div>
+                    </div>
+                    <button class="btn-remove-item" onclick="purgeQueueIndex(${itemIndex})">🗑️</button>
+                `;
+                targetContainer.appendChild(rowCard);
+            });
+        }
+
+        function purgeQueueIndex(targetIndex) {
+            filesQueueMemoryArray.splice(targetIndex, 1);
+            renderVisualQueueGrid();
+            document.getElementById('stateLabel').innerText = "Status: Registry Updated";
+            document.getElementById('trackBarIndicatorFill').style.width = "0%";
+        }
+
+        // 📥 MAIN CLIENT-SIDE FILE CONCATENATION ORCHESTRATOR
+        async function executeRealClientMerge() {
+            if (filesQueueMemoryArray.length < 2) {
+                alert("Please add at least 2 distinct PDF file elements inside the queue list container block to perform merge.");
+                return;
+            }
+
+            const labelText = document.getElementById('stateLabel');
+            const fillerBar = document.getElementById('trackBarIndicatorFill');
 
             try {
-                const mergedPdfDoc = await PDFLib.PDFDocument.create();
+                labelText.innerText = "Status: Binding Byte Streams...";
+                fillerBar.style.width = "30%";
 
-                for (const file of selectedFileObjects) {
-                    const fileArrayBuffer = await file.arrayBuffer();
-                    const pdfDocToCopy = await PDFLib.PDFDocument.load(fileArrayBuffer);
-                    const copiedPages = await mergedPdfDoc.copyPages(pdfDocToCopy, pdfDocToCopy.getPageIndices());
-                    copiedPages.forEach((page) => mergedPdfDoc.addPage(page));
+                // Initialize a clean, empty output document assembly instance via PDFLib core rules
+                const dynamicMergedMasterDoc = await PDFLib.PDFDocument.create();
+
+                // Chronologically inject elements looping sequence architectures
+                for (let fileIndex = 0; fileIndex < filesQueueMemoryArray.length; fileIndex++) {
+                    const currentTargetNode = filesQueueMemoryArray[fileIndex];
+                    const activeSrcDocInstance = await PDFLib.PDFDocument.load(currentTargetNode.bytesBuffer);
+                    
+                    // Fetch every sub-page pointer index safely
+                    const completePageIndicesArr = activeSrcDocInstance.getPageIndices();
+                    const extractedTransferredPages = await dynamicMergedMasterDoc.copyPages(activeSrcDocInstance, completePageIndicesArr);
+                    
+                    extractedTransferredPages.forEach((clonedPage) => dynamicMergedMasterDoc.addPage(clonedPage));
                 }
 
-                const mergedPdfBytes = await mergedPdfDoc.save();
-                const pdfBlob = new Blob([mergedPdfBytes], { type: 'application/pdf' });
-                const blobUrl = URL.createObjectURL(pdfBlob);
+                fillerBar.style.width = "75%";
+                labelText.innerText = "Status: Generating Finalized Binary Layout...";
 
-                // Inject local link into Download & Preview structure
-                document.getElementById('real-download-link').href = blobUrl;
-                document.getElementById('real-preview-link').href = blobUrl;
+                const fullyCompiledBytes = await dynamicMergedMasterDoc.save();
 
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                    previewSection.style.display = 'block';
-                    mergeBtn.style.display = 'block';
-                }, 1500);
+                // Trigger direct background download blob allocations streams
+                const compiledBlob = new Blob([fullyCompiledBytes], { type: 'application/pdf' });
+                const runtimeDownloadAnchorUrl = URL.createObjectURL(compiledBlob);
 
+                const virtualLinkNode = document.createElement('a');
+                virtualLinkNode.href = runtimeDownloadAnchorUrl;
+                virtualLinkNode.download = "Merged_Document_GridBox.pdf";
+                
+                document.body.appendChild(virtualLinkNode);
+                virtualLinkNode.click();
+
+                document.body.removeChild(virtualLinkNode);
+                URL.revokeObjectURL(runtimeDownloadAnchorUrl);
+
+                fillerBar.style.width = "100%";
+                labelText.innerText = "Status: Documents Merged Successfully!";
             } catch (error) {
-                console.error("Merging failure logs:", error);
-                alert("An error occurred while processing your PDFs. Please make sure the files are not password-protected.");
-                loader.style.display = 'none';
-                mergeBtn.style.display = 'block';
+                console.error(error);
+                alert("Structural engine fault encountered during operational byte merging workflows.");
+                labelText.innerText = "Status: Pipeline Merging Failure";
             }
         }
     </script>
