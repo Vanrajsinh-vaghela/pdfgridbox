@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Excel Converter - PDFGridBox</title>
+    <!-- Tailwind CSS for Modern UI -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- PDF.js library for parsing PDF text content -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <!-- SheetJS library for direct native .xlsx Excel sheet generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Header / Navigation Menu -->
+    <header class="bg-white shadow-sm border-b border-gray-200 py-4 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <h1 class="text-2xl font-bold text-indigo-600 tracking-tight cursor-pointer" onclick="location.href='index.html'">PDFGrid<span class="text-gray-700">Box</span></h1>
+            <nav class="flex flex-wrap justify-center text-sm font-medium text-gray-600 gap-4 md:gap-6">
+                <a href="index.html" class="hover:text-indigo-600 transition-colors">Merge PDF</a>
+                <a href="resize.html" class="hover:text-indigo-600 transition-colors">Photo/Sign Resizer</a>
+                <a href="pdf-to-excel.html" class="text-indigo-600 border-b-2 border-indigo-600 pb-1">PDF to Excel</a>
+                <a href="#" class="text-gray-400 cursor-not-allowed flex items-center gap-1">PDF to Word <span class="text-[10px] bg-amber-100 text-amber-700 px-1.5 py-0.2 rounded font-semibold">Soon</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- AD PLACEHOLDER (TOP BANNER) -->
+    <div class="max-w-4xl mx-auto my-4 text-center">
+        <div class="bg-gray-100 border border-dashed border-gray-300 py-3 text-xs text-gray-400 rounded">
+            [Adsterra Normal Banner Ad Space - 728x90]
+        </div>
+    </div>
+
+    <!-- Main Tool Container -->
+    <main class="max-w-3xl mx-auto px-4 py-8">
+        <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 text-center">
+            <h2 class="text-xl font-semibold mb-2 text-gray-900">Convert PDF to Excel Instantly</h2>
+            <p class="text-gray-500 text-sm mb-6">Extract structured tables and text from your PDF directly into a native Excel (.xlsx) spreadsheet.</p>
+            
+            <!-- Upload Area -->
+            <div id="drop-zone" class="border-2 border-dashed border-indigo-200 hover:border-indigo-400 rounded-xl p-8 bg-indigo-50/30 cursor-pointer transition-colors">
+                <input type="file" id="pdf-input" accept="application/pdf" class="hidden">
+                <svg class="w-12 h-12 mx-auto text-indigo-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-5m0 0V7m0 5h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <p id="upload-text" class="text-sm font-medium text-indigo-600">Click to upload or drag & drop your PDF file</p>
+                <p class="text-xs text-gray-400 mt-1">Supports standard text-based PDF files</p>
+            </div>
+
+            <!-- Action Button -->
+            <button id="convert-btn" class="mt-6 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-xl shadow-sm transition-colors cursor-pointer hidden">
+                Convert & Download Excel File (.xlsx)
+            </button>
+        </div>
+    </main>
+
+    <!-- AD PLACEHOLDER (BOTTOM BANNER) -->
+    <div class="max-w-4xl mx-auto my-4 text-center">
+        <div class="bg-gray-100 border border-dashed border-gray-300 py-3 text-xs text-gray-400 rounded">
+            [Adsterra Normal Banner Ad Space - 300x250 or 728x90]
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-xs text-gray-400 py-8 border-t border-gray-100 mt-12">
+        &copy; 2026 PDFGridBox. All tools are 100% free and secure (Client-Side).
+    </footer>
+
+    <!-- Javascript Logic for PDF to Excel Conversion -->
+    <script>
+        // Setup PDF.js worker securely via CDN
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        
+        const fileInput = document.getElementById('pdf-input');
+        const dropZone = document.getElementById('drop-zone');
+        const convertBtn = document.getElementById('convert-btn');
+        const uploadText = document.getElementById('upload-text');
+        let pdfFile = null;
+
+        dropZone.addEventListener('click', () => fileInput.click());
+        
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('bg-indigo-50'); });
+        dropZone.addEventListener('dragleave', () => { dropZone.classList.remove('bg-indigo-50'); });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('bg-indigo-50');
+            if(e.dataTransfer.files[0] && e.dataTransfer.files[0].type === "application/pdf") {
+                handleFileSelect(e.dataTransfer.files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => { 
+            if(e.target.files[0]) handleFileSelect(e.target.files[0]); 
+        });
+
+        function handleFileSelect(file) {
+            pdfFile = file;
+            uploadText.innerText = `Selected: ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+            convertBtn.classList.remove('hidden');
+        }
+
+        convertBtn.addEventListener('click', async () => {
+            if (!pdfFile) return;
+            
+            convertBtn.disabled = true;
+            convertBtn.innerText = "Extracting data... Please wait";
+            
+            const reader = new FileReader();
+            reader.onload = async function() {
+                try {
+                    const typedarray = new Uint8Array(this.result);
+                    const pdf = await pdfjsLib.getDocument(typedarray).promise;
+                    let excelRows = [];
+                    
+                    // Loop through each page of the uploaded PDF
+                    for (let i = 1; i <= pdf.numPages; i++) {
+                        const page = await pdf.getPage(i);
+                        const textContent = await page.getTextContent();
+                        const items = textContent.items;
+                        
+                        // Smart structure parsing: group text items by vertical Y coordinate
+                        let lines = {};
+                        items.forEach(item => {
+                            if (!item.str.trim()) return;
+                            let y = Math.round(item.transform[5]); // Y axis position coordinate
+                            
+                            // Group rows with 4px grid line mapping tolerance alignment
+                            let matchedY = Object.keys(lines).find(existingY => Math.abs(existingY - y) <= 4);
+                            if (matchedY) {
+                                lines[matchedY].push(item);
+                            } else {
+                                lines[y] = [item];
+                            }
+                        });
+                        
+                        // Sort vertical rows layout from top to bottom
+                        let sortedY = Object.keys(lines).sort((a, b) => b - a);
+                        
+                        sortedY.forEach(y => {
+                            // Sort horizontal elements dynamically inside row columns layout based on X coordinate mapping
+                            let rowItems = lines[y].sort((a, b) => a.transform[4] - b.transform[4]);
+                            let rowData = rowItems.map(item => item.str);
+                            excelRows.push(rowData);
+                        });
+                        
+                        // Add an empty row indicator matrix break between pages for clean layout reading
+                        if (i < pdf.numPages) excelRows.push([]);
+                    }
+                    
+                    // Generate SheetJS native excel workspace structural maps array-of-arrays matrix
+                    const worksheet = XLSX.utils.aoa_to_sheet(excelRows);
+                    const workbook = XLSX.utils.book_new();
+                    XLSX.utils.book_append_sheet(workbook, worksheet, "Extracted Data");
+                    
+                    // Trigger instant clean automated download architecture for real .xlsx sheet
+                    XLSX.writeFile(workbook, `converted_${Date.now()}.xlsx`);
+                    
+                    convertBtn.disabled = false;
+                    convertBtn.innerText = "Convert & Download Excel File (.xlsx)";
+                } catch (error) {
+                    alert("Conversion failed: Make sure it's a valid text-based PDF file.");
+                    convertBtn.disabled = false;
+                    convertBtn.innerText = "Convert & Download Excel File (.xlsx)";
+                }
+            };
+            reader.readAsArrayBuffer(pdfFile);
+        });
+    </script>
+</body>
+</html>
