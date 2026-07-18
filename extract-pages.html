@@ -40,7 +40,7 @@
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-main);
             color: var(--text-white);
-            padding-bottom: 60px;
+            padding-bottom: 0px;
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -309,13 +309,16 @@
         }
 
         .text-content-row {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+        }
+        .text-content-row:last-child {
+            margin-bottom: 0;
         }
         .text-content-row strong {
             display: block;
             font-size: 14px;
             color: var(--accent-yellow);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         .text-content-row p {
             margin: 0;
@@ -357,6 +360,49 @@
             grid-template-columns: 1fr 1fr;
             gap: 12px;
             margin-top: 10px;
+        }
+
+        /* 👑 LUXURY COMPLIANCE FOOTER STYLES */
+        .luxury-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background-color: rgba(11, 15, 25, 0.8);
+            border-top: 1px dashed var(--gold-border);
+            backdrop-filter: blur(10px);
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+        .footer-credits {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .owner-badge {
+            color: #60a5fa;
+            font-weight: 700;
+            background: #0b0f19;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            display: inline-block;
+            margin-top: 4px;
         }
     </style>
 </head>
@@ -458,7 +504,18 @@
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"Zero Loss Encoding"</strong><p>Extraction maps internal pointers seamlessly. Vector formats, fonts, and operational layouts remain completely uncompressed and high definition.</p></div>
+            <div class="text-content-row">
+                <strong>"Zero Loss Encoding Matrix"</strong>
+                <p>Extraction maps internal pointers seamlessly. Vector formats, heavy fonts, hyperlinked text layers, and structural operational layouts remain completely uncompressed and high-definition.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Advanced Flexible Formats Supported</strong>
+                <p>When using the "Specific Pages List", you can mix and match discrete elements easily. For example, typing "1, 4, 8-15" extracts page one, page four, and the entire block from eight to fifteen all together into a brand new document.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Complete Browser Workspace Sandboxing</strong>
+                <p>Your highly confidential business records, digital certificates, or creative assets stay localized within your system's temporary memory. Absolute zero network traffic logs mean ultimate client security compliance.</p>
+            </div>
         </div>
 
         <!-- ⭐ Related Utilities Links -->
@@ -473,7 +530,18 @@
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Does page extraction compress images?</strong><p>No. Our compilation matrix copies original streams directly without decoding pixels. Quality remains 100% untouched.</p></div>
+            <div class="text-content-row">
+                <strong>Does page extraction compress or downscale internal images?</strong>
+                <p>No. Our compilation matrix copies original data stream segments directly without decoding or modifying visual pixels. Your high-resolution charts and graphics look exactly as sharp as the original container asset.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>What happens to active forms and annotations during isolation?</strong>
+                <p>Since pdf-lib targets the low-level object tree array structures natively, it maintains interactive form data, metadata keys, and drawn comments on the isolated nodes perfectly, provided they aren't bound to missing elements.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Is there an absolute limit on file sizes for browser-level rendering?</strong>
+                <p>Our tools are totally unrestricted on the software end. The only bounds are your own device's CPU and available RAM memory allocations. Large files up to several hundred pages stream fluidly on standard modern computers.</p>
+            </div>
         </div>
 
         <!-- ✅ ADS PLACEMENT 3 -->
@@ -481,13 +549,18 @@
 
     </div>
 
-    <!-- 👑 Royal Ownership Signature Footer Token -->
-    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: rgba(22, 29, 45, 0.7); border-top: 1px dashed var(--border-color);">
-        <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
-            <span style="font-size: 16px; margin-right: 5px;">👑</span> 
-            <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
-            <span style="color: #60a5fa; font-weight: 700; background: #0b0f19; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
-        </p>
+    <!-- 👑 Royal Unified Ownership Compliance Footer -->
+    <footer class="luxury-footer">
+        <div class="footer-links">
+            <a href="https://pdfgridbox.in/about">About Us</a>
+            <a href="https://pdfgridbox.in/contact">Contact Us</a>
+            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
+            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+        </div>
+        <div class="footer-credits">
+            &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
+            Designed & Managed by <span class="owner-badge">Vanrajsinh Vaghela</span>
+        </div>
     </footer>
 
     <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
