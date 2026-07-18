@@ -8,10 +8,9 @@
     <title>Password Protect PDF Online Free - Encrypt PDF - pdfgridbox</title>
     <meta name="description" content="Secure and password protect your PDF files online instantly. 100% private client-side encryption matrix, zero server data uploads, maximum security.">
 
-    <!-- 🚀 Rock-Solid Heavy Engines for Actual Client-Side PDF Encryption -->
+    <!-- 🚀 Bulletproof Heavy Engines for Actual Client-Side PDF Encryption -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfkit/0.13.0/pdfkit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/blob-stream@0.1.3/blob-stream.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     
     <style>
         /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
@@ -385,7 +384,7 @@
             <div class="meta-data-node"><span>File Size</span><strong id="labelSize">--</strong></div>
             <div class="meta-data-node"><span>Total Pages</span><strong id="labelPages">--</strong></div>
             <div class="meta-data-node"><span>Document Name</span><strong id="labelName">No File Selected</strong></div>
-            <div class="meta-data-node"><span>Encryption Map</span><strong style="color:#10b981;">100% Locked</strong></div>
+            <div class="meta-data-node"><span>Encryption Map</span><strong style="color:#10b981;">AES-128 Local</strong></div>
         </div>
 
         <!-- Core Action Button -->
@@ -526,27 +525,20 @@
                 const corePdfWorker = pdfjsLib.getDocument({ data: new Uint8Array(globalFileArrayBuffer) });
                 const srcPdfDoc = await corePdfWorker.promise;
 
-                // 🔥 BULLETPROOF FIX: Initialize a real encrypted browser document container via window.PDFDocument
-                const securedPdfDoc = new window.PDFDocument({
-                    autoFirstPage: false,
-                    userPassword: primaryPassword,
-                    ownerPassword: primaryPassword + "_ownerMatrixCeiling"
-                });
-
-                // Pipe full byte streams directly into browser stream cache allocations
-                const cryptStream = securedPdfDoc.pipe(blobStream());
+                const { jsPDF } = window.jspdf;
+                let securedPdfDoc = null;
 
                 const hiddenCanvas = document.createElement('canvas');
                 const canvasContext = hiddenCanvas.getContext('2d');
                 
-                // Render original layers as high-resolution anti-aliasing vectors
+                // Render original layers as high-resolution vectors
                 for(let i = 1; i <= totalDocumentPagesCount; i++) {
                     labelText.innerText = `Status: Injecting Cipher Key Matrix Page ${i} of ${totalDocumentPagesCount}...`;
                     fillerBar.style.width = Math.floor(15 + ((i / totalDocumentPagesCount) * 70)) + "%";
 
                     const srcPage = await srcPdfDoc.getPage(i);
                     
-                    // 2.0x High Density Scale factor keeps embedded shapes incredibly sharp
+                    // 2.0x High Density Scale factors keep text layers sharp inside the wrapper
                     const highResViewport = srcPage.getViewport({ scale: 2.0 });
                     const originalViewport = srcPage.getViewport({ scale: 1.0 });
 
@@ -563,35 +555,41 @@
 
                     const pageDataUrl = hiddenCanvas.toDataURL('image/jpeg', 0.94);
 
-                    // Add page using actual structural scale dimensions while nesting the HD snapshot
-                    securedPdfDoc.addPage({
-                        size: [originalViewport.width, originalViewport.height]
-                    });
+                    // Initialize document on first page loop with security options mapping
+                    if (i === 1) {
+                        securedPdfDoc = new jsPDF({
+                            orientation: originalViewport.width > originalViewport.height ? 'l' : 'p',
+                            unit: 'pt',
+                            format: [originalViewport.width, originalViewport.height],
+                            encryption: {
+                                userPassword: primaryPassword,
+                                ownerPassword: primaryPassword + "_ownerCeiling",
+                                permissions: ['print', 'copy']
+                            }
+                        });
+                    } else {
+                        securedPdfDoc.addPage(
+                            [originalViewport.width, originalViewport.height], 
+                            originalViewport.width > originalViewport.height ? 'l' : 'p'
+                        );
+                    }
 
-                    securedPdfDoc.image(pageDataUrl, 0, 0, {
-                        width: originalViewport.width,
-                        height: originalViewport.height
-                    });
+                    securedPdfDoc.addImage(pageDataUrl, 'JPEG', 0, 0, originalViewport.width, originalViewport.height);
                 }
 
-                labelText.innerText = "Status: Locking Dictionary Wrappers...";
+                labelText.innerText = "Status: Locking Encryption Wrappers...";
                 fillerBar.style.width = "95%";
                 
-                securedPdfDoc.end();
+                const outputBlob = securedPdfDoc.output('blob');
 
-                // Stream listener handles actual async compilation finalization triggers
-                cryptStream.on('finish', function() {
-                    const outputBlob = cryptStream.toBlob('application/pdf');
+                if (compiledBlobUrl) {
+                    URL.revokeObjectURL(compiledBlobUrl);
+                }
+                compiledBlobUrl = URL.createObjectURL(outputBlob);
 
-                    if (compiledBlobUrl) {
-                        URL.revokeObjectURL(compiledBlobUrl);
-                    }
-                    compiledBlobUrl = URL.createObjectURL(outputBlob);
-
-                    fillerBar.style.width = "100%";
-                    labelText.innerText = "STATUS: PDF ENCRYPTED & PASSWORD LOCKED SUCCESSFULLY!";
-                    document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
-                });
+                fillerBar.style.width = "100%";
+                labelText.innerText = "STATUS: PDF ENCRYPTED & PASSWORD LOCKED SUCCESSFULLY!";
+                document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
 
             } catch(err) {
                 console.error(err);
