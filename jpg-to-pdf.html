@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 👑 PRE-CONFIGURED PREMIUM SEO META TAGS -->
+    <title>Convert JPG to PDF Online Free - 100% High Quality - pdfgridbox</title>
+    <meta name="description" content="Convert your JPG and PNG images to a high-quality PDF document instantly. 100% private client-side processing, secure multi-image stitching with zero uploads.">
+
+    <!-- 🚀 Heavy Engines for Client-side Image to PDF Processing -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    
+    <style>
+        /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
+        :root {
+            --bg-main: #090d16; /* Deep Midnight Luxury Background */
+            --bg-card: rgba(22, 29, 45, 0.7);
+            --bg-card-hover: rgba(30, 41, 64, 0.9);
+            --bg-input: #0b0f19;
+            --text-white: #f1f5f9;
+            --text-muted: #94a3b8;
+            --gold-primary: #dfba6b;
+            --gold-hover: #b38728;
+            --gold-border: rgba(212, 175, 55, 0.3);
+            --green-success: #10b981;
+            --border-color: rgba(255, 255, 255, 0.04);
+            --accent-yellow: #ffe082;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-white);
+            padding-bottom: 60px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* 👑 LUXURY CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#bf953f, #aa771c);
+            border-radius: 10px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 🏠 Small Top Home Button Style */
+        .btn-small-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            margin-top: 10px;
+        }
+        .btn-small-home:hover {
+            color: var(--text-white);
+            border-color: var(--gold-primary);
+            background: var(--bg-card-hover);
+        }
+
+        .page-title {
+            text-align: center;
+            font-family: 'Georgia', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 20px 0 6px 0;
+            letter-spacing: 0.5px;
+        }
+        .page-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 35px;
+        }
+
+        .block-heading {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 30px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .premium-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .upload-dashed-container {
+            background: var(--bg-card);
+            border: 1px dashed var(--gold-border);
+            border-radius: 16px;
+            padding: 45px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        .upload-dashed-container:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--gold-primary);
+        }
+
+        .ad-premium-banner {
+            border: 1px dashed rgba(212, 175, 55, 0.2);
+            background: rgba(11, 15, 25, 0.5);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            color: var(--gold-primary);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+
+        .progress-track {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            height: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .progress-thumb-fill {
+            background: linear-gradient(90deg, #b38728, #dfba6b);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .meta-data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .meta-data-node span {
+            display: block;
+            color: var(--text-muted);
+            font-size: 11px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Form Layout Configuration Controllers */
+        .config-inputs-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        .config-select-field {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px;
+            color: var(--text-white);
+            font-size: 14px;
+            font-weight: 600;
+            width: 100%;
+            outline: none;
+            cursor: pointer;
+            margin-top: 6px;
+        }
+        .config-select-field:focus {
+            border-color: var(--gold-primary);
+        }
+
+        /* Core Action Controls Layout Elements */
+        .btn-convert-action {
+            background: linear-gradient(90deg, #bf953f, #dfba6b);
+            color: #090d16;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
+        }
+        .btn-convert-action:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        .btn-green-download {
+            background: var(--green-success);
+            color: #ffffff;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+        .btn-green-download:hover {
+            filter: brightness(1.1);
+        }
+
+        .btn-outline-preview {
+            background: transparent;
+            color: var(--accent-yellow);
+            border: 1px solid var(--accent-yellow);
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+        }
+        .btn-outline-preview:hover {
+            background: rgba(255, 224, 130, 0.1);
+        }
+
+        .btn-large-home {
+            background: #161d2d;
+            color: var(--text-white) !important;
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-sizing: border-box;
+            transition: all 0.2s;
+        }
+        .btn-large-home:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--gold-primary);
+        }
+
+        .text-content-row {
+            margin-bottom: 16px;
+        }
+        .text-content-row strong {
+            display: block;
+            font-size: 14px;
+            color: var(--accent-yellow);
+            margin-bottom: 4px;
+        }
+        .text-content-row p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .tools-navigation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .tool-link-badge {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 18px 10px;
+            border-radius: 14px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-white);
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        .tool-link-badge:hover {
+            border-color: var(--gold-primary);
+            background: var(--bg-card-hover);
+        }
+        .tool-link-badge div {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- 🏠 Top Small Back to Home Navigation Link -->
+        <a href="https://pdfgridbox.in" class="btn-small-home">🏠 Back to Home</a>
+        
+        <h1 class="page-title">JPG to PDF</h1>
+        <p class="page-subtitle">100% Secure Client-Side Image Converter</p>
+
+        <!-- Document Selector Area (Supports Multi-Selection) -->
+        <div class="upload-dashed-container" onclick="document.getElementById('realImageFileInput').click()">
+            <div style="font-size: 40px; color: #dfba6b;">🖼️</div>
+            <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Select Images</div>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">Upload multiple JPG/PNG images</p>
+            <input type="file" id="realImageFileInput" accept="image/jpeg, image/jpg, image/png" multiple style="display: none;" onchange="handleMultipleImagesImport(event)">
+        </div>
+
+        <!-- ✅ ADS PLACEMENT 1 -->
+        <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here ]</div>
+
+        <!-- Progress Component -->
+        <div class="premium-card">
+            <div style="font-weight: 700; font-size: 13px; color: var(--accent-yellow); text-transform: uppercase;" id="stateLabel">Status: Awaiting Assets</div>
+            <div class="progress-track">
+                <div class="progress-thumb-fill" id="trackBarIndicatorFill"></div>
+            </div>
+        </div>
+
+        <!-- Document Information Block -->
+        <div class="block-heading">📄 Selected Images Details</div>
+        <div class="premium-card meta-data-grid">
+            <div class="meta-data-node"><span>Total Size</span><strong id="labelSize">--</strong></div>
+            <div class="meta-data-node"><span>Images Count</span><strong id="labelCount">0 Files Selected</strong></div>
+            <div class="meta-data-node"><span>Stitching Logic</span><strong>Sequential</strong></div>
+            <div class="meta-data-node"><span>Processing</span><strong style="color:#10b981;">100% Local</strong></div>
+        </div>
+
+        <!-- ⚙️ Layout Parameters Panel -->
+        <div class="block-heading">⚙️ PDF Page Options</div>
+        <div class="premium-card">
+            <div class="config-inputs-grid">
+                <div>
+                    <div style="font-size:12px; color: var(--text-muted);">Page Layout Size:</div>
+                    <select class="config-select-field" id="layoutSizeSelect" onchange="invalidateActiveWorkspace()">
+                        <option value="fit">🖼️ Fit Page To Original Image Size</option>
+                        <option value="a4">📐 Standard A4 Document Layout</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Button Action -->
+        <button class="btn-convert-action" onclick="executeJpgToPdfConversion()">Convert Images to PDF</button>
+
+        <!-- Output Downloader Container Workspace -->
+        <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
+        <div class="premium-card" style="text-align: center;">
+            <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
+            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Compiled PDF Workspace</h3>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Stitch your picture matrix natively, build rendering maps, then download your document asset instantly.</p>
+            
+            <!-- ✅ ADS PLACEMENT 2 -->
+            <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
+
+            <!-- Primary Buttons Stacked Vertically -->
+            <button class="btn-green-download" onclick="triggerDownload()">📥 Download Compiled PDF</button>
+            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Output Layout</button>
+            <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
+        </div>
+
+        <!-- 💡 Quick Tips Section -->
+        <div class="block-heading">💡 Quick Tips</div>
+        <div class="premium-card">
+            <div class="text-content-row"><strong>"Zero Server Footprint"</strong><p>Images transform straight to high-fidelity container streams using internal browser memory logic. Ultimate security for scans and identities.</p></div>
+        </div>
+
+        <!-- ⭐ Related Utilities Links -->
+        <div class="block-heading">⭐ Related Tools</div>
+        <div class="tools-navigation-grid">
+            <a href="https://pdfgridbox.in/pdf-merge" class="tool-link-badge"><div>🧩</div>Merge PDF</a>
+            <a href="https://pdfgridbox.in/pdf-split" class="tool-link-badge"><div>✂️</div>Split PDF</a>
+            <a href="https://pdfgridbox.in/word-to-pdf" class="tool-link-badge"><div>📝</div>Word to PDF</a>
+            <a href="https://pdfgridbox.in/reorder-pages" class="tool-link-badge"><div>🔄</div>Reorder Pages</a>
+        </div>
+
+        <!-- ❓ FAQs Layout Component -->
+        <div class="block-heading">❓ FAQ</div>
+        <div class="premium-card">
+            <div class="text-content-row"><strong style="color: #fff;">Can I mix PNG and JPG files?</strong><p>Yes. The execution manager handles both types interchangeably, auto-detecting image stream signatures locally.</p></div>
+        </div>
+
+        <!-- ✅ ADS PLACEMENT 3 -->
+        <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
+
+    </div>
+
+    <!-- 👑 Royal Ownership Signature Footer Token -->
+    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: rgba(22, 29, 45, 0.7); border-top: 1px dashed var(--border-color);">
+        <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
+            <span style="font-size: 16px; margin-right: 5px;">👑</span> 
+            <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
+            <span style="color: #60a5fa; font-weight: 700; background: #0b0f19; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
+        </p>
+    </footer>
+
+    <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
+    <script>
+        let globalSelectedImageFiles = [];
+        let compiledBlobUrl = null;
+        const fallbackFileName = "Stitched_Images_Document.pdf";
+
+        function invalidateActiveWorkspace() {
+            if (compiledBlobUrl) {
+                URL.revokeObjectURL(compiledBlobUrl);
+                compiledBlobUrl = null;
+                document.getElementById('stateLabel').innerText = "Status: Configuration altered. Re-run compression compiler.";
+                document.getElementById('trackBarIndicatorFill').style.width = "75%";
+            }
+        }
+
+        function handleMultipleImagesImport(event) {
+            const rawFilesList = event.target.files;
+            if (!rawFilesList || rawFilesList.length === 0) return;
+
+            globalSelectedImageFiles = Array.from(rawFilesList);
+            
+            let accumulatedByteSize = 0;
+            globalSelectedImageFiles.forEach(file => { accumulatedByteSize += file.size; });
+
+            document.getElementById('labelCount').innerText = globalSelectedImageFiles.length + " Image(s) Selected";
+            document.getElementById('labelSize').innerText = (accumulatedByteSize / (1024 * 1024)).toFixed(2) + " MB";
+
+            if (compiledBlobUrl) {
+                URL.revokeObjectURL(compiledBlobUrl);
+                compiledBlobUrl = null;
+            }
+
+            const labelText = document.getElementById('stateLabel');
+            const fillerBar = document.getElementById('trackBarIndicatorFill');
+
+            fillerBar.style.width = "100%";
+            labelText.innerText = "Status: Image Matrix Loaded. Ready to Stitch.";
+            event.target.value = "";
+        }
+
+        async function executeJpgToPdfConversion() {
+            if (globalSelectedImageFiles.length === 0) {
+                alert("Please upload at least one JPG or PNG image file asset first.");
+                return;
+            }
+
+            const labelText = document.getElementById('stateLabel');
+            const fillerBar = document.getElementById('trackBarIndicatorFill');
+            const targetLayoutMode = document.getElementById('layoutSizeSelect').value;
+
+            try {
+                labelText.innerText = "Status: Creating Isolated Document Container...";
+                fillerBar.style.width = "20%";
+
+                const newPdfDoc = await PDFLib.PDFDocument.create();
+
+                for (let i = 0; i < globalSelectedImageFiles.length; i++) {
+                    const currentFile = globalSelectedImageFiles[i];
+                    
+                    labelText.innerText = `Status: Embedding Image Node ${i + 1} of ${globalSelectedImageFiles.length}...`;
+                    fillerBar.style.width = Math.floor(20 + ((i / globalSelectedImageFiles.length) * 60)) + "%";
+
+                    const fileBuffer = await currentFile.arrayBuffer();
+                    let embeddedImagePointer;
+
+                    // Dynamically capture graphic formats signature natively
+                    if (currentFile.type === "image/png" || currentFile.name.toLowerCase().endsWith('.png')) {
+                        embeddedImagePointer = await newPdfDoc.embedPng(fileBuffer);
+                    } else {
+                        embeddedImagePointer = await newPdfDoc.embedJpg(fileBuffer);
+                    }
+
+                    const originalWidth = embeddedImagePointer.width;
+                    const originalHeight = embeddedImagePointer.height;
+
+                    let finalPageWidth = originalWidth;
+                    let finalPageHeight = originalHeight;
+                    let renderTargetWidth = originalWidth;
+                    let renderTargetHeight = originalHeight;
+                    let drawPositionX = 0;
+                    let drawPositionY = 0;
+
+                    // If Standard A4 is preferred, scale coordinates safely keeping aspect ratio
+                    if (targetLayoutMode === "a4") {
+                        finalPageWidth = 595.28;  // A4 point configuration width representation
+                        finalPageHeight = 841.89; // A4 point configuration height representation
+
+                        const ratioWidth = finalPageWidth / originalWidth;
+                        const ratioHeight = finalPageHeight / originalHeight;
+                        const finalScalingFactor = Math.min(ratioWidth, ratioHeight);
+
+                        renderTargetWidth = originalWidth * finalScalingFactor;
+                        renderTargetHeight = originalHeight * finalScalingFactor;
+
+                        // Center image cleanly inside standard canvas bounding boundaries
+                        drawPositionX = (finalPageWidth - renderTargetWidth) / 2;
+                        drawPositionY = (finalPageHeight - renderTargetHeight) / 2;
+                    }
+
+                    // Append isolated page layout coordinates
+                    const appendedPage = newPdfDoc.addPage([finalPageWidth, finalPageHeight]);
+                    appendedPage.drawImage(embeddedImagePointer, {
+                        x: drawPositionX,
+                        y: drawPositionY,
+                        width: renderTargetWidth,
+                        height: renderTargetHeight
+                    });
+                }
+
+                fillerBar.style.width = "90%";
+                labelText.innerText = "Status: Finalizing Matrix Serialization...";
+
+                const finalizedBytesArray = await newPdfDoc.save();
+                const outputBlob = new Blob([finalizedBytesArray], { type: 'application/pdf' });
+
+                if (compiledBlobUrl) {
+                    URL.revokeObjectURL(compiledBlobUrl);
+                }
+                compiledBlobUrl = URL.createObjectURL(outputBlob);
+
+                fillerBar.style.width = "100%";
+                labelText.innerText = "STATUS: IMAGE MATRIX STITCHED TO PDF SUCCESSFULLY!";
+
+                document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
+            } catch(err) {
+                console.error(err);
+                alert("The engine met a structural exception parsing image buffer maps.");
+                labelText.innerText = "Status: Stitcher Crash Error";
+            }
+        }
+
+        function triggerDownload() {
+            if (!compiledBlobUrl) {
+                alert("Please execute the 'Convert Images to PDF' compilation pipeline first.");
+                return;
+            }
+            const dynamicAnchor = document.createElement('a');
+            dynamicAnchor.href = compiledBlobUrl;
+            dynamicAnchor.download = fallbackFileName;
+            
+            document.body.appendChild(dynamicAnchor);
+            dynamicAnchor.click();
+            document.body.removeChild(dynamicAnchor);
+        }
+
+        function triggerPreview() {
+            if (!compiledBlobUrl) {
+                alert("Output compilation workspace is unallocated. Run compiler logic.");
+                return;
+            }
+            window.open(compiledBlobUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
