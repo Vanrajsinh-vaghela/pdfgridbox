@@ -223,6 +223,28 @@
             filter: brightness(1.1);
         }
 
+        .btn-outline-preview {
+            background: transparent;
+            color: var(--accent-yellow);
+            border: 1px solid var(--accent-yellow);
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+        }
+        .btn-outline-preview:hover {
+            background: rgba(255, 224, 130, 0.1);
+        }
+
         .btn-large-home {
             background: #161d2d;
             color: var(--text-white) !important;
@@ -342,8 +364,9 @@
             <!-- ✅ ADS PLACEMENT 2 -->
             <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
 
-            <!-- Primary Buttons Stacked Vertically -->
+            <!-- Primary Buttons Stacked Vertically (Preview Restored ✅) -->
             <button class="btn-green-download" onclick="triggerDownload()">📥 Download Word Document</button>
+            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Word Layout</button>
             <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
         </div>
 
@@ -515,6 +538,15 @@
             document.body.appendChild(dynamicAnchor);
             dynamicAnchor.click();
             document.body.removeChild(dynamicAnchor);
+        }
+
+        // Fixed Preview Thread Matrix Link Function ✅
+        function triggerPreview() {
+            if (!compiledBlobUrl) {
+                alert("Output workspace context is currently empty. Run conversion algorithm.");
+                return;
+            }
+            window.open(compiledBlobUrl, '_blank');
         }
     </script>
 </body>
