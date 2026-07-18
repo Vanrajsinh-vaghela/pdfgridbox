@@ -39,7 +39,7 @@
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-main);
             color: var(--text-white);
-            padding-bottom: 60px;
+            padding-bottom: 0px;
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -286,13 +286,16 @@
         }
 
         .text-content-row {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+        }
+        .text-content-row:last-child {
+            margin-bottom: 0;
         }
         .text-content-row strong {
             display: block;
             font-size: 14px;
             color: var(--accent-yellow);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         .text-content-row p {
             margin: 0;
@@ -327,6 +330,49 @@
             font-size: 24px;
             margin-bottom: 6px;
         }
+
+        /* 👑 LUXURY COMPLIANCE FOOTER STYLES */
+        .luxury-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background-color: rgba(11, 15, 25, 0.8);
+            border-top: 1px dashed var(--gold-border);
+            backdrop-filter: blur(10px);
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+        .footer-credits {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .owner-badge {
+            color: #60a5fa;
+            font-weight: 700;
+            background: #0b0f19;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            display: inline-block;
+            margin-top: 4px;
+        }
     </style>
 </head>
 <body>
@@ -337,7 +383,7 @@
         <a href="https://pdfgridbox.in" class="btn-small-home">🏠 Back to Home</a>
         
         <h1 class="page-title">Protect PDF</h1>
-        <p class="page-subtitle">100% Secure Client-Side Password Encrypter</p>
+        <p class="page-subtitle">100% Private Client-Side Password Encrypter</p>
 
         <!-- Document Selector Area -->
         <div class="upload-dashed-container" onclick="document.getElementById('realPdfFileInput').click()">
@@ -408,7 +454,18 @@
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"Irreversible Crypto Token"</strong><p>Always remember or note down the configured key map profile. The file cannot be recovered or unlocked client-side without the correct credentials token matrix.</p></div>
+            <div class="text-content-row">
+                <strong>Irreversible Crypto Token Management</strong>
+                <p>Always note down or remember the exact character configuration mapped into the password inputs. Because the cryptographic algorithms run in completely isolated memory buffers, there are no backend retrieval networks or recovery mechanisms to unlock the data if the keys are misplaced.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>High-Density Double Pixel Matrix Compilation</strong>
+                <p>To preserve crystal-clear text sharpness throughout the security wrapper creation process, the compilation thread draws vector structures onto a double-density pixel grid (scale: 2.0). This prevents structural element blurring when viewed across modern 4K or high-DPI smartphone layouts.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Absolute Document Sandboxing Safeguards</strong>
+                <p>Financial declarations, banking assets, legal records, and highly classified enterprise briefs are encapsulated inside your browser sandbox frame. The processing system runs zero server tracking calls, making your information secure against metadata logging threats.</p>
+            </div>
         </div>
 
         <!-- ⭐ Related Utilities Links -->
@@ -423,7 +480,18 @@
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Can the owner password be separate?</strong><p>Yes. By default, the input sets an all-access security ceiling, stopping malicious metadata alterations or scraping algorithms completely.</p></div>
+            <div class="text-content-row">
+                <strong>What type of internal encryption ceiling does this local utility enforce?</strong>
+                <p>This builder processes file layers natively using a client-side jsPDF crypto matrix module that structures standard user and owner protection parameters. This allows you to block standard editing, printing, and malicious layout scraping utilities reliably.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Will my custom password key records or asset parameters get cached by web analytics?</strong>
+                <p>No. Your input fields and document byte values function entirely within your current client-side browser RAM allocation space. No raw file strings or password dictionaries pass over internet networks, providing complete data isolation.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Why is the processing time longer for heavy documents containing many vector pages?</strong>
+                <p>Because the engine renders page graphics directly onto local canvases to keep them sharp, processing scales according to your device's hardware power and RAM capacity. For heavy files, it slices sheets progressively without crashing browser tab memory limits.</p>
+            </div>
         </div>
 
         <!-- ✅ ADS PLACEMENT 3 -->
@@ -431,13 +499,18 @@
 
     </div>
 
-    <!-- 👑 Royal Ownership Signature Footer Token -->
-    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: rgba(22, 29, 45, 0.7); border-top: 1px dashed var(--border-color);">
-        <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
-            <span style="font-size: 16px; margin-right: 5px;">👑</span> 
-            <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
-            <span style="color: #60a5fa; font-weight: 700; background: #0b0f19; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
-        </p>
+    <!-- 👑 Royal Unified Ownership Compliance Footer -->
+    <footer class="luxury-footer">
+        <div class="footer-links">
+            <a href="https://pdfgridbox.in/about">About Us</a>
+            <a href="https://pdfgridbox.in/contact">Contact Us</a>
+            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
+            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+        </div>
+        <div class="footer-credits">
+            &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
+            Designed & Managed by <span class="owner-badge">Vanrajsinh Vaghela</span>
+        </div>
     </footer>
 
     <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
