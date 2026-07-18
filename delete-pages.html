@@ -350,6 +350,14 @@
             font-size: 24px;
             margin-bottom: 6px;
         }
+
+        /* Dual Input Layout Style */
+        .range-inputs-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -402,10 +410,19 @@
                         <option value="even">📄 Delete Even Pages Only</option>
                     </select>
                     
-                    <div id="customPageRangeContainer" style="display: block; margin-top: 10px;">
-                        <div style="font-size:12px; color: var(--text-muted); margin-bottom:4px;">Enter Page Numbers to REMOVE:</div>
-                        <input type="text" class="config-text-input" id="pageRangeTextInput" placeholder="e.g., 2, 4, 7-10" onchange="invalidateActiveWorkspace()">
-                        <span style="font-size: 11px; color: var(--text-muted); display: block; margin-top: 6px;">Use commas for single pages and dashes for ranges. These pages will be permanently deleted.</span>
+                    <!-- 🛠️ NEW DUAL INPUTS SYSTEM (START AND ENDING OPTIONS) -->
+                    <div id="customPageRangeContainer" style="display: block;">
+                        <div class="range-inputs-wrapper">
+                            <div>
+                                <div style="font-size:12px; color: var(--text-muted); margin-top:8px;">Start Page:</div>
+                                <input type="number" class="config-text-input" id="startPageInput" placeholder="e.g., 1" min="1" oninput="invalidateActiveWorkspace()">
+                            </div>
+                            <div>
+                                <div style="font-size:12px; color: var(--text-muted); margin-top:8px;">Ending Page:</div>
+                                <input type="number" class="config-text-input" id="endPageInput" placeholder="e.g., 5899" min="1" oninput="invalidateActiveWorkspace()">
+                            </div>
+                        </div>
+                        <span style="font-size: 11px; color: var(--text-muted); display: block; margin-top: 10px;">Specify the starting and ending boundaries. The entire range (inclusive) will be wiped out.</span>
                     </div>
                 </div>
             </div>
@@ -490,7 +507,7 @@
             if (compiledBlobUrl) {
                 URL.revokeObjectURL(compiledBlobUrl);
                 compiledBlobUrl = null;
-                document.getElementById('stateLabel').innerText = "Status: Selection Changes Found. Please process again.";
+                document.getElementById('stateLabel').innerText = "Status: Parameters Changed. Re-run to process.";
                 document.getElementById('trackBarIndicatorFill').style.width = "75%";
             }
         }
@@ -515,6 +532,10 @@
                 compiledBlobUrl = null;
             }
 
+            // Reset Input Fields
+            document.getElementById('startPageInput').value = '';
+            document.getElementById('endPageInput').value = '';
+
             const fileReader = new FileReader();
             fileReader.onload = async function() {
                 globalFileArrayBuffer = this.result;
@@ -524,6 +545,10 @@
 
                     totalDocumentPagesCount = pdfDocInstance.numPages;
                     document.getElementById('labelPages').innerText = totalDocumentPagesCount + " Pages";
+                    
+                    // Add max page hints to UI placeholders
+                    document.getElementById('startPageInput').placeholder = "1";
+                    document.getElementById('endPageInput').placeholder = totalDocumentPagesCount;
 
                     fillerBar.style.width = "100%";
                     labelText.innerText = "Status: Ready to Delete Pages";
@@ -537,35 +562,9 @@
             event.target.value = "";
         }
 
-        // Helper engine utility parser function for range text variables inputs
-        function parseCustomTargetPageSet(inputStr, maximumPages) {
-            const pageIndexesSet = new Set();
-            const segments = inputStr.split(',');
-            
-            for (let chunk of segments) {
-                chunk = chunk.trim();
-                if (chunk.includes('-')) {
-                    const boundaries = chunk.split('-');
-                    const startIdx = parseInt(boundaries[0].trim());
-                    const endIdx = parseInt(boundaries[1].trim());
-                    if (!isNaN(startIdx) && !isNaN(endIdx)) {
-                        for (let k = Math.min(startIdx, endIdx); k <= Math.max(startIdx, endIdx); k++) {
-                            if (k >= 1 && k <= maximumPages) pageIndexesSet.add(k - 1);
-                        }
-                    }
-                } else {
-                    const singleIdx = parseInt(chunk);
-                    if (!isNaN(singleIdx) && singleIdx >= 1 && singleIdx <= maximumPages) {
-                        pageIndexesSet.add(singleIdx - 1);
-                    }
-                }
-            }
-            return Array.from(pageIndexesSet);
-        }
-
         async function executeRealClientDeletion() {
             if (!globalFileArrayBuffer) {
-                alert("Please upload a valid PDF document to parse structure arrays.");
+                alert("Please upload a valid PDF document first.");
                 return;
             }
 
@@ -590,20 +589,29 @@
                         if ((i + 1) % 2 === 0) pagesToDeleteIndices.push(i);
                     }
                 } else if (currentMode === 'range') {
-                    const rawRangeString = document.getElementById('pageRangeTextInput').value;
-                    if (!rawRangeString.trim()) {
-                        alert("Please enter the specific page numbers you wish to remove.");
+                    const startPage = parseInt(document.getElementById('startPageInput').value);
+                    const endPage = parseInt(document.getElementById('endPageInput').value);
+
+                    if (isNaN(startPage) || isNaN(endPage)) {
+                        alert("Please enter both valid Start and Ending page numbers.");
+                        labelText.innerText = "Status: Configuration Missing";
                         return;
                     }
-                    pagesToDeleteIndices = parseCustomTargetPageSet(rawRangeString, totalDocumentPagesCount);
-                    if (pagesToDeleteIndices.length === 0) {
-                        alert("No matching valid page allocations found inside your text entry.");
+
+                    if (startPage < 1 || endPage > totalDocumentPagesCount || startPage > endPage) {
+                        alert(`Invalid Range Bounds! Must be between 1 and ${totalDocumentPagesCount}. Start page must be less than or equal to ending page.`);
+                        labelText.innerText = "Status: Out of Bounds Error";
                         return;
+                    }
+
+                    // Loop through the precise range defined by the user
+                    for (let k = startPage; k <= endPage; k++) {
+                        pagesToDeleteIndices.push(k - 1);
                     }
                 }
 
                 if (pagesToDeleteIndices.length >= totalDocumentPagesCount) {
-                    alert("Operation Denied: You cannot delete all pages. The document must contain at least 1 page.");
+                    alert("Operation Denied: You cannot delete all pages. The output document must contain at least 1 page.");
                     labelText.innerText = "Status: Operation Halted";
                     return;
                 }
@@ -611,7 +619,7 @@
                 fillerBar.style.width = "70%";
                 labelText.innerText = "Status: Building Cleaned PDF Stream...";
 
-                // Logic: Create a fresh document and append only the pages we want to KEEP
+                // Create fresh client-side memory array context & copy survivors
                 const newCleanedPdfDoc = await PDFLib.PDFDocument.create();
                 const pagesToKeepIndices = [];
                 
@@ -633,19 +641,19 @@
                 compiledBlobUrl = URL.createObjectURL(outputBlob);
 
                 fillerBar.style.width = "100%";
-                labelText.innerText = `Status: ${pagesToDeleteIndices.length} Page(s) Deleted Successfully!`;
+                labelText.innerText = `STATUS: ${pagesToDeleteIndices.length} PAGE(S) DELETED SUCCESSFULLY!`;
 
                 document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
             } catch (err) {
                 console.error(err);
-                alert("The engine encountered an extraction structural fault processing arrays.");
+                alert("The engine encountered a structural fault processing arrays.");
                 labelText.innerText = "Status: Runtime Execution Error";
             }
         }
 
         function triggerDownload() {
             if (!compiledBlobUrl) {
-                alert("Please click the red 'Remove Selected Pages' command to build the output workspace first.");
+                alert("Please process document removal array configuration first.");
                 return;
             }
             const dynamicAnchorElement = document.createElement('a');
@@ -659,7 +667,7 @@
 
         function triggerPreview() {
             if (!compiledBlobUrl) {
-                alert("Please execute the removal command first to create an accurate layout preview view.");
+                alert("Please execute the removal command first to create a layout preview view.");
                 return;
             }
             window.open(compiledBlobUrl, '_blank');
