@@ -39,7 +39,7 @@
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-main);
             color: var(--text-white);
-            padding-bottom: 60px;
+            padding-bottom: 0px;
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -333,13 +333,16 @@
         }
 
         .text-content-row {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+        }
+        .text-content-row:last-child {
+            margin-bottom: 0;
         }
         .text-content-row strong {
             display: block;
             font-size: 14px;
             color: var(--accent-yellow);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         .text-content-row p {
             margin: 0;
@@ -373,6 +376,49 @@
         .tool-link-badge div {
             font-size: 24px;
             margin-bottom: 6px;
+        }
+
+        /* 👑 LUXURY COMPLIANCE FOOTER STYLES */
+        .luxury-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background-color: rgba(11, 15, 25, 0.8);
+            border-top: 1px dashed var(--gold-border);
+            backdrop-filter: blur(10px);
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+        .footer-credits {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .owner-badge {
+            color: #60a5fa;
+            font-weight: 700;
+            background: #0b0f19;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            display: inline-block;
+            margin-top: 4px;
         }
     </style>
 </head>
@@ -473,7 +519,18 @@
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"Vector Resolution Shielding"</strong><p>Unlike raw pixel conversion tools, text elements and native shapes are saved as clean vector forms, compressing matrix data arrays only.</p></div>
+            <div class="text-content-row">
+                <strong>"Vector Resolution Shielding"</strong>
+                <p>Unlike raw pixel conversion tools, text elements and native shapes are saved as clean vector forms, compressing matrix data arrays only.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Choose the Right Quality Level</strong>
+                <p>For standard documents with text and light charts, a quality level between 60% and 80% offers the absolute best balance between deep file reduction and visual sharpness.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>100% Secure Local Matrix</strong>
+                <p>Since your files never touch an external database or cloud server, confidential charts, contracts, and financial PDFs are completely isolated from web threats.</p>
+            </div>
         </div>
 
         <!-- ⭐ Related Utilities Links -->
@@ -488,7 +545,18 @@
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Will character layers blur out?</strong><p>No. The local execution engine automatically retains strict alignment coordinates while mapping down the image components.</p></div>
+            <div class="text-content-row">
+                <strong>Will character layers blur out during compression?</strong>
+                <p>No. The local execution engine automatically retains strict alignment coordinates while processing image components. Text layers stay sharp because their vector layouts are safeguarded throughout the script execution loop.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>How does client-side compression protect my privacy?</strong>
+                <p>Standard online tools upload your files to remote cloud storage stacks where logs could potentially persist. Our tool handles 100% of the byte processing directly within your local browser sandbox memory, keeping data strictly inside your device.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Is there a limit on the document page counts or size?</strong>
+                <p>There are no arbitrary restrictions enforced by pdfgridbox. The process runs purely on your system's hardware capabilities. Extremely large books or high-DPI scans might take an extra couple of seconds to stream and optimize.</p>
+            </div>
         </div>
 
         <!-- ✅ ADS PLACEMENT 3 -->
@@ -496,13 +564,18 @@
 
     </div>
 
-    <!-- 👑 Royal Ownership Signature Footer Token -->
-    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: rgba(22, 29, 45, 0.7); border-top: 1px dashed var(--border-color);">
-        <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
-            <span style="font-size: 16px; margin-right: 5px;">👑</span> 
-            <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
-            <span style="color: #60a5fa; font-weight: 700; background: #0b0f19; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
-        </p>
+    <!-- 👑 Royal Unified Ownership Compliance Footer -->
+    <footer class="luxury-footer">
+        <div class="footer-links">
+            <a href="https://pdfgridbox.in/about">About Us</a>
+            <a href="https://pdfgridbox.in/contact">Contact Us</a>
+            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
+            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+        </div>
+        <div class="footer-credits">
+            &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
+            Designed & Managed by <span class="owner-badge">Vanrajsinh Vaghela</span>
+        </div>
     </footer>
 
     <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
