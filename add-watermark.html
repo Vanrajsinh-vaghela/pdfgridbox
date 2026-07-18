@@ -38,7 +38,7 @@
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-main);
             color: var(--text-white);
-            padding-bottom: 60px;
+            padding-bottom: 0px;
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -396,6 +396,50 @@
             font-size: 24px;
             margin-bottom: 6px;
         }
+
+        /* 👑 UNIFIED LUXURY FOOTER STYLES */
+        .luxury-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background-color: rgba(22, 29, 45, 0.8);
+            border-top: 1px dashed var(--gold-border);
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+        .footer-credits {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .footer-credits strong {
+            color: var(--text-white);
+        }
+        .owner-badge {
+            color: #60a5fa;
+            font-weight: 700;
+            background: #0b0f19;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            display: inline-block;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -522,7 +566,14 @@
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"Ideal Opacity Settings"</strong><p>Keeping text visibility opacity around 20% to 35% ensures the protection watermark remains highly legible without causing layout element distortion.</p></div>
+            <div class="text-content-row">
+                <strong>"Ideal Opacity Settings"</strong>
+                <p>Keeping text visibility opacity around 20% to 35% ensures the protection watermark remains highly legible without causing layout element distortion or hiding crucial underlying data fields.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>"100% Client-Side Privacy"</strong>
+                <p>Your documents are never processed or saved on a remote web server. All structural coordinate modifications occur locally within your browser context layer via highly secure compiled execution loops.</p>
+            </div>
         </div>
 
         <!-- ⭐ Related Utilities Links -->
@@ -537,7 +588,14 @@
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Is the text selectable after stamping?</strong><p>No, the injected text functions as an embedded vector graphic overlay dictionary item, preventing readers from copying underlying content strings easily.</p></div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is the text selectable after stamping?</strong>
+                <p>No, the injected text functions as an embedded vector graphic overlay dictionary item inside the structural matrix, preventing standard readers from copying or extracting raw underlying content strings easily.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Does it affect the dynamic page elements layout?</strong>
+                <p>Not at all! The tool adds a strict graphic vector layer natively over each independent canvas object sequence without corrupting metadata or text flow parameters.</p>
+            </div>
         </div>
 
         <!-- ✅ ADS PLACEMENT 3 -->
@@ -545,13 +603,18 @@
 
     </div>
 
-    <!-- 👑 Royal Ownership Signature Footer Token -->
-    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: rgba(22, 29, 45, 0.7); border-top: 1px dashed var(--border-color);">
-        <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
-            <span style="font-size: 16px; margin-right: 5px;">👑</span> 
-            <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
-            <span style="color: #60a5fa; font-weight: 700; background: #0b0f19; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
-        </p>
+    <!-- 👑 Unified Royal Ownership Compliance Footer -->
+    <footer class="luxury-footer">
+        <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
+        </div>
+        <div class="footer-credits">
+            &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
+            Designed & Managed by <span class="owner-badge">Vanrajsinh Vaghela</span>
+        </div>
     </footer>
 
     <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
