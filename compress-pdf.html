@@ -517,11 +517,8 @@
             const labelText = document.getElementById('stateLabel');
             const fillerBar = document.getElementById('trackBarIndicatorFill');
 
-            // Slider factor settings (10% to 100%) mapped safely to numerical float limits
             const sliderPercentage = document.getElementById('compSlider').value;
             const jpegQualityParameter = sliderPercentage / 100;
-            
-            // Text clarity protection matrix layout scale factor fixed perfectly
             const renderingScaleFactor = 1.3; 
 
             try {
@@ -534,11 +531,9 @@
 
                 const targetCompressedPdfDoc = await PDFLib.PDFDocument.create();
 
-                // Memory leak crash protection layer setup 
                 const canvasSandbox = document.createElement('canvas');
                 const canvasContext = canvasSandbox.getContext('2d');
 
-                // Downsample pixel array buffers page by page loop sequence
                 for (let i = 1; i <= totalPages; i++) {
                     labelText.innerText = `Status: Processing Page ${i} of ${totalPages}...`;
                     fillerBar.style.width = Math.floor(10 + ((i / totalPages) * 75)) + "%";
@@ -546,19 +541,21 @@
                     const srcPage = await srcPdfDoc.getPage(i);
                     const standardViewport = srcPage.getViewport({ scale: renderingScaleFactor });
 
-                    canvasSandbox.height = standardViewport.height;
-                    canvasSandbox.width = standardViewport.width;
+                    // Float variables clean validation rounding to stop library crashes
+                    const targetWidth = Math.floor(standardViewport.width);
+                    const targetHeight = Math.floor(standardViewport.height);
 
-                    // Clean white layer mask initialization to preserve text shadows accurately
+                    canvasSandbox.width = targetWidth;
+                    canvasSandbox.height = targetHeight;
+
                     canvasContext.fillStyle = '#ffffff';
-                    canvasContext.fillRect(0, 0, canvasSandbox.width, canvasSandbox.height);
+                    canvasContext.fillRect(0, 0, targetWidth, targetHeight);
 
                     await srcPage.render({
                         canvasContext: canvasContext,
                         viewport: standardViewport
                     }).promise;
 
-                    // Convert drawing stream into compressed JPEG representation data strings
                     const compressedImageBuffer = await new Promise((resolve, reject) => {
                         canvasSandbox.toBlob(blob => {
                             if(!blob) {
@@ -571,19 +568,17 @@
                         }, 'image/jpeg', jpegQualityParameter);
                     });
 
-                    // Embed asset back inside the pristine target wrapper framework
                     const embeddedJpg = await targetCompressedPdfDoc.embedJpg(compressedImageBuffer);
                     
-                    const newPageInstance = targetCompressedPdfDoc.addPage({
-                        width: standardViewport.width, 
-                        height: standardViewport.height
-                    });
+                    // 🛠️ FIX APPLIED: Created a safe clean page container first, then attached strict sizing rules
+                    const newPageInstance = targetCompressedPdfDoc.addPage();
+                    newPageInstance.setSize(targetWidth, targetHeight);
                     
                     newPageInstance.drawImage(embeddedJpg, {
                         x: 0,
                         y: 0,
-                        width: standardViewport.width,
-                        height: standardViewport.height
+                        width: targetWidth,
+                        height: targetHeight
                     });
                 }
 
@@ -591,8 +586,6 @@
                 fillerBar.style.width = "90%";
 
                 const finalizedBytesArray = await targetCompressedPdfDoc.save();
-                
-                // Pack within anti-corruption binary array parameters safely
                 const outputBlob = new Blob([finalizedBytesArray.buffer], { type: 'application/pdf' });
                 
                 document.getElementById('plt_compressed').innerText = (outputBlob.size / (1024 * 1024)).toFixed(2) + " MB";
