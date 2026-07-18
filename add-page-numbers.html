@@ -487,7 +487,6 @@
             fileReader.onload = async function() {
                 globalFileArrayBuffer = this.result;
                 try {
-                    // Extract total pages metadata matrix immediately via pdf-lib structures
                     const temporaryPdfDoc = await PDFLib.PDFDocument.load(globalFileArrayBuffer);
                     totalDocumentPagesCount = temporaryPdfDoc.getPageCount();
                     
@@ -524,35 +523,30 @@
                 const nativePdfDoc = await PDFLib.PDFDocument.load(globalFileArrayBuffer);
                 const pagesArray = nativePdfDoc.getPages();
                 
-                // Embed crisp PostScript Helvetica font into active workspace context
                 const standardHelveticaFont = await nativePdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
                 
-                const fontSizeSetting = 11; // Ideal compact standard font size
-                const standardMarginOffset = 30; // Points border clearance margin
+                const fontSizeSetting = 11; 
+                const standardMarginOffset = 30; 
 
                 for (let i = 0; i < totalDocumentPagesCount; i++) {
                     labelText.innerText = `Status: Drawing Index Glyphs Page ${i + 1} of ${totalDocumentPagesCount}...`;
                     fillerBar.style.width = Math.floor(20 + ((i / totalDocumentPagesCount) * 70)) + "%";
 
-                    // Skip processing loop iteration execution for front cover designs if checked
                     if (shouldSkipFirstPage && i === 0) continue;
 
                     const currentPage = pagesArray[i];
                     const { width: pageWidth, height: pageHeight } = currentPage.getSize();
 
-                    // Generate dynamic textual template based on layout criteria configurations
                     let dynamicPaginationString = (i + 1).toString();
                     if (selectedFormat === 'of-total') {
                         dynamicPaginationString = `Page ${i + 1} of ${totalDocumentPagesCount}`;
                     }
 
-                    // Pre-compute coordinate lengths to align text segments perfectly
                     const calculatedTextWidth = standardHelveticaFont.widthOfTextAtSize(dynamicPaginationString, fontSizeSetting);
                     
                     let coordinatePositionX = 0;
                     let coordinatePositionY = 0;
 
-                    // Absolute Hardware Coordinate Bounds Mapping Engine
                     switch (selectedPlacement) {
                         case 'bottom-left':
                             coordinatePositionX = standardMarginOffset;
@@ -580,13 +574,12 @@
                             break;
                     }
 
-                    // Draw glyph markers into the current structural vector dictionary
                     currentPage.drawText(dynamicPaginationString, {
                         x: coordinatePositionX,
                         y: coordinatePositionY,
                         size: fontSizeSetting,
                         font: standardHelveticaFont,
-                        color: PDFLib.rgb(0.35, 0.38, 0.45) // Professional sleek dark slate gray contrast
+                        color: PDFLib.rgb(0.35, 0.38, 0.45) 
                     });
                 }
 
