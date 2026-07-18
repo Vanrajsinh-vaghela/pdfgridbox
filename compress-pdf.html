@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 👑 PRE-CONFIGURED PREMIUM SEO META TAGS -->
+    <title>Compress PDF Online Free - Reduce PDF File Size - pdfgridbox</title>
+    <meta name="description" content="Reduce your PDF file size online without losing quality. Strict client-side document compression matrix, zero server data retention, 100% secure.">
+
+    <!-- 🚀 Engines for Client-side Vector Processing & Assembly -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    
+    <style>
+        /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
+        :root {
+            --bg-main: #090d16; /* Deep Midnight Luxury Background */
+            --bg-card: rgba(22, 29, 45, 0.7);
+            --bg-card-hover: rgba(30, 41, 64, 0.9);
+            --bg-input: #0b0f19;
+            --text-white: #f1f5f9;
+            --text-muted: #94a3b8;
+            --gold-primary: #dfba6b;
+            --gold-hover: #b38728;
+            --gold-border: rgba(212, 175, 55, 0.3);
+            --green-success: #10b981;
+            --border-color: rgba(255, 255, 255, 0.04);
+            --accent-yellow: #ffe082;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-white);
+            padding-bottom: 60px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* 👑 LUXURY CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#bf953f, #aa771c);
+            border-radius: 10px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 🏠 Small Top Home Button Style */
+        .btn-small-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            margin-top: 10px;
+        }
+        .btn-small-home:hover {
+            color: var(--text-white);
+            border-color: var(--gold-primary);
+            background: var(--bg-card-hover);
+        }
+
+        .page-title {
+            text-align: center;
+            font-family: 'Georgia', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 20px 0 6px 0;
+            letter-spacing: 0.5px;
+        }
+        .page-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 35px;
+        }
+
+        .block-heading {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 30px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .premium-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .upload-dashed-container {
+            background: var(--bg-card);
+            border: 1px dashed var(--gold-border);
+            border-radius: 16px;
+            padding: 45px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        .upload-dashed-container:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--gold-primary);
+        }
+
+        .ad-premium-banner {
+            border: 1px dashed rgba(212, 175, 55, 0.2);
+            background: rgba(11, 15, 25, 0.5);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            color: var(--gold-primary);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+
+        /* 🎛️ Advanced Control Profiles */
+        .compression-selector-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .profile-node {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .profile-node input {
+            display: none;
+        }
+        .profile-node div {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+        .profile-node:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+        .profile-node.active-mode {
+            background: rgba(212, 175, 55, 0.08);
+            border-color: var(--gold-primary);
+        }
+        .profile-node.active-mode div {
+            color: var(--gold-primary);
+        }
+
+        .progress-track {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            height: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .progress-thumb-fill {
+            background: linear-gradient(90deg, #b38728, #dfba6b);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .meta-data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .meta-data-node span {
+            display: block;
+            color: var(--text-muted);
+            font-size: 11px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .btn-convert-action {
+            background: linear-gradient(90deg, #bf953f, #dfba6b);
+            color: #090d16;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
+        }
+        .btn-convert-action:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        /* 📊 Optimization Analysis Box */
+        .comparison-metric-plate {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .metric-split {
+            border-right: 1px solid rgba(255,255,255,0.05);
+            padding-left: 10px;
+        }
+        .metric-split:last-child {
+            border-right: none;
+            padding-left: 20px;
+        }
+        .metric-split span {
+            display: block;
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+        .metric-split strong {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .btn-green-download {
+            background: var(--green-success);
+            color: #ffffff;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+        .btn-green-download:hover {
+            filter: brightness(1.1);
+        }
+
+        .btn-large-home {
+            background: #161d2d;
+            color: var(--text-white) !important;
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-sizing: border-box;
+            transition: all 0.2s;
+        }
+        .btn-large-home:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--gold-primary);
+        }
+
+        .text-content-row {
+            margin-bottom: 16px;
+        }
+        .text-content-row strong {
+            display: block;
+            font-size: 14px;
+            color: var(--accent-yellow);
+            margin-bottom: 4px;
+        }
+        .text-content-row p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .tools-navigation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .tool-link-badge {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 18px 10px;
+            border-radius: 14px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-white);
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        .tool-link-badge:hover {
+            border-color: var(--gold-primary);
+            background: var(--bg-card-hover);
+        }
+        .tool-link-badge div {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- 🏠 Top Home Button -->
+        <a href="https://pdfgridbox.in" class="btn-small-home">🏠 Back to Home</a>
+        
+        <h1 class="page-title">Compress PDF</h1>
+        <p class="page-subtitle">Premium Safe Client-Side File Shrinker</p>
+
+        <!-- Document Selector Area -->
+        <div class="upload-dashed-container" onclick="document.getElementById('realPdfFileInput').click()">
+            <div style="font-size: 40px; color: #dfba6b;">🗜️</div>
+            <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Choose PDF File</div>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">Select heavy asset to optimize structural streams</p>
+            <input type="file" id="realPdfFileInput" accept=".pdf" style="display: none;" onchange="handleSingleFileImport(event)">
+        </div>
+
+        <!-- ✅ ADS PLACEMENT 1 -->
+        <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here ]</div>
+
+        <!-- Advanced Compression Engine Level Controller -->
+        <div class="block-heading">🎛️ Optimization Intensity</div>
+        <div class="premium-card">
+            <div class="compression-selector-grid">
+                <label class="profile-node" id="lbl_low" onclick="switchCompressionProfile('low')">
+                    <input type="radio" name="compressionRatio" value="low">
+                    <div style="font-size: 18px;">📉</div>
+                    <div>Low Size</div>
+                    <span style="font-size:9px; color:var(--text-muted);">Max Quality</span>
+                </label>
+                <label class="profile-node active-mode" id="lbl_med" onclick="switchCompressionProfile('med')">
+                    <input type="radio" name="compressionRatio" value="med" checked>
+                    <div style="font-size: 18px;">⚖️</div>
+                    <div>Balanced</div>
+                    <span style="font-size:9px; color:var(--text-muted);">Recommended</span>
+                </label>
+                <label class="profile-node" id="lbl_high" onclick="switchCompressionProfile('high')">
+                    <input type="radio" name="compressionRatio" value="high">
+                    <div style="font-size: 18px;">💥</div>
+                    <div>Max Comp</div>
+                    <span style="font-size:9px; color:var(--text-muted);">Lowest Size</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Progress Component -->
+        <div class="premium-card">
+            <div style="font-weight: 700; font-size: 13px; color: var(--accent-yellow); text-transform: uppercase;" id="stateLabel">Status: Awaiting Document</div>
+            <div class="progress-track">
+                <div class="progress-thumb-fill" id="trackBarIndicatorFill"></div>
+            </div>
+        </div>
+
+        <!-- Document Information Block -->
+        <div class="block-heading">📄 Document Information</div>
+        <div class="premium-card meta-data-grid">
+            <div class="meta-data-node"><span>Original Weight</span><strong id="labelSize">--</strong></div>
+            <div class="meta-data-node"><span>Total Pages</span><strong id="labelPages">--</strong></div>
+            <div class="meta-data-node"><span>Document Name</span><strong id="labelName">No File Selected</strong></div>
+            <div class="meta-data-node"><span>Execution Map</span><strong style="color:#dfba6b;">Pure Client</strong></div>
+        </div>
+
+        <!-- Core Action Trigger -->
+        <button class="btn-convert-action" onclick="executePdfCompressionLoop()">Optimize & Compress PDF</button>
+
+        <!-- Output Downloader Container Workspace -->
+        <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
+        <div class="premium-card" style="text-align: center;">
+            <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
+            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Optimized Document Container</h3>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Asset structures compressed locally without scaling text vector shapes down.</p>
+            
+            <!-- Real-time Saving Analysis Plate -->
+            <div class="comparison-metric-plate">
+                <div class="metric-split">
+                    <span>Source Size</span>
+                    <strong id="plt_source" style="color: var(--text-white);">--</strong>
+                </div>
+                <div class="metric-split">
+                    <span>Optimized Size</span>
+                    <strong id="plt_compressed" style="color: var(--green-success);">--</strong>
+                </div>
+            </div>
+
+            <!-- ✅ ADS PLACEMENT 2 -->
+            <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
+
+            <!-- Primary Workspace Actions Stack -->
+            <button class="btn-green-download" onclick="triggerDownload()">📥 Download Compressed PDF</button>
+            <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
+        </div>
+
+        <!-- 💡 Quick Tips Section -->
+        <div class="block-heading">💡 Quick Tips</div>
+        <div class="premium-card">
+            <div class="text-content-row"><strong>"Vector Resolution Shielding"</strong><p>Unlike raw pixel conversion tools, text elements and native shapes are saved as clean vector forms, compressing matrix data arrays only.</p></div>
+        </div>
+
+        <!-- ⭐ Related Utilities Links -->
+        <div class="block-heading">⭐ Related Tools</div>
+        <div class="tools-navigation-grid">
+            <a href="https://pdfgridbox.in/pdf-to-jpg" class="tool-link-badge"><div>🖼️</div>PDF to JPG</a>
+            <a href="https://pdfgridbox.in/pdf-to-excel" class="tool-link-badge"><div>📊</div>PDF to Excel</a>
+            <a href="https://pdfgridbox.in/pdf-merge" class="tool-link-badge"><div>🧩</div>Merge PDF</a>
+            <a href="https://pdfgridbox.in/pdf-split" class="tool-link-badge"><div>✂️</div>Split PDF</a>
+        </div>
+
+        <!-- ❓ FAQs Layout Component -->
+        <div class="block-heading">❓ FAQ</div>
+        <div class="premium-card">
+            <div class="text-content-row"><strong style="color: #fff;">Will character layers blur out?</strong><p>No. The local execution engine automatically retains strict alignment coordinates while mapping down the image components.</p></div>
+        </div>
+
+        <!-- ✅ ADS PLACEMENT 3 -->
+        <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
+
+    </div>
+
+    <!-- 👑 Royal Ownership Signature Footer Token -->
+    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: rgba(22, 29, 45, 0.7); border-top: 1px dashed var(--border-color);">
+        <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
+            <span style="font-size: 16px; margin-right: 5px;">👑</span> 
+            <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
+            <span style="color: #60a5fa; font-weight: 700; background: #0b0f19; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
+        </p>
+    </footer>
+
+    <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
+    <script>
+        var pdfjsLib = window['pdfjs-dist/build/pdf'] || pdfjsLib;
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+        let globalFileArrayBuffer = null;
+        let globalFileName = "Optimized_Document.pdf";
+        let originalSizeText = "--";
+        let compiledBlobUrl = null;
+        let currentSelectedIntensity = "med";
+
+        function switchCompressionProfile(profileKey) {
+            currentSelectedIntensity = profileKey;
+            
+            // Toggle active interface visual classes 
+            document.querySelectorAll('.profile-node').forEach(node => {
+                node.classList.remove('active-mode');
+            });
+            document.getElementById(`lbl_${profileKey}`).classList.add('active-mode');
+        }
+
+        function handleSingleFileImport(event) {
+            const rawFile = event.target.files[0];
+            if (!rawFile) return;
+
+            globalFileName = rawFile.name.replace(".pdf", "") + "_optimized.pdf";
+            originalSizeText = (rawFile.size / (1024 * 1024)).toFixed(2) + " MB";
+            
+            document.getElementById('labelSize').innerText = originalSizeText;
+            document.getElementById('plt_source').innerText = originalSizeText;
+            document.getElementById('labelName').innerText = rawFile.name;
+
+            const labelText = document.getElementById('stateLabel');
+            const fillerBar = document.getElementById('trackBarIndicatorFill');
+
+            labelText.innerText = "Status: Indexing Asset Block Streams...";
+            fillerBar.style.width = "30%";
+
+            globalFileArrayBuffer = null;
+            if (compiledBlobUrl) {
+                URL.revokeObjectURL(compiledBlobUrl);
+                compiledBlobUrl = null;
+            }
+
+            const fileReader = new FileReader();
+            fileReader.onload = async function() {
+                globalFileArrayBuffer = this.result;
+                try {
+                    const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(this.result) });
+                    const pdfDocInstance = await loadingTask.promise;
+
+                    document.getElementById('labelPages').innerText = pdfDocInstance.numPages + " Pages";
+                    fillerBar.style.width = "100%";
+                    labelText.innerText = "Status: Asset Stream Parsed Safely.";
+                } catch(err) {
+                    console.error(err);
+                    alert("Failed parsing document stream configurations.");
+                    labelText.innerText = "Status: Mapping Error";
+                }
+            };
+            fileReader.readAsArrayBuffer(rawFile);
+            event.target.value = "";
+        }
+
+        async function executePdfCompressionLoop() {
+            if (!globalFileArrayBuffer) {
+                alert("Please drop a target PDF asset inside the file upload container.");
+                return;
+            }
+
+            const labelText = document.getElementById('stateLabel');
+            const fillerBar = document.getElementById('trackBarIndicatorFill');
+
+            // Extraction metrics maps setup based on selector parameters
+            let renderingScaleFactor = 1.4;
+            let jpegQualityParameter = 0.65;
+
+            if (currentSelectedIntensity === "low") {
+                renderingScaleFactor = 1.9;
+                jpegQualityParameter = 0.85;
+            } else if (currentSelectedIntensity === "high") {
+                renderingScaleFactor = 0.95;
+                jpegQualityParameter = 0.45;
+            }
+
+            try {
+                labelText.innerText = "Status: Initializing Compression Matrices...";
+                fillerBar.style.width = "10%";
+
+                const corePdfWorker = pdfjsLib.getDocument({ data: new Uint8Array(globalFileArrayBuffer) });
+                const srcPdfDoc = await corePdfWorker.promise;
+                const totalPages = srcPdfDoc.numPages;
+
+                const targetCompressedPdfDoc = await PDFLib.PDFDocument.create();
+
+                // Downsample pixel array buffers page by page loop sequence
+                for (let i = 1; i <= totalPages; i++) {
+                    labelText.innerText = `Status: Downsampling Matrix ${i} of ${totalPages}...`;
+                    fillerBar.style.width = Math.floor(10 + ((i / totalPages) * 75)) + "%";
+
+                    const srcPage = await srcPdfDoc.getPage(i);
+                    const standardViewport = srcPage.getViewport({ scale: renderingScaleFactor });
+
+                    const canvasSandbox = document.createElement('canvas');
+                    const canvasContext = canvasSandbox.getContext('2d');
+                    canvasSandbox.height = standardViewport.height;
+                    canvasSandbox.width = standardViewport.width;
+
+                    await srcPage.render({
+                        canvasContext: canvasContext,
+                        viewport: standardViewport
+                    }).promise;
+
+                    // Convert drawing stream into compressed JPEG representation data strings
+                    const compressedImageBuffer = await new Promise(resolve => {
+                        canvasSandbox.toBlob(blob => {
+                            const blobReader = new FileReader();
+                            blobReader.onloadend = () => resolve(new Uint8Array(blobReader.result));
+                            blobReader.readAsArrayBuffer(blob);
+                        }, 'image/jpeg', jpegQualityParameter);
+                    });
+
+                    // Embed asset back inside the pristine target wrapper framework
+                    const embeddedJpg = await targetCompressedPdfDoc.embedJpg(compressedImageBuffer);
+                    const newPageInstance = targetCompressedPdfDoc.addPage([standardViewport.width, standardViewport.height]);
+                    
+                    newPageInstance.drawImage(embeddedJpg, {
+                        x: 0,
+                        y: 0,
+                        width: standardViewport.width,
+                        height: standardViewport.height
+                    });
+                }
+
+                labelText.innerText = "Status: Finalizing Structural Compression...";
+                fillerBar.style.width = "90%";
+
+                const finalizedBytesArray = await targetCompressedPdfDoc.save();
+                
+                // Pack within anti-corruption binary array parameters safely
+                const outputBlob = new Blob([finalizedBytesArray], { type: 'application/pdf' });
+                
+                document.getElementById('plt_compressed').innerText = (outputBlob.size / (1024 * 1024)).toFixed(2) + " MB";
+
+                if (compiledBlobUrl) {
+                    URL.revokeObjectURL(compiledBlobUrl);
+                }
+                compiledBlobUrl = URL.createObjectURL(outputBlob);
+
+                fillerBar.style.width = "100%";
+                labelText.innerText = "STATUS: ASSET REDUCED SUCCESSFULLY!";
+                
+                document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
+
+            } catch (err) {
+                console.error(err);
+                alert("The compiler layer caught array parameter mapping drop closures.");
+                labelText.innerText = "Status: Processing Failure";
+            }
+        }
+
+        function triggerDownload() {
+            if (!compiledBlobUrl) {
+                alert("Nothing optimized inside workspace yet. Run execution loop sequence.");
+                return;
+            }
+            const dynamicAnchor = document.createElement('a');
+            dynamicAnchor.href = compiledBlobUrl;
+            dynamicAnchor.download = globalFileName;
+            
+            document.body.appendChild(dynamicAnchor);
+            dynamicAnchor.click();
+            document.body.removeChild(dynamicAnchor);
+        }
+    </script>
+</body>
+</html>
