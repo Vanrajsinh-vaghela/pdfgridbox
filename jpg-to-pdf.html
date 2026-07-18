@@ -38,7 +38,7 @@
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-main);
             color: var(--text-white);
-            padding-bottom: 60px;
+            padding-bottom: 0px;
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -293,13 +293,16 @@
         }
 
         .text-content-row {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+        }
+        .text-content-row:last-child {
+            margin-bottom: 0;
         }
         .text-content-row strong {
             display: block;
             font-size: 14px;
             color: var(--accent-yellow);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         .text-content-row p {
             margin: 0;
@@ -333,6 +336,49 @@
         .tool-link-badge div {
             font-size: 24px;
             margin-bottom: 6px;
+        }
+
+        /* 👑 LUXURY COMPLIANCE FOOTER STYLES */
+        .luxury-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background-color: rgba(11, 15, 25, 0.8);
+            border-top: 1px dashed var(--gold-border);
+            backdrop-filter: blur(10px);
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+        .footer-credits {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .owner-badge {
+            color: #60a5fa;
+            font-weight: 700;
+            background: #0b0f19;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            display: inline-block;
+            margin-top: 4px;
         }
     </style>
 </head>
@@ -379,7 +425,7 @@
         <div class="premium-card">
             <div class="config-inputs-grid">
                 <div>
-                    <div style="font-size:12px; color: var(--text-muted);">Page Layout Size:</div>
+                    <div style="font-size:12px; color: var(--text-muted); margin-bottom: 2px;">Page Layout Size:</div>
                     <select class="config-select-field" id="layoutSizeSelect" onchange="invalidateActiveWorkspace()">
                         <option value="fit">🖼️ Fit Page To Original Image Size</option>
                         <option value="a4">📐 Standard A4 Document Layout</option>
@@ -410,7 +456,18 @@
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"Zero Server Footprint"</strong><p>Images transform straight to high-fidelity container streams using internal browser memory logic. Ultimate security for scans and identities.</p></div>
+            <div class="text-content-row">
+                <strong>"Zero Server Footprint Promise"</strong>
+                <p>Images transform straight to high-fidelity container streams using internal browser memory logic. No external server upload means ultimate data leakage protection for your scanned passport pages, ID proofs, or official receipts.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Intelligent Aspect Ratio Mapping</strong>
+                <p>When selecting the 'Fit Page To Original' mode, the rendering module dynamically reads the image header dimension matrix. This guarantees that portrait photographs or ultra-wide horizontal landscape infographics never get awkwardly stretched.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Multi-Image Sequence Stitching</strong>
+                <p>You can upload a single image or select up to dozens of pictures simultaneously. The background system structures each file in the order it was selected, compiling them into a cleanly indexed, multi-page document portfolio.</p>
+            </div>
         </div>
 
         <!-- ⭐ Related Utilities Links -->
@@ -425,7 +482,18 @@
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Can I mix PNG and JPG files?</strong><p>Yes. The execution manager handles both types interchangeably, auto-detecting image stream signatures locally.</p></div>
+            <div class="text-content-row">
+                <strong>Can I mix PNG and JPG graphics interchange files together?</strong>
+                <p>Yes. The client engine handles both compression signatures interchangeably. It parses the binary header blocks locally to inject PNG nodes or raw JPEG bitstreams smoothly into the destination page layout object layer.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Will changing layout style compress the resolution clarity fields?</strong>
+                <p>Not at all. The Standard A4 layout applies mathematical vector downscaling matrix values strictly to coordinate frameworks. The pixel density fields inside your source files remain completely uncompressed and high definition.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Why is client-side local conversion safer than cloud tools?</strong>
+                <p>Traditional converters force you to upload graphic files into external database repositories, exposing you to privacy risks. This module operates strictly inside your browser RAM, guaranteeing absolute secure hardware data isolation.</p>
+            </div>
         </div>
 
         <!-- ✅ ADS PLACEMENT 3 -->
@@ -433,13 +501,18 @@
 
     </div>
 
-    <!-- 👑 Royal Ownership Signature Footer Token -->
-    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: rgba(22, 29, 45, 0.7); border-top: 1px dashed var(--border-color);">
-        <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
-            <span style="font-size: 16px; margin-right: 5px;">👑</span> 
-            <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
-            <span style="color: #60a5fa; font-weight: 700; background: #0b0f19; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
-        </p>
+    <!-- 👑 Royal Unified Ownership Compliance Footer -->
+    <footer class="luxury-footer">
+        <div class="footer-links">
+            <a href="https://pdfgridbox.in/about">About Us</a>
+            <a href="https://pdfgridbox.in/contact">Contact Us</a>
+            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
+            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+        </div>
+        <div class="footer-credits">
+            &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
+            Designed & Managed by <span class="owner-badge">Vanrajsinh Vaghela</span>
+        </div>
     </footer>
 
     <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
