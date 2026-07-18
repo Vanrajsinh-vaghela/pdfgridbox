@@ -38,7 +38,7 @@
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-main);
             color: var(--text-white);
-            padding-bottom: 60px;
+            padding-bottom: 0px;
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -281,13 +281,16 @@
         }
 
         .text-content-row {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+        }
+        .text-content-row:last-child {
+            margin-bottom: 0;
         }
         .text-content-row strong {
             display: block;
             font-size: 14px;
             color: var(--accent-yellow);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         .text-content-row p {
             margin: 0;
@@ -322,6 +325,49 @@
             font-size: 24px;
             margin-bottom: 6px;
         }
+
+        /* 👑 LUXURY COMPLIANCE FOOTER STYLES */
+        .luxury-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background-color: rgba(11, 15, 25, 0.8);
+            border-top: 1px dashed var(--gold-border);
+            backdrop-filter: blur(10px);
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+        .footer-credits {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .owner-badge {
+            color: #60a5fa;
+            font-weight: 700;
+            background: #0b0f19;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            display: inline-block;
+            margin-top: 4px;
+        }
     </style>
 </head>
 <body>
@@ -332,7 +378,7 @@
         <a href="https://pdfgridbox.in" class="btn-small-home">🏠 Back to Home</a>
         
         <h1 class="page-title">PDF to JPG</h1>
-        <p class="page-subtitle">Ultra HD Client-Side Page Image Extractor</p>
+        <p class="page-subtitle">100% Private Client-Side HD Image Extraction</p>
 
         <!-- Document Selector Area -->
         <div class="upload-dashed-container" onclick="document.getElementById('realPdfFileInput').click()">
@@ -388,7 +434,18 @@
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"2.0x HD Resolution Scale"</strong><p>Our engine applies a double-density vector pixel map layer during rendering to prevent text blurriness, giving you print-quality JPEG images perfectly.</p></div>
+            <div class="text-content-row">
+                <strong>Advanced 2.0x Double Density Render Engine</strong>
+                <p>Our optimization core enforces a 2.0x high-density pixel sampling matrix. Instead of mapping loose standard resolution layouts, this double-density algorithm renders sharp image nodes, preserving absolute micro-text legibility cleanly.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Zero Server Latency Asset Buffering</strong>
+                <p>Because operations process entirely within your browser engine context, heavy graphics compilation processes bypass slow external network upload pipelines, producing fast extractions inside local storage bounds.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Absolute Secure Sandbox Guard</strong>
+                <p>Highly sensitive legal forms, private document records, and corporate blueprints are processed in standalone browser memory space. The processing loops are completely safe from cloud tracking layers.</p>
+            </div>
         </div>
 
         <!-- ⭐ Related Utilities Links -->
@@ -403,7 +460,18 @@
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Are my image outputs tracked?</strong><p>Not at all. The rendering loop processes image stream vectors entirely inside the safe sandbox boundaries of your browser memory canvas.</p></div>
+            <div class="text-content-row">
+                <strong>Will my confidential text streams or images get cached on external servers?</strong>
+                <p>Absolutely not. All extraction canvas blocks process data through high-speed browser logic routines natively. No data structures leave your system frame, providing 100% processing privacy.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Why does the output display individual separate page cards instead of a zip folder?</strong>
+                <p>Direct granular page downloads offer immediate access to precisely targeted pages without third-party extraction tools, keeping workflow loops minimal and fast on mobile platforms.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Can I process heavy books or documents consisting of many vector pages?</strong>
+                <p>Yes. The processing execution speed is governed exclusively by your device's active RAM capacity and processor hardware. The engine smoothly slices long documents into separate high-res image nodes.</p>
+            </div>
         </div>
 
         <!-- ✅ ADS PLACEMENT 3 -->
@@ -411,13 +479,18 @@
 
     </div>
 
-    <!-- 👑 Royal Ownership Signature Footer Token -->
-    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: rgba(22, 29, 45, 0.7); border-top: 1px dashed var(--border-color);">
-        <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
-            <span style="font-size: 16px; margin-right: 5px;">👑</span> 
-            <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
-            <span style="color: #60a5fa; font-weight: 700; background: #0b0f19; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
-        </p>
+    <!-- 👑 Royal Unified Ownership Compliance Footer -->
+    <footer class="luxury-footer">
+        <div class="footer-links">
+            <a href="https://pdfgridbox.in/about">About Us</a>
+            <a href="https://pdfgridbox.in/contact">Contact Us</a>
+            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
+            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+        </div>
+        <div class="footer-credits">
+            &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
+            Designed & Managed by <span class="owner-badge">Vanrajsinh Vaghela</span>
+        </div>
     </footer>
 
     <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
@@ -481,7 +554,7 @@
             
             clearGridWorkspaceCache();
             labelText.innerText = "Status: Starting Image Grid Initialization...";
-            fillerBar.style.width = "10%";
+            fillerBar.style.width = "10%;";
 
             try {
                 const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(globalFileArrayBuffer) });
