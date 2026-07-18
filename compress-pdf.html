@@ -244,21 +244,46 @@
             font-weight: 700;
         }
 
-        /* 👁️ PERMANENTLY VISIBLE LIVE CANVAS PREVIEW WORKSPACE */
-        .preview-canvas-wrapper {
+        /* 🎞️ PREMIUM MULTI-PAGE GALLERY WORKSPACE (SCROLLABLE & STACKED) */
+        .preview-gallery-wrapper {
             width: 100%;
-            background: #ffffff;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            margin-top: 10px;
+            max-height: 480px;
+            background: var(--bg-input);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--gold-border);
+            overflow-y: auto;
             display: none;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
         }
-        .preview-canvas-wrapper canvas {
+        .preview-page-node {
+            width: 100%;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        .preview-page-node:last-child {
+            margin-bottom: 0;
+        }
+        .preview-node-label {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--gold-primary);
+            background: rgba(255, 224, 130, 0.05);
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .preview-page-node img {
             width: 100%;
             height: auto;
+            border-radius: 6px;
             display: block;
-            margin: 0 auto;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.04);
         }
 
         .btn-green-download {
@@ -386,15 +411,15 @@
             </div>
         </div>
 
-        <!-- 👁️ PERSISTENT LIVE PREVIEW CONTAINER OPTION -->
-        <div class="block-heading">👁️ Live Document Preview</div>
+        <!-- 👁️ PERMANENT MULTI-PAGE GALLERY PREVIEW INTERFACE BOX -->
+        <div class="block-heading">👁️ Full Document Quality Gallery</div>
         <div class="premium-card" style="text-align: center;">
-            <div id="previewPlaceholder" style="color: var(--text-muted); padding: 30px 0; font-size: 13px;">
-                <div style="font-size: 28px; margin-bottom: 8px;">👁️</div>
-                Awaiting asset import to initialize live canvas render window.
+            <div id="previewPlaceholder" style="color: var(--text-muted); padding: 35px 0; font-size: 13px;">
+                <div style="font-size: 28px; margin-bottom: 8px;">🎞️</div>
+                Awaiting asset optimization to initialize all-pages matrix preview.
             </div>
-            <div class="preview-canvas-wrapper" id="livePreviewWrapper">
-                <canvas id="livePreviewCanvas"></canvas>
+            <div class="preview-gallery-wrapper" id="liveGalleryWrapperAnchor">
+                <!-- Dynamically processed multi-page items will stream here -->
             </div>
         </div>
 
@@ -511,11 +536,11 @@
             labelText.innerText = "Status: Indexing Asset Block Streams...";
             fillerBar.style.width = "30%";
 
-            // Reset preview viewports cleanly
+            // Reset workspace placeholders and gallery completely
             document.getElementById('previewPlaceholder').style.display = "block";
-            document.getElementById('livePreviewWrapper').style.display = "none";
+            document.getElementById('liveGalleryWrapperAnchor').style.display = "none";
+            document.getElementById('liveGalleryWrapperAnchor').innerHTML = "";
 
-            globalFileArrayBuffer = null;
             if (compiledBlobUrl) {
                 URL.revokeObjectURL(compiledBlobUrl);
                 compiledBlobUrl = null;
@@ -529,24 +554,6 @@
                     const pdfDocInstance = await loadingTask.promise;
 
                     document.getElementById('labelPages').innerText = pdfDocInstance.numPages + " Pages";
-                    
-                    // 📸 INSTANTLY RENDER LIVE PREVIEW OF PAGE 1 ON UPLOAD
-                    const targetPage = await pdfDocInstance.getPage(1);
-                    const standardViewport = targetPage.getViewport({ scale: 1.0 });
-                    const previewCanvas = document.getElementById('livePreviewCanvas');
-                    const previewCtx = previewCanvas.getContext('2d');
-
-                    previewCanvas.width = standardViewport.width;
-                    previewCanvas.height = standardViewport.height;
-
-                    await targetPage.render({
-                        canvasContext: previewCtx,
-                        viewport: standardViewport
-                    }).promise;
-
-                    document.getElementById('previewPlaceholder').style.display = "none";
-                    document.getElementById('livePreviewWrapper').style.display = "block";
-
                     fillerBar.style.width = "100%";
                     labelText.innerText = "Status: Asset Stream Parsed Safely.";
                 } catch(err) {
@@ -567,6 +574,10 @@
 
             const labelText = document.getElementById('stateLabel');
             const fillerBar = document.getElementById('trackBarIndicatorFill');
+            const galleryWrapper = document.getElementById('liveGalleryWrapperAnchor');
+            
+            // Wipe out older preview nodes securely
+            galleryWrapper.innerHTML = ""; 
 
             const sliderPercentage = document.getElementById('compSlider').value;
             const jpegQualityParameter = sliderPercentage / 100;
@@ -585,6 +596,7 @@
                 const canvasSandbox = document.createElement('canvas');
                 const canvasContext = canvasSandbox.getContext('2d');
 
+                // Downsample pixel array buffers page by page loop sequence
                 for (let i = 1; i <= totalPages; i++) {
                     labelText.innerText = `Status: Processing Page ${i} of ${totalPages}...`;
                     fillerBar.style.width = Math.floor(10 + ((i / totalPages) * 75)) + "%";
@@ -609,7 +621,7 @@
                     const compressedImageBuffer = await new Promise((resolve, reject) => {
                         canvasSandbox.toBlob(blob => {
                             if(!blob) {
-                                reject(new Error("Canvas initialization mapping layer failed."));
+                                reject(new Error("Canvas layout initialization failure."));
                                 return;
                             }
                             const blobReader = new FileReader();
@@ -617,6 +629,17 @@
                             blobReader.readAsArrayBuffer(blob);
                         }, 'image/jpeg', jpegQualityParameter);
                     });
+
+                    // 🎞️ GENERATE & APPEND CRYSTAL-CLEAR COMPRESSED PREVIEW IMAGES FOR ALL PAGES IN LINE
+                    const compressedPageDataUrl = canvasSandbox.toDataURL('image/jpeg', jpegQualityParameter);
+                    
+                    const pageNodeElement = document.createElement('div');
+                    pageNodeElement.className = "preview-page-node";
+                    pageNodeElement.innerHTML = `
+                        <span class="preview-node-label">Page ${i} Compressed Quality</span>
+                        <img src="${compressedPageDataUrl}" alt="Page ${i} Preview">
+                    `;
+                    galleryWrapper.appendChild(pageNodeElement);
 
                     const embeddedJpg = await targetCompressedPdfDoc.embedJpg(compressedImageBuffer);
                     
@@ -644,8 +667,12 @@
                 }
                 compiledBlobUrl = URL.createObjectURL(outputBlob);
 
+                // 🛠️ RENDER ALL PAGES LIVE WITHIN GALLERY FRAME SEAMLESSLY
+                document.getElementById('previewPlaceholder').style.display = "none";
+                galleryWrapper.style.display = "block";
+
                 fillerBar.style.width = "100%";
-                labelText.innerText = "STATUS: ASSET REDUCED SUCCESSFULLY!";
+                labelText.innerText = "STATUS: ALL PAGES OPTIMIZED & GALLERY READY!";
                 
                 document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
 
