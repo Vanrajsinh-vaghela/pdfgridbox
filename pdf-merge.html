@@ -36,13 +36,35 @@
             padding: 20px;
         }
 
+        /* ✨ Small Top Home Button Style */
+        .btn-small-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            margin-top: 10px;
+        }
+        .btn-small-home:hover {
+            color: var(--text-white);
+            border-color: var(--gold-primary);
+            background: #171e2e;
+        }
+
         .page-title {
             text-align: center;
             font-family: 'Georgia', serif;
             font-size: 34px;
             font-weight: 700;
             color: var(--text-white);
-            margin: 25px 0 6px 0;
+            margin: 20px 0 6px 0;
             letter-spacing: 0.5px;
         }
         .page-subtitle {
@@ -299,6 +321,9 @@
 <body>
 
     <div class="container">
+        
+        <!-- 🏠 Top Small Back to Home Button -->
+        <a href="https://pdfgridbox.in" class="btn-small-home">🏠 Back to Home</a>
         
         <h1 class="page-title">Merge PDF Files</h1>
         <p class="page-subtitle">Secure Client-Side Cloud Processing</p>
