@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rotate PDF Pages - pdfgridbox</title>
+    <title>Advanced PDF Rotate Engine - pdfgridbox</title>
     <!-- 🚀 Heavy Engines for Client-side PDF Processing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
@@ -173,6 +173,26 @@
             margin-bottom: 4px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+
+        /* Professional Live Dynamic Preview Layout */
+        .preview-box-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            min-height: 120px;
+            position: relative;
+        }
+        .visual-preview-icon {
+            font-size: 48px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: rotate(0deg);
+            display: inline-block;
         }
 
         /* Rotation Parameters Layout Config */
@@ -387,27 +407,36 @@
         <!-- 🔄 Rotation Configurations Panel -->
         <div class="block-heading">⚙️ Rotation Parameters</div>
         <div class="premium-card">
+            
+            <!-- Professional Dynamic Visual Rotation Preview Box -->
+            <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 6px;">Live Orientation Angle Icon Preview:</div>
+            <div class="preview-box-wrapper">
+                <div class="visual-preview-icon" id="previewIconNode">📄</div>
+            </div>
+
             <div class="config-inputs-grid">
                 <div>
-                    <div style="font-size:12px; color: var(--text-muted); margin-bottom:6px;">Select Rotation Angle:</div>
-                    <select class="config-select-field" id="rotationAngleSelect" onchange="invalidateActiveWorkspace()">
-                        <option value="90">90° Clockwise</option>
-                        <option value="180">180° Flip (Upside Down)</option>
-                        <option value="270">270° Counter-Clockwise</option>
+                    <div style="font-size:12px; color: var(--text-muted); margin-bottom:6px;">Select Rotation Direction & Angle:</div>
+                    <select class="config-select-field" id="rotationAngleSelect" onchange="syncLivePreviewIconOrientation()">
+                        <option value="90">⤵️ 90° Clockwise</option>
+                        <option value="180">🙃 180° Flip (Upside Down)</option>
+                        <option value="270">⤴️ 270° Counter-Clockwise</option>
+                        <option value="0">🔁 0° Reset Rotation</option>
                     </select>
                 </div>
+                
                 <div style="margin-top: 10px;">
-                    <div style="font-size:12px; color: var(--text-muted); margin-bottom:6px;">Apply Target Selection:</div>
+                    <div style="font-size:12px; color: var(--text-muted); margin-bottom:6px;">Apply Target Dropdown Configuration (Apply To):</div>
                     <select class="config-select-field" id="pageTargetModeSelect" onchange="togglePageRangeFieldVisibility()">
-                        <option value="all">All Pages</option>
-                        <option value="odd">Odd Pages Only</option>
-                        <option value="even">Even Pages Only</option>
-                        <option value="range">Specific Page / Range</option>
+                        <option value="all">📄 All Pages</option>
+                        <option value="range">📑 Selected Pages / Range</option>
+                        <option value="odd">📄 Rotate Odd Pages Only</option>
+                        <option value="even">📄 Rotate Even Pages Only</option>
                     </select>
                     
                     <div id="customPageRangeContainer" style="display: none;">
                         <input type="text" class="config-text-input" id="pageRangeTextInput" placeholder="e.g., 1, 3, 5-8" onchange="invalidateActiveWorkspace()">
-                        <span style="font-size: 11px; color: var(--text-muted); display: block; margin-top: 4px;">Enter page numbers separated by commas or ranges (e.g., 1-5).</span>
+                        <span style="font-size: 11px; color: var(--text-muted); display: block; margin-top: 4px;">Enter page allocations separated by commas or dash ranges (e.g., 1-5).</span>
                     </div>
                 </div>
             </div>
@@ -428,14 +457,14 @@
 
             <!-- Primary Buttons Stacked Vertically as Big Elements -->
             <button class="btn-green-download" onclick="triggerDownload()">📥 Download Rotated PDF</button>
-            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Rotated PDF</button>
+            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Before Apply / Download</button>
             <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
         </div>
 
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"Selective Rotation"</strong><p>Use the specific range feature if you only want to turn scanned horizontal pages vertical without disrupting portrait orientations.</p></div>
+            <div class="text-content-row"><strong>"Selective Rotation Engine"</strong><p>Use the specific range option if you only want to correct targeted sheets without modifying standard vertical portrait alignments.</p></div>
         </div>
 
         <!-- ⭐ Related Utilities Links -->
@@ -450,7 +479,7 @@
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Will rotation affect page quality?</strong><p>No. Operations rewrite layout matrix markers inside the structural metadata arrays directly. Zero raster degradation happens.</p></div>
+            <div class="text-content-row"><strong style="color: #fff;">Will rotation affect layout vectors?</strong><p>No. Calculations safely rewrite underlying orientation flags arrays directly. Asset resolution remains completely intact.</p></div>
         </div>
 
         <!-- ✅ ADS PLACEMENT 3 -->
@@ -476,6 +505,12 @@
         let globalFileName = "Rotated_Document.pdf";
         let totalDocumentPagesCount = 0;
         let compiledBlobUrl = null;
+
+        function syncLivePreviewIconOrientation() {
+            const angleVal = document.getElementById('rotationAngleSelect').value;
+            document.getElementById('previewIconNode').style.transform = `rotate(${angleVal}deg)`;
+            invalidateActiveWorkspace();
+        }
 
         function togglePageRangeFieldVisibility() {
             const mode = document.getElementById('pageTargetModeSelect').value;
@@ -574,7 +609,7 @@
             const labelText = document.getElementById('stateLabel');
             const fillerBar = document.getElementById('trackBarIndicatorFill');
             
-            const selectedAngleAddition = parseInt(document.getElementById('rotationAngleSelect').value) || 90;
+            const selectedAngleSetting = parseInt(document.getElementById('rotationAngleSelect').value);
             const currentMode = document.getElementById('pageTargetModeSelect').value;
 
             try {
@@ -616,11 +651,15 @@
                 // Apply rotation angles safely in loops 
                 for (let targetPageIdx of operatingTargetsList) {
                     const targetPageNode = allDocPages[targetPageIdx];
-                    const existingAngle = targetPageNode.getRotation().angle || 0;
                     
-                    // Normalize degrees parameters boundary mapping conditions logic
-                    const aggregatedAngleNormalized = (existingAngle + selectedAngleAddition) % 360;
-                    targetPageNode.setRotation(PDFLib.degrees(aggregatedAngleNormalized));
+                    if (selectedAngleSetting === 0) {
+                        // Reset condition flag rule execution
+                        targetPageNode.setRotation(PDFLib.degrees(0));
+                    } else {
+                        const existingAngle = targetPageNode.getRotation().angle || 0;
+                        const aggregatedAngleNormalized = (existingAngle + selectedAngleSetting) % 360;
+                        targetPageNode.setRotation(PDFLib.degrees(aggregatedAngleNormalized));
+                    }
                 }
 
                 const finalizedBytesArray = await srcPdfDoc.save();
@@ -658,7 +697,7 @@
 
         function triggerPreview() {
             if (!compiledBlobUrl) {
-                alert("Please execute rotation calculations modules sequence first to create preview frames streams.");
+                alert("Please click 'Apply Rotation Instantly' first to compile the changes for an accurate preview view.");
                 return;
             }
             window.open(compiledBlobUrl, '_blank');
