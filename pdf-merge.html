@@ -4,30 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merge PDF Files - pdfgridbox</title>
+    
     <!-- 🚀 Heavy Engines for Client-side PDF Processing & Previews -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    
     <style>
+        /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
         :root {
-            --bg-main: #0b0f19;
-            --bg-card: #131926;
-            --bg-input: #090d16;
-            --text-white: #ffffff;
+            --bg-main: #090d16; /* Deep Midnight Luxury Background */
+            --bg-card: rgba(22, 29, 45, 0.7);
+            --bg-card-hover: rgba(30, 41, 64, 0.9);
+            --bg-input: #0b0f19;
+            --text-white: #f1f5f9;
             --text-muted: #94a3b8;
-            --gold-primary: #d97706;
-            --gold-hover: #b45309;
-            --gold-border: #b5a46d;
+            --gold-primary: #dfba6b;
+            --gold-hover: #b38728;
+            --gold-border: rgba(212, 175, 55, 0.3);
             --green-success: #10b981;
-            --border-color: #1e293b;
+            --border-color: rgba(255, 255, 255, 0.04);
+            --accent-yellow: #ffe082;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-main);
             color: var(--text-white);
-            margin: 0;
-            padding: 0;
+            padding-bottom: 60px;
             -webkit-tap-highlight-color: transparent;
+        }
+
+        /* 👑 LUXURY CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#bf953f, #aa771c);
+            border-radius: 10px;
         }
 
         .container {
@@ -36,6 +58,7 @@
             padding: 20px;
         }
 
+        /* ✨ Small Top Home Button Style */
         .btn-small-home {
             display: inline-flex;
             align-items: center;
@@ -44,7 +67,7 @@
             text-decoration: none;
             font-size: 13px;
             font-weight: 600;
-            background: rgba(30, 41, 59, 0.5);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border-color);
             padding: 6px 14px;
             border-radius: 8px;
@@ -54,7 +77,7 @@
         .btn-small-home:hover {
             color: var(--text-white);
             border-color: var(--gold-primary);
-            background: #171e2e;
+            background: var(--bg-card-hover);
         }
 
         .page-title {
@@ -62,7 +85,7 @@
             font-family: 'Georgia', serif;
             font-size: 34px;
             font-weight: 700;
-            color: var(--text-white);
+            color: #ffffff;
             margin: 20px 0 6px 0;
             letter-spacing: 0.5px;
         }
@@ -79,7 +102,7 @@
         .block-heading {
             font-size: 16px;
             font-weight: 700;
-            color: var(--text-white);
+            color: #ffffff;
             margin: 30px 0 15px 0;
             display: flex;
             align-items: center;
@@ -91,8 +114,9 @@
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             margin-bottom: 20px;
+            backdrop-filter: blur(10px);
         }
 
         .upload-dashed-container {
@@ -102,20 +126,21 @@
             padding: 45px 20px;
             text-align: center;
             cursor: pointer;
-            transition: background 0.2s;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            transition: all 0.2s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
         .upload-dashed-container:hover {
-            background: #171e2e;
+            background: var(--bg-card-hover);
+            border-color: var(--gold-primary);
         }
 
         .ad-premium-banner {
-            border: 1px dashed rgba(181, 164, 109, 0.4);
-            background: rgba(19, 25, 38, 0.6);
+            border: 1px dashed rgba(212, 175, 55, 0.2);
+            background: rgba(11, 15, 25, 0.5);
             border-radius: 12px;
             padding: 16px;
             text-align: center;
-            color: var(--gold-border);
+            color: var(--gold-primary);
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 1px;
@@ -132,10 +157,10 @@
             margin-top: 10px;
         }
         .progress-thumb-fill {
-            background: var(--gold-primary);
+            background: linear-gradient(90deg, #b38728, #dfba6b);
             height: 100%;
             width: 0%;
-            transition: width 0.1s linear;
+            transition: width 0.3s;
         }
 
         .meta-data-grid {
@@ -144,6 +169,7 @@
             gap: 20px;
         }
 
+        /* 📸 Live PDF Preview Grid Layout */
         .preview-thumbnails-matrix {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -176,9 +202,9 @@
             height: auto;
             min-height: 110px;
             border-radius: 6px;
-            background: #1e293b;
+            background: #121824;
             display: block;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
         .thumbnail-caption {
             font-size: 12px;
@@ -190,9 +216,10 @@
             text-overflow: ellipsis;
         }
 
+        /* Action Controls Layout Elements */
         .btn-gold-action {
-            background: var(--gold-primary);
-            color: var(--bg-main);
+            background: linear-gradient(90deg, #b38728, #dfba6b);
+            color: #090d16;
             border: none;
             padding: 16px;
             border-radius: 12px;
@@ -203,15 +230,17 @@
             width: 100%;
             cursor: pointer;
             margin-top: 10px;
-            transition: background 0.2s;
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
         }
         .btn-gold-action:hover {
-            background: var(--gold-hover);
+            transform: translateY(-2px);
+            filter: brightness(1.1);
         }
 
         .btn-green-download {
             background: var(--green-success);
-            color: var(--text-white);
+            color: #ffffff;
             border: none;
             padding: 16px;
             border-radius: 12px;
@@ -225,12 +254,16 @@
             justify-content: center;
             gap: 8px;
             text-transform: uppercase;
+            transition: all 0.2s;
+        }
+        .btn-green-download:hover {
+            filter: brightness(1.1);
         }
 
         .btn-outline-preview {
             background: transparent;
-            color: #ffe082;
-            border: 1px solid #ffe082;
+            color: var(--accent-yellow);
+            border: 1px solid var(--accent-yellow);
             padding: 16px;
             border-radius: 12px;
             font-size: 14px;
@@ -243,12 +276,17 @@
             gap: 8px;
             text-transform: uppercase;
             margin-bottom: 12px;
+            transition: all 0.2s;
+        }
+        .btn-outline-preview:hover {
+            background: rgba(255, 224, 130, 0.1);
         }
 
+        /* 🏠 Bada Premium Home Button */
         .btn-large-home {
-            background: #1e293b;
+            background: #161d2d;
             color: var(--text-white) !important;
-            border: 1px solid #334155;
+            border: 1px solid var(--border-color);
             padding: 16px;
             border-radius: 12px;
             font-size: 14px;
@@ -262,13 +300,14 @@
             text-transform: uppercase;
             text-decoration: none;
             box-sizing: border-box;
-            transition: background 0.2s;
+            transition: all 0.2s;
         }
         .btn-large-home:hover {
-            background: #2d3748;
+            background: var(--bg-card-hover);
             border-color: var(--gold-primary);
         }
 
+        /* ⭐ Related Tools Navigation Grid */
         .tools-navigation-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -289,7 +328,7 @@
         }
         .tool-link-badge:hover {
             border-color: var(--gold-primary);
-            background: #171e2e;
+            background: var(--bg-card-hover);
         }
         .tool-link-badge div {
             font-size: 24px;
@@ -302,7 +341,7 @@
         .text-content-row strong {
             display: block;
             font-size: 14px;
-            color: #ffe082;
+            color: var(--accent-yellow);
             margin-bottom: 4px;
         }
         .text-content-row p {
@@ -317,11 +356,13 @@
 
     <div class="container">
         
+        <!-- 🏠 Top Small Back to Home Button -->
         <a href="https://pdfgridbox.in" class="btn-small-home">🏠 Back to Home</a>
         
         <h1 class="page-title">Merge PDF Files</h1>
         <p class="page-subtitle">Secure Client-Side Cloud Processing</p>
 
+        <!-- Document Selector Area -->
         <div class="upload-dashed-container" onclick="document.getElementById('realMergeFileInput').click()">
             <div style="font-size: 40px; color: #10b981;">🧩</div>
             <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Select Multiple PDF Files</div>
@@ -329,11 +370,12 @@
             <input type="file" id="realMergeFileInput" accept=".pdf" multiple style="display: none;" onchange="handleMultipleFileImport(event)">
         </div>
 
+        <!-- ✅ ADS PLACEMENT 1 -->
         <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here to unlock preview ]</div>
 
         <!-- Progress Component -->
         <div class="premium-card">
-            <div style="font-weight: 700; font-size: 13px; color: #ffe082; text-transform: uppercase;" id="stateLabel">Status: Awaiting Files</div>
+            <div style="font-weight: 700; font-size: 13px; color: var(--accent-yellow); text-transform: uppercase;" id="stateLabel">Status: Awaiting Files</div>
             <div class="progress-track">
                 <div class="progress-thumb-fill" id="trackBarIndicatorFill"></div>
             </div>
@@ -348,7 +390,7 @@
             <div style="display:flex; flex-direction:column;"><span style="color:var(--text-muted); font-size:11px; text-transform:uppercase;">Type</span><strong style="color:#10b981;">Local Client</strong></div>
         </div>
 
-        <!-- Live PDF Preview Workspace Grid Frame -->
+        <!-- 📸 Live PDF Preview Workspace Grid Frame -->
         <div class="block-heading">📸 Live Pages Preview Matrix</div>
         <div class="premium-card">
             <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 15px 0;">Select the pages you want to include in the final merged document file:</p>
@@ -362,24 +404,28 @@
         <button class="btn-gold-action" onclick="executeRealClientMerge()">Merge PDFs Instantly</button>
 
         <!-- Output Downloader Container Workspace -->
-        <div class="block-heading">✨ Output Workspace</div>
+        <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
         <div class="premium-card" style="text-align: center;">
             <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
-            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Merged PDF is Ready!</h3>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Selected page items have been processed inside your safe dashboard frame.</p>
+            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Merged PDF Workspace</h3>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Compile your layout settings above, then download or preview securely.</p>
             
+            <!-- ✅ ADS PLACEMENT 2 -->
             <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
 
-            <button class="btn-green-download" onclick="executeRealClientMerge()">📥 Download Merged PDF</button>
-            <button class="btn-outline-preview" onclick="alert('Opening Fullscreen Document Preview Context...')">👁️ Preview Merged PDF</button>
+            <!-- Primary Buttons Stacked Vertically as Big Elements -->
+            <button class="btn-green-download" onclick="triggerDownload()">📥 Download Merged PDF</button>
+            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Merged PDF</button>
             <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
         </div>
 
+        <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
             <div class="text-content-row"><strong>"Exclude Pages Easily"</strong><p>Uncheck any individual page card thumbnail up in the preview area to remove it from the final merged file compile.</p></div>
         </div>
 
+        <!-- ⭐ Related Utilities Links -->
         <div class="block-heading">⭐ Related Tools</div>
         <div class="tools-navigation-grid">
             <a href="https://pdfgridbox.in/pdf-compress" class="tool-link-badge"><div>🗜️</div>Compress PDF</a>
@@ -388,20 +434,23 @@
             <a href="https://pdfgridbox.in/pdf-protect" class="tool-link-badge"><div>🔒</div>Protect PDF</a>
         </div>
 
+        <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
             <div class="text-content-row"><strong style="color: #fff;">Is my data secure?</strong><p>Completely. The conversion engine compiles file buffers using local script architecture. No content ever drops into servers.</p></div>
         </div>
 
+        <!-- ✅ ADS PLACEMENT 3 -->
         <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
 
     </div>
 
-    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: #131926; border-top: 1px dashed var(--border-color);">
+    <!-- 👑 Royal Ownership Signature Footer Token -->
+    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: rgba(22, 29, 45, 0.7); border-top: 1px dashed var(--border-color);">
         <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
             <span style="font-size: 16px; margin-right: 5px;">👑</span> 
             <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
-            <span style="color: #60a5fa; font-weight: 700; background: #1e293b; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
+            <span style="color: #60a5fa; font-weight: 700; background: #0b0f19; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
         </p>
     </footer>
 
@@ -412,6 +461,7 @@
 
         let filesMemoryQueue = [];
         let totalRenderedPagesCount = 0;
+        let compiledBlobUrl = null; // Staging reference for controlled download hooks
 
         async function handleMultipleFileImport(event) {
             const rawFiles = event.target.files;
@@ -421,22 +471,22 @@
             const fillerBar = document.getElementById('trackBarIndicatorFill');
             const matrixGrid = document.getElementById('thumbnailMatrixView');
 
-            labelText.innerText = "Status: Inspecting Byte Streams (0%)";
-            fillerBar.style.width = "5%";
+            labelText.innerText = "Status: Inspecting Byte Streams...";
+            fillerBar.style.width = "20%";
             
             matrixGrid.innerHTML = '<p style="color: var(--text-muted); font-size: 13px; grid-column: span 2; text-align: center; padding: 20px 0; width: 100%;">Generating live thumbnails layout...</p>'; 
             filesMemoryQueue = [];
             totalRenderedPagesCount = 0;
             let combinedBytesSize = 0;
+            
+            if (compiledBlobUrl) {
+                URL.revokeObjectURL(compiledBlobUrl);
+                compiledBlobUrl = null;
+            }
 
-            // Step 1: Read files and load PDF documents
             for (let fIdx = 0; fIdx < rawFiles.length; fIdx++) {
                 const activeFile = rawFiles[fIdx];
                 combinedBytesSize += activeFile.size;
-
-                let progressVal = Math.round(((fIdx + 1) / rawFiles.length) * 25);
-                fillerBar.style.width = progressVal + "%";
-                labelText.innerText = `Status: Reading File ${fIdx + 1}/${rawFiles.length} (${progressVal}%)`;
 
                 await new Promise((resolve) => {
                     const fileReader = new FileReader();
@@ -460,13 +510,14 @@
                     };
                     fileReader.readAsArrayBuffer(activeFile);
                 });
-                await new Promise(r => setTimeout(r, 10)); // Yield to update UI
             }
 
             document.getElementById('labelTotalFiles').innerText = filesMemoryQueue.length + " Files";
             document.getElementById('labelTotalSize').innerText = (combinedBytesSize / (1024 * 1024)).toFixed(2) + " MB";
             
-            // Step 2: Render UI pages preview matrix dynamically
+            labelText.innerText = "Status: Processing Layout Framework...";
+            fillerBar.style.width = "60%";
+
             await renderMasterPagesMatrix();
 
             fillerBar.style.width = "100%";
@@ -478,13 +529,6 @@
             const matrixGrid = document.getElementById('thumbnailMatrixView');
             matrixGrid.innerHTML = ''; 
 
-            const labelText = document.getElementById('stateLabel');
-            const fillerBar = document.getElementById('trackBarIndicatorFill');
-
-            // Find global total pages first
-            let overallPagesToProcess = 0;
-            filesMemoryQueue.forEach(f => overallPagesToProcess += f.totalPages);
-            
             let internalGlobalPageCounter = 0;
 
             for (let fileIdx = 0; fileIdx < filesMemoryQueue.length; fileIdx++) {
@@ -493,11 +537,6 @@
 
                 for (let pageNum = 1; pageNum <= currentFileData.totalPages; pageNum++) {
                     internalGlobalPageCounter++;
-
-                    // Dynamically calculate progress bar between 25% and 95%
-                    let progressPercent = 25 + Math.round((internalGlobalPageCounter / overallPagesToProcess) * 70);
-                    fillerBar.style.width = progressPercent + "%";
-                    labelText.innerText = `Status: Rendering Page Preview ${internalGlobalPageCounter}/${overallPagesToProcess} (${progressPercent}%)`;
 
                     const cardWrapperNode = document.createElement('div');
                     cardWrapperNode.className = 'thumbnail-dark-card';
@@ -508,6 +547,17 @@
                     checkbox.setAttribute('data-file-index', fileIdx);
                     checkbox.setAttribute('data-page-number', pageNum);
                     checkbox.className = 'merge-target-selector';
+                    
+                    // Invalidate previous compilation if user edits matrix checkboxes
+                    checkbox.addEventListener('change', () => {
+                        if (compiledBlobUrl) {
+                            URL.revokeObjectURL(compiledBlobUrl);
+                            compiledBlobUrl = null;
+                            document.getElementById('stateLabel').innerText = "Status: Matrix Updated. Please re-merge.";
+                            document.getElementById('trackBarIndicatorFill').style.width = "70%";
+                        }
+                    });
+
                     cardWrapperNode.appendChild(checkbox);
 
                     const canvasRenderElement = document.createElement('canvas');
@@ -527,9 +577,6 @@
                     canvasRenderElement.width = viewport.width;
 
                     await page.render({ canvasContext: context, viewport: viewport }).promise;
-                    
-                    // Crucial: Gives time to browser thread to visually update the green/gold progress line
-                    await new Promise(r => setTimeout(r, 0));
                 }
             }
             totalRenderedPagesCount = internalGlobalPageCounter;
@@ -563,65 +610,66 @@
             const fillerBar = document.getElementById('trackBarIndicatorFill');
 
             try {
-                labelText.innerText = "Status: Initializing Merge Engine... (0%)";
-                fillerBar.style.width = "5%";
-                await new Promise(r => setTimeout(r, 50)); 
+                labelText.innerText = "Status: Executing Native Client Compile...";
+                fillerBar.style.width = "40%";
 
                 const masterMergedDoc = await PDFLib.PDFDocument.create();
 
-                // ⚡ OPTIMIZATION: Parse each document ONCE in memory instead of inside the loop
-                labelText.innerText = "Status: Pre-processing documents framework...";
-                const loadedPdfLibDocs = [];
-                for (let i = 0; i < filesMemoryQueue.length; i++) {
-                    const loadedDoc = await PDFLib.PDFDocument.load(filesMemoryQueue[i].bytesBuffer);
-                    loadedPdfLibDocs.push(loadedDoc);
-                }
-
-                const totalPagesToMerge = targetCompilationQueue.length;
-
-                for (let i = 0; i < totalPagesToMerge; i++) {
+                for (let i = 0; i < targetCompilationQueue.length; i++) {
                     const task = targetCompilationQueue[i];
+                    const correspondingFileBytes = filesMemoryQueue[task.fileIdx].bytesBuffer;
                     
-                    // Fetch from cached array (Insanely fast!)
-                    const temporarySrcDoc = loadedPdfLibDocs[task.fileIdx];
-                    
+                    const temporarySrcDoc = await PDFLib.PDFDocument.load(correspondingFileBytes);
                     const [copiedPageInstance] = await masterMergedDoc.copyPages(temporarySrcDoc, [task.pageNum - 1]);
                     masterMergedDoc.addPage(copiedPageInstance);
-
-                    // Dynamic merge progress indicator
-                    let mergePercent = Math.round(((i + 1) / totalPagesToMerge) * 85);
-                    fillerBar.style.width = mergePercent + "%";
-                    labelText.innerText = `Status: Compiling Selected Pages ${i + 1}/${totalPagesToMerge} (${mergePercent}%)`;
-                    
-                    // Yield control to let progress bar render smoothly
-                    if (i % 2 === 0) await new Promise(r => setTimeout(r, 0));
                 }
 
-                labelText.innerText = "Status: Generating Final PDF Blob... (95%)";
-                fillerBar.style.width = "95%";
-                await new Promise(r => setTimeout(r, 20));
+                fillerBar.style.width = "80%";
+                labelText.innerText = "Status: Packing Output Byte Blobs...";
 
                 const finalizedBytesArray = await masterMergedDoc.save();
                 const outputBlob = new Blob([finalizedBytesArray], { type: 'application/pdf' });
-                const routingDownloadUrl = URL.createObjectURL(outputBlob);
-
-                const dynamicAnchorElement = document.createElement('a');
-                dynamicAnchorElement.href = routingDownloadUrl;
-                dynamicAnchorElement.download = "GridBox_Merged_Document.pdf";
                 
-                document.body.appendChild(dynamicAnchorElement);
-                dynamicAnchorElement.click();
+                // Revoke old instance to secure memory mapping
+                if (compiledBlobUrl) {
+                    URL.revokeObjectURL(compiledBlobUrl);
+                }
                 
-                document.body.removeChild(dynamicAnchorElement);
-                URL.revokeObjectURL(routingDownloadUrl);
+                compiledBlobUrl = URL.createObjectURL(outputBlob);
 
                 fillerBar.style.width = "100%";
-                labelText.innerText = "Status: Compilation Process Finished Successfully!";
+                labelText.innerText = "Status: Merged PDF Ready! Click Download Below.";
+                
+                // Smooth scroll directly to workspace container so user knows it's compiled
+                document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
+                
             } catch (err) {
                 console.error(err);
                 alert("An error occurred inside the web rendering merge thread pipeline.");
                 labelText.innerText = "Status: Thread Interrupted";
             }
+        }
+
+        function triggerDownload() {
+            if (!compiledBlobUrl) {
+                alert("Please click the gold 'Merge PDFs Instantly' button first to compile your document setup.");
+                return;
+            }
+            const dynamicAnchorElement = document.createElement('a');
+            dynamicAnchorElement.href = compiledBlobUrl;
+            dynamicAnchorElement.download = "GridBox_Merged_Document.pdf";
+            
+            document.body.appendChild(dynamicAnchorElement);
+            dynamicAnchorElement.click();
+            document.body.removeChild(dynamicAnchorElement);
+        }
+
+        function triggerPreview() {
+            if (!compiledBlobUrl) {
+                alert("Please click the gold 'Merge PDFs Instantly' button first to generate a live preview stream.");
+                return;
+            }
+            window.open(compiledBlobUrl, '_blank');
         }
     </script>
 </body>
