@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign PDF Document - pdfgridbox</title>
+    <!-- 🚀 Heavy Engines for Client-side PDF Processing & Digital Signatures -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <style>
+        /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
+        :root {
+            --bg-main: #090d16; /* Deep Midnight Luxury Background */
+            --bg-card: rgba(22, 29, 45, 0.7);
+            --bg-card-hover: rgba(30, 41, 64, 0.9);
+            --bg-input: #0b0f19;
+            --text-white: #f1f5f9;
+            --text-muted: #94a3b8;
+            --gold-primary: #dfba6b;
+            --gold-hover: #b38728;
+            --gold-border: rgba(212, 175, 55, 0.3);
+            --green-success: #10b981;
+            --border-color: rgba(255, 255, 255, 0.04);
+            --accent-yellow: #ffe082;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-white);
+            padding-bottom: 60px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* 👑 LUXURY CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#bf953f, #aa771c);
+            border-radius: 10px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 🏠 Small Top Home Button Style */
+        .btn-small-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            margin-top: 10px;
+        }
+        .btn-small-home:hover {
+            color: var(--text-white);
+            border-color: var(--gold-primary);
+            background: var(--bg-card-hover);
+        }
+
+        .page-title {
+            text-align: center;
+            font-family: 'Georgia', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 20px 0 6px 0;
+            letter-spacing: 0.5px;
+        }
+        .page-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 35px;
+        }
+
+        .block-heading {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 30px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .premium-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .upload-dashed-container {
+            background: var(--bg-card);
+            border: 1px dashed var(--gold-border);
+            border-radius: 16px;
+            padding: 45px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        .upload-dashed-container:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--gold-primary);
+        }
+
+        .ad-premium-banner {
+            border: 1px dashed rgba(212, 175, 55, 0.2);
+            background: rgba(11, 15, 25, 0.5);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            color: var(--gold-primary);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+
+        .progress-track {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            height: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .progress-thumb-fill {
+            background: linear-gradient(90deg, #b38728, #dfba6b);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .meta-data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .meta-data-node span {
+            display: block;
+            color: var(--text-muted);
+            font-size: 11px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ✍️ Luxury Digital Drawing Signature Pad Architecture */
+        .signature-pad-frame {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            position: relative;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+        #signatureCanvas {
+            display: block;
+            width: 100%;
+            height: 180px;
+            background: #0d1321;
+            cursor: crosshair;
+            touch-action: none;
+        }
+        .pad-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.02);
+            border-top: 1px solid var(--border-color);
+        }
+        .btn-clear-pad {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-clear-pad:hover {
+            color: #ffffff;
+            border-color: var(--gold-primary);
+        }
+
+        /* Customization Fields Row */
+        .config-inputs-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .config-select-field {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px;
+            color: var(--text-white);
+            font-size: 14px;
+            font-weight: 600;
+            width: 100%;
+            outline: none;
+            cursor: pointer;
+        }
+        .config-select-field:focus {
+            border-color: var(--gold-primary);
+        }
+
+        /* Action Controls Layout Elements */
+        .btn-gold-action {
+            background: linear-gradient(90deg, #b38728, #dfba6b);
+            color: #090d16;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
+        }
+        .btn-gold-action:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        .btn-green-download {
+            background: var(--green-success);
+            color: #ffffff;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+        .btn-green-download:hover {
+            filter: brightness(1.1);
+        }
+
+        .btn-outline-preview {
+            background: transparent;
+            color: var(--accent-yellow);
+            border: 1px solid var(--accent-yellow);
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+        }
+        .btn-outline-preview:hover {
+            background: rgba(255, 224, 130, 0.1);
+        }
+
+        .btn-large-home {
+            background: #161d2d;
+            color: var(--text-white) !important;
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-sizing: border-box;
+            transition: all 0.2s;
+        }
+        .btn-large-home:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--gold-primary);
+        }
+
+        .text-content-row {
+            margin-bottom: 16px;
+        }
+        .text-content-row strong {
+            display: block;
+            font-size: 14px;
+            color: var(--accent-yellow);
+            margin-bottom: 4px;
+        }
+        .text-content-row p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .tools-navigation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .tool-link-badge {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 18px 10px;
+            border-radius: 14px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-white);
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        .tool-link-badge:hover {
+            border-color: var(--gold-primary);
+            background: var(--bg-card-hover);
+        }
+        .tool-link-badge div {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- 🏠 Top Small Back to Home Navigation Link -->
+        <a href="https://pdfgridbox.in" class="btn-small-home">🏠 Back to Home</a>
+        
+        <h1 class="page-title">Sign PDF File</h1>
+        <p class="page-subtitle">Secure Client-Side Cloud Processing</p>
+
+        <!-- Document Selector Area -->
+        <div class="upload-dashed-container" onclick="document.getElementById('realSignFileInput').click()">
+            <div style="font-size: 40px; color: #dfba6b;">✍️</div>
+            <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Choose PDF File</div>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">or drag and drop your file here</p>
+            <input type="file" id="realSignFileInput" accept=".pdf" style="display: none;" onchange="handleSingleFileImport(event)">
+        </div>
+
+        <!-- ✅ ADS PLACEMENT 1 -->
+        <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here to unlock pad ]</div>
+
+        <!-- Progress Component -->
+        <div class="premium-card">
+            <div style="font-weight: 700; font-size: 13px; color: var(--accent-yellow); text-transform: uppercase;" id="stateLabel">Status: Awaiting Document</div>
+            <div class="progress-track">
+                <div class="progress-thumb-fill" id="trackBarIndicatorFill"></div>
+            </div>
+        </div>
+
+        <!-- PDF Information Block -->
+        <div class="block-heading">📄 Document Information</div>
+        <div class="premium-card meta-data-grid">
+            <div class="meta-data-node"><span>File Size</span><strong id="labelSize">--</strong></div>
+            <div class="meta-data-node"><span>Total Pages</span><strong id="labelPages">--</strong></div>
+            <div class="meta-data-node"><span>Document Name</span><strong id="labelName">No File Selected</strong></div>
+            <div class="meta-data-node"><span>Type</span><strong style="color:#10b981;">Local Client</strong></div>
+        </div>
+
+        <!-- ✍️ Digital Signature Capture Terminal Box Workspace -->
+        <div class="block-heading">✍️ Digital Signature Pad</div>
+        <div class="premium-card">
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">Draw your digital signature neatly inside the deep velvet box module below:</p>
+            
+            <div class="signature-pad-frame">
+                <canvas id="signatureCanvas"></canvas>
+                <div class="pad-controls">
+                    <span style="font-size: 11px; color:var(--text-muted); font-weight: 600; text-transform: uppercase;">Ink Color: Silver Gold</span>
+                    <button class="btn-clear-pad" onclick="clearSignaturePad()">Clear Pad</button>
+                </div>
+            </div>
+
+            <!-- Parameters positioning variables system -->
+            <div class="config-inputs-row">
+                <div>
+                    <div style="font-size:12px; color: var(--text-muted); margin-bottom:6px;">Target Page:</div>
+                    <select class="config-select-field" id="targetPageSelect" onchange="invalidateActiveWorkspace()">
+                        <option value="1">Page 1</option>
+                    </select>
+                </div>
+                <div>
+                    <div style="font-size:12px; color: var(--text-muted); margin-bottom:6px;">Placement Position:</div>
+                    <select class="config-select-field" id="placementSelect" onchange="invalidateActiveWorkspace()">
+                        <option value="bottom-right">Bottom Right Corner</option>
+                        <option value="bottom-left">Bottom Left Corner</option>
+                        <option value="center">Center of Document</option>
+                        <option value="top-right">Top Right Corner</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Button Action -->
+        <button class="btn-gold-action" onclick="executeRealClientSign()">Apply Signature Instantly</button>
+
+        <!-- Output Downloader Container Workspace -->
+        <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
+        <div class="premium-card" style="text-align: center;">
+            <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
+            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Signed PDF Workspace</h3>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Apply your signature layout parameters above, then download or preview securely.</p>
+            
+            <!-- ✅ ADS PLACEMENT 2 -->
+            <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
+
+            <!-- Primary Buttons Stacked Vertically as Big Elements -->
+            <button class="btn-green-download" onclick="triggerDownload()">📥 Download Signed PDF</button>
+            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Signed PDF</button>
+            <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
+        </div>
+
+        <!-- 💡 Quick Tips Section -->
+        <div class="block-heading">💡 Quick Tips</div>
+        <div class="premium-card">
+            <div class="text-content-row"><strong>"Clear Lines for Signatures"</strong><p>Use smooth continuous motions or tracking accessories on touch-enabled mobile interfaces to generate crisp signature curves.</p></div>
+        </div>
+
+        <!-- ⭐ Related Utilities Links -->
+        <div class="block-heading">⭐ Related Tools</div>
+        <div class="tools-navigation-grid">
+            <a href="https://pdfgridbox.in/pdf-merge" class="tool-link-badge"><div>🧩</div>Merge PDF</a>
+            <a href="https://pdfgridbox.in/pdf-split" class="tool-link-badge"><div>✂️</div>Split PDF</a>
+            <a href="https://pdfgridbox.in/pdf-compress" class="tool-link-badge"><div>🗜️</div>Compress PDF</a>
+            <a href="https://pdfgridbox.in/pdf-protect" class="tool-link-badge"><div>🔒</div>Protect PDF</a>
+        </div>
+
+        <!-- ❓ FAQs Layout Component -->
+        <div class="block-heading">❓ FAQ</div>
+        <div class="premium-card">
+            <div class="text-content-row"><strong style="color: #fff;">Is my signature data secure?</strong><p>Yes. Vector operations occur strictly within secure local canvas threads inside your device memory allocations. No pixels hit network streams.</p></div>
+        </div>
+
+        <!-- ✅ ADS PLACEMENT 3 -->
+        <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
+
+    </div>
+
+    <!-- 👑 Royal Ownership Signature Footer Token -->
+    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: rgba(22, 29, 45, 0.7); border-top: 1px dashed var(--border-color);">
+        <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
+            <span style="font-size: 16px; margin-right: 5px;">👑</span> 
+            <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
+            <span style="color: #60a5fa; font-weight: 700; background: #0b0f19; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
+        </p>
+    </footer>
+
+    <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
+    <script>
+        var pdfjsLib = window['pdfjs-dist/build/pdf'] || pdfjsLib;
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+        let globalFileArrayBuffer = null;
+        let globalFileName = "Signed_Document.pdf";
+        let totalDocumentPagesCount = 1;
+        let compiledBlobUrl = null;
+
+        // Signature pad runtime settings structures variables
+        const canvas = document.getElementById('signatureCanvas');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        let lastX = 0;
+        let lastY = 0;
+        let signatureIsBlank = true;
+
+        // Initialize responsive resolution tracking maps onto drawing canvas
+        function setupSignatureCanvasDimensions() {
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = 180;
+            
+            // Set line parameters for high quality dynamic visual curves look
+            ctx.strokeStyle = '#dfba6b'; // Luxurious Gold Signature Ink
+            ctx.lineWidth = 3;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            signatureIsBlank = true;
+        }
+
+        window.addEventListener('resize', setupSignatureCanvasDimensions);
+        setupSignatureCanvasDimensions();
+
+        // 🖌️ Signature Drawing Interaction Event Listeners
+        canvas.addEventListener('mousedown', (e) => {
+            isDrawing = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+            signatureIsBlank = false;
+            invalidateActiveWorkspace();
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (!isDrawing) return;
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        });
+
+        canvas.addEventListener('mouseup', () => isDrawing = false);
+        canvas.addEventListener('mouseout', () => isDrawing = false);
+
+        // Mobile touch infrastructure translation adaptors routing mapping
+        canvas.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                isDrawing = true;
+                const rect = canvas.getBoundingClientRect();
+                lastX = e.touches[0].clientX - rect.left;
+                lastY = e.touches[0].clientY - rect.top;
+                signatureIsBlank = false;
+                invalidateActiveWorkspace();
+            }
+        });
+
+        canvas.addEventListener('touchmove', (e) => {
+            if (!isDrawing || e.touches.length !== 1) return;
+            e.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const currentX = e.touches[0].clientX - rect.left;
+            const currentY = e.touches[0].clientY - rect.top;
+
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(currentX, currentY);
+            ctx.stroke();
+            [lastX, lastY] = [currentX, currentY];
+        });
+
+        canvas.addEventListener('touchend', () => isDrawing = false);
+
+        function clearSignaturePad() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            signatureIsBlank = true;
+            invalidateActiveWorkspace();
+        }
+
+        function invalidateActiveWorkspace() {
+            if (compiledBlobUrl) {
+                URL.revokeObjectURL(compiledBlobUrl);
+                compiledBlobUrl = null;
+                document.getElementById('stateLabel').innerText = "Status: Pad Settings Modified. Please re-apply.";
+                document.getElementById('trackBarIndicatorFill').style.width = "75%";
+            }
+        }
+
+        async function handleSingleFileImport(event) {
+            const rawFile = event.target.files[0];
+            if (!rawFile) return;
+
+            globalFileName = rawFile.name.replace(".pdf", "") + "_Signed.pdf";
+            document.getElementById('labelSize').innerText = (rawFile.size / (1024 * 1024)).toFixed(2) + " MB";
+            document.getElementById('labelName').innerText = rawFile.name;
+
+            const labelText = document.getElementById('stateLabel');
+            const fillerBar = document.getElementById('trackBarIndicatorFill');
+
+            labelText.innerText = "Status: Inspecting Byte Streams...";
+            fillerBar.style.width = "30%";
+
+            globalFileArrayBuffer = null;
+            if (compiledBlobUrl) {
+                URL.revokeObjectURL(compiledBlobUrl);
+                compiledBlobUrl = null;
+            }
+
+            const fileReader = new FileReader();
+            fileReader.onload = async function() {
+                globalFileArrayBuffer = this.result;
+                try {
+                    const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(this.result) });
+                    const pdfDocInstance = await loadingTask.promise;
+
+                    totalDocumentPagesCount = pdfDocInstance.numPages;
+                    document.getElementById('labelPages').innerText = totalDocumentPagesCount + " Pages";
+
+                    // Reconfigure selector parameters drop options dynamically 
+                    const selectElement = document.getElementById('targetPageSelect');
+                    selectElement.innerHTML = '';
+                    for (let pageIdx = 1; pageIdx <= totalDocumentPagesCount; pageIdx++) {
+                        const optionNode = document.createElement('option');
+                        optionNode.value = pageIdx;
+                        optionNode.innerText = `Page ${pageIdx}`;
+                        selectElement.appendChild(optionNode);
+                    }
+
+                    fillerBar.style.width = "100%";
+                    labelText.innerText = "Status: Workspace System Synchronized";
+                } catch(err) {
+                    console.error(err);
+                    alert("Error unpacking data file assets. It might be encrypted.");
+                    labelText.innerText = "Status: Parse Failure Encountered";
+                }
+            };
+            fileReader.readAsArrayBuffer(rawFile);
+            event.target.value = "";
+        }
+
+        async function executeRealClientSign() {
+            if (!globalFileArrayBuffer) {
+                alert("Please select a valid PDF file into the staging framework first.");
+                return;
+            }
+            if (signatureIsBlank) {
+                alert("Please draw your signature onto the digital tracking pad box asset framework first.");
+                return;
+            }
+
+            const labelText = document.getElementById('stateLabel');
+            const fillerBar = document.getElementById('trackBarIndicatorFill');
+            const chosenPageNum = parseInt(document.getElementById('targetPageSelect').value) || 1;
+            const chosenPlacement = document.getElementById('placementSelect').value;
+
+            try {
+                labelText.innerText = "Status: Rasterizing Signature Maps...";
+                fillerBar.style.width = "40%";
+
+                // Convert tracking pad layers into vector binary streams data blocks
+                const signatureImgDataUrl = canvas.toDataURL('image/png');
+
+                const srcPdfDoc = await PDFLib.PDFDocument.load(globalFileArrayBuffer);
+                
+                // Embed signature PNG object safely inside PDF context registers
+                const embeddedSigImage = await srcPdfDoc.embedPng(signatureImgDataUrl);
+                
+                const targetPage = srcPdfDoc.getPages()[chosenPageNum - 1];
+                const { width: pageWidth, height: pageHeight } = targetPage.getSize();
+
+                // Define structural sizing parameters scaling bounding indicators rules
+                const sigRenderWidth = 140;
+                const sigRenderHeight = 60;
+
+                let coordX = pageWidth - sigRenderWidth - 30;
+                let coordY = 30; // Default boundary coordinate rules positions vectors mapping
+
+                if (chosenPlacement === 'bottom-left') {
+                    coordX = 30;
+                } else if (chosenPlacement === 'center') {
+                    coordX = (pageWidth / 2) - (sigRenderWidth / 2);
+                    coordY = (pageHeight / 2) - (sigRenderHeight / 2);
+                } else if (chosenPlacement === 'top-right') {
+                    coordX = pageWidth - sigRenderWidth - 30;
+                    coordY = pageHeight - sigRenderHeight - 30;
+                }
+
+                fillerBar.style.width = "75%";
+                labelText.innerText = "Status: Injecting Vector Coordinates...";
+
+                // Paint signature canvas layers streams objects dynamically onto targeting node framework
+                targetPage.drawImage(embeddedSigImage, {
+                    x: coordX,
+                    y: coordY,
+                    width: sigRenderWidth,
+                    height: sigRenderHeight
+                });
+
+                const finalizedBytesArray = await srcPdfDoc.save();
+                const outputBlob = new Blob([finalizedBytesArray], { type: 'application/pdf' });
+
+                if (compiledBlobUrl) {
+                    URL.revokeObjectURL(compiledBlobUrl);
+                }
+                compiledBlobUrl = URL.createObjectURL(outputBlob);
+
+                fillerBar.style.width = "100%";
+                labelText.innerText = "Status: Signed PDF Ready! Click Download Below.";
+
+                document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
+            } catch (err) {
+                console.error(err);
+                alert("An architecture structural engine pipeline logic error blocked signature placement.");
+                labelText.innerText = "Status: Pipeline Execution Error";
+            }
+        }
+
+        function triggerDownload() {
+            if (!compiledBlobUrl) {
+                alert("Please click the gold 'Apply Signature Instantly' button first to compile your document configuration.");
+                return;
+            }
+            const dynamicAnchorElement = document.createElement('a');
+            dynamicAnchorElement.href = compiledBlobUrl;
+            dynamicAnchorElement.download = globalFileName;
+            
+            document.body.appendChild(dynamicAnchorElement);
+            dynamicAnchorElement.click();
+            document.body.removeChild(dynamicAnchorElement);
+        }
+
+        function triggerPreview() {
+            if (!compiledBlobUrl) {
+                alert("Please click the gold 'Apply Signature Instantly' button first to generate a live preview stream.");
+                return;
+            }
+            window.open(compiledBlobUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
