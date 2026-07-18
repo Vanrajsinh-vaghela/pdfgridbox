@@ -38,7 +38,7 @@
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-main);
             color: var(--text-white);
-            padding-bottom: 60px;
+            padding-bottom: 0px;
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -293,13 +293,16 @@
         }
 
         .text-content-row {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+        }
+        .text-content-row:last-child {
+            margin-bottom: 0;
         }
         .text-content-row strong {
             display: block;
             font-size: 14px;
             color: var(--accent-yellow);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         .text-content-row p {
             margin: 0;
@@ -333,6 +336,49 @@
         .tool-link-badge div {
             font-size: 24px;
             margin-bottom: 6px;
+        }
+
+        /* 👑 LUXURY COMPLIANCE FOOTER STYLES */
+        .luxury-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background-color: rgba(11, 15, 25, 0.8);
+            border-top: 1px dashed var(--gold-border);
+            backdrop-filter: blur(10px);
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+        .footer-credits {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .owner-badge {
+            color: #60a5fa;
+            font-weight: 700;
+            background: #0b0f19;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            display: inline-block;
+            margin-top: 4px;
         }
     </style>
 </head>
@@ -424,7 +470,18 @@
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"Font Scale Protection"</strong><p>Numbers are injected as clean PostScript vector font glyphs, meaning the text scales cleanly without pixel blurriness on paper printouts.</p></div>
+            <div class="text-content-row">
+                <strong>Advanced Vector Font Scale Protection</strong>
+                <p>Numbers are injected as clean PostScript vector font glyphs natively into your document framework. This guarantees that your customized pagination layouts retain mathematical grid precision and never look blurry on high-end office printouts.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Intelligent Front Cover Sheet Isolation</strong>
+                <p>By enabling the 'Skip Front Cover' toggle control mechanism, the compiler dynamically bypasses index zero inside the page map arrays. This allows formal research journals, corporate presentations, and eBooks to maintain clean unnumbered title sheets.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>100% Client-Side Encryption Layouts</strong>
+                <p>Your document structures are streamed and manipulated fully within your device system's local memory parameters. Zero external cloud processing protects highly confidential enterprise balance reports and official legal briefs perfectly.</p>
+            </div>
         </div>
 
         <!-- ⭐ Related Utilities Links -->
@@ -439,7 +496,18 @@
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Will it cover background images?</strong><p>The font vectors layer on top of existing structural arrays, preventing text from slipping beneath background masks.</p></div>
+            <div class="text-content-row">
+                <strong>Will injected number matrices cover dense background graphics layers?</strong>
+                <p>No. The mathematical drawing engines register text blocks at the highest index pointer configuration layer. This forces the generated page numbers to stack cleanly on top of existing structural visual canvas objects.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Does the numbering process alter embedded hyperlinked contents?</strong>
+                <p>Not at all. The underlying low-level binary structure array remains completely untouched. The layout algorithm simply references standard Helvetica packages to draw clean layout nodes, leaving internal anchor paths 100% functional.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Is there a total page limit constraint for massive technical books?</strong>
+                <p>Our client-side architecture scales fluidly across documents containing hundreds of elements. Since processing power is drawn directly from your own system RAM allocations, execution remains fast and highly dependable.</p>
+            </div>
         </div>
 
         <!-- ✅ ADS PLACEMENT 3 -->
@@ -447,13 +515,18 @@
 
     </div>
 
-    <!-- 👑 Royal Ownership Signature Footer Token -->
-    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: rgba(22, 29, 45, 0.7); border-top: 1px dashed var(--border-color);">
-        <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
-            <span style="font-size: 16px; margin-right: 5px;">👑</span> 
-            <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
-            <span style="color: #60a5fa; font-weight: 700; background: #0b0f19; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
-        </p>
+    <!-- 👑 Royal Unified Ownership Compliance Footer -->
+    <footer class="luxury-footer">
+        <div class="footer-links">
+            <a href="https://pdfgridbox.in/about">About Us</a>
+            <a href="https://pdfgridbox.in/contact">Contact Us</a>
+            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
+            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+        </div>
+        <div class="footer-credits">
+            &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
+            Designed & Managed by <span class="owner-badge">Vanrajsinh Vaghela</span>
+        </div>
     </footer>
 
     <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
