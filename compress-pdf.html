@@ -244,6 +244,24 @@
             font-weight: 700;
         }
 
+        /* 🖥️ Visual Workspace Real-time Monitor Interface Preview Frame */
+        .premium-preview-container {
+            width: 100%;
+            height: 320px;
+            border: 1px solid var(--gold-border);
+            border-radius: 12px;
+            background: #ffffff;
+            margin: 15px 0 20px 0;
+            overflow: hidden;
+            display: none;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+        }
+        .premium-preview-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         .btn-green-download {
             background: var(--green-success);
             color: #ffffff;
@@ -408,6 +426,11 @@
                 </div>
             </div>
 
+            <!-- 📄 LIVE DOCUMENT PREVIEW HOOK CONTAINER -->
+            <div class="premium-preview-container" id="livePreviewContainerShell">
+                <iframe id="livePreviewFrameAsset"></iframe>
+            </div>
+
             <!-- ✅ ADS PLACEMENT 2 -->
             <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
 
@@ -483,6 +506,11 @@
             fillerBar.style.width = "30%";
 
             globalFileArrayBuffer = null;
+            
+            // Clear existing previews cleanly
+            document.getElementById('livePreviewContainerShell').style.display = "none";
+            document.getElementById('livePreviewFrameAsset').src = "";
+
             if (compiledBlobUrl) {
                 URL.revokeObjectURL(compiledBlobUrl);
                 compiledBlobUrl = null;
@@ -541,7 +569,6 @@
                     const srcPage = await srcPdfDoc.getPage(i);
                     const standardViewport = srcPage.getViewport({ scale: renderingScaleFactor });
 
-                    // Float variables clean validation rounding to stop library crashes
                     const targetWidth = Math.floor(standardViewport.width);
                     const targetHeight = Math.floor(standardViewport.height);
 
@@ -570,7 +597,6 @@
 
                     const embeddedJpg = await targetCompressedPdfDoc.embedJpg(compressedImageBuffer);
                     
-                    // 🛠️ FIX APPLIED: Created a safe clean page container first, then attached strict sizing rules
                     const newPageInstance = targetCompressedPdfDoc.addPage();
                     newPageInstance.setSize(targetWidth, targetHeight);
                     
@@ -594,6 +620,11 @@
                     URL.revokeObjectURL(compiledBlobUrl);
                 }
                 compiledBlobUrl = URL.createObjectURL(outputBlob);
+
+                // 🛠️ RENDER LIVE PREVIEW IMMEDIATELY TO STREAM CONTROLLER
+                const previewFrame = document.getElementById('livePreviewFrameAsset');
+                previewFrame.src = compiledBlobUrl;
+                document.getElementById('livePreviewContainerShell').style.display = "block";
 
                 fillerBar.style.width = "100%";
                 labelText.innerText = "STATUS: ASSET REDUCED SUCCESSFULLY!";
