@@ -10,10 +10,59 @@
     <meta name="keywords" content="pdf merge, pdf split, compress pdf, word to pdf, photo resize, sign pdf, free pdf tools, pdfgridbox, Vanrajsinh Vaghela">
     <meta name="author" content="Vanrajsinh Vaghela">
 
+    <!-- 🌓 Theme Auto Switcher Execution (Prevents Flash of Wrong Theme) -->
+    <script>
+        (function() {
+            const hour = new Date().getHours();
+            // Subah 6 baje se shaam ke 6 baje tak Light Theme, baaki samay Dark Theme
+            if (hour >= 6 && hour < 18) {
+                document.documentElement.classList.add('light-theme');
+            }
+        })();
+    </script>
+
     <!-- Google Fonts: Elegant Luxury Serif + Modern Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
+        /* 🌑 DEFAULT PREMIUM DARK THEME VARIABLES */
+        :root {
+            --bg-main: #090d16;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --bg-card: rgba(22, 29, 45, 0.7);
+            --bg-card-hover: rgba(30, 41, 64, 0.9);
+            --border-card: rgba(255, 255, 255, 0.04);
+            --border-card-hover: rgba(212, 175, 55, 0.4);
+            --gold-primary: #dfba6b;
+            --bg-header: linear-gradient(135deg, rgba(20, 27, 43, 0.8), rgba(11, 15, 25, 0.9));
+            --bg-icon: rgba(255, 255, 255, 0.03);
+            --border-icon: rgba(255, 255, 255, 0.05);
+            --shadow-intensity: rgba(0, 0, 0, 0.5);
+            --ad-bg-horizontal: rgba(15, 22, 36, 0.6);
+            --ad-bg-grid: rgba(11, 15, 25, 0.5);
+            --ad-border: rgba(255, 255, 255, 0.08);
+        }
+
+        /* ☀️ MODERN PREMIUM LIGHT THEME VARIABLES */
+        :root.light-theme {
+            --bg-main: #f1f5f9;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --bg-card: rgba(255, 255, 255, 0.8);
+            --bg-card-hover: rgba(241, 245, 249, 0.9);
+            --border-card: rgba(0, 0, 0, 0.06);
+            --border-card-hover: rgba(217, 119, 6, 0.5);
+            --gold-primary: #b45309;
+            --bg-header: linear-gradient(135deg, rgba(241, 245, 249, 0.8), rgba(226, 232, 240, 0.9));
+            --bg-icon: rgba(0, 0, 0, 0.03);
+            --border-icon: rgba(0, 0, 0, 0.05);
+            --shadow-intensity: rgba(0, 0, 0, 0.1);
+            --ad-bg-horizontal: rgba(226, 232, 240, 0.6);
+            --ad-bg-grid: rgba(241, 245, 249, 0.8);
+            --ad-border: rgba(0, 0, 0, 0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -22,9 +71,10 @@
         }
 
         body {
-            background-color: #090d16; /* Deep Midnight Luxury Background */
-            color: #f1f5f9;
+            background-color: var(--bg-main);
+            color: var(--text-main);
             padding-bottom: 110px; /* Space for sticky bottom ad */
+            transition: background-color 0.3s, color 0.3s;
         }
 
         /* 👑 LUXURY CUSTOM SCROLLBAR */
@@ -32,7 +82,7 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #090d16;
+            background: var(--bg-main);
         }
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(#bf953f, #aa771c);
@@ -42,7 +92,7 @@
         /* ✨ LUXURY TEXT SELECTION GLOW */
         ::selection {
             background: rgba(212, 175, 55, 0.3);
-            color: #ffffff;
+            color: var(--text-main);
         }
 
         /* Premium Ticker / Live Status Bar */
@@ -82,18 +132,19 @@
             text-align: center;
             margin-bottom: 25px;
             padding: 45px 20px;
-            background: linear-gradient(135deg, rgba(20, 27, 43, 0.8), rgba(11, 15, 25, 0.9));
+            background: var(--bg-header);
             border: 1px solid rgba(212, 175, 55, 0.15); /* Soft gold edge */
             border-radius: 24px;
             backdrop-filter: blur(10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 40px var(--shadow-intensity);
+            transition: background 0.3s;
         }
 
         .header-banner h1 {
             font-family: 'Playfair Display', serif;
             font-size: 42px; 
             font-weight: 700;
-            color: #ffffff;
+            color: var(--text-main);
             letter-spacing: 0.5px;
             margin-bottom: 15px;
         }
@@ -127,7 +178,7 @@
 
         .header-banner p {
             font-size: 13px;
-            color: #94a3b8;
+            color: var(--text-muted);
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-top: 5px;
@@ -138,7 +189,7 @@
             text-align: center; 
             margin: -10px 0 25px 0; 
             font-size: 11px; 
-            color: #64748b; 
+            color: var(--text-muted); 
             display: flex; 
             align-items: center; 
             justify-content: center; 
@@ -166,7 +217,7 @@
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
             backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-card);
             text-align: center;
             white-space: nowrap; 
         }
@@ -200,7 +251,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 18px;
             font-weight: 600;
-            color: #dfba6b; 
+            color: var(--gold-primary); 
             margin-bottom: 18px;
             display: flex;
             align-items: center;
@@ -217,8 +268,8 @@
 
         /* Velvet Experience Ultra Premium Card */
         .tool-card {
-            background: rgba(22, 29, 45, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
             border-radius: 20px;
             padding: 24px 16px;
             text-decoration: none;
@@ -232,17 +283,17 @@
 
         .tool-card:hover {
             transform: translateY(-5px);
-            background: rgba(30, 41, 64, 0.9);
-            border-color: rgba(212, 175, 55, 0.4); 
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.1);
+            background: var(--bg-card-hover);
+            border-color: var(--border-card-hover); 
+            box-shadow: 0 15px 30px var(--shadow-intensity), 0 0 15px rgba(212, 175, 55, 0.1);
         }
 
         /* Luxurious Minimal Icon Box */
         .icon-box {
             width: 56px;
             height: 56px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--bg-icon);
+            border: 1px solid var(--border-icon);
             border-radius: 16px;
             display: flex;
             align-items: center;
@@ -261,13 +312,17 @@
         .tool-main-name {
             font-size: 15px;
             font-weight: 600;
-            color: #ffffff;
+            color: var(--text-main);
             margin-bottom: 6px;
+        }
+
+        .tool-card:hover .tool-main-name {
+            color: var(--text-main);
         }
 
         .tool-sub-name {
             font-size: 11px;
-            color: #64748b;
+            color: var(--text-muted);
             font-weight: 400;
             line-height: 1.4;
         }
@@ -276,22 +331,22 @@
            PREMIUM LUXURY AD SLOTS (10 SLOTS)
         ========================================== */
         .ad-slot-horizontal {
-            background: rgba(15, 22, 36, 0.6);
+            background: var(--ad-bg-horizontal);
             border: 1px dashed rgba(212, 175, 55, 0.2);
             border-radius: 20px;
             padding: 22px;
             text-align: center;
             margin: 25px 0;
             font-size: 10px;
-            color: rgba(212, 175, 55, 0.5);
+            color: var(--gold-primary);
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .ad-slot-grid {
-            background: rgba(11, 15, 25, 0.5);
-            border: 1px dashed rgba(255, 255, 255, 0.08);
+            background: var(--ad-bg-grid);
+            border: 1px solid var(--ad-border);
             border-radius: 20px;
             display: flex;
             flex-direction: column;
@@ -299,7 +354,7 @@
             justify-content: center;
             padding: 24px 16px;
             font-size: 10px;
-            color: #475569;
+            color: var(--text-muted);
             font-weight: 600;
             text-align: center;
             letter-spacing: 1px;
@@ -310,15 +365,15 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background: rgba(9, 13, 22, 0.95);
+            background: var(--bg-main);
             border-top: 1px solid rgba(212, 175, 55, 0.2);
             padding: 14px;
             text-align: center;
             font-size: 11px;
-            color: #dfba6b;
+            color: var(--gold-primary);
             font-weight: bold;
             backdrop-filter: blur(15px);
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 -10px 30px var(--shadow-intensity);
             z-index: 9999;
             letter-spacing: 1px;
         }
