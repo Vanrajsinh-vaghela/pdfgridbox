@@ -38,7 +38,7 @@
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-main);
             color: var(--text-white);
-            padding-bottom: 60px;
+            padding-bottom: 0px;
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -269,13 +269,16 @@
         }
 
         .text-content-row {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+        }
+        .text-content-row:last-child {
+            margin-bottom: 0;
         }
         .text-content-row strong {
             display: block;
             font-size: 14px;
             color: var(--accent-yellow);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         .text-content-row p {
             margin: 0;
@@ -310,6 +313,49 @@
             font-size: 24px;
             margin-bottom: 6px;
         }
+
+        /* 👑 LUXURY COMPLIANCE FOOTER STYLES */
+        .luxury-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background-color: rgba(11, 15, 25, 0.8);
+            border-top: 1px dashed var(--gold-border);
+            backdrop-filter: blur(10px);
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+        .footer-credits {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .owner-badge {
+            color: #60a5fa;
+            font-weight: 700;
+            background: #0b0f19;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            display: inline-block;
+            margin-top: 4px;
+        }
     </style>
 </head>
 <body>
@@ -320,7 +366,7 @@
         <a href="https://pdfgridbox.in" class="btn-small-home">🏠 Back to Home</a>
         
         <h1 class="page-title">PDF to Excel</h1>
-        <p class="page-subtitle">Secure CSV Extraction Matrix</p>
+        <p class="page-subtitle">100% Private Client-Side CSV Extraction</p>
 
         <!-- Document Selector Area -->
         <div class="upload-dashed-container" onclick="document.getElementById('realPdfFileInput').click()">
@@ -355,7 +401,7 @@
 
         <!-- Output Downloader Container Workspace -->
         <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
-        <div class="premium-card" style="text-align: center;">
+        <div class="premium-card style="text-align: center;">
             <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
             <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Converted Spreadsheet</h3>
             <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Extract vector tables securely, sort data blocks instantly, then fetch your asset safely.</p>
@@ -372,7 +418,18 @@
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"Excel Smart Encoding (BOM)"</strong><p>This builder injects a native Unicode byte order token structure so Microsoft Excel launches the sheets perfectly without damaging regional layouts.</p></div>
+            <div class="text-content-row">
+                <strong>Excel Smart Encoding (BOM Integration)</strong>
+                <p>This builder injects a native Unicode Byte Order Mark (\uFEFF) layout token structure. This guarantees that when you launch the sheet in Microsoft Excel or Google Sheets, international characters and special regional symbol alignments display perfectly without corruption.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Local RAM Sandboxing for Secure Audit Data</strong>
+                <p>Financial ledger lists, bank statement datasets, and corporate invoicing arrays are parsed entirely inside your browser sandbox. Your business integers are completely guarded from scraper analytics layers.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Adaptive X/Y Proximity Mapping</strong>
+                <p>The parser dynamically checks the internal vector coordinates of the text objects. It reads horizontal delta thresholds to correctly stack split elements together, preserving tabular matrix consistency cleanly.</p>
+            </div>
         </div>
 
         <!-- ⭐ Related Utilities Links -->
@@ -387,7 +444,18 @@
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Will my table formatting break?</strong><p>The coordinate extractor auto-calculates text bounds locally to maintain row alignments across structured blocks cleanly.</p></div>
+            <div class="text-content-row">
+                <strong>Will my table cell grid formatting break during spreadsheet extraction?</strong>
+                <p>The layout mapping module reads the absolute structural position of characters. By matching vector alignment baselines locally, it reconstructs tabular rows across dense matrices cleanly without scrambling structural layouts.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Can I convert flattened scanned images or photo document files?</strong>
+                <p>This processing engine targets true vector text objects natively embedded in digital documents. For completely flat image documents lacking digital font maps, an external pre-processing OCR step is required.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Why is local CSV extraction better than cloud spreadsheet converters?</strong>
+                <p>Cloud systems cache private documents onto server networks, risking data exposure. This tool structures data matrices entirely within your device's RAM, providing immediate processing with 100% security.</p>
+            </div>
         </div>
 
         <!-- ✅ ADS PLACEMENT 3 -->
@@ -395,13 +463,18 @@
 
     </div>
 
-    <!-- 👑 Royal Ownership Signature Footer Token -->
-    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: rgba(22, 29, 45, 0.7); border-top: 1px dashed var(--border-color);">
-        <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
-            <span style="font-size: 16px; margin-right: 5px;">👑</span> 
-            <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
-            <span style="color: #60a5fa; font-weight: 700; background: #0b0f19; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
-        </p>
+    <!-- 👑 Royal Unified Ownership Compliance Footer -->
+    <footer class="luxury-footer">
+        <div class="footer-links">
+            <a href="https://pdfgridbox.in/about">About Us</a>
+            <a href="https://pdfgridbox.in/contact">Contact Us</a>
+            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
+            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+        </div>
+        <div class="footer-credits">
+            &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
+            Designed & Managed by <span class="owner-badge">Vanrajsinh Vaghela</span>
+        </div>
     </footer>
 
     <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
