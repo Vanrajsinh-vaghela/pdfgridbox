@@ -39,7 +39,7 @@
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-main);
             color: var(--text-white);
-            padding-bottom: 60px;
+            padding-bottom: 0px;
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -282,13 +282,16 @@
         }
 
         .text-content-row {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+        }
+        .text-content-row:last-child {
+            margin-bottom: 0;
         }
         .text-content-row strong {
             display: block;
             font-size: 14px;
             color: var(--accent-yellow);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         .text-content-row p {
             margin: 0;
@@ -322,6 +325,49 @@
         .tool-link-badge div {
             font-size: 24px;
             margin-bottom: 6px;
+        }
+
+        /* 👑 LUXURY COMPLIANCE FOOTER STYLES */
+        .luxury-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background-color: rgba(11, 15, 25, 0.8);
+            border-top: 1px dashed var(--gold-border);
+            backdrop-filter: blur(10px);
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+        .footer-credits {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .owner-badge {
+            color: #60a5fa;
+            font-weight: 700;
+            background: #0b0f19;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            display: inline-block;
+            margin-top: 4px;
         }
     </style>
 </head>
@@ -397,7 +443,18 @@
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"Strict Local Sandbox Execution"</strong><p>Decryption keys are computed purely inside your active browser instance runtime. Your file data stream elements are never exposed to any server infrastructure.</p></div>
+            <div class="text-content-row">
+                <strong>Strict Client-Side Decryption Matrix</strong>
+                <p>The system strips out protection signatures natively inside your current browser instance. Because the operational loops initialize within sandboxed client-side memory slots, your security keys and internal text streams are never exposed to remote trackers or external server logging tools.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>High-Density Pixel Preservation (Scale: 2.0)</strong>
+                <p>To ensure that vector forms, detailed charts, and complex mathematical fonts do not experience formatting degradation or pixelation during decryption re-assembly, the engine renders sheets onto a double-density resolution matrix. This perfectly preserves readability across modern Retina and Ultra-HD monitors.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Owner vs. User Open Protections</strong>
+                <p>If your document opens instantly but restricts features like printing, editing, or copying, leaving the password input blank will successfully trigger the layer-stripping sequence. A password is only strictly required if the file demands a passphrase on open initialization.</p>
+            </div>
         </div>
 
         <!-- ⭐ Related Utilities Links -->
@@ -412,7 +469,18 @@
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Can I unlock a file without knowing the password?</strong><p>No. For security and privacy compliance, the engine requires the current valid key to initially open and strip the cipher matrix wrapper layers.</p></div>
+            <div class="text-content-row">
+                <strong>Is it possible to unlock a password-protected document if I completely forgot the passphrase?</strong>
+                <p>No. For data privacy standards and architectural integrity, the local sandbox requires the authentic initialization key to decipher the underlying vector streams. This tool does not employ unauthorized brute-force cracking scripts.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Will stripping out the password delete my embedded digital signatures or interactive form inputs?</strong>
+                <p>The decoupling process extracts document sheets as clean high-definition structural visual tracks to build a completely open duplicate file. While it guarantees zero quality loss for images and text layers, dynamic form fields and older cryptographic signing structures will be flattened for open editing safety.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>What size limits apply to documents processed inside this secure builder module?</strong>
+                <p>Since this local decryption suite works entirely within browser RAM and bypasses remote web server uploads, there are no fixed tool limits. Performance depends entirely on your device's available memory capacity and processing efficiency.</p>
+            </div>
         </div>
 
         <!-- ✅ ADS PLACEMENT 3 -->
@@ -420,13 +488,18 @@
 
     </div>
 
-    <!-- 👑 Royal Ownership Signature Footer Token -->
-    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: rgba(22, 29, 45, 0.7); border-top: 1px dashed var(--border-color);">
-        <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
-            <span style="font-size: 16px; margin-right: 5px;">👑</span> 
-            <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
-            <span style="color: #60a5fa; font-weight: 700; background: #0b0f19; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
-        </p>
+    <!-- 👑 Royal Unified Ownership Compliance Footer -->
+    <footer class="luxury-footer">
+        <div class="footer-links">
+            <a href="https://pdfgridbox.in/about">About Us</a>
+            <a href="https://pdfgridbox.in/contact">Contact Us</a>
+            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
+            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+        </div>
+        <div class="footer-credits">
+            &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
+            Designed & Managed by <span class="owner-badge">Vanrajsinh Vaghela</span>
+        </div>
     </footer>
 
     <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
