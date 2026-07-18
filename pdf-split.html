@@ -8,26 +8,46 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
     <style>
+        /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
         :root {
-            --bg-main: #0b0f19;
-            --bg-card: #131926;
-            --bg-input: #090d16;
-            --text-white: #ffffff;
+            --bg-main: #090d16; /* Deep Midnight Luxury Background */
+            --bg-card: rgba(22, 29, 45, 0.7);
+            --bg-card-hover: rgba(30, 41, 64, 0.9);
+            --bg-input: #0b0f19;
+            --text-white: #f1f5f9;
             --text-muted: #94a3b8;
-            --gold-primary: #d97706;
-            --gold-hover: #b45309;
-            --gold-border: #b5a46d;
+            --gold-primary: #dfba6b;
+            --gold-hover: #b38728;
+            --gold-border: rgba(212, 175, 55, 0.3);
             --green-success: #10b981;
-            --border-color: #1e293b;
+            --border-color: rgba(255, 255, 255, 0.04);
+            --accent-yellow: #ffe082;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-main);
             color: var(--text-white);
-            margin: 0;
-            padding: 0;
+            padding-bottom: 60px;
             -webkit-tap-highlight-color: transparent;
+        }
+
+        /* 👑 LUXURY CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#bf953f, #aa771c);
+            border-radius: 10px;
         }
 
         .container {
@@ -36,20 +56,26 @@
             padding: 20px;
         }
 
-        /* 🏠 Fixed Navigation Option Link */
-        .back-nav-link {
+        /* 🏠 Small Top Home Button Style */
+        .btn-small-home {
             display: inline-flex;
             align-items: center;
-            text-decoration: none;
+            gap: 6px;
             color: var(--text-muted);
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 25px;
-            transition: color 0.2s;
-            cursor: pointer;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            margin-top: 10px;
         }
-        .back-nav-link:hover {
+        .btn-small-home:hover {
             color: var(--text-white);
+            border-color: var(--gold-primary);
+            background: var(--bg-card-hover);
         }
 
         /* Serif Main Header Style */
@@ -58,8 +84,8 @@
             font-family: 'Georgia', serif;
             font-size: 34px;
             font-weight: 700;
-            color: var(--text-white);
-            margin: 0 0 6px 0;
+            color: #ffffff;
+            margin: 20px 0 6px 0;
             letter-spacing: 0.5px;
         }
         .page-subtitle {
@@ -76,7 +102,7 @@
         .block-heading {
             font-size: 16px;
             font-weight: 700;
-            color: var(--text-white);
+            color: #ffffff;
             margin: 30px 0 15px 0;
             display: flex;
             align-items: center;
@@ -89,8 +115,9 @@
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             margin-bottom: 20px;
+            backdrop-filter: blur(10px);
         }
 
         /* Choose PDF Upload Component Area */
@@ -101,21 +128,22 @@
             padding: 45px 20px;
             text-align: center;
             cursor: pointer;
-            transition: background 0.2s;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            transition: all 0.2s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
         .upload-dashed-container:hover {
-            background: #171e2e;
+            background: var(--bg-card-hover);
+            border-color: var(--gold-primary);
         }
 
         /* Gold/Brown Dashed Ads Box Placeholders */
         .ad-premium-banner {
-            border: 1px dashed rgba(181, 164, 109, 0.4);
-            background: rgba(19, 25, 38, 0.6);
+            border: 1px dashed rgba(212, 175, 55, 0.2);
+            background: rgba(11, 15, 25, 0.5);
             border-radius: 12px;
             padding: 16px;
             text-align: center;
-            color: var(--gold-border);
+            color: var(--gold-primary);
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 1px;
@@ -133,7 +161,7 @@
             margin-top: 10px;
         }
         .progress-thumb-fill {
-            background: var(--gold-primary);
+            background: linear-gradient(90deg, #b38728, #dfba6b);
             height: 100%;
             width: 0%;
             transition: width 0.3s;
@@ -148,7 +176,7 @@
         .meta-data-node span {
             display: block;
             color: var(--text-muted);
-            font-size: 12px;
+            font-size: 11px;
             margin-bottom: 4px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -170,31 +198,38 @@
             padding: 12px;
             text-align: center;
             position: relative;
+            box-sizing: border-box;
         }
         .thumbnail-dark-card input[type="checkbox"] {
             position: absolute;
-            top: 8px;
-            right: 8px;
+            top: 10px;
+            right: 10px;
             accent-color: var(--gold-primary);
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
             cursor: pointer;
             z-index: 10;
         }
         .thumbnail-dark-card canvas {
             width: 100%;
             height: auto;
+            min-height: 110px;
             border-radius: 6px;
-            background: #1e293b;
+            background: #121824;
+            display: block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
         .thumbnail-caption {
             font-size: 12px;
             font-weight: 600;
             color: var(--text-white);
-            margin-top: 6px;
+            margin-top: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        /* 🔢 Fixed Range Inputs Row (Fully Manual Editable Numbers) */
+        /* 🔢 Fixed Range Inputs Row */
         .range-inputs-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -220,8 +255,8 @@
 
         /* Action Buttons Framework */
         .btn-gold-action {
-            background: var(--gold-primary);
-            color: var(--bg-main);
+            background: linear-gradient(90deg, #b38728, #dfba6b);
+            color: #090d16;
             border: none;
             padding: 16px;
             border-radius: 12px;
@@ -232,19 +267,21 @@
             width: 100%;
             cursor: pointer;
             margin-top: 10px;
-            transition: background 0.2s;
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
         }
         .btn-gold-action:hover {
-            background: var(--gold-hover);
+            transform: translateY(-2px);
+            filter: brightness(1.1);
         }
 
         .btn-green-download {
             background: var(--green-success);
-            color: var(--text-white);
+            color: #ffffff;
             border: none;
-            padding: 15px;
+            padding: 16px;
             border-radius: 12px;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
             width: 100%;
             cursor: pointer;
@@ -253,13 +290,18 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+        .btn-green-download:hover {
+            filter: brightness(1.1);
         }
 
         .btn-outline-preview {
             background: transparent;
-            color: #ffe082;
-            border: 1px solid #ffe082;
-            padding: 15px;
+            color: var(--accent-yellow);
+            border: 1px solid var(--accent-yellow);
+            padding: 16px;
             border-radius: 12px;
             font-size: 14px;
             font-weight: 700;
@@ -270,6 +312,36 @@
             justify-content: center;
             gap: 8px;
             text-transform: uppercase;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+        }
+        .btn-outline-preview:hover {
+            background: rgba(255, 224, 130, 0.1);
+        }
+
+        /* 🏠 Bada Premium Home Button */
+        .btn-large-home {
+            background: #161d2d;
+            color: var(--text-white) !important;
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-sizing: border-box;
+            transition: all 0.2s;
+        }
+        .btn-large-home:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--gold-primary);
         }
 
         /* Editorial content UI typography spacing */
@@ -279,7 +351,7 @@
         .text-content-row strong {
             display: block;
             font-size: 14px;
-            color: #ffe082;
+            color: var(--accent-yellow);
             margin-bottom: 4px;
         }
         .text-content-row p {
@@ -293,6 +365,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
+            margin-bottom: 20px;
         }
         .tool-link-badge {
             background: var(--bg-card);
@@ -304,9 +377,14 @@
             color: var(--text-white);
             font-weight: 600;
             font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        .tool-link-badge:hover {
+            border-color: var(--gold-primary);
+            background: var(--bg-card-hover);
         }
         .tool-link-badge div {
-            font-size: 22px;
+            font-size: 24px;
             margin-bottom: 6px;
         }
     </style>
@@ -315,26 +393,26 @@
 
     <div class="container">
         
-        <!-- 🏠 Fixed Back to Home Navigation Anchor Link -->
-        <a href="/" class="back-nav-link">← Back to PDFGridBox.in</a>
+        <!-- 🏠 Top Small Back to Home Navigation Anchor Link -->
+        <a href="https://pdfgridbox.in" class="btn-small-home">🏠 Back to Home</a>
 
         <h1 class="page-title">Split PDF File</h1>
         <p class="page-subtitle">Secure Client-Side Cloud Processing</p>
 
         <!-- Document Uploader Trigger Drop area -->
         <div class="upload-dashed-container" onclick="document.getElementById('realFileInput').click()">
-            <div style="font-size: 40px; color: #f43f5e;">✂️</div>
+            <div style="font-size: 40px; color: #dfba6b;">✂️</div>
             <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Choose PDF File</div>
             <p style="color: var(--text-muted); font-size: 13px; margin: 0;">or drag and drop your file here</p>
             <input type="file" id="realFileInput" accept=".pdf" style="display: none;" onchange="processAndLoadPDF(event)">
         </div>
 
-        <!-- ✅ ADS PLACEMENT 1: Upload box ke neeche responsive ad -->
+        <!-- ✅ ADS PLACEMENT 1 -->
         <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here to unlock preview ]</div>
 
         <!-- 📈 Interactive Live Progress Tracking Engine Component -->
         <div class="premium-card">
-            <div style="font-weight: 700; font-size: 13px; color: #ffe082; text-transform: uppercase;" id="stateLabel">Status: Awaiting Document</div>
+            <div style="font-weight: 700; font-size: 13px; color: var(--accent-yellow); text-transform: uppercase;" id="stateLabel">Status: Awaiting Document</div>
             <div class="progress-track">
                 <div class="progress-thumb-fill" id="trackBarIndicatorFill"></div>
             </div>
@@ -346,19 +424,19 @@
             <div class="meta-data-node"><span>File Size</span><strong id="labelSize">--</strong></div>
             <div class="meta-data-node"><span>Total Pages</span><strong id="labelPages">--</strong></div>
             <div class="meta-data-node"><span>PDF Version</span><strong id="labelVersion">--</strong></div>
-            <div class="meta-data-node"><span>Encrypted</span><strong id="labelEncrypt">--</strong></div>
+            <div class="meta-data-node"><span>Encrypted</span><strong id="labelEncrypt">--</strong><strong style="color:#10b981; display:none;" id="labelLocalType">Local Client</strong></div>
         </div>
 
-        <!-- 📖 Fixed Live Rendering PDF Preview Node Matrix Component -->
-        <div class="block-heading">📖 Live PDF Preview</div>
+        <!-- 📸 Live PDF Preview Component Matrix -->
+        <div class="block-heading">📖 Live PDF Preview Matrix</div>
         <div class="premium-card">
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 15px 0;">Split करने से पहले pages का preview दिखाओ।</p>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 15px 0;">Keep checked the individual pages you want to extract/split into a new document:</p>
             
             <div class="preview-thumbnails-matrix" id="thumbnailMatrixView">
-                <p style="color: var(--text-muted); font-size: 13px; grid-column: span 2; text-align: center; padding: 10px 0;">No document pages rendered.</p>
+                <p style="color: var(--text-muted); font-size: 13px; grid-column: span 2; text-align: center; padding: 20px 0; width: 100%;">No document pages rendered. Upload a PDF to generate live split matrix.</p>
             </div>
 
-            <!-- 🔢 Fixed Range inputs row configured as real mutable values -->
+            <!-- 🔢 Manual page ranges input system -->
             <div style="color: var(--text-muted); font-size: 11px; font-weight: 700; margin-top: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Select Page Range To Extract</div>
             <div class="range-inputs-row">
                 <div>
@@ -375,173 +453,181 @@
         <!-- Core Main Processing Tool Button -->
         <button class="btn-gold-action" onclick="executeRealClientSplit()">Split PDF Instantly</button>
 
-        <!-- Output Downloader Workspace Workspace -->
-        <div class="block-heading">✨ Output Workspace</div>
+        <!-- Output Downloader Workspace Container -->
+        <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
         <div class="premium-card" style="text-align: center;">
             <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
-            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Split PDF is Ready!</h3>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">The specified page range has been successfully separated into an isolated standalone document.</p>
+            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Split PDF Workspace</h3>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Extract your layout configurations above, then download or preview securely.</p>
             
-            <!-- ✅ ADS PLACEMENT 2: Download button ke upar responsive ad -->
+            <!-- ✅ ADS PLACEMENT 2 -->
             <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
 
-            <button class="btn-green-download" onclick="executeRealClientSplit()">📥 Download Split PDF</button>
-            <button class="btn-outline-preview" onclick="alert('Opening Fullscreen Document Preview Context...')">👁️ Preview Split PDF</button>
+            <button class="btn-green-download" onclick="triggerDownload()">📥 Download Split PDF</button>
+            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Split PDF</button>
+            <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
         </div>
 
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"Split only even pages"</strong><p>Select alternating checkmarks in the grid selection module to output even page streams.</p></div>
-            <div class="text-content-row"><strong>"Extract a chapter"</strong><p>Isolate and choose specific contiguous index blocks to create smaller separate books.</p></div>
-            <div class="text-content-row"><strong>"Reduce file size after splitting"</strong><p>Pass your extracted results immediately into our optimization pipelines to save space.</p></div>
+            <div class="text-content-row"><strong>"Split only chosen pages"</strong><p>Uncheck any page thumbnails you want to drop. Only checked pages within the specified numeric range bounds will be compiled.</p></div>
+            <div class="text-content-row"><strong>"Extract a chapter"</strong><p>Isolate and choose specific contiguous index blocks dynamically using range controls to create smaller books.</p></div>
         </div>
 
         <!-- ⭐ Related Utilities Links -->
         <div class="block-heading">⭐ Related Tools</div>
         <div class="tools-navigation-grid">
-            <a href="#compress" class="tool-link-badge"><div>🗜️</div>Compress PDF</a>
-            <a href="#merge" class="tool-link-badge"><div>🧩</div>Merge PDF</a>
-            <a href="#rotate" class="tool-link-badge"><div>🔄</div>Rotate PDF</a>
-            <a href="#protect" class="tool-link-badge"><div>🔒</div>Protect PDF</a>
+            <a href="https://pdfgridbox.in/pdf-merge" class="tool-link-badge"><div>🧩</div>Merge PDF</a>
+            <a href="https://pdfgridbox.in/pdf-compress" class="tool-link-badge"><div>🗜️</div>Compress PDF</a>
+            <a href="https://pdfgridbox.in/pdf-rotate" class="tool-link-badge"><div>🔄</div>Rotate PDF</a>
+            <a href="https://pdfgridbox.in/pdf-protect" class="tool-link-badge"><div>🔒</div>Protect PDF</a>
         </div>
 
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Is my PDF secure?</strong><p>Absolute client protection infrastructure operational. Node processing assets clear cache allocations continuously.</p></div>
+            <div class="text-content-row"><strong style="color: #fff;">Is my PDF secure?</strong><p>Absolute client protection infrastructure operational. All operations execute safely inside browser memory allocations.</p></div>
             <div style="height: 16px;"></div>
-            <div class="text-content-row"><strong style="color: #fff;">Does it work offline?</strong><p>Cloudflare smart global edge routing caches basic engine parameters for consistent loading speed.</p></div>
-            <div style="height: 16px;"></div>
-            <div class="text-content-row"><strong style="color: #fff;">Maximum file size?</strong><p>Standard automated workflows accept separate documents arriving inside 50MB parameters safely.</p></div>
+            <div class="text-content-row"><strong style="color: #fff;">Will it reduce quality?</strong><p>Not at all. The processing works directly on vector stream metadata inside your browser tab without compiling compression maps.</p></div>
         </div>
 
-        <!-- ✅ ADS PLACEMENT 3: FAQ ke baad ad -->
+        <!-- ✅ ADS PLACEMENT 3 -->
         <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
 
     </div>
 
     <!-- 👑 Royal Ownership Signature Footer Token -->
-    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: #131926; border-top: 1px dashed var(--border-color);">
+    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: rgba(22, 29, 45, 0.7); border-top: 1px dashed var(--border-color);">
         <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
             <span style="font-size: 16px; margin-right: 5px;">👑</span> 
             <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
-            <span style="color: #60a5fa; font-weight: 700; background: #1e293b; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
+            <span style="color: #60a5fa; font-weight: 700; background: #0b0f19; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
         </p>
     </footer>
 
-    <!-- 🚀 CORE CORE PROGRAMMING ENGINE LOGIC INTEGRATION -->
+    <!-- 🚀 CORE ENGINE LOGIC INTEGRATION THREADS -->
     <script>
+        var pdfjsLib = window['pdfjs-dist/build/pdf'] || pdfjsLib;
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
         let globalFileArrayBuffer = null;
-        let globalFileName = "split-document.pdf";
+        let globalFileName = "Split_Document.pdf";
         let maxPagesDetected = 1;
+        let compiledBlobUrl = null; 
 
-        function processAndLoadPDF(e) {
+        // Helper hook to invalidate memory slots if the workspace variables shift state
+        function invalidateActiveWorkspace() {
+            if (compiledBlobUrl) {
+                URL.revokeObjectURL(compiledBlobUrl);
+                compiledBlobUrl = null;
+                document.getElementById('stateLabel').innerText = "Status: Settings Modified. Please re-split.";
+                document.getElementById('trackBarIndicatorFill').style.width = "70%";
+            }
+        }
+
+        async function processAndLoadPDF(e) {
             const file = e.target.files[0];
             if (!file) return;
 
             globalFileName = file.name.replace(".pdf", "") + "_Split.pdf";
-            document.getElementById('labelSize').innerText = (file.size / (1024 * 1024)).toFixed(1) + " MB";
+            document.getElementById('labelSize').innerText = (file.size / (1024 * 1024)).toFixed(2) + " MB";
 
             const labelText = document.getElementById('stateLabel');
             const fillerBar = document.getElementById('trackBarIndicatorFill');
+            const matrixGrid = document.getElementById('thumbnailMatrixView');
 
-            let progress = 0;
-            labelText.innerText = "Status: Uploading Document...";
-            
-            let uploadInterval = setInterval(() => {
-                progress += 25;
-                fillerBar.style.width = progress + "%";
-                
-                if (progress >= 100) {
-                    clearInterval(uploadInterval);
+            labelText.innerText = "Status: Inspecting Byte Streams...";
+            fillerBar.style.width = "25%";
+            matrixGrid.innerHTML = '<p style="color: var(--text-muted); font-size: 13px; grid-column: span 2; text-align: center; padding: 20px 0; width: 100%;">Generating live thumbnails layout...</p>';
 
-                    setTimeout(() => {
-                        progress = 0;
-                        fillerBar.style.width = "0%";
-                        labelText.innerText = "Status: Processing Nodes...";
+            globalFileArrayBuffer = null;
+            maxPagesDetected = 1;
+            if (compiledBlobUrl) {
+                URL.revokeObjectURL(compiledBlobUrl);
+                compiledBlobUrl = null;
+            }
 
-                        let processInterval = setInterval(() => {
-                            progress += 50;
-                            fillerBar.style.width = progress + "%";
-                            
-                            if (progress >= 100) {
-                                clearInterval(processInterval);
-                                labelText.innerText = "Status: Rendering Live Preview...";
-                                
-                                // Read file buffer dynamically for splitting engine
-                                const reader = new FileReader();
-                                reader.onload = function() {
-                                    globalFileArrayBuffer = this.result;
-                                    renderRealCanvases(new Uint8Array(this.result));
-                                };
-                                reader.readAsArrayBuffer(file);
-                            }
-                        }, 150);
-                    }, 200);
+            const fileReader = new FileReader();
+            fileReader.onload = async function() {
+                globalFileArrayBuffer = this.result;
+                try {
+                    const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(this.result) });
+                    const pdfDocInstance = await loadingTask.promise;
+
+                    maxPagesDetected = pdfDocInstance.numPages;
+                    document.getElementById('labelPages').innerText = pdfDocInstance.numPages + " Pages";
+                    document.getElementById('labelVersion').innerText = "1.7 (Client SDK)";
+                    document.getElementById('labelEncrypt').innerText = "No";
+
+                    // Configure limits parameters metrics elements boundaries
+                    const fromInput = document.getElementById('rangeFrom');
+                    const toInput = document.getElementById('rangeTo');
+                    fromInput.value = 1;
+                    fromInput.max = maxPagesDetected;
+                    toInput.value = maxPagesDetected;
+                    toInput.max = maxPagesDetected;
+
+                    // Attach memory check hooks tracking routines onto number parameters inputs
+                    fromInput.oninput = invalidateActiveWorkspace;
+                    toInput.oninput = invalidateActiveWorkspace;
+
+                    fillerBar.style.width = "60%";
+                    labelText.innerText = "Status: Rendering Matrix Previews...";
+
+                    await renderMasterPagesMatrix(pdfDocInstance);
+
+                    fillerBar.style.width = "100%";
+                    labelText.innerText = "Status: Workspace System Synchronized";
+                } catch(err) {
+                    console.error(err);
+                    alert("Error parsing file layout framework. Document might be corrupted or locked.");
+                    labelText.innerText = "Status: Parse Failure Encountered";
                 }
-            }, 100);
+            };
+            fileReader.readAsArrayBuffer(file);
+            e.target.value = ""; 
         }
 
-        function renderRealCanvases(typedarray) {
-            pdfjsLib.getDocument(typedarray).promise.then(function(pdf) {
-                maxPagesDetected = pdf.numPages;
-                document.getElementById('labelPages').innerText = pdf.numPages + " Pages";
-                document.getElementById('labelVersion').innerText = "1.7 (PDF.js)";
-                document.getElementById('labelEncrypt').innerText = "No";
-                
-                // Configure manual user inputs boundary numbers rules
-                const fromInput = document.getElementById('rangeFrom');
-                const toInput = document.getElementById('rangeTo');
-                fromInput.value = 1;
-                fromInput.max = pdf.numPages;
-                toInput.value = pdf.numPages;
-                toInput.max = pdf.numPages;
+        async function renderMasterPagesMatrix(pdfInstance) {
+            const matrixGrid = document.getElementById('thumbnailMatrixView');
+            matrixGrid.innerHTML = ''; 
 
-                const matrixGrid = document.getElementById('thumbnailMatrixView');
-                matrixGrid.innerHTML = ''; 
+            for (let pageNum = 1; pageNum <= maxPagesDetected; pageNum++) {
+                const cardWrapperNode = document.createElement('div');
+                cardWrapperNode.className = 'thumbnail-dark-card';
 
-                for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-                    const cardWrapperNode = document.createElement('div');
-                    cardWrapperNode.className = 'thumbnail-dark-card';
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = true;
+                checkbox.id = `page-chk-${pageNum}`;
+                checkbox.className = 'split-target-selector';
+                checkbox.addEventListener('change', invalidateActiveWorkspace);
+                cardWrapperNode.appendChild(checkbox);
 
-                    const checkbox = document.createElement('input');
-                    checkbox.type = 'checkbox';
-                    checkbox.checked = true;
-                    checkbox.id = `page-chk-${pageNum}`;
-                    cardWrapperNode.appendChild(checkbox);
+                const canvasRenderElement = document.createElement('canvas');
+                cardWrapperNode.appendChild(canvasRenderElement);
 
-                    const canvasRenderElement = document.createElement('canvas');
-                    cardWrapperNode.appendChild(canvasRenderElement);
+                const labelCaption = document.createElement('div');
+                labelCaption.className = 'thumbnail-caption';
+                labelCaption.innerText = `Page ${pageNum}`;
+                cardWrapperNode.appendChild(labelCaption);
 
-                    const labelCaption = document.createElement('div');
-                    labelCaption.className = 'thumbnail-caption';
-                    labelCaption.innerText = `Page ${pageNum}`;
-                    cardWrapperNode.appendChild(labelCaption);
+                matrixGrid.appendChild(cardWrapperNode);
 
-                    matrixGrid.appendChild(cardWrapperNode);
+                const page = await pdfInstance.getPage(pageNum);
+                const viewport = page.getViewport({ scale: 0.25 });
+                const context = canvasRenderElement.getContext('2d');
+                canvasRenderElement.height = viewport.height;
+                canvasRenderElement.width = viewport.width;
 
-                    pdf.getPage(pageNum).then(function(page) {
-                        const viewport = page.getViewport({ scale: 0.25 });
-                        const context = canvasRenderElement.getContext('2d');
-                        canvasRenderElement.height = viewport.height;
-                        canvasRenderElement.width = viewport.width;
-
-                        page.render({ canvasContext: context, viewport: viewport });
-                    });
-                }
-                document.getElementById('stateLabel').innerText = "Status: Ready to Download";
-            }).catch(function() {
-                document.getElementById('stateLabel').innerText = "Status: Error Unpacking Data File Assets";
-            });
+                await page.render({ canvasContext: context, viewport: viewport }).promise;
+            }
         }
 
-        // 📥 ASLI REAL-TIME PDF SPLITTING AND DOWNLOADING ENGINE FUNCTION
         async function executeRealClientSplit() {
             if (!globalFileArrayBuffer) {
-                alert("Please select a valid PDF file asset first.");
+                alert("Please select a valid PDF file into the staging framework first.");
                 return;
             }
 
@@ -549,58 +635,78 @@
             const endRange = parseInt(document.getElementById('rangeTo').value) || maxPagesDetected;
 
             if (startRange < 1 || endRange > maxPagesDetected || startRange > endRange) {
-                alert("Please input a valid manual page extraction range bounds values.");
+                alert("Please select a valid extraction range boundaries selection.");
                 return;
             }
 
+            const labelText = document.getElementById('stateLabel');
+            const fillerBar = document.getElementById('trackBarIndicatorFill');
+
             try {
-                document.getElementById('stateLabel').innerText = "Status: Compiling Document Bytes...";
-                
-                // Load target asset via PDFLib pipeline engines
+                labelText.innerText = "Status: Compiling Fragment Sequences...";
+                fillerBar.style.width = "40%";
+
                 const srcPdfDoc = await PDFLib.PDFDocument.load(globalFileArrayBuffer);
                 const outPdfDoc = await PDFLib.PDFDocument.create();
 
-                // Generate specific collection array list
-                const totalTargetIndicesRange = [];
+                const indicesToExtract = [];
                 for (let pageIdx = startRange; pageIdx <= endRange; pageIdx++) {
-                    // Check if page thumbnail checkbox is marked active or extract by default
                     const chkElement = document.getElementById(`page-chk-${pageIdx}`);
+                    // Only push index parameters onto vector stacks if checklist remains checked state true
                     if (!chkElement || chkElement.checked) {
-                        totalTargetIndicesRange.push(pageIdx - 1); // 0-indexed base conversion rule
+                        indicesToExtract.push(pageIdx - 1); 
                     }
                 }
 
-                if (totalTargetIndicesRange.length === 0) {
-                    alert("No internal single page streams elements checked active inside matrix preview.");
-                    document.getElementById('stateLabel').innerText = "Status: Ready to Download";
+                if (indicesToExtract.length === 0) {
+                    alert("No internal isolated pages active or checked within specified metrics selection mapping boundaries.");
+                    labelText.innerText = "Status: Workspace System Synchronized";
                     return;
                 }
 
-                // Inject targeted nodes directly onto target client instance compilation buffer allocation 
-                const copiedPagesArr = await outPdfDoc.copyPages(srcPdfDoc, totalTargetIndicesRange);
-                copiedPagesArr.forEach((pageInstance) => outPdfDoc.addPage(pageInstance));
+                fillerBar.style.width = "75%";
+                const copiedPageInstancesArr = await outPdfDoc.copyPages(srcPdfDoc, indicesToExtract);
+                copiedPageInstancesArr.forEach((pageInstance) => outPdfDoc.addPage(pageInstance));
 
                 const compiledPdfBytes = await outPdfDoc.save();
-
-                // Trigger direct file blob assembly download stream instantly
                 const binaryFileBlob = new Blob([compiledPdfBytes], { type: 'application/pdf' });
-                const transientDownloadUrl = URL.createObjectURL(binaryFileBlob);
-                
-                const virtualAnchorElement = document.createElement('a');
-                virtualAnchorElement.href = transientDownloadUrl;
-                virtualAnchorElement.download = globalFileName;
-                document.body.appendChild(virtualAnchorElement);
-                virtualAnchorElement.click();
-                
-                document.body.removeChild(virtualAnchorElement);
-                URL.revokeObjectURL(transientDownloadUrl);
-                
-                document.getElementById('stateLabel').innerText = "Status: Document Split Downloaded!";
+
+                if (compiledBlobUrl) {
+                    URL.revokeObjectURL(compiledBlobUrl);
+                }
+                compiledBlobUrl = URL.createObjectURL(binaryFileBlob);
+
+                fillerBar.style.width = "100%";
+                labelText.innerText = "Status: Split PDF Ready! Click Download Below.";
+
+                document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
             } catch (err) {
                 console.error(err);
-                alert("An orchestration structural logic error blocked browser parsing.");
-                document.getElementById('stateLabel').innerText = "Status: Processing Engine Failure";
+                alert("An architecture compilation structural error blocked extraction streams routing.");
+                labelText.innerText = "Status: Engine Pipeline Interrupted";
             }
+        }
+
+        function triggerDownload() {
+            if (!compiledBlobUrl) {
+                alert("Please click the gold 'Split PDF Instantly' button first to compile your document configuration.");
+                return;
+            }
+            const dynamicAnchorElement = document.createElement('a');
+            dynamicAnchorElement.href = compiledBlobUrl;
+            dynamicAnchorElement.download = globalFileName;
+            
+            document.body.appendChild(dynamicAnchorElement);
+            dynamicAnchorElement.click();
+            document.body.removeChild(dynamicAnchorElement);
+        }
+
+        function triggerPreview() {
+            if (!compiledBlobUrl) {
+                alert("Please click the gold 'Split PDF Instantly' button first to generate a live preview viewport stream.");
+                return;
+            }
+            window.open(compiledBlobUrl, '_blank');
         }
     </script>
 </body>
