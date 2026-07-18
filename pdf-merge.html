@@ -36,7 +36,6 @@
             padding: 20px;
         }
 
-        /* ✨ Small Top Home Button Style */
         .btn-small-home {
             display: inline-flex;
             align-items: center;
@@ -134,9 +133,9 @@
         }
         .progress-thumb-fill {
             background: var(--gold-primary);
-            height: 0%;
+            height: 100%;
             width: 0%;
-            transition: width 0.3s;
+            transition: width 0.1s linear;
         }
 
         .meta-data-grid {
@@ -145,7 +144,6 @@
             gap: 20px;
         }
 
-        /* 📸 Live PDF Preview Grid Layout */
         .preview-thumbnails-matrix {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -192,7 +190,6 @@
             text-overflow: ellipsis;
         }
 
-        /* Action Controls Layout Elements */
         .btn-gold-action {
             background: var(--gold-primary);
             color: var(--bg-main);
@@ -248,7 +245,6 @@
             margin-bottom: 12px;
         }
 
-        /* 🏠 Bada Premium Home Button (Stacked below output workspace) */
         .btn-large-home {
             background: #1e293b;
             color: var(--text-white) !important;
@@ -273,7 +269,6 @@
             border-color: var(--gold-primary);
         }
 
-        /* ⭐ Related Tools Navigation Grid */
         .tools-navigation-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -322,13 +317,11 @@
 
     <div class="container">
         
-        <!-- 🏠 Top Small Back to Home Button -->
         <a href="https://pdfgridbox.in" class="btn-small-home">🏠 Back to Home</a>
         
         <h1 class="page-title">Merge PDF Files</h1>
         <p class="page-subtitle">Secure Client-Side Cloud Processing</p>
 
-        <!-- Document Selector Area -->
         <div class="upload-dashed-container" onclick="document.getElementById('realMergeFileInput').click()">
             <div style="font-size: 40px; color: #10b981;">🧩</div>
             <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Select Multiple PDF Files</div>
@@ -336,7 +329,6 @@
             <input type="file" id="realMergeFileInput" accept=".pdf" multiple style="display: none;" onchange="handleMultipleFileImport(event)">
         </div>
 
-        <!-- ✅ ADS PLACEMENT 1 -->
         <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here to unlock preview ]</div>
 
         <!-- Progress Component -->
@@ -356,7 +348,7 @@
             <div style="display:flex; flex-direction:column;"><span style="color:var(--text-muted); font-size:11px; text-transform:uppercase;">Type</span><strong style="color:#10b981;">Local Client</strong></div>
         </div>
 
-        <!-- 📸 Live PDF Preview Workspace Grid Frame -->
+        <!-- Live PDF Preview Workspace Grid Frame -->
         <div class="block-heading">📸 Live Pages Preview Matrix</div>
         <div class="premium-card">
             <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 15px 0;">Select the pages you want to include in the final merged document file:</p>
@@ -376,22 +368,18 @@
             <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Merged PDF is Ready!</h3>
             <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Selected page items have been processed inside your safe dashboard frame.</p>
             
-            <!-- ✅ ADS PLACEMENT 2 -->
             <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
 
-            <!-- Primary Buttons Stacked Vertically as Big Elements -->
             <button class="btn-green-download" onclick="executeRealClientMerge()">📥 Download Merged PDF</button>
             <button class="btn-outline-preview" onclick="alert('Opening Fullscreen Document Preview Context...')">👁️ Preview Merged PDF</button>
             <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
         </div>
 
-        <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
             <div class="text-content-row"><strong>"Exclude Pages Easily"</strong><p>Uncheck any individual page card thumbnail up in the preview area to remove it from the final merged file compile.</p></div>
         </div>
 
-        <!-- ⭐ Related Utilities Links (Restored perfectly) -->
         <div class="block-heading">⭐ Related Tools</div>
         <div class="tools-navigation-grid">
             <a href="https://pdfgridbox.in/pdf-compress" class="tool-link-badge"><div>🗜️</div>Compress PDF</a>
@@ -400,18 +388,15 @@
             <a href="https://pdfgridbox.in/pdf-protect" class="tool-link-badge"><div>🔒</div>Protect PDF</a>
         </div>
 
-        <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
             <div class="text-content-row"><strong style="color: #fff;">Is my data secure?</strong><p>Completely. The conversion engine compiles file buffers using local script architecture. No content ever drops into servers.</p></div>
         </div>
 
-        <!-- ✅ ADS PLACEMENT 3 -->
         <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
 
     </div>
 
-    <!-- 👑 Royal Ownership Signature Footer Token -->
     <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: #131926; border-top: 1px dashed var(--border-color);">
         <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
             <span style="font-size: 16px; margin-right: 5px;">👑</span> 
@@ -422,7 +407,6 @@
 
     <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
     <script>
-        // Fallback target injection for cross-environment safety context setup
         var pdfjsLib = window['pdfjs-dist/build/pdf'] || pdfjsLib;
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
@@ -437,17 +421,22 @@
             const fillerBar = document.getElementById('trackBarIndicatorFill');
             const matrixGrid = document.getElementById('thumbnailMatrixView');
 
-            labelText.innerText = "Status: Inspecting Byte Streams...";
-            fillerBar.style.width = "20%";
+            labelText.innerText = "Status: Inspecting Byte Streams (0%)";
+            fillerBar.style.width = "5%";
             
             matrixGrid.innerHTML = '<p style="color: var(--text-muted); font-size: 13px; grid-column: span 2; text-align: center; padding: 20px 0; width: 100%;">Generating live thumbnails layout...</p>'; 
             filesMemoryQueue = [];
             totalRenderedPagesCount = 0;
             let combinedBytesSize = 0;
 
+            // Step 1: Read files and load PDF documents
             for (let fIdx = 0; fIdx < rawFiles.length; fIdx++) {
                 const activeFile = rawFiles[fIdx];
                 combinedBytesSize += activeFile.size;
+
+                let progressVal = Math.round(((fIdx + 1) / rawFiles.length) * 25);
+                fillerBar.style.width = progressVal + "%";
+                labelText.innerText = `Status: Reading File ${fIdx + 1}/${rawFiles.length} (${progressVal}%)`;
 
                 await new Promise((resolve) => {
                     const fileReader = new FileReader();
@@ -471,14 +460,13 @@
                     };
                     fileReader.readAsArrayBuffer(activeFile);
                 });
+                await new Promise(r => setTimeout(r, 10)); // Yield to update UI
             }
 
             document.getElementById('labelTotalFiles').innerText = filesMemoryQueue.length + " Files";
             document.getElementById('labelTotalSize').innerText = (combinedBytesSize / (1024 * 1024)).toFixed(2) + " MB";
             
-            labelText.innerText = "Status: Processing Layout Framework...";
-            fillerBar.style.width = "60%";
-
+            // Step 2: Render UI pages preview matrix dynamically
             await renderMasterPagesMatrix();
 
             fillerBar.style.width = "100%";
@@ -490,6 +478,13 @@
             const matrixGrid = document.getElementById('thumbnailMatrixView');
             matrixGrid.innerHTML = ''; 
 
+            const labelText = document.getElementById('stateLabel');
+            const fillerBar = document.getElementById('trackBarIndicatorFill');
+
+            // Find global total pages first
+            let overallPagesToProcess = 0;
+            filesMemoryQueue.forEach(f => overallPagesToProcess += f.totalPages);
+            
             let internalGlobalPageCounter = 0;
 
             for (let fileIdx = 0; fileIdx < filesMemoryQueue.length; fileIdx++) {
@@ -498,6 +493,11 @@
 
                 for (let pageNum = 1; pageNum <= currentFileData.totalPages; pageNum++) {
                     internalGlobalPageCounter++;
+
+                    // Dynamically calculate progress bar between 25% and 95%
+                    let progressPercent = 25 + Math.round((internalGlobalPageCounter / overallPagesToProcess) * 70);
+                    fillerBar.style.width = progressPercent + "%";
+                    labelText.innerText = `Status: Rendering Page Preview ${internalGlobalPageCounter}/${overallPagesToProcess} (${progressPercent}%)`;
 
                     const cardWrapperNode = document.createElement('div');
                     cardWrapperNode.className = 'thumbnail-dark-card';
@@ -520,7 +520,6 @@
 
                     matrixGrid.appendChild(cardWrapperNode);
 
-                    // Multi-page isolated layout render pipeline
                     const page = await pdfInstance.getPage(pageNum);
                     const viewport = page.getViewport({ scale: 0.3 });
                     const context = canvasRenderElement.getContext('2d');
@@ -528,6 +527,9 @@
                     canvasRenderElement.width = viewport.width;
 
                     await page.render({ canvasContext: context, viewport: viewport }).promise;
+                    
+                    // Crucial: Gives time to browser thread to visually update the green/gold progress line
+                    await new Promise(r => setTimeout(r, 0));
                 }
             }
             totalRenderedPagesCount = internalGlobalPageCounter;
@@ -561,22 +563,43 @@
             const fillerBar = document.getElementById('trackBarIndicatorFill');
 
             try {
-                labelText.innerText = "Status: Executing Native Client Compile...";
-                fillerBar.style.width = "40%";
+                labelText.innerText = "Status: Initializing Merge Engine... (0%)";
+                fillerBar.style.width = "5%";
+                await new Promise(r => setTimeout(r, 50)); 
 
                 const masterMergedDoc = await PDFLib.PDFDocument.create();
 
-                for (let i = 0; i < targetCompilationQueue.length; i++) {
-                    const task = targetCompilationQueue[i];
-                    const correspondingFileBytes = filesMemoryQueue[task.fileIdx].bytesBuffer;
-                    
-                    const temporarySrcDoc = await PDFLib.PDFDocument.load(correspondingFileBytes);
-                    const [copiedPageInstance] = await masterMergedDoc.copyPages(temporarySrcDoc, [task.pageNum - 1]);
-                    masterMergedDoc.addPage(copiedPageInstance);
+                // ⚡ OPTIMIZATION: Parse each document ONCE in memory instead of inside the loop
+                labelText.innerText = "Status: Pre-processing documents framework...";
+                const loadedPdfLibDocs = [];
+                for (let i = 0; i < filesMemoryQueue.length; i++) {
+                    const loadedDoc = await PDFLib.PDFDocument.load(filesMemoryQueue[i].bytesBuffer);
+                    loadedPdfLibDocs.push(loadedDoc);
                 }
 
-                fillerBar.style.width = "80%";
-                labelText.innerText = "Status: Packing Output Byte Blobs...";
+                const totalPagesToMerge = targetCompilationQueue.length;
+
+                for (let i = 0; i < totalPagesToMerge; i++) {
+                    const task = targetCompilationQueue[i];
+                    
+                    // Fetch from cached array (Insanely fast!)
+                    const temporarySrcDoc = loadedPdfLibDocs[task.fileIdx];
+                    
+                    const [copiedPageInstance] = await masterMergedDoc.copyPages(temporarySrcDoc, [task.pageNum - 1]);
+                    masterMergedDoc.addPage(copiedPageInstance);
+
+                    // Dynamic merge progress indicator
+                    let mergePercent = Math.round(((i + 1) / totalPagesToMerge) * 85);
+                    fillerBar.style.width = mergePercent + "%";
+                    labelText.innerText = `Status: Compiling Selected Pages ${i + 1}/${totalPagesToMerge} (${mergePercent}%)`;
+                    
+                    // Yield control to let progress bar render smoothly
+                    if (i % 2 === 0) await new Promise(r => setTimeout(r, 0));
+                }
+
+                labelText.innerText = "Status: Generating Final PDF Blob... (95%)";
+                fillerBar.style.width = "95%";
+                await new Promise(r => setTimeout(r, 20));
 
                 const finalizedBytesArray = await masterMergedDoc.save();
                 const outputBlob = new Blob([finalizedBytesArray], { type: 'application/pdf' });
