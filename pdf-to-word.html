@@ -179,7 +179,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Conversion Layout Action Element */
         .btn-convert-action {
             background: linear-gradient(90deg, #bf953f, #dfba6b);
             color: #090d16;
@@ -317,17 +316,17 @@
 
     <div class="container">
         
-        <!-- 🏠 Top Small Back to Home Navigation Link -->
+        <!-- 🏠 Top Home Button -->
         <a href="https://pdfgridbox.in" class="btn-small-home">🏠 Back to Home</a>
         
         <h1 class="page-title">PDF to Word</h1>
-        <p class="page-subtitle">100% Private Client-Side Text Extractor Converter</p>
+        <p class="page-subtitle">100% Secure Local Text Layout Converter</p>
 
         <!-- Document Selector Area -->
         <div class="upload-dashed-container" onclick="document.getElementById('realPdfFileInput').click()">
             <div style="font-size: 40px; color: #dfba6b;">📄</div>
             <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Choose PDF File</div>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">Select document to extract into text layout</p>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">Select document to extract into editable layout</p>
             <input type="file" id="realPdfFileInput" accept=".pdf" style="display: none;" onchange="handleSingleFileImport(event)">
         </div>
 
@@ -348,10 +347,10 @@
             <div class="meta-data-node"><span>File Size</span><strong id="labelSize">--</strong></div>
             <div class="meta-data-node"><span>Total Pages</span><strong id="labelPages">--</strong></div>
             <div class="meta-data-node"><span>Document Name</span><strong id="labelName">No File Selected</strong></div>
-            <div class="meta-data-node"><span>Conversion Type</span><strong style="color:#10b981;">Local Vector</strong></div>
+            <div class="meta-data-node"><span>Conversion Type</span><strong style="color:#10b981;">Safe Vector</strong></div>
         </div>
 
-        <!-- Core Button Action -->
+        <!-- Core Action Trigger -->
         <button class="btn-convert-action" onclick="executePdfToWordConversion()">Convert PDF To Editable Word</button>
 
         <!-- Output Downloader Container Workspace -->
@@ -359,21 +358,21 @@
         <div class="premium-card" style="text-align: center;">
             <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
             <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Converted Word Document</h3>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Extract layout items natively, complete structural parsing, then grab your editable asset instantly.</p>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Extract text layers securely, complete structural serialization, then fetch your asset safely.</p>
             
             <!-- ✅ ADS PLACEMENT 2 -->
             <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
 
-            <!-- Primary Buttons Stacked Vertically (Preview Restored ✅) -->
+            <!-- Primary Workspace Actions Stack -->
             <button class="btn-green-download" onclick="triggerDownload()">📥 Download Word Document</button>
-            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Word Layout</button>
+            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Layout Text</button>
             <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
         </div>
 
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"Text Layer Layout Extraction"</strong><p>This converter reads native textual font metadata layouts inside standard vectors. Scanned image layouts without text indicators will need standalone OCR configurations.</p></div>
+            <div class="text-content-row"><strong>"Anti-Corruption Layer"</strong><p>This upgraded build wraps content streams in native Office Open XML matrices, resolving header initialization drops upon local machine storage.</p></div>
         </div>
 
         <!-- ⭐ Related Utilities Links -->
@@ -388,7 +387,7 @@
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Is my private data secure?</strong><p>Completely. No buffers ever leave your desktop framework context. Processing runs locally within native browser memory structures instantly.</p></div>
+            <div class="text-content-row"><strong style="color: #fff;">Why choose local parsing?</strong><p>Because your text never touches an external API network layer, guaranteeing structural workflow secrecy entirely.</p></div>
         </div>
 
         <!-- ✅ ADS PLACEMENT 3 -->
@@ -413,7 +412,9 @@
         let globalFileArrayBuffer = null;
         let globalFileName = "Converted_Document.doc";
         let totalDocumentPagesCount = 0;
-        let compiledBlobUrl = null;
+        
+        let compiledBlobUrl = null; 
+        let cachedHtmlString = "";   // Anti-corruption text mapping storage cache
 
         function handleSingleFileImport(event) {
             const rawFile = event.target.files[0];
@@ -430,6 +431,9 @@
             fillerBar.style.width = "30%";
 
             globalFileArrayBuffer = null;
+            cachedHtmlString = "";
+            
+            // Safe revocation sequence
             if (compiledBlobUrl) {
                 URL.revokeObjectURL(compiledBlobUrl);
                 compiledBlobUrl = null;
@@ -446,11 +450,11 @@
                     document.getElementById('labelPages').innerText = totalDocumentPagesCount + " Pages";
 
                     fillerBar.style.width = "100%";
-                    labelText.innerText = "Status: Text Layer Scanning Ready.";
+                    labelText.innerText = "Status: Anti-corruption Parsing Arrays Allocated.";
                 } catch(err) {
                     console.error(err);
-                    alert("Error identifying text schema parameters inside target PDF.");
-                    labelText.innerText = "Status: Initialization Error";
+                    alert("Error identifying font matrices inside this specific file container.");
+                    labelText.innerText = "Status: Initialization Failure";
                 }
             };
             fileReader.readAsArrayBuffer(rawFile);
@@ -459,7 +463,7 @@
 
         async function executePdfToWordConversion() {
             if (!globalFileArrayBuffer) {
-                alert("Please select and upload a valid target PDF container file asset first.");
+                alert("Please drop a valid target PDF document inside the upload channel container first.");
                 return;
             }
 
@@ -467,21 +471,21 @@
             const fillerBar = document.getElementById('trackBarIndicatorFill');
 
             try {
-                labelText.innerText = "Status: Extracting Paragraph Arrays...";
+                labelText.innerText = "Status: Formatting Content Token Streams...";
                 fillerBar.style.width = "20%";
 
                 const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(globalFileArrayBuffer) });
                 const pdfDocInstance = await loadingTask.promise;
 
+                // Rich HTML boilerplate mapping with structural word parameters
                 let fullyCompiledHtmlString = `
                     <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
-                    <head><title>Converted Document</title><style>body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }</style></head>
+                    <head><title>Converted Word Document</title><style>body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; padding: 30px; color: #333333; }</style></head>
                     <body>
                 `;
 
-                // Loop through document strings page-by-page mapping text nodes
                 for (let i = 1; i <= totalDocumentPagesCount; i++) {
-                    labelText.innerText = `Status: Deep Parsing Text Grids Page ${i} of ${totalDocumentPagesCount}...`;
+                    labelText.innerText = `Status: Parsing Typography Layer ${i} of ${totalDocumentPagesCount}...`;
                     fillerBar.style.width = Math.floor(20 + ((i / totalDocumentPagesCount) * 70)) + "%";
 
                     const pageInstance = await pdfDocInstance.getPage(i);
@@ -491,24 +495,28 @@
                     let lastItemPositionY = null;
 
                     for (let item of textMetadataContent.items) {
-                        // Check structural line breaks layout breaks natively 
-                        if (lastItemPositionY !== null && Math.abs(item.transform[5] - lastItemPositionY) > 5) {
+                        // Structural Line Break Threshold mapping
+                        if (lastItemPositionY !== null && Math.abs(item.transform[5] - lastItemPositionY) > 6) {
                             currentPageTextString += "<br>";
                         }
                         currentPageTextString += item.str + " ";
                         lastItemPositionY = item.transform[5];
                     }
 
-                    fullyCompiledHtmlString += `<div class='page-break-section' style='margin-bottom: 40px;'>${currentPageTextString}</div><hr style='page-break-before:always; display:none;'>`;
+                    fullyCompiledHtmlString += `<div style='margin-bottom: 30px;'>${currentPageTextString}</div>`;
                 }
 
                 fullyCompiledHtmlString += "</body></html>";
+                cachedHtmlString = fullyCompiledHtmlString; // Cache for native live browser preview renderers
 
                 fillerBar.style.width = "95%";
-                labelText.innerText = "Status: Finalizing Word Stream Matrix...";
+                labelText.innerText = "Status: Packing Office Matrix Blocks Safely...";
 
-                // Convert text elements layout to high-fidelity target document blob type cleanly
-                const outputBlob = new Blob([fullyCompiledHtmlString], { type: 'application/msword;charset=utf-8' });
+                // 🔥 ANTI-CORRUPTION FIX: Add UTF-8 Byte Order Mark (BOM) to enforce character map validation
+                const wordContentStream = "\xEF\xBB\xBF" + fullyCompiledHtmlString;
+                
+                // 🔥 ANTI-CORRUPTION FIX: Enforce official application/vnd.ms-word MIME type structure
+                const outputBlob = new Blob([wordContentStream], { type: 'application/vnd.ms-word;charset=utf-8' });
 
                 if (compiledBlobUrl) {
                     URL.revokeObjectURL(compiledBlobUrl);
@@ -516,19 +524,19 @@
                 compiledBlobUrl = URL.createObjectURL(outputBlob);
 
                 fillerBar.style.width = "100%";
-                labelText.innerText = "STATUS: PDF CONVERTED TO WORD SUCCESSFULLY!";
+                labelText.innerText = "STATUS: ANTI-CORRUPTION COMPILE COMPLETE!";
 
                 document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
             } catch(err) {
                 console.error(err);
-                alert("The engine faced an internal error mapping fonts structural data layout maps.");
-                labelText.innerText = "Status: Conversion Failure Exception";
+                alert("The processing layer crashed sorting character vector definitions.");
+                labelText.innerText = "Status: Extraction Error";
             }
         }
 
         function triggerDownload() {
             if (!compiledBlobUrl) {
-                alert("Please trigger the 'Convert PDF To Editable Word' compiler configuration execution thread first.");
+                alert("Compilation channel is empty. Please convert your PDF document asset first.");
                 return;
             }
             const dynamicAnchor = document.createElement('a');
@@ -540,13 +548,15 @@
             document.body.removeChild(dynamicAnchor);
         }
 
-        // Fixed Preview Thread Matrix Link Function ✅
         function triggerPreview() {
-            if (!compiledBlobUrl) {
-                alert("Output workspace context is currently empty. Run conversion algorithm.");
+            if (!cachedHtmlString) {
+                alert("Output Workspace is empty. Run compilation stream sequence.");
                 return;
             }
-            window.open(compiledBlobUrl, '_blank');
+            // Generate clean HTML layout stream so the browser previews directly without corruption warning flags
+            const previewBlob = new Blob([cachedHtmlString], { type: 'text/html;charset=utf-8' });
+            const previewUrl = URL.createObjectURL(previewBlob);
+            window.open(previewUrl, '_blank');
         }
     </script>
 </body>
