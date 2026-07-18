@@ -216,11 +216,11 @@
             border-color: var(--gold-primary);
         }
 
-        /* Customization Fields Row */
-        .config-inputs-row {
+        /* Responsive Configuration Grid Layout */
+        .config-inputs-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
             margin-top: 15px;
         }
         .config-select-field {
@@ -229,7 +229,7 @@
             border-radius: 10px;
             padding: 12px;
             color: var(--text-white);
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             width: 100%;
             outline: none;
@@ -419,13 +419,13 @@
             <div class="signature-pad-frame">
                 <canvas id="signatureCanvas"></canvas>
                 <div class="pad-controls">
-                    <span style="font-size: 11px; color:var(--text-muted); font-weight: 600; text-transform: uppercase;">Ink Color: Silver Gold</span>
+                    <span style="font-size: 11px; color:var(--text-muted); font-weight: 600; text-transform: uppercase;" id="inkColorLabel">Ink: Solid Black</span>
                     <button class="btn-clear-pad" onclick="clearSignaturePad()">Clear Pad</button>
                 </div>
             </div>
 
             <!-- Parameters positioning variables system -->
-            <div class="config-inputs-row">
+            <div class="config-inputs-grid">
                 <div>
                     <div style="font-size:12px; color: var(--text-muted); margin-bottom:6px;">Target Page:</div>
                     <select class="config-select-field" id="targetPageSelect" onchange="invalidateActiveWorkspace()">
@@ -433,12 +433,26 @@
                     </select>
                 </div>
                 <div>
+                    <div style="font-size:12px; color: var(--text-muted); margin-bottom:6px;">Ink Color:</div>
+                    <select class="config-select-field" id="inkColorSelect" onchange="updateInkColorSettings()">
+                        <option value="#000000">Solid Black</option>
+                        <option value="#1d4ed8">Royal Blue</option>
+                        <option value="#dc2626">Classic Red</option>
+                        <option value="#dfba6b">Luxury Gold</option>
+                    </select>
+                </div>
+                <div>
                     <div style="font-size:12px; color: var(--text-muted); margin-bottom:6px;">Placement Position:</div>
                     <select class="config-select-field" id="placementSelect" onchange="invalidateActiveWorkspace()">
                         <option value="bottom-right">Bottom Right Corner</option>
+                        <option value="bottom-center">Bottom Center</option>
                         <option value="bottom-left">Bottom Left Corner</option>
-                        <option value="center">Center of Document</option>
+                        <option value="center-right">Center Right</option>
+                        <option value="center">Absolute Center</option>
+                        <option value="center-left">Center Left</option>
                         <option value="top-right">Top Right Corner</option>
+                        <option value="top-center">Top Center</option>
+                        <option value="top-left">Top Left Corner</option>
                     </select>
                 </div>
             </div>
@@ -466,7 +480,7 @@
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"Clear Lines for Signatures"</strong><p>Use smooth continuous motions or tracking accessories on touch-enabled mobile interfaces to generate crisp signature curves.</p></div>
+            <div class="text-content-row"><strong>"Clear Dots & Lines"</strong><p>Tap gently to make a dot, or drag smoothly to write lines. Changing ink color will apply directly to new strokes on the board.</p></div>
         </div>
 
         <!-- ⭐ Related Utilities Links -->
@@ -481,7 +495,7 @@
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Is my signature data secure?</strong><p>Yes. Vector operations occur strictly within secure local canvas threads inside your device memory allocations. No pixels hit network streams.</p></div>
+            <div class="text-content-row"><strong style="color: #fff;">Is my signature data secure?</strong><p>Yes. Vector operations occur strictly within secure local canvas threads inside your device memory allocations. No pixels hit network servers.</p></div>
         </div>
 
         <!-- ✅ ADS PLACEMENT 3 -->
@@ -522,21 +536,42 @@
             canvas.width = rect.width;
             canvas.height = 180;
             
-            // Set line parameters for high quality dynamic visual curves look
-            ctx.strokeStyle = '#dfba6b'; // Luxurious Gold Signature Ink
+            // Reapply drawing engine settings post resize event
+            applyCurrentInkStyles();
+            signatureIsBlank = true;
+        }
+
+        function applyCurrentInkStyles() {
+            const chosenColor = document.getElementById('inkColorSelect').value;
+            ctx.strokeStyle = chosenColor;
+            ctx.fillStyle = chosenColor;
             ctx.lineWidth = 3;
             ctx.lineCap = 'round';
             ctx.lineJoin = 'round';
-            signatureIsBlank = true;
+        }
+
+        function updateInkColorSettings() {
+            applyCurrentInkStyles();
+            const selectEl = document.getElementById('inkColorSelect');
+            document.getElementById('inkColorLabel').innerText = "Ink: " + selectEl.options[selectEl.selectedIndex].text;
+            invalidateActiveWorkspace();
         }
 
         window.addEventListener('resize', setupSignatureCanvasDimensions);
         setupSignatureCanvasDimensions();
 
+        // Helper tracking dot draw configuration function
+        function drawImmediateDot(x, y) {
+            ctx.beginPath();
+            ctx.arc(x, y, ctx.lineWidth / 2, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
         // 🖌️ Signature Drawing Interaction Event Listeners
         canvas.addEventListener('mousedown', (e) => {
             isDrawing = true;
             [lastX, lastY] = [e.offsetX, e.offsetY];
+            drawImmediateDot(lastX, lastY); // Instantly handle single tap click dots
             signatureIsBlank = false;
             invalidateActiveWorkspace();
         });
@@ -560,6 +595,7 @@
                 const rect = canvas.getBoundingClientRect();
                 lastX = e.touches[0].clientX - rect.left;
                 lastY = e.touches[0].clientY - rect.top;
+                drawImmediateDot(lastX, lastY); // Instantly handle touch screen taps for dots
                 signatureIsBlank = false;
                 invalidateActiveWorkspace();
             }
@@ -667,12 +703,8 @@
                 labelText.innerText = "Status: Rasterizing Signature Maps...";
                 fillerBar.style.width = "40%";
 
-                // Convert tracking pad layers into vector binary streams data blocks
                 const signatureImgDataUrl = canvas.toDataURL('image/png');
-
                 const srcPdfDoc = await PDFLib.PDFDocument.load(globalFileArrayBuffer);
-                
-                // Embed signature PNG object safely inside PDF context registers
                 const embeddedSigImage = await srcPdfDoc.embedPng(signatureImgDataUrl);
                 
                 const targetPage = srcPdfDoc.getPages()[chosenPageNum - 1];
@@ -683,22 +715,52 @@
                 const sigRenderHeight = 60;
 
                 let coordX = pageWidth - sigRenderWidth - 30;
-                let coordY = 30; // Default boundary coordinate rules positions vectors mapping
+                let coordY = 30; // Default fallback layout configuration coordinates boundary logic
 
-                if (chosenPlacement === 'bottom-left') {
-                    coordX = 30;
-                } else if (chosenPlacement === 'center') {
-                    coordX = (pageWidth / 2) - (sigRenderWidth / 2);
-                    coordY = (pageHeight / 2) - (sigRenderHeight / 2);
-                } else if (chosenPlacement === 'top-right') {
-                    coordX = pageWidth - sigRenderWidth - 30;
-                    coordY = pageHeight - sigRenderHeight - 30;
+                // Advanced 9-Point Custom Layout Grid Placement Rules Calculations Pipeline
+                switch(chosenPlacement) {
+                    case 'top-left':
+                        coordX = 30;
+                        coordY = pageHeight - sigRenderHeight - 30;
+                        break;
+                    case 'top-center':
+                        coordX = (pageWidth / 2) - (sigRenderWidth / 2);
+                        coordY = pageHeight - sigRenderHeight - 30;
+                        break;
+                    case 'top-right':
+                        coordX = pageWidth - sigRenderWidth - 30;
+                        coordY = pageHeight - sigRenderHeight - 30;
+                        break;
+                    case 'center-left':
+                        coordX = 30;
+                        coordY = (pageHeight / 2) - (sigRenderHeight / 2);
+                        break;
+                    case 'center':
+                        coordX = (pageWidth / 2) - (sigRenderWidth / 2);
+                        coordY = (pageHeight / 2) - (sigRenderHeight / 2);
+                        break;
+                    case 'center-right':
+                        coordX = pageWidth - sigRenderWidth - 30;
+                        coordY = (pageHeight / 2) - (sigRenderHeight / 2);
+                        break;
+                    case 'bottom-left':
+                        coordX = 30;
+                        coordY = 30;
+                        break;
+                    case 'bottom-center':
+                        coordX = (pageWidth / 2) - (sigRenderWidth / 2);
+                        coordY = 30;
+                        break;
+                    case 'bottom-right':
+                    default:
+                        coordX = pageWidth - sigRenderWidth - 30;
+                        coordY = 30;
+                        break;
                 }
 
                 fillerBar.style.width = "75%";
                 labelText.innerText = "Status: Injecting Vector Coordinates...";
 
-                // Paint signature canvas layers streams objects dynamically onto targeting node framework
                 targetPage.drawImage(embeddedSigImage, {
                     x: coordX,
                     y: coordY,
@@ -720,7 +782,7 @@
                 document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
             } catch (err) {
                 console.error(err);
-                alert("An architecture structural engine pipeline logic error blocked signature placement.");
+                alert("An architecture structural error blocked signature execution maps processing.");
                 labelText.innerText = "Status: Pipeline Execution Error";
             }
         }
