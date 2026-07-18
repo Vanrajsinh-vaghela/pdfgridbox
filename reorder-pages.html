@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- 👑 PRE-CONFIGURED PREMIUM SEO META TAGS -->
-    <title>Reorder PDF Pages Online Free - 100% Secure & Private - pdfgridbox</title>
-    <meta name="description" content="Rearrange and change the page order of your PDF documents instantly. 100% secure client-side execution with zero file uploads. Organize your PDF pages easily.">
+    <title>Reorder PDF Pages Online Free - Multi-Range Sequencer - pdfgridbox</title>
+    <meta name="description" content="Rearrange, move, and reorder massive PDF page blocks instantly. Use multiple range selectors to change layout structures safely. 100% private client-side processing.">
 
     <!-- 🚀 Heavy Engines for Client-side PDF Processing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
@@ -25,7 +25,6 @@
             --gold-hover: #b38728;
             --gold-border: rgba(212, 175, 55, 0.3);
             --green-success: #10b981;
-            --accent-blue: #3b82f6;
             --border-color: rgba(255, 255, 255, 0.04);
             --accent-yellow: #ffe082;
         }
@@ -181,19 +180,44 @@
             letter-spacing: 0.5px;
         }
 
-        /* Configuration Input Layout Rules */
+        /* 🛠️ MULTI-RANGE STRUCTURAL BLOCKS STYLING */
+        .range-row-card {
+            background: rgba(11, 15, 25, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 14px;
+        }
+        .range-row-card:last-child {
+            margin-bottom: 0;
+        }
+        .range-block-header {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .dual-inputs-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
         .config-text-input {
             background: var(--bg-input);
             border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 14px;
+            border-radius: 8px;
+            padding: 12px;
             color: var(--text-white);
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             width: 100%;
             outline: none;
-            margin-top: 8px;
-            letter-spacing: 0.5px;
+            margin-top: 4px;
         }
         .config-text-input:focus {
             border-color: var(--gold-primary);
@@ -341,7 +365,7 @@
         <a href="https://pdfgridbox.in" class="btn-small-home">🏠 Back to Home</a>
         
         <h1 class="page-title">Reorder PDF Pages</h1>
-        <p class="page-subtitle">100% Private Client-Side Structure Sequencing</p>
+        <p class="page-subtitle">100% Private Multi-Range Structural Organizer</p>
 
         <!-- Document Selector Area -->
         <div class="upload-dashed-container" onclick="document.getElementById('realReorderFileInput').click()">
@@ -371,27 +395,69 @@
             <div class="meta-data-node"><span>Type</span><strong style="color:#10b981;">Local Client</strong></div>
         </div>
 
-        <!-- ⚙️ Reordering Parameters Panel -->
-        <div class="block-heading">⚙️ Sequence Structuring Options</div>
-        <div class="premium-card">
-            <div>
-                <div style="font-size:12px; color: var(--text-muted); margin-bottom:4px;">Define New Page Order Sequence:</div>
-                <input type="text" class="config-text-input" id="sequenceTextInput" placeholder="e.g., 3, 2, 1, 4-10" oninput="invalidateActiveWorkspace()">
-                <span style="font-size: 11px; color: var(--text-muted); display: block; margin-top: 10px; line-height: 1.4;">
-                    Rearrange the sequence arrays above. You can change positions, separate indices with commas, use dashes for internal block ranges, and even duplicate pages if required.
-                </span>
+        <!-- ⚙️ Reordering Parameters Panel (3 DUAL OPTIONS BLOCKS) -->
+        <div class="block-heading">⚙️ Sequence Structuring Blocks</div>
+        <div class="premium-card" style="padding: 16px;">
+            
+            <!-- Block Row 1 -->
+            <div class="range-row-card">
+                <div class="range-block-header"><span>🔗 Sequence Block 1</span></div>
+                <div class="dual-inputs-layout">
+                    <div>
+                        <span style="font-size: 11px; color: var(--text-muted)">From Page:</span>
+                        <input type="number" class="config-text-input start-range-field" id="startBlock1" placeholder="e.g., 3" min="1" oninput="invalidateActiveWorkspace()">
+                    </div>
+                    <div>
+                        <span style="font-size: 11px; color: var(--text-muted)">To Page:</span>
+                        <input type="number" class="config-text-input end-range-field" id="endBlock1" placeholder="e.g., 1" min="1" oninput="invalidateActiveWorkspace()">
+                    </div>
+                </div>
             </div>
+
+            <!-- Block Row 2 -->
+            <div class="range-row-card">
+                <div class="range-block-header"><span>🔗 Sequence Block 2</span></div>
+                <div class="dual-inputs-layout">
+                    <div>
+                        <span style="font-size: 11px; color: var(--text-muted)">From Page:</span>
+                        <input type="number" class="config-text-input start-range-field" id="startBlock2" placeholder="e.g., 7" min="1" oninput="invalidateActiveWorkspace()">
+                    </div>
+                    <div>
+                        <span style="font-size: 11px; color: var(--text-muted)">To Page:</span>
+                        <input type="number" class="config-text-input end-range-field" id="endBlock2" placeholder="e.g., 9" min="1" oninput="invalidateActiveWorkspace()">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block Row 3 -->
+            <div class="range-row-card">
+                <div class="range-block-header"><span>🔗 Sequence Block 3</span></div>
+                <div class="dual-inputs-layout">
+                    <div>
+                        <span style="font-size: 11px; color: var(--text-muted)">From Page:</span>
+                        <input type="number" class="config-text-input start-range-field" id="startBlock3" placeholder="e.g., 10" min="1" oninput="invalidateActiveWorkspace()">
+                    </div>
+                    <div>
+                        <span style="font-size: 11px; color: var(--text-muted)">To Page:</span>
+                        <input type="number" class="config-text-input end-range-field" id="endBlock3" placeholder="e.g., 14" min="1" oninput="invalidateActiveWorkspace()">
+                    </div>
+                </div>
+            </div>
+
+            <span style="font-size: 11px; color: var(--text-muted); display: block; margin-top: 12px; line-height: 1.4;">
+                Blocks will be stitched together top-to-bottom. Leave any block empty if not needed. Supports reverse ordering (e.g., From 3 To 1).
+            </span>
         </div>
 
         <!-- Core Button Action -->
-        <button class="btn-reorder-action" onclick="executeRealClientReordering()">Apply New Page Sequence</button>
+        <button class="btn-reorder-action" onclick="executeRealClientReordering()">Compile & Rearrange Pages</button>
 
         <!-- Output Downloader Container Workspace -->
         <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
         <div class="premium-card" style="text-align: center;">
             <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
             <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Restructured PDF Workspace</h3>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Re-align order sequences above, process array compilations, then trigger instant local system storage.</p>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Verify parameters above, hit compile, then preview or download locally instantly.</p>
             
             <!-- ✅ ADS PLACEMENT 2 -->
             <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
@@ -405,7 +471,7 @@
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"Advanced Multiplexing"</strong><p>Want to repeat page 1 at the end? Simply insert it again anywhere inside the sequence text array string (e.g. 1, 2, 3, 1). Pointers will reference assets safely.</p></div>
+            <div class="text-content-row"><strong>"Seamless Stitching Matrix"</strong><p>The engine captures each block sequence sequentially. If Block 1 is 3 to 1, and Block 2 is 7 to 9, pages 3,2,1 will immediately be followed by 7,8,9 in the output file.</p></div>
         </div>
 
         <!-- ⭐ Related Utilities Links -->
@@ -420,7 +486,7 @@
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Will it break structural indices?</strong><p>No. Internal catalog references and structural text boundaries automatically re-align inside the newly targeted layout sequence maps.</p></div>
+            <div class="text-content-row"><strong style="color: #fff;">Can I duplicate a page?</strong><p>Yes. If you call the same page index across multiple sequence block rows, the engine safely instances the reference across the output matrix.</p></div>
         </div>
 
         <!-- ✅ ADS PLACEMENT 3 -->
@@ -451,7 +517,7 @@
             if (compiledBlobUrl) {
                 URL.revokeObjectURL(compiledBlobUrl);
                 compiledBlobUrl = null;
-                document.getElementById('stateLabel').innerText = "Status: Parameters Changed. Re-run sequence compiler.";
+                document.getElementById('stateLabel').innerText = "Status: Parameters Changed. Re-compile sequence.";
                 document.getElementById('trackBarIndicatorFill').style.width = "75%";
             }
         }
@@ -476,6 +542,12 @@
                 compiledBlobUrl = null;
             }
 
+            // Clear inputs dynamically on new file drop
+            for (let i = 1; i <= 3; i++) {
+                document.getElementById(`startBlock${i}`).value = '';
+                document.getElementById(`endBlock${i}`).value = '';
+            }
+
             const fileReader = new FileReader();
             fileReader.onload = async function() {
                 globalFileArrayBuffer = this.result;
@@ -486,75 +558,25 @@
                     totalDocumentPagesCount = pdfDocInstance.numPages;
                     document.getElementById('labelPages').innerText = totalDocumentPagesCount + " Pages";
 
-                    // Automatically pre-populate default layout arrays sequence for convenience
-                    let defaultArrayString = "";
-                    if (totalDocumentPagesCount <= 7) {
-                        let segments = [];
-                        for(let i = 1; i <= totalDocumentPagesCount; i++) segments.push(i);
-                        defaultArrayString = segments.join(", ");
-                    } else {
-                        defaultArrayString = `1-${totalDocumentPagesCount}`;
-                    }
-                    
-                    document.getElementById('sequenceTextInput').value = defaultArrayString;
+                    // Pre-fill Block 1 with entire range by default for instant usability hint
+                    document.getElementById('startBlock1').value = 1;
+                    document.getElementById('endBlock1').value = totalDocumentPagesCount;
 
                     fillerBar.style.width = "100%";
-                    labelText.innerText = "Status: Sequence Map Ready";
+                    labelText.innerText = "Status: Multiple Sequence Matrix Ready";
                 } catch(err) {
                     console.error(err);
-                    alert("Error parsing document metrics context mapping securely.");
-                    labelText.innerText = "Status: Load Interrupted Failed";
+                    alert("Error parsing document metrics mapping securely.");
+                    labelText.innerText = "Status: Load Failed";
                 }
             };
             fileReader.readAsArrayBuffer(rawFile);
             event.target.value = "";
         }
 
-        // Dedicated custom string array sequencing module parser
-        function parseSequenceStringInput(inputStr, maximumPages) {
-            const finalTargetIndicesArray = [];
-            const segments = inputStr.split(',');
-
-            for (let chunk of segments) {
-                chunk = chunk.trim();
-                if (!chunk) continue;
-
-                if (chunk.includes('-')) {
-                    const boundaries = chunk.split('-');
-                    const startIdx = parseInt(boundaries[0].trim());
-                    const endIdx = parseInt(boundaries[1].trim());
-
-                    if (!isNaN(startIdx) && !isNaN(endIdx)) {
-                        if (startIdx <= endIdx) {
-                            for (let k = startIdx; k <= endIdx; k++) {
-                                if (k >= 1 && k <= maximumPages) finalTargetIndicesArray.push(k - 1);
-                            }
-                        } else {
-                            // Support descending sequence maps inversion orders e.g., 5-1
-                            for (let k = startIdx; k >= endIdx; k--) {
-                                if (k >= 1 && k <= maximumPages) finalTargetIndicesArray.push(k - 1);
-                            }
-                        }
-                    }
-                } else {
-                    const singleIdx = parseInt(chunk);
-                    if (!isNaN(singleIdx) && singleIdx >= 1 && singleIdx <= maximumPages) {
-                        finalTargetIndicesArray.push(singleIdx - 1);
-                    }
-                }
-            }
-            return finalTargetIndicesArray;
-        }
-
         async function executeRealClientReordering() {
             if (!globalFileArrayBuffer) {
-                alert("Please attach a valid target PDF document vector asset file structure first.");
-                return;
-            }
-
-            const rawSequenceString = document.getElementById('sequenceTextInput').value;
-            if (!rawSequenceString.trim()) {
-                alert("Please write the sequence routing mappings inside the config array text input container.");
+                alert("Please upload a valid PDF document first.");
                 return;
             }
 
@@ -562,24 +584,65 @@
             const fillerBar = document.getElementById('trackBarIndicatorFill');
 
             try {
-                labelText.innerText = "Status: Decoding Original Array Maps...";
-                fillerBar.style.width = "40px";
+                labelText.innerText = "Status: Processing Block Sequences...";
+                fillerBar.style.width = "40%";
 
-                const parsedTargetIndices = parseSequenceStringInput(rawSequenceString, totalDocumentPagesCount);
+                const parsedTargetIndices = [];
+                let activeBlocksFound = 0;
 
-                if (parsedTargetIndices.length === 0) {
-                    alert("No matching page allocations were accurately parsed from your criteria entries string.");
-                    labelText.innerText = "Status: Matrix Mapping Error";
+                // Loop through the 3 UI block configs explicitly
+                for (let i = 1; i <= 3; i++) {
+                    const startValRaw = document.getElementById(`startBlock${i}`).value;
+                    const endValRaw = document.getElementById(`endBlock${i}`).value;
+
+                    if (startValRaw.trim() === "" && endValRaw.trim() === "") {
+                        continue; // Skip silently if the row pair is left empty
+                    }
+
+                    const startPage = parseInt(startValRaw);
+                    const endPage = parseInt(endValRaw);
+
+                    if (isNaN(startPage) || isNaN(endPage)) {
+                        alert(`Sequence Block ${i} has incomplete configurations. Enter both coordinates or clear both.`);
+                        labelText.innerText = "Status: Validation Fault";
+                        return;
+                    }
+
+                    if (startPage < 1 || startPage > totalDocumentPagesCount || endPage < 1 || endPage > totalDocumentPagesCount) {
+                        alert(`Range Exception in Block ${i}! Values must fall securely inside 1 and ${totalDocumentPagesCount}.`);
+                        labelText.innerText = "Status: Out of Bounds Error";
+                        return;
+                    }
+
+                    activeBlocksFound++;
+
+                    // Inject values into indexing array framework seamlessly
+                    if (startPage <= endPage) {
+                        // Forward loop insertion e.g. 7 to 9
+                        for (let k = startPage; k <= endPage; k++) {
+                            parsedTargetIndices.push(k - 1);
+                        }
+                    } else {
+                        // Reverse descending order loops system e.g. 3 to 1
+                        for (let k = startPage; k >= endPage; k--) {
+                            parsedTargetIndices.push(k - 1);
+                        }
+                    }
+                }
+
+                if (activeBlocksFound === 0) {
+                    alert("Please fill out at least one sequence block row matrix parameters.");
+                    labelText.innerText = "Status: Configuration Empty";
                     return;
                 }
 
-                fillerBar.style.width = "65%";
-                labelText.innerText = "Status: Building Ordered Core Trees...";
+                fillerBar.style.width = "70%";
+                labelText.innerText = "Status: Stitching Layout Vector Blocks...";
 
                 const srcPdfDoc = await PDFLib.PDFDocument.load(globalFileArrayBuffer);
                 const newOrderedPdfDoc = await PDFLib.PDFDocument.create();
 
-                // Copy structural layout reference lists securely across context matrices
+                // Allocate array pages dynamically using zero loss client stream pointers
                 const copiedPagesArray = await newOrderedPdfDoc.copyPages(srcPdfDoc, parsedTargetIndices);
                 copiedPagesArray.forEach(page => newOrderedPdfDoc.addPage(page));
 
@@ -592,19 +655,19 @@
                 compiledBlobUrl = URL.createObjectURL(outputBlob);
 
                 fillerBar.style.width = "100%";
-                labelText.innerText = `STATUS: DOCUMENT RESTOCKING SUCCESSFUL (${parsedTargetIndices.length} PAGES)`;
+                labelText.innerText = `STATUS: SUCCESS! ${parsedTargetIndices.length} PAGES RESTRUCTURED`;
 
                 document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
             } catch(err) {
                 console.error(err);
-                alert("Operational tracking system critical allocation fault exception during stream compilation.");
-                labelText.innerText = "Status: Sequence Engine Crash";
+                alert("Operational matrix structural execution failure processing buffers.");
+                labelText.innerText = "Status: Engine Matrix Exception";
             }
         }
 
         function triggerDownload() {
             if (!compiledBlobUrl) {
-                alert("Please hit the gold 'Apply New Page Sequence' execution button first.");
+                alert("Please execute the multi-range layout compiler compilation action first.");
                 return;
             }
             const dynamicAnchorElement = document.createElement('a');
@@ -618,7 +681,7 @@
 
         function triggerPreview() {
             if (!compiledBlobUrl) {
-                alert("Workspace mapping structure is currently empty. Run compiler arrays matrix.");
+                alert("Workspace stream layout is currently unassigned. Compile bounds.");
                 return;
             }
             window.open(compiledBlobUrl, '_blank');
