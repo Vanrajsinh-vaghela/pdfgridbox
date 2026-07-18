@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 👑 PRE-CONFIGURED PREMIUM SEO META TAGS -->
+    <title>Convert PDF to Excel (CSV) Online Free - 100% Secure - pdfgridbox</title>
+    <meta name="description" content="Convert PDF tables and data to Excel (CSV) format instantly. Secure client-side extraction, preserves tabular structure, no file uploads, 100% private.">
+
+    <!-- 🚀 Heavy Engine for Client-side PDF Parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    
+    <style>
+        /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
+        :root {
+            --bg-main: #090d16;
+            --bg-card: rgba(22, 29, 45, 0.7);
+            --bg-card-hover: rgba(30, 41, 64, 0.9);
+            --bg-input: #0b0f19;
+            --text-white: #f1f5f9;
+            --text-muted: #94a3b8;
+            --gold-primary: #dfba6b;
+            --gold-border: rgba(212, 175, 55, 0.3);
+            --green-success: #10b981;
+            --border-color: rgba(255, 255, 255, 0.04);
+            --accent-yellow: #ffe082;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg-main); color: var(--text-white); padding-bottom: 60px; }
+        
+        .container { max-width: 500px; margin: 0 auto; padding: 20px; }
+        
+        .btn-small-home { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 600; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); padding: 6px 14px; border-radius: 8px; transition: all 0.2s; margin-top: 10px; }
+        .btn-small-home:hover { color: var(--text-white); border-color: var(--gold-primary); background: var(--bg-card-hover); }
+
+        .page-title { text-align: center; font-family: 'Georgia', serif; font-size: 34px; font-weight: 700; margin: 20px 0 6px 0; }
+        .page-subtitle { text-align: center; color: var(--text-muted); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 35px; }
+
+        .block-heading { font-size: 16px; font-weight: 700; margin: 30px 0 15px 0; display: flex; align-items: center; gap: 10px; }
+        .premium-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin-bottom: 20px; backdrop-filter: blur(10px); }
+        
+        .upload-dashed-container { background: var(--bg-card); border: 1px dashed var(--gold-border); border-radius: 16px; padding: 45px 20px; text-align: center; cursor: pointer; transition: all 0.2s; }
+        .upload-dashed-container:hover { background: var(--bg-card-hover); border-color: var(--gold-primary); }
+
+        .progress-track { background: var(--bg-input); border: 1px solid var(--border-color); border-radius: 20px; height: 10px; overflow: hidden; margin-top: 10px; }
+        .progress-thumb-fill { background: linear-gradient(90deg, #b38728, #dfba6b); height: 100%; width: 0%; transition: width 0.3s; }
+
+        .meta-data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .meta-data-node span { display: block; color: var(--text-muted); font-size: 11px; margin-bottom: 4px; text-transform: uppercase; }
+
+        .btn-convert-action { background: linear-gradient(90deg, #bf953f, #dfba6b); color: #090d16; border: none; padding: 16px; border-radius: 12px; font-size: 15px; font-weight: 700; width: 100%; cursor: pointer; transition: all 0.2s; }
+        .btn-green-download { background: var(--green-success); color: #ffffff; border: none; padding: 16px; border-radius: 12px; font-size: 15px; font-weight: 700; width: 100%; margin-bottom: 12px; cursor: pointer; }
+        .btn-large-home { background: #161d2d; color: var(--text-white) !important; border: 1px solid var(--border-color); padding: 16px; border-radius: 12px; width: 100%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="https://pdfgridbox.in" class="btn-small-home">🏠 Back to Home</a>
+        <h1 class="page-title">PDF to Excel</h1>
+        <p class="page-subtitle">Secure CSV Extraction Matrix</p>
+
+        <div class="upload-dashed-container" onclick="document.getElementById('realPdfFileInput').click()">
+            <div style="font-size: 40px; color: #dfba6b;">📊</div>
+            <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Choose PDF File</div>
+            <input type="file" id="realPdfFileInput" accept=".pdf" style="display: none;" onchange="handleSingleFileImport(event)">
+        </div>
+
+        <div class="premium-card">
+            <div style="font-weight: 700; font-size: 13px; color: var(--accent-yellow); text-transform: uppercase;" id="stateLabel">Status: Awaiting Document</div>
+            <div class="progress-track"><div class="progress-thumb-fill" id="trackBarIndicatorFill"></div></div>
+        </div>
+
+        <div class="block-heading">📄 Document Information</div>
+        <div class="premium-card meta-data-grid">
+            <div class="meta-data-node"><span>File Size</span><strong id="labelSize">--</strong></div>
+            <div class="meta-data-node"><span>Total Pages</span><strong id="labelPages">--</strong></div>
+        </div>
+
+        <button class="btn-convert-action" onclick="executePdfToExcelConversion()">Extract Data To CSV (Excel)</button>
+
+        <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
+        <div class="premium-card" style="text-align: center;">
+            <button class="btn-green-download" onclick="triggerDownload()">📥 Download CSV File</button>
+            <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
+        </div>
+    </div>
+
+    <script>
+        var pdfjsLib = window['pdfjs-dist/build/pdf'] || pdfjsLib;
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+        let globalFileArrayBuffer = null;
+        let globalFileName = "Converted_Data.csv";
+        let csvContentCache = "";
+        let compiledBlobUrl = null;
+
+        function handleSingleFileImport(event) {
+            const rawFile = event.target.files[0];
+            if (!rawFile) return;
+
+            globalFileName = rawFile.name.replace(".pdf", "") + ".csv";
+            document.getElementById('labelSize').innerText = (rawFile.size / (1024 * 1024)).toFixed(2) + " MB";
+            document.getElementById('labelName').innerText = rawFile.name;
+            const labelText = document.getElementById('stateLabel');
+            
+            const reader = new FileReader();
+            reader.onload = async function() {
+                globalFileArrayBuffer = this.result;
+                const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(this.result) });
+                const pdf = await loadingTask.promise;
+                document.getElementById('labelPages').innerText = pdf.numPages + " Pages";
+                labelText.innerText = "Status: Data Mapping Ready.";
+            };
+            reader.readAsArrayBuffer(rawFile);
+        }
+
+        async function executePdfToExcelConversion() {
+            if (!globalFileArrayBuffer) return alert("Select PDF first.");
+            const labelText = document.getElementById('stateLabel');
+            const fillerBar = document.getElementById('trackBarIndicatorFill');
+            
+            const pdf = await pdfjsLib.getDocument({ data: new Uint8Array(globalFileArrayBuffer) }).promise;
+            let rows = [];
+
+            for (let i = 1; i <= pdf.numPages; i++) {
+                labelText.innerText = `Status: Extracting rows from page ${i}...`;
+                fillerBar.style.width = (i / pdf.numPages) * 100 + "%";
+                const page = await pdf.getPage(i);
+                const content = await page.getTextContent();
+                
+                // Group text by Y coordinate to build rows
+                let rowGroups = {};
+                content.items.forEach(item => {
+                    let y = Math.round(item.transform[5]); // Y coordinate
+                    let x = Math.round(item.transform[4]); // X coordinate
+                    // Tolerance for Y-alignment
+                    let foundY = Object.keys(rowGroups).find(ky => Math.abs(ky - y) < 5);
+                    if (!foundY) foundY = y;
+                    
+                    if (!rowGroups[foundY]) rowGroups[foundY] = [];
+                    rowGroups[foundY].push({x, text: item.str});
+                });
+
+                Object.keys(rowGroups).sort((a,b) => b-a).forEach(y => {
+                    let row = rowGroups[y].sort((a,b) => a.x - b.x).map(item => `"${item.text.replace(/"/g, '""')}"`).join(",");
+                    rows.push(row);
+                });
+            }
+
+            // CSV Header: BOM for UTF-8 Excel support (Crucial Fix!)
+            csvContentCache = "\uFEFF" + rows.join("\n");
+            
+            const blob = new Blob([csvContentCache], { type: 'text/csv;charset=utf-8;' });
+            compiledBlobUrl = URL.createObjectURL(blob);
+            
+            labelText.innerText = "STATUS: EXTRACTION COMPLETE!";
+            document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function triggerDownload() {
+            if (!compiledBlobUrl) return alert("Convert data first.");
+            const a = document.createElement('a');
+            a.href = compiledBlobUrl;
+            a.download = globalFileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+</html>
