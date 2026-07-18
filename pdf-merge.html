@@ -88,7 +88,6 @@
             background: #171e2e;
         }
 
-        /* Ads Layout Config */
         .ad-premium-banner {
             border: 1px dashed rgba(181, 164, 109, 0.4);
             background: rgba(19, 25, 38, 0.6);
@@ -123,16 +122,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
-        .meta-data-node span {
-            display: block;
-            color: var(--text-muted);
-            font-size: 12px;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
 
-        /* 📸 Live PDF Preview Grid Matrix (Exactly matching user layout requirement) */
+        /* 📸 Live PDF Preview Grid Layout */
         .preview-thumbnails-matrix {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -179,7 +170,7 @@
             text-overflow: ellipsis;
         }
 
-        /* Action Buttons Framework */
+        /* Action Controls Layout Elements */
         .btn-gold-action {
             background: var(--gold-primary);
             color: var(--bg-main);
@@ -235,7 +226,7 @@
             margin-bottom: 12px;
         }
 
-        /* 🏠 Bada Home Button - Styled exactly like the action layout blocks */
+        /* 🏠 Bada Premium Home Button (Stacked below output workspace) */
         .btn-large-home {
             background: #1e293b;
             color: var(--text-white) !important;
@@ -258,6 +249,34 @@
         .btn-large-home:hover {
             background: #2d3748;
             border-color: var(--gold-primary);
+        }
+
+        /* ⭐ Related Tools Navigation Grid */
+        .tools-navigation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .tool-link-badge {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 18px 10px;
+            border-radius: 14px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-white);
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        .tool-link-badge:hover {
+            border-color: var(--gold-primary);
+            background: #171e2e;
+        }
+        .tool-link-badge div {
+            font-size: 24px;
+            margin-bottom: 6px;
         }
 
         .text-content-row {
@@ -284,7 +303,7 @@
         <h1 class="page-title">Merge PDF Files</h1>
         <p class="page-subtitle">Secure Client-Side Cloud Processing</p>
 
-        <!-- Document Dropzone Selector -->
+        <!-- Document Selector Area -->
         <div class="upload-dashed-container" onclick="document.getElementById('realMergeFileInput').click()">
             <div style="font-size: 40px; color: #10b981;">🧩</div>
             <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Select Multiple PDF Files</div>
@@ -295,7 +314,7 @@
         <!-- ✅ ADS PLACEMENT 1 -->
         <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here to unlock preview ]</div>
 
-        <!-- Progress Tracker Node -->
+        <!-- Progress Component -->
         <div class="premium-card">
             <div style="font-weight: 700; font-size: 13px; color: #ffe082; text-transform: uppercase;" id="stateLabel">Status: Awaiting Files</div>
             <div class="progress-track">
@@ -303,16 +322,16 @@
             </div>
         </div>
 
-        <!-- Meta Data Summary -->
+        <!-- Meta Overview -->
         <div class="block-heading">📄 Total Queue Information</div>
         <div class="premium-card meta-data-grid">
-            <div class="meta-data-node"><span>Total Size</span><strong id="labelTotalSize">--</strong></div>
-            <div class="meta-data-node"><span>Total Files</span><strong id="labelTotalFiles">0 Files</strong></div>
-            <div class="meta-data-node"><span>Total Pages Loaded</span><strong id="labelTotalPages">0 Pages</strong></div>
-            <div class="meta-data-node"><span>Execution Type</span><strong style="color:#10b981;">Local Client</strong></div>
+            <div style="display:flex; flex-direction:column;"><span style="color:var(--text-muted); font-size:11px; text-transform:uppercase;">Total Size</span><strong id="labelTotalSize">--</strong></div>
+            <div style="display:flex; flex-direction:column;"><span style="color:var(--text-muted); font-size:11px; text-transform:uppercase;">Total Files</span><strong id="labelTotalFiles">0 Files</strong></div>
+            <div style="display:flex; flex-direction:column;"><span style="color:var(--text-muted); font-size:11px; text-transform:uppercase;">Total Pages Loaded</span><strong id="labelTotalPages">0 Pages</strong></div>
+            <div style="display:flex; flex-direction:column;"><span style="color:var(--text-muted); font-size:11px; text-transform:uppercase;">Type</span><strong style="color:#10b981;">Local Client</strong></div>
         </div>
 
-        <!-- 📸 Live PDF Preview Grid Matrix Area -->
+        <!-- 📸 Live PDF Preview Workspace Grid Frame -->
         <div class="block-heading">📸 Live Pages Preview Matrix</div>
         <div class="premium-card">
             <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 15px 0;">Select the pages you want to include in the final merged document file:</p>
@@ -322,20 +341,20 @@
             </div>
         </div>
 
-        <!-- Core Operation Dispatcher -->
+        <!-- Core Button Action -->
         <button class="btn-gold-action" onclick="executeRealClientMerge()">Merge PDFs Instantly</button>
 
-        <!-- Output Downloader Workspace -->
+        <!-- Output Downloader Container Workspace -->
         <div class="block-heading">✨ Output Workspace</div>
         <div class="premium-card" style="text-align: center;">
             <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
             <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Merged PDF is Ready!</h3>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Selected page elements have been compiled smoothly inside your safe workspace.</p>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Selected page items have been processed inside your safe dashboard frame.</p>
             
             <!-- ✅ ADS PLACEMENT 2 -->
             <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
 
-            <!-- All primary controls are cleanly stacked as large full-width units -->
+            <!-- Primary Buttons Stacked Vertically as Big Elements -->
             <button class="btn-green-download" onclick="executeRealClientMerge()">📥 Download Merged PDF</button>
             <button class="btn-outline-preview" onclick="alert('Opening Fullscreen Document Preview Context...')">👁️ Preview Merged PDF</button>
             <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
@@ -344,13 +363,22 @@
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"Exclude Pages Easily"</strong><p>Uncheck any page thumbnail block to skip it during the final merge assembly procedure.</p></div>
+            <div class="text-content-row"><strong>"Exclude Pages Easily"</strong><p>Uncheck any individual page card thumbnail up in the preview area to remove it from the final merged file compile.</p></div>
+        </div>
+
+        <!-- ⭐ Related Utilities Links (Restored perfectly) -->
+        <div class="block-heading">⭐ Related Tools</div>
+        <div class="tools-navigation-grid">
+            <a href="https://pdfgridbox.in/pdf-compress" class="tool-link-badge"><div>🗜️</div>Compress PDF</a>
+            <a href="https://pdfgridbox.in/pdf-split" class="tool-link-badge"><div>✂️</div>Split PDF</a>
+            <a href="https://pdfgridbox.in/pdf-rotate" class="tool-link-badge"><div>🔄</div>Rotate PDF</a>
+            <a href="https://pdfgridbox.in/pdf-protect" class="tool-link-badge"><div>🔒</div>Protect PDF</a>
         </div>
 
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Is my data secure?</strong><p>Processing happens completely client-side via JavaScript engines. No data hits server endpoints.</p></div>
+            <div class="text-content-row"><strong style="color: #fff;">Is my data secure?</strong><p>Completely. The conversion engine compiles file buffers using local script architecture. No content ever drops into servers.</p></div>
         </div>
 
         <!-- ✅ ADS PLACEMENT 3 -->
@@ -367,8 +395,10 @@
         </p>
     </footer>
 
-    <!-- 🚀 ENGINE SCRIPTS -->
+    <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
     <script>
+        // Fallback target injection for cross-environment safety context setup
+        var pdfjsLib = window['pdfjs-dist/build/pdf'] || pdfjsLib;
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
         let filesMemoryQueue = [];
@@ -399,7 +429,6 @@
                     fileReader.onload = async function(e) {
                         const bufferData = e.target.result;
                         try {
-                            // Robust structure initialization explicitly optimized for v2+ signatures
                             const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(bufferData) });
                             const pdfDocInstance = await loadingTask.promise;
                             
@@ -466,7 +495,7 @@
 
                     matrixGrid.appendChild(cardWrapperNode);
 
-                    // Dynamic UI rendering pipeline context operations execution block
+                    // Multi-page isolated layout render pipeline
                     const page = await pdfInstance.getPage(pageNum);
                     const viewport = page.getViewport({ scale: 0.3 });
                     const context = canvasRenderElement.getContext('2d');
@@ -499,7 +528,7 @@
             });
 
             if (targetCompilationQueue.length === 0) {
-                alert("No pages selected! Please select at least one page structure to perform execution.");
+                alert("No pages selected! Please check at least one page thumbnail card to proceed.");
                 return;
             }
 
