@@ -244,37 +244,21 @@
             font-weight: 700;
         }
 
-        /* 🖥️ Mobile Responsive Preview Frame Container (FIXED TO IMAGE DOM) */
-        .premium-preview-container {
+        /* 👁️ PERMANENTLY VISIBLE LIVE CANVAS PREVIEW WORKSPACE */
+        .preview-canvas-wrapper {
             width: 100%;
-            max-height: 380px;
-            border: 1px solid var(--gold-border);
-            border-radius: 12px;
-            background: var(--bg-input);
-            margin: 15px 0 20px 0;
-            overflow-y: auto;
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            margin-top: 10px;
             display: none;
-            padding: 12px;
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
         }
-        .premium-preview-container img {
+        .preview-canvas-wrapper canvas {
             width: 100%;
             height: auto;
-            border-radius: 6px;
             display: block;
             margin: 0 auto;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-        .preview-badge {
-            background: var(--gold-primary);
-            color: #090d16;
-            font-size: 10px;
-            font-weight: 800;
-            padding: 3px 8px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-bottom: 8px;
-            text-transform: uppercase;
         }
 
         .btn-green-download {
@@ -402,6 +386,18 @@
             </div>
         </div>
 
+        <!-- 👁️ PERSISTENT LIVE PREVIEW CONTAINER OPTION -->
+        <div class="block-heading">👁️ Live Document Preview</div>
+        <div class="premium-card" style="text-align: center;">
+            <div id="previewPlaceholder" style="color: var(--text-muted); padding: 30px 0; font-size: 13px;">
+                <div style="font-size: 28px; margin-bottom: 8px;">👁️</div>
+                Awaiting asset import to initialize live canvas render window.
+            </div>
+            <div class="preview-canvas-wrapper" id="livePreviewWrapper">
+                <canvas id="livePreviewCanvas"></canvas>
+            </div>
+        </div>
+
         <!-- Progress Component -->
         <div class="premium-card">
             <div style="font-weight: 700; font-size: 13px; color: var(--accent-yellow); text-transform: uppercase;" id="stateLabel">Status: Awaiting Document</div>
@@ -439,12 +435,6 @@
                     <span>Optimized Size</span>
                     <strong id="plt_compressed" style="color: var(--green-success);">--</strong>
                 </div>
-            </div>
-
-            <!-- 📄 MOBILE-FRIENDLY LIVE IMAGE PREVIEW FRAME -->
-            <div class="premium-preview-container" id="livePreviewContainerShell">
-                <span class="preview-badge">Page 1 Quality Preview</span>
-                <img id="livePreviewImgAsset" alt="Compressed Live Preview Layer">
             </div>
 
             <!-- ✅ ADS PLACEMENT 2 -->
@@ -521,12 +511,11 @@
             labelText.innerText = "Status: Indexing Asset Block Streams...";
             fillerBar.style.width = "30%";
 
-            globalFileArrayBuffer = null;
-            
-            // Clear existing previews cleanly
-            document.getElementById('livePreviewContainerShell').style.display = "none";
-            document.getElementById('livePreviewImgAsset').src = "";
+            // Reset preview viewports cleanly
+            document.getElementById('previewPlaceholder').style.display = "block";
+            document.getElementById('livePreviewWrapper').style.display = "none";
 
+            globalFileArrayBuffer = null;
             if (compiledBlobUrl) {
                 URL.revokeObjectURL(compiledBlobUrl);
                 compiledBlobUrl = null;
@@ -540,6 +529,24 @@
                     const pdfDocInstance = await loadingTask.promise;
 
                     document.getElementById('labelPages').innerText = pdfDocInstance.numPages + " Pages";
+                    
+                    // 📸 INSTANTLY RENDER LIVE PREVIEW OF PAGE 1 ON UPLOAD
+                    const targetPage = await pdfDocInstance.getPage(1);
+                    const standardViewport = targetPage.getViewport({ scale: 1.0 });
+                    const previewCanvas = document.getElementById('livePreviewCanvas');
+                    const previewCtx = previewCanvas.getContext('2d');
+
+                    previewCanvas.width = standardViewport.width;
+                    previewCanvas.height = standardViewport.height;
+
+                    await targetPage.render({
+                        canvasContext: previewCtx,
+                        viewport: standardViewport
+                    }).promise;
+
+                    document.getElementById('previewPlaceholder').style.display = "none";
+                    document.getElementById('livePreviewWrapper').style.display = "block";
+
                     fillerBar.style.width = "100%";
                     labelText.innerText = "Status: Asset Stream Parsed Safely.";
                 } catch(err) {
@@ -611,13 +618,6 @@
                         }, 'image/jpeg', jpegQualityParameter);
                     });
 
-                    // 📸 CAPTURE THE ACTUAL COMPRESSED PAGE 1 IMAGE FOR THE LIVE MOBILE PREVIEW
-                    if (i === 1) {
-                        const previewDataUrl = canvasSandbox.toDataURL('image/jpeg', jpegQualityParameter);
-                        const livePreviewImg = document.getElementById('livePreviewImgAsset');
-                        livePreviewImg.src = previewDataUrl;
-                    }
-
                     const embeddedJpg = await targetCompressedPdfDoc.embedJpg(compressedImageBuffer);
                     
                     const newPageInstance = targetCompressedPdfDoc.addPage();
@@ -643,9 +643,6 @@
                     URL.revokeObjectURL(compiledBlobUrl);
                 }
                 compiledBlobUrl = URL.createObjectURL(outputBlob);
-
-                // 🛠️ SHOW CAPTURED PREVIEW CONTAINER IMMEDIATELY ON SCREEN
-                document.getElementById('livePreviewContainerShell').style.display = "block";
 
                 fillerBar.style.width = "100%";
                 labelText.innerText = "STATUS: ASSET REDUCED SUCCESSFULLY!";
