@@ -39,7 +39,7 @@
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-main);
             color: var(--text-white);
-            padding-bottom: 60px;
+            padding-bottom: 0px;
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -314,13 +314,16 @@
         }
 
         .text-content-row {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+        }
+        .text-content-row:last-child {
+            margin-bottom: 0;
         }
         .text-content-row strong {
             display: block;
             font-size: 14px;
             color: var(--accent-yellow);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         .text-content-row p {
             margin: 0;
@@ -355,6 +358,49 @@
             font-size: 24px;
             margin-bottom: 6px;
         }
+
+        /* 👑 LUXURY COMPLIANCE FOOTER STYLES */
+        .luxury-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background-color: rgba(11, 15, 25, 0.8);
+            border-top: 1px dashed var(--gold-border);
+            backdrop-filter: blur(10px);
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+        .footer-credits {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .owner-badge {
+            color: #60a5fa;
+            font-weight: 700;
+            background: #0b0f19;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            display: inline-block;
+            margin-top: 4px;
+        }
     </style>
 </head>
 <body>
@@ -365,7 +411,7 @@
         <a href="https://pdfgridbox.in" class="btn-small-home">🏠 Back to Home</a>
         
         <h1 class="page-title">Reorder PDF Pages</h1>
-        <p class="page-subtitle">100% Private Multi-Range Structural Organizer</p>
+        <p class="page-subtitle">100% Private Client-Side Multi-Range Structural Organizer</p>
 
         <!-- Document Selector Area -->
         <div class="upload-dashed-container" onclick="document.getElementById('realReorderFileInput').click()">
@@ -471,7 +517,18 @@
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong>"Seamless Stitching Matrix"</strong><p>The engine captures each block sequence sequentially. If Block 1 is 3 to 1, and Block 2 is 7 to 9, pages 3,2,1 will immediately be followed by 7,8,9 in the output file.</p></div>
+            <div class="text-content-row">
+                <strong>Multi-Block Sequence Stitching Architecture</strong>
+                <p>The system compiles layout ranges strictly from top to bottom. For example, assigning Block 1 a range from page 5 to 1, followed by Block 2 from page 10 to 12, creates a structured timeline that cleanly merges those specific page subsets into a fresh file.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Granular Element Pointer Clones</strong>
+                <p>You can duplicate individual vector sheets by mapping identical indices across multiple range fields. The engine reads references cleanly inside the browser DOM space, appending clones without throwing system runtime exceptions.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Offline Processing Sandbox</strong>
+                <p>Confidential reports, legal documentation, and business logs stay completely isolated within your system memory boundaries. Because the reorganization loop processes file vectors locally, external scraping tracking systems are fully blocked.</p>
+            </div>
         </div>
 
         <!-- ⭐ Related Utilities Links -->
@@ -486,7 +543,18 @@
         <!-- ❓ FAQs Layout Component -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
-            <div class="text-content-row"><strong style="color: #fff;">Can I duplicate a page?</strong><p>Yes. If you call the same page index across multiple sequence block rows, the engine safely instances the reference across the output matrix.</p></div>
+            <div class="text-content-row">
+                <strong>Can I invert page sequences to arrange documents in reverse order?</strong>
+                <p>Yes. By configuring a high index in the 'From' block and a lower numerical indicator in the 'To' selector, the sequencing core handles descending page numbers automatically, letting you invert backward documents seamlessly.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Will my restructured document lose text layers or embedded font encodings?</strong>
+                <p>Not at all. The underlying client-side code utilizes direct low-level byte manipulation via pdf-lib libraries. It works by cloning raw catalog references, protecting hyper-links, form layout data, and vector tables from corruption.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Is there an upper file size limit for modifying pages inside this tool?</strong>
+                <p>The application has no operational upload ceilings since it bypasses remote servers entirely. Execution limits depend solely on your device's available browser hardware and system memory constraints.</p>
+            </div>
         </div>
 
         <!-- ✅ ADS PLACEMENT 3 -->
@@ -494,13 +562,18 @@
 
     </div>
 
-    <!-- 👑 Royal Ownership Signature Footer Token -->
-    <footer style="text-align: center; padding: 25px; margin-top: 60px; background-color: rgba(22, 29, 45, 0.7); border-top: 1px dashed var(--border-color);">
-        <p style="margin: 0; color: var(--text-muted); font-size: 14px; letter-spacing: 0.5px;">
-            <span style="font-size: 16px; margin-right: 5px;">👑</span> 
-            <strong style="color: var(--text-white);">pdfgridbox</strong> is proudly owned by 
-            <span style="color: #60a5fa; font-weight: 700; background: #0b0f19; padding: 3px 8px; border-radius: 6px; font-size: 13px;">Vanrajsinh Vaghela</span>
-        </p>
+    <!-- 👑 Royal Unified Ownership Compliance Footer -->
+    <footer class="luxury-footer">
+        <div class="footer-links">
+            <a href="https://pdfgridbox.in/about">About Us</a>
+            <a href="https://pdfgridbox.in/contact">Contact Us</a>
+            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
+            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+        </div>
+        <div class="footer-credits">
+            &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
+            Designed & Managed by <span class="owner-badge">Vanrajsinh Vaghela</span>
+        </div>
     </footer>
 
     <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
