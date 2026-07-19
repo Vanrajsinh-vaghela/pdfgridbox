@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Link to your Sitemap
 Sitemap: https://pdfgridbox.in/sitemap.xml
