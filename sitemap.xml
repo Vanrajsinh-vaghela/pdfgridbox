@@ -1,92 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- 🏠 Main Root Homepage -->
+  
+  <!-- Main Homepage -->
   <url>
     <loc>https://pdfgridbox.in/</loc>
     <priority>1.00</priority>
   </url>
 
-  <!-- 🛠️ Complete Suite of 16 Premium Tools -->
-  <url>
-    <loc>https://pdfgridbox.in/pdf-merge</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/pdf-split</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/pdf-compress</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/delete-pages</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/extract-pages</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/jpg-to-pdf</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/pdf-to-excel</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/pdf-to-word</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/word-to-pdf</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/add-page-numbers</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/photo-resizer</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/protect-pdf</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/unlock-pdf</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/reorder-pages</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/rotate-pdf</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/sign-pdf</loc>
-    <priority>0.80</priority>
-  </url>
+  <!-- All Tool Pages -->
+  <url><loc>https://pdfgridbox.in/index.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/extract-pages.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/jpg-to-pdf.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/page-numbers.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/pdf-merge.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/pdf-split.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/pdf-to-excel.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/pdf-to-jpg.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/pdf-to-word.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/photo-resize.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/protect-pdf.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/reorder-pages.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/rotate-pdf.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/sign-pdf.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/unlock-pdf.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/word-to-pdf.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/add-watermark.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/compress-pdf.html</loc><priority>0.80</priority></url>
+  <url><loc>https://pdfgridbox.in/delete-pages.html</loc><priority>0.80</priority></url>
 
-  <!-- ⚖️ Mandatory Google AdSense Compliance Pages -->
-  <url>
-    <loc>https://pdfgridbox.in/about</loc>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/contact</loc>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/privacy-policy</loc>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://pdfgridbox.in/disclaimer</loc>
-    <priority>0.50</priority>
-  </url>
+  <!-- Information & Policy Pages -->
+  <url><loc>https://pdfgridbox.in/about.html</loc><priority>0.50</priority></url>
+  <url><loc>https://pdfgridbox.in/contact.html</loc><priority>0.50</priority></url>
+  <url><loc>https://pdfgridbox.in/privacy-policy.html</loc><priority>0.50</priority></url>
+  <url><loc>https://pdfgridbox.in/disclaimer.html</loc><priority>0.50</priority></url>
+
 </urlset>
