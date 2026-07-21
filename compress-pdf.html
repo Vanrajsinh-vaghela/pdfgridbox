@@ -10,6 +10,7 @@
 
       gtag('config', 'G-TWVBM11KXZ');
     </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -42,7 +43,7 @@
     <style>
         /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
         :root {
-            --bg-main: #090d16; /* Deep Midnight Luxury Background */
+            --bg-main: #090d16; 
             --bg-card: rgba(22, 29, 45, 0.7);
             --bg-card-hover: rgba(30, 41, 64, 0.9);
             --bg-input: #0b0f19;
@@ -164,18 +165,14 @@
             border-color: var(--gold-primary);
         }
 
+        /* 💰 SAFE ADSENSE CONTAINER */
         .ad-premium-banner {
-            border: 1px dashed rgba(212, 175, 55, 0.2);
-            background: rgba(11, 15, 25, 0.5);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            color: var(--gold-primary);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin: 20px 0;
-            text-transform: uppercase;
+            margin: 30px 0;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
 
         /* Strict gap injection to avoid accidental click penalties */
@@ -237,6 +234,7 @@
             width: 100%;
             cursor: pointer;
             margin-top: 10px;
+            margin-bottom: 12px;
             transition: all 0.2s;
             box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
         }
@@ -498,8 +496,16 @@
             <input type="file" id="realPdfFileInput" accept=".pdf" style="display: none;" onchange="handleSingleFileImport(event)">
         </div>
 
-        <!-- ✅ ADS PLACEMENT 1 -->
-        <div class="ad-premium-banner">[ Advertisement Banner Slot ]</div>
+        <!-- ✅ ADS PLACEMENT 1 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
         <!-- Advanced Precision Percentage Compression Control Slider Matrix -->
         <div class="block-heading">🎛️ Optimization Quality Level</div>
@@ -547,7 +553,10 @@
         <!-- Core Action Trigger -->
         <button class="btn-convert-action" onclick="executePdfCompressionLoop()">Optimize & Compress PDF</button>
 
-        <!-- Output Downloader Container Workspace -->
+        <!-- 🏠 ALWAYS VISIBLE MAIN BACK TO HOME BUTTON -->
+        <a href="https://pdfgridbox.in" class="btn-large-home" style="margin-bottom: 25px;">🏠 Back to Home Page</a>
+
+        <!-- Output Downloader Container Workspace (Hidden Initially) -->
         <div id="outputPanelWrapper">
             <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
             <div class="premium-card" style="text-align: center;">
@@ -568,11 +577,35 @@
                 </div>
 
                 <!-- ✅ ADS PLACEMENT 2 (ISOLATED WITH STRICT MARGINS) -->
-                <div class="ad-premium-banner adsense-margin-isolated">[ Responsive Ad Slot ]</div>
+                <div class="ad-premium-banner adsense-margin-isolated">
+                    <ins class="adsbygoogle"
+                         style="display:block; width:100%;"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
 
                 <!-- Primary Workspace Actions Stack -->
                 <button class="btn-green-download" onclick="triggerDownload()">📥 Download Compressed PDF</button>
-                <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
+            </div>
+        </div>
+
+        <!-- 🚀 HIGH-VALUE CONTEXTUAL RICH SEO DATA HUB BELOW THE FOLD -->
+        <div class="block-heading">📖 Smart Client-Side PDF Size Reduction</div>
+        <div class="premium-card">
+            <div class="text-content-row">
+                <strong>Why Compress PDF Files Online Privately?</strong>
+                <p>Large PDF documents containing high-resolution images, multi-page vector graphics, and embedded fonts can cause email attachment failures and slow upload speeds on web portals. Our browser-based PDF optimizer provides a safe, instant solution to reduce PDF file size online free without compromising privacy. Unlike legacy cloud tools that store your documents on remote server drives, our sandbox processing framework handles 100% of the byte array operations directly inside your browser memory. This guarantees that confidential invoices, medical records, and legal briefs never leave your personal computer or mobile device.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Balancing Visual Quality & Deep File Size Savings</strong>
+                <p>Finding the ideal balance between document sharpness and file size reduction is crucial when sharing files for business or academic purposes. By using our quality target slider, you can customize compression levels between 10% (maximum file reduction) and 100% (lossless vector preservation). For standard documents featuring mixed text, charts, and photos, selecting a quality profile between 60% and 80% usually delivers up to 70% file size reduction while keeping embedded images crisp and readable across all mobile screens and desktop monitors.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>How Local Vector Shielding Preserves PDF Structure</strong>
+                <p>Most standard online PDF compressors simply downgrade the entire document into pixelated images, making native text unselectable and blurry. Our client-side compression matrix uses advanced canvas rendering scale factors alongside physical point preservation rules. This ensures that text alignment layers and native vector layouts remain completely intact, downsampling high-DPI raster elements while shielding character fonts. You receive an optimized, fast-loading PDF asset that maintains original document dimensions when opened in any PDF viewer or printed.</p>
             </div>
         </div>
 
@@ -602,35 +635,55 @@
             <a href="https://pdfgridbox.in/pdf-split" class="tool-link-badge"><div>✂️</div>Split PDF</a>
         </div>
 
-        <!-- ❓ FAQs Layout Component -->
+        <!-- ❓ FAQS CONTENT HUB - ELIMINATING THIN CONTENT SCENARIOS -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
             <div class="text-content-row">
-                <strong>Will character layers blur out during compression?</strong>
+                <strong style="color: #fff;">Will character layers blur out during compression?</strong>
                 <p>No. The local execution engine automatically retains strict alignment coordinates while processing image components. Text layers stay sharp because their vector layouts are safeguarded throughout the script execution loop.</p>
             </div>
             <div class="text-content-row">
-                <strong>How does client-side compression protect my privacy?</strong>
+                <strong style="color: #fff;">How does client-side compression protect my privacy?</strong>
                 <p>Standard online tools upload your files to remote cloud storage stacks where logs could potentially persist. Our tool handles 100% of the byte processing directly within your local browser sandbox memory, keeping data strictly inside your device.</p>
             </div>
             <div class="text-content-row">
-                <strong>Is there a limit on the document page counts or size?</strong>
-                <p>There are no arbitrary restrictions enforced by pdfgridbox. The process runs purely on your system's hardware capabilities. Extremely large books or high-DPI scans might take an extra couple of seconds to stream and optimize.</p>
+                <strong style="color: #fff;">Is there a limit on the document page counts or file size?</strong>
+                <p>There are no arbitrary file size restrictions enforced by pdfgridbox. The process runs purely on your system's hardware capabilities. Extremely large books or high-DPI scanned documents might take an extra few seconds to process locally.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Does compressing a PDF alter its physical page size?</strong>
+                <p>No. Our tool uses strict physical dimension preservation rules in point measurements. Whether your PDF is in standard A4, Letter, or legal format, the overall document page dimensions remain exactly identical after compression.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Can I preview the compressed pages before downloading?</strong>
+                <p>Yes! Our real-time multi-page preview gallery renders each compressed page in sequence so you can inspect image clarity and text crispness before downloading the final file.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is this PDF compressor tool completely free to use?</strong>
+                <p>Yes, pdfgridbox provides 100% free online PDF processing utilities with no hidden subscriptions, daily usage caps, or watermark penalties added to your output documents.</p>
             </div>
         </div>
 
-        <!-- ✅ ADS PLACEMENT 3 -->
-        <div class="ad-premium-banner">[ Matched Content Ad Slot ]</div>
+        <!-- ✅ ADS PLACEMENT 3 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
     </div>
 
     <!-- 👑 Royal Unified Ownership Compliance Footer -->
     <footer class="luxury-footer">
         <div class="footer-links">
-            <a href="https://pdfgridbox.in/about">About Us</a>
-            <a href="https://pdfgridbox.in/contact">Contact Us</a>
-            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
-            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
         </div>
         <div class="footer-credits">
             &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
