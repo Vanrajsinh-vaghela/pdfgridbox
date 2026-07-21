@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-TWVBM11KXZ');
-</script>
+      gtag('config', 'G-TWVBM11KXZ');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- 👑 PRE-CONFIGURED PREMIUM SEO META TAGS -->
     <title>Rotate PDF Pages Online Free - 100% Secure - pdfgridbox</title>
     <meta name="description" content="Rotate PDF pages online free. Correct upside down or sideways PDF documents instantly with our 100% secure client-side orientation engine. No file uploads required.">
+
+    <!-- 🚀 GOOGLE APPLICATION SCHEMA MARKUP FOR FASTER INDEXING -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Rotate PDF Pages Online Free - pdfgridbox",
+      "url": "https://pdfgridbox.in/rotate-pdf",
+      "description": "Rotate PDF pages online free. Correct upside down or sideways PDF documents instantly with 100% private local browser memory processing.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 
     <!-- 🚀 Heavy Engines for Client-side PDF Processing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
@@ -24,7 +43,7 @@
     <style>
         /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
         :root {
-            --bg-main: #090d16; /* Deep Midnight Luxury Background */
+            --bg-main: #090d16; 
             --bg-card: rgba(22, 29, 45, 0.7);
             --bg-card-hover: rgba(30, 41, 64, 0.9);
             --bg-input: #0b0f19;
@@ -146,18 +165,20 @@
             border-color: var(--gold-primary);
         }
 
+        /* 💰 SAFE ADSENSE CONTAINER */
         .ad-premium-banner {
-            border: 1px dashed rgba(212, 175, 55, 0.2);
-            background: rgba(11, 15, 25, 0.5);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            color: var(--gold-primary);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin: 20px 0;
-            text-transform: uppercase;
+            margin: 30px 0;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Strict gap injection to avoid algorithmic accidental click penalties */
+        .adsense-margin-isolated {
+            margin-top: 150px !important;
+            margin-bottom: 40px !important;
         }
 
         .progress-track {
@@ -260,12 +281,18 @@
             width: 100%;
             cursor: pointer;
             margin-top: 10px;
+            margin-bottom: 12px;
             transition: all 0.2s;
             box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
         }
         .btn-gold-action:hover {
             transform: translateY(-2px);
             filter: brightness(1.1);
+        }
+
+        /* Output Panel initially hidden */
+        #outputPanelWrapper {
+            display: none;
         }
 
         .btn-green-download {
@@ -424,6 +451,27 @@
             display: inline-block;
             margin-top: 4px;
         }
+
+        /* 🛠️ PRINT COMPLIANCE STYLES */
+        @media print {
+            .ad-premium-banner, 
+            .btn-gold-action, 
+            .btn-green-download, 
+            .btn-outline-preview,
+            .upload-dashed-container, 
+            .premium-card, 
+            .tools-navigation-grid, 
+            .btn-small-home,
+            .btn-large-home,
+            footer {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -440,28 +488,19 @@
         <div class="upload-dashed-container" onclick="document.getElementById('realRotateFileInput').click()">
             <div style="font-size: 40px; color: #dfba6b;">🔄</div>
             <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Choose PDF File</div>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">or drag and drop your file here</p>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">Select document to adjust orientation or drag and drop here</p>
             <input type="file" id="realRotateFileInput" accept=".pdf" style="display: none;" onchange="handleSingleFileImport(event)">
         </div>
 
-        <!-- ✅ ADS PLACEMENT 1 -->
-        <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here ]</div>
-
-        <!-- Progress Component -->
-        <div class="premium-card">
-            <div style="font-weight: 700; font-size: 13px; color: var(--accent-yellow); text-transform: uppercase;" id="stateLabel">Status: Awaiting Document</div>
-            <div class="progress-track">
-                <div class="progress-thumb-fill" id="trackBarIndicatorFill"></div>
-            </div>
-        </div>
-
-        <!-- PDF Information Block -->
-        <div class="block-heading">📄 Document Information</div>
-        <div class="premium-card meta-data-grid">
-            <div class="meta-data-node"><span>File Size</span><strong id="labelSize">--</strong></div>
-            <div class="meta-data-node"><span>Total Pages</span><strong id="labelPages">--</strong></div>
-            <div class="meta-data-node"><span>Document Name</span><strong id="labelName">No File Selected</strong></div>
-            <div class="meta-data-node"><span>Type</span><strong style="color:#10b981;">Local Client</strong></div>
+        <!-- ✅ ADS PLACEMENT 1 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
         <!-- 🔄 Rotation Configurations Panel -->
@@ -502,23 +541,69 @@
             </div>
         </div>
 
+        <!-- Progress Component -->
+        <div class="premium-card">
+            <div style="font-weight: 700; font-size: 13px; color: var(--accent-yellow); text-transform: uppercase;" id="stateLabel">Status: Awaiting Document</div>
+            <div class="progress-track">
+                <div class="progress-thumb-fill" id="trackBarIndicatorFill"></div>
+            </div>
+        </div>
+
+        <!-- PDF Information Block -->
+        <div class="block-heading">📄 Document Information</div>
+        <div class="premium-card meta-data-grid">
+            <div class="meta-data-node"><span>File Size</span><strong id="labelSize">--</strong></div>
+            <div class="meta-data-node"><span>Total Pages</span><strong id="labelPages">--</strong></div>
+            <div class="meta-data-node"><span>Document Name</span><strong id="labelName">No File Selected</strong></div>
+            <div class="meta-data-node"><span>Type</span><strong style="color:#10b981;">Local Client</strong></div>
+        </div>
+
         <!-- Core Button Action -->
         <button class="btn-gold-action" onclick="executeRealClientRotation()">Apply Rotation Instantly</button>
 
-        <!-- Output Downloader Container Workspace -->
-        <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
-        <div class="premium-card" style="text-align: center;">
-            <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
-            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Rotated PDF Workspace</h3>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Configure rotation settings parameters above, then download or preview securely.</p>
-            
-            <!-- ✅ ADS PLACEMENT 2 -->
-            <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
+        <!-- 🏠 ALWAYS VISIBLE MAIN BACK TO HOME BUTTON -->
+        <a href="https://pdfgridbox.in" class="btn-large-home" style="margin-bottom: 25px;">🏠 Back to Home Page</a>
 
-            <!-- Primary Buttons Stacked Vertically as Big Elements -->
-            <button class="btn-green-download" onclick="triggerDownload()">📥 Download Rotated PDF</button>
-            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Before Apply / Download</button>
-            <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
+        <!-- Output Downloader Container Workspace (Hidden Initially) -->
+        <div id="outputPanelWrapper">
+            <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
+            <div class="premium-card" style="text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
+                <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Rotated PDF Workspace</h3>
+                <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Orientation parameters updated successfully. Preview or download your modified PDF document below.</p>
+                
+                <!-- ✅ ADS PLACEMENT 2 (ISOLATED WITH STRICT MARGINS) -->
+                <div class="ad-premium-banner adsense-margin-isolated">
+                    <ins class="adsbygoogle"
+                         style="display:block; width:100%;"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+
+                <!-- Primary Buttons Stacked Vertically -->
+                <button class="btn-green-download" onclick="triggerDownload()">📥 Download Rotated PDF</button>
+                <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Rotated PDF Layout</button>
+            </div>
+        </div>
+
+        <!-- 🚀 HIGH-VALUE CONTEXTUAL RICH SEO DATA HUB BELOW THE FOLD -->
+        <div class="block-heading">📖 Private Browser-Based PDF Page Rotation</div>
+        <div class="premium-card">
+            <div class="text-content-row">
+                <strong>Why Rotate PDF Document Pages Online Privately?</strong>
+                <p>Correcting the orientation of upside-down or sideways PDF pages is a frequent necessity when dealing with scanned contracts, mobile photos converted to PDF, or inverted ebook pages. Uploading private legal reports, financial records, or personal IDs to online cloud converters poses significant privacy hazards. Our client-side PDF rotation utility modifies page catalog references 100% locally inside your web browser's RAM sandbox. Zero file data touches external web servers, guaranteeing total data security and compliance.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Zero-Loss PDF Catalog Reference Flag Manipulation</strong>
+                <p>Unlike lower-quality tools that re-render PDF pages into raster images (destroying vector text sharpness and blowing up file sizes), our engine utilizes low-level `pdf-lib` byte manipulation. It directly updates the internal `/Rotate` catalog key of the selected PDF page objects. This guarantees 100% loss-free orientation correction, preserving original text crispness, vector line art, interactive form fields, and clickable hyperlinks.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Granular Range Selection & Odd/Even Page Targeting</strong>
+                <p>Whether you need to flip a single upside-down page or fix an entire batch of scanned documents, our engine provides flexible page targeting options. You can rotate all pages, target odd pages or even pages selectively, or input custom page range selections (e.g., Pages 1, 3, 5-8). The live orientation icon preview dynamically reflects your chosen angle for complete visual control before processing.</p>
+            </div>
         </div>
 
         <!-- 💡 Quick Tips Section -->
@@ -526,15 +611,15 @@
         <div class="premium-card">
             <div class="text-content-row">
                 <strong>Advanced Multi-Angle Matrix Tracking</strong>
-                <p>The processing architecture dynamically computes current layout vector values. By managing strict incremental degree loops (90, 180, 270), it allows you to consistently change the structural viewing direction of inverted layout items without losing data maps or hyperlink attributes.</p>
+                <p>The processing engine dynamically computes layout rotation values. By managing incremental degree loops (90°, 180°, 270°), it allows you to consistently adjust viewing orientation without losing document metadata or hyperlinks.</p>
             </div>
             <div class="text-content-row">
                 <strong>Selective Range Validation Flags</strong>
-                <p>Isolate poorly compiled tables or horizontally captured presentation sheets by toggling the custom page allocation parameters. Whether modifying only odd sequences, even arrays, or user-defined boundaries like 3-7, the orientation changes apply strictly inside your configured scope.</p>
+                <p>Isolate poorly scanned tables or sideways presentation slides by selecting custom page allocation settings. Whether modifying odd sequences, even arrays, or specific ranges like 3-7, changes apply strictly within your target range.</p>
             </div>
             <div class="text-content-row">
-                <strong>100% Secure Local Environment Execution</strong>
-                <p>Private scanned invoices, enterprise records, and personal attachments are calculated within your device's browser memory workspace. The local file structures are read using inline arrays, completely eliminating data leak vectors or third-party tracking risks.</p>
+                <strong>100% Secure Local Memory Processing</strong>
+                <p>Scanned invoices, contracts, and private attachments are computed inside your browser's RAM workspace. Local file structures are processed directly on your device, completely eliminating data leak risks.</p>
             </div>
         </div>
 
@@ -543,39 +628,59 @@
         <div class="tools-navigation-grid">
             <a href="https://pdfgridbox.in/pdf-merge" class="tool-link-badge"><div>🧩</div>Merge PDF</a>
             <a href="https://pdfgridbox.in/pdf-split" class="tool-link-badge"><div>✂️</div>Split PDF</a>
-            <a href="https://pdfgridbox.in/sign-pdf" class="tool-link-badge"><div>✍️</div>Sign PDF</a>
+            <a href="https://pdfgridbox.in/reorder-pages" class="tool-link-badge"><div>🔄</div>Reorder Pages</a>
             <a href="https://pdfgridbox.in/pdf-compress" class="tool-link-badge"><div>🗜️</div>Compress PDF</a>
         </div>
 
-        <!-- ❓ FAQs Layout Component -->
+        <!-- ❓ FAQS CONTENT HUB - ELIMINATING THIN CONTENT SCENARIOS -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
             <div class="text-content-row">
-                <strong>Will changing document rotation parameters cause quality loss or pixelation?</strong>
-                <p>Not at all. This client-side app adjusts low-level page catalog reference flags natively via pdf-lib structures instead of converting pages to raw raster images. This updates orientation metrics smoothly while keeping vector fonts and crisp rendering fully intact.</p>
+                <strong style="color: #fff;">Are my private PDF files uploaded or saved on any remote web server?</strong>
+                <p>No. All page rotation processing runs locally inside your web browser using JavaScript and `pdf-lib`. No file bytes are ever uploaded or saved on external servers.</p>
             </div>
             <div class="text-content-row">
-                <strong>Can I correct multiple separate skewed pages at the same time?</strong>
-                <p>Yes. Select the 'Selected Pages / Range' option from the application settings parameters, then type commas between your targets (e.g., 2, 5, 8-11). The engine processes each declared block consecutively inside the hardware loop.</p>
+                <strong style="color: #fff;">Will rotating my PDF reduce text sharpness or image quality?</strong>
+                <p>No. The engine updates internal page rotation metadata flags natively rather than converting pages into flattened images. Vector text, fonts, and graphics remain 100% sharp.</p>
             </div>
             <div class="text-content-row">
-                <strong>Why does the output fail to download if I alter range settings fields afterward?</strong>
-                <p>To prevent invalid layouts or mismatched adjustments, the staging environment auto-resets when parameters are updated. Simply tap the gold action command button again to rebuild your modified document structure smoothly.</p>
+                <strong style="color: #fff;">Can I rotate specific individual pages instead of the whole document?</strong>
+                <p>Yes. Select 'Selected Pages / Range' in the target dropdown and enter specific page numbers or ranges (e.g., 2, 5, 8-11) to rotate only those selected pages.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">What rotation angle options are supported by pdfgridbox?</strong>
+                <p>You can rotate pages 90° clockwise, 180° flip (upside down), 270° counter-clockwise, or reset rotation back to 0° default.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is there a limit on how many pages or files I can rotate?</strong>
+                <p>There are no software-imposed page or file size limits on pdfgridbox. Processing speed depends entirely on your device's available RAM memory.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is pdfgridbox's Rotate PDF tool completely free to use?</strong>
+                <p>Yes. All PDF management utilities on pdfgridbox are 100% free with no account signups, daily usage limits, or forced watermarks added to final output files.</p>
             </div>
         </div>
 
-        <!-- ✅ ADS PLACEMENT 3 -->
-        <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
+        <!-- ✅ ADS PLACEMENT 3 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
     </div>
 
     <!-- 👑 Royal Unified Ownership Compliance Footer -->
     <footer class="luxury-footer">
         <div class="footer-links">
-            <a href="https://pdfgridbox.in/about">About Us</a>
-            <a href="https://pdfgridbox.in/contact">Contact Us</a>
-            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
-            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
         </div>
         <div class="footer-credits">
             &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
@@ -634,6 +739,8 @@
             fillerBar.style.width = "30%";
 
             globalFileArrayBuffer = null;
+            document.getElementById('outputPanelWrapper').style.display = "none";
+
             if (compiledBlobUrl) {
                 URL.revokeObjectURL(compiledBlobUrl);
                 compiledBlobUrl = null;
@@ -661,7 +768,6 @@
             event.target.value = "";
         }
 
-        // Helper engine utility parser function for range text variables inputs
         function parseCustomTargetPageSet(inputStr, maximumPages) {
             const pageIndexesSet = new Set();
             const segments = inputStr.split(',');
@@ -708,7 +814,6 @@
                 
                 let operatingTargetsList = [];
 
-                // Formulate target page lists based on dropdown settings parameters configurations
                 if (currentMode === 'all') {
                     for (let i = 0; i < totalDocumentPagesCount; i++) operatingTargetsList.push(i);
                 } else if (currentMode === 'odd') {
@@ -735,12 +840,10 @@
                 fillerBar.style.width = "70%";
                 labelText.innerText = "Status: Computing Structural Rotations...";
 
-                // Apply rotation angles safely in loops 
                 for (let targetPageIdx of operatingTargetsList) {
                     const targetPageNode = allDocPages[targetPageIdx];
                     
                     if (selectedAngleSetting === 0) {
-                        // Reset condition flag rule execution
                         targetPageNode.setRotation(PDFLib.degrees(0));
                     } else {
                         const existingAngle = targetPageNode.getRotation().angle || 0;
@@ -760,6 +863,8 @@
                 fillerBar.style.width = "100%";
                 labelText.innerText = "Status: Target Execution Complete. Download Active!";
 
+                // Reveal output wrapper panel
+                document.getElementById('outputPanelWrapper').style.display = "block";
                 document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
             } catch (err) {
                 console.error(err);
