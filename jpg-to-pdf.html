@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-TWVBM11KXZ');
-</script>
+      gtag('config', 'G-TWVBM11KXZ');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- 👑 PRE-CONFIGURED PREMIUM SEO META TAGS -->
     <title>Convert JPG to PDF Online Free - 100% High Quality - pdfgridbox</title>
-    <meta name="description" content="Convert your JPG and PNG images to a high-quality PDF document instantly. 100% private client-side processing, secure multi-image stitching with zero uploads.">
+    <meta name="description" content="Convert JPG and PNG images to high-quality PDF documents instantly. 100% private client-side processing, secure multi-image stitching with zero server uploads.">
+
+    <!-- 🚀 GOOGLE APPLICATION SCHEMA MARKUP FOR FASTER INDEXING -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Convert JPG to PDF Online Free - pdfgridbox",
+      "url": "https://pdfgridbox.in/jpg-to-pdf",
+      "description": "Convert JPG and PNG images to high-quality PDF documents online with automatic page layout sizing and local browser RAM processing.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 
     <!-- 🚀 Heavy Engines for Client-side Image to PDF Processing -->
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
@@ -23,7 +42,7 @@
     <style>
         /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
         :root {
-            --bg-main: #090d16; /* Deep Midnight Luxury Background */
+            --bg-main: #090d16; 
             --bg-card: rgba(22, 29, 45, 0.7);
             --bg-card-hover: rgba(30, 41, 64, 0.9);
             --bg-input: #0b0f19;
@@ -145,18 +164,20 @@
             border-color: var(--gold-primary);
         }
 
+        /* 💰 SAFE ADSENSE CONTAINER */
         .ad-premium-banner {
-            border: 1px dashed rgba(212, 175, 55, 0.2);
-            background: rgba(11, 15, 25, 0.5);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            color: var(--gold-primary);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin: 20px 0;
-            text-transform: uppercase;
+            margin: 30px 0;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Strict gap injection to avoid algorithmic accidental click penalties */
+        .adsense-margin-isolated {
+            margin-top: 150px !important;
+            margin-bottom: 40px !important;
         }
 
         .progress-track {
@@ -225,12 +246,18 @@
             width: 100%;
             cursor: pointer;
             margin-top: 10px;
+            margin-bottom: 12px;
             transition: all 0.2s;
             box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
         }
         .btn-convert-action:hover {
             transform: translateY(-2px);
             filter: brightness(1.1);
+        }
+
+        /* Output Panel initially hidden */
+        #outputPanelWrapper {
+            display: none;
         }
 
         .btn-green-download {
@@ -389,6 +416,27 @@
             display: inline-block;
             margin-top: 4px;
         }
+
+        /* 🛠️ PRINT COMPLIANCE STYLES */
+        @media print {
+            .ad-premium-banner, 
+            .btn-convert-action, 
+            .btn-green-download, 
+            .btn-outline-preview,
+            .upload-dashed-container, 
+            .premium-card, 
+            .tools-navigation-grid, 
+            .btn-small-home,
+            .btn-large-home,
+            footer {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -405,12 +453,20 @@
         <div class="upload-dashed-container" onclick="document.getElementById('realImageFileInput').click()">
             <div style="font-size: 40px; color: #dfba6b;">🖼️</div>
             <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Select Images</div>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">Upload multiple JPG/PNG images</p>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">Upload multiple JPG or PNG files to stitch into PDF</p>
             <input type="file" id="realImageFileInput" accept="image/jpeg, image/jpg, image/png" multiple style="display: none;" onchange="handleMultipleImagesImport(event)">
         </div>
 
-        <!-- ✅ ADS PLACEMENT 1 -->
-        <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here ]</div>
+        <!-- ✅ ADS PLACEMENT 1 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
         <!-- Progress Component -->
         <div class="premium-card">
@@ -446,20 +502,49 @@
         <!-- Core Button Action -->
         <button class="btn-convert-action" onclick="executeJpgToPdfConversion()">Convert Images to PDF</button>
 
-        <!-- Output Downloader Container Workspace -->
-        <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
-        <div class="premium-card" style="text-align: center;">
-            <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
-            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Compiled PDF Workspace</h3>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Stitch your picture matrix natively, build rendering maps, then download your document asset instantly.</p>
-            
-            <!-- ✅ ADS PLACEMENT 2 -->
-            <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
+        <!-- 🏠 ALWAYS VISIBLE MAIN BACK TO HOME BUTTON -->
+        <a href="https://pdfgridbox.in" class="btn-large-home" style="margin-bottom: 25px;">🏠 Back to Home Page</a>
 
-            <!-- Primary Buttons Stacked Vertically -->
-            <button class="btn-green-download" onclick="triggerDownload()">📥 Download Compiled PDF</button>
-            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Output Layout</button>
-            <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
+        <!-- Output Downloader Container Workspace (Hidden Initially) -->
+        <div id="outputPanelWrapper">
+            <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
+            <div class="premium-card" style="text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
+                <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Compiled PDF Workspace</h3>
+                <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Images stitched natively into a clean PDF document. Download or preview instantly.</p>
+                
+                <!-- ✅ ADS PLACEMENT 2 (ISOLATED WITH STRICT MARGINS) -->
+                <div class="ad-premium-banner adsense-margin-isolated">
+                    <ins class="adsbygoogle"
+                         style="display:block; width:100%;"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+
+                <!-- Primary Workspace Actions Stack -->
+                <button class="btn-green-download" onclick="triggerDownload()">📥 Download Compiled PDF</button>
+                <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Output Layout</button>
+            </div>
+        </div>
+
+        <!-- 🚀 HIGH-VALUE CONTEXTUAL RICH SEO DATA HUB BELOW THE FOLD -->
+        <div class="block-heading">📖 Private Browser-Based JPG to PDF Conversion</div>
+        <div class="premium-card">
+            <div class="text-content-row">
+                <strong>Why Convert JPG and PNG Images to PDF Online Privately?</strong>
+                <p>Combining scanned identity documents, receipt photos, tax certificates, or digital photos into a single PDF file makes sharing organized and professional. Cloud converters require uploading your confidential photos onto external servers, posing serious privacy and data tracking risks. Our client-side conversion engine processes your image files 100% locally inside your browser memory sandbox. Your personal photos, passport scans, and corporate documents never get transmitted across the network, guaranteeing total privacy and zero server footprint.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Intelligent Aspect Ratio Mapping & Page Layout Options</strong>
+                <p>Maintaining clear image proportion without distortion is vital when converting images into PDF documents. Our converter gives you full control over final page presentation. Choose "Fit Page To Original Image Size" to automatically scale each PDF page to match the exact dimensions of your source image, or choose "Standard A4 Document Layout" to center and fit images neatly onto uniform A4 pages. Both landscape and portrait photos are aligned seamlessly without stretching or clipping critical visual details.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Multi-Image Batch Stitching with Ultra-Fast Local Processing</strong>
+                <p>Whether you need to turn a single image into a PDF or combine dozens of JPG and PNG files into a multi-page portfolio, our tool handles batch rendering with ease. By reading raw image array buffers directly in JavaScript RAM, the conversion finishes in seconds regardless of file quantity. The resulting output document is fully compatible with standard PDF viewers, Adobe Acrobat, mobile devices, and printing setups.</p>
+            </div>
         </div>
 
         <!-- 💡 Quick Tips Section -->
@@ -467,15 +552,15 @@
         <div class="premium-card">
             <div class="text-content-row">
                 <strong>"Zero Server Footprint Promise"</strong>
-                <p>Images transform straight to high-fidelity container streams using internal browser memory logic. No external server upload means ultimate data leakage protection for your scanned passport pages, ID proofs, or official receipts.</p>
+                <p>Images transform straight into container streams using internal browser memory logic. Zero network transfers guarantee complete data protection for scanned ID proofs, invoices, or medical records.</p>
             </div>
             <div class="text-content-row">
                 <strong>Intelligent Aspect Ratio Mapping</strong>
-                <p>When selecting the 'Fit Page To Original' mode, the rendering module dynamically reads the image header dimension matrix. This guarantees that portrait photographs or ultra-wide horizontal landscape infographics never get awkwardly stretched.</p>
+                <p>Selecting 'Fit Page To Original' mode dynamically reads picture header dimensions, ensuring portrait photographs and wide landscape infographics are never stretched.</p>
             </div>
             <div class="text-content-row">
                 <strong>Multi-Image Sequence Stitching</strong>
-                <p>You can upload a single image or select up to dozens of pictures simultaneously. The background system structures each file in the order it was selected, compiling them into a cleanly indexed, multi-page document portfolio.</p>
+                <p>Upload a single picture or select dozens simultaneously. The system orders files as selected, compiling them into a single cleanly indexed PDF document portfolio.</p>
             </div>
         </div>
 
@@ -484,39 +569,59 @@
         <div class="tools-navigation-grid">
             <a href="https://pdfgridbox.in/pdf-merge" class="tool-link-badge"><div>🧩</div>Merge PDF</a>
             <a href="https://pdfgridbox.in/pdf-split" class="tool-link-badge"><div>✂️</div>Split PDF</a>
-            <a href="https://pdfgridbox.in/word-to-pdf" class="tool-link-badge"><div>📝</div>Word to PDF</a>
-            <a href="https://pdfgridbox.in/reorder-pages" class="tool-link-badge"><div>🔄</div>Reorder Pages</a>
+            <a href="https://pdfgridbox.in/delete-pdf-pages" class="tool-link-badge"><div>🗑️</div>Delete Pages</a>
+            <a href="https://pdfgridbox.in/pdf-compress" class="tool-link-badge"><div>🗜️</div>Compress PDF</a>
         </div>
 
-        <!-- ❓ FAQs Layout Component -->
+        <!-- ❓ FAQS CONTENT HUB - ELIMINATING THIN CONTENT SCENARIOS -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
             <div class="text-content-row">
-                <strong>Can I mix PNG and JPG graphics interchange files together?</strong>
-                <p>Yes. The client engine handles both compression signatures interchangeably. It parses the binary header blocks locally to inject PNG nodes or raw JPEG bitstreams smoothly into the destination page layout object layer.</p>
+                <strong style="color: #fff;">Can I mix PNG and JPG files together in a single conversion?</strong>
+                <p>Yes! The client engine handles PNG and JPG file compression signatures seamlessly. It parses binary header blocks locally to inject PNG nodes or raw JPEG bitstreams smoothly into the destination PDF layout.</p>
             </div>
             <div class="text-content-row">
-                <strong>Will changing layout style compress the resolution clarity fields?</strong>
-                <p>Not at all. The Standard A4 layout applies mathematical vector downscaling matrix values strictly to coordinate frameworks. The pixel density fields inside your source files remain completely uncompressed and high definition.</p>
+                <strong style="color: #fff;">Does converting images to PDF reduce overall photo clarity?</strong>
+                <p>No. Selecting standard layout options applies mathematical vector scaling strictly to coordinate frameworks without re-compressing underlying image pixel density. Your source images retain original crispness and high resolution.</p>
             </div>
             <div class="text-content-row">
-                <strong>Why is client-side local conversion safer than cloud tools?</strong>
-                <p>Traditional converters force you to upload graphic files into external database repositories, exposing you to privacy risks. This module operates strictly inside your browser RAM, guaranteeing absolute secure hardware data isolation.</p>
+                <strong style="color: #fff;">Is client-side local image conversion safer than cloud converters?</strong>
+                <p>Absolutely. Traditional converters upload graphic files onto external database repositories where data logs may persist. Our converter operates entirely inside your browser RAM thread, ensuring complete data privacy.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">How many images can I convert into a single PDF file at once?</strong>
+                <p>There are no software-imposed limits. You can select dozens of images simultaneously. Total performance depends on your device's available system RAM memory.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Will my images be reordered during the PDF stitching process?</strong>
+                <p>No. The system preserves the exact selection order of your uploaded files, compiling them sequentially from page one to the final page in your output PDF document.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is pdfgridbox's JPG to PDF converter completely free to use?</strong>
+                <p>Yes. All PDF conversion and editing tools on pdfgridbox are 100% free with no registration requirements, daily usage restrictions, or forced promotional watermarks added to output files.</p>
             </div>
         </div>
 
-        <!-- ✅ ADS PLACEMENT 3 -->
-        <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
+        <!-- ✅ ADS PLACEMENT 3 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
     </div>
 
     <!-- 👑 Royal Unified Ownership Compliance Footer -->
     <footer class="luxury-footer">
         <div class="footer-links">
-            <a href="https://pdfgridbox.in/about">About Us</a>
-            <a href="https://pdfgridbox.in/contact">Contact Us</a>
-            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
-            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
         </div>
         <div class="footer-credits">
             &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
@@ -534,8 +639,9 @@
             if (compiledBlobUrl) {
                 URL.revokeObjectURL(compiledBlobUrl);
                 compiledBlobUrl = null;
-                document.getElementById('stateLabel').innerText = "Status: Configuration altered. Re-run compression compiler.";
+                document.getElementById('stateLabel').innerText = "Status: Configuration altered. Re-run converter.";
                 document.getElementById('trackBarIndicatorFill').style.width = "75%";
+                document.getElementById('outputPanelWrapper').style.display = "none";
             }
         }
 
@@ -550,6 +656,8 @@
 
             document.getElementById('labelCount').innerText = globalSelectedImageFiles.length + " Image(s) Selected";
             document.getElementById('labelSize').innerText = (accumulatedByteSize / (1024 * 1024)).toFixed(2) + " MB";
+
+            document.getElementById('outputPanelWrapper').style.display = "none";
 
             if (compiledBlobUrl) {
                 URL.revokeObjectURL(compiledBlobUrl);
@@ -647,6 +755,8 @@
                 fillerBar.style.width = "100%";
                 labelText.innerText = "STATUS: IMAGE MATRIX STITCHED TO PDF SUCCESSFULLY!";
 
+                // Reveal output wrapper panel
+                document.getElementById('outputPanelWrapper').style.display = "block";
                 document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
             } catch(err) {
                 console.error(err);
@@ -671,7 +781,7 @@
 
         function triggerPreview() {
             if (!compiledBlobUrl) {
-                alert("Output compilation workspace is unallocated. Run compiler logic.");
+                alert("Output compilation workspace is unallocated. Run converter logic.");
                 return;
             }
             window.open(compiledBlobUrl, '_blank');
