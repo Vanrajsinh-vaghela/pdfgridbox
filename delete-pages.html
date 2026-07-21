@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-TWVBM11KXZ');
-</script>
+      gtag('config', 'G-TWVBM11KXZ');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- 👑 PRE-CONFIGURED PREMIUM SEO META TAGS -->
-    <title>Delete PDF Pages Online Free - 100% Secure & Fast - pdfgridbox</title>
-    <meta name="description" content="Remove unwanted pages from your PDF files instantly. Select specific pages, ranges, odd or even pages to delete. 100% private client-side processing.">
+    <title>Delete PDF Pages Online Free - Remove Pages from PDF - pdfgridbox</title>
+    <meta name="description" content="Remove unwanted pages from your PDF files instantly online. Delete specific page numbers, page ranges, odd or even pages privately on your device. 100% free and secure.">
+
+    <!-- 🚀 GOOGLE APPLICATION SCHEMA MARKUP FOR FASTER INDEXING -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Delete PDF Pages Online Free - pdfgridbox",
+      "url": "https://pdfgridbox.in/delete-pdf-pages",
+      "description": "Remove unwanted pages from your PDF files instantly online with custom ranges, odd/even selection, and local browser processing.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 
     <!-- 🚀 Heavy Engines for Client-side PDF Processing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
@@ -24,7 +43,7 @@
     <style>
         /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
         :root {
-            --bg-main: #090d16; /* Deep Midnight Luxury Background */
+            --bg-main: #090d16; 
             --bg-card: rgba(22, 29, 45, 0.7);
             --bg-card-hover: rgba(30, 41, 64, 0.9);
             --bg-input: #0b0f19;
@@ -147,18 +166,20 @@
             border-color: var(--gold-primary);
         }
 
+        /* 💰 SAFE ADSENSE CONTAINER */
         .ad-premium-banner {
-            border: 1px dashed rgba(212, 175, 55, 0.2);
-            background: rgba(11, 15, 25, 0.5);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            color: var(--gold-primary);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin: 20px 0;
-            text-transform: uppercase;
+            margin: 30px 0;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Strict gap injection to avoid algorithmic accidental click penalties */
+        .adsense-margin-isolated {
+            margin-top: 150px !important;
+            margin-bottom: 40px !important;
         }
 
         .progress-track {
@@ -241,12 +262,18 @@
             width: 100%;
             cursor: pointer;
             margin-top: 10px;
+            margin-bottom: 12px;
             transition: all 0.2s;
             box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
         }
         .btn-delete-action:hover {
             transform: translateY(-2px);
             filter: brightness(1.1);
+        }
+
+        /* Output Panel initially hidden */
+        #outputPanelWrapper {
+            display: none;
         }
 
         .btn-green-download {
@@ -413,6 +440,27 @@
             display: inline-block;
             margin-top: 4px;
         }
+
+        /* 🛠️ PRINT COMPLIANCE STYLES */
+        @media print {
+            .ad-premium-banner, 
+            .btn-delete-action, 
+            .btn-green-download, 
+            .btn-outline-preview,
+            .upload-dashed-container, 
+            .premium-card, 
+            .tools-navigation-grid, 
+            .btn-small-home,
+            .btn-large-home,
+            footer {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -429,12 +477,20 @@
         <div class="upload-dashed-container" onclick="document.getElementById('realDeleteFileInput').click()">
             <div style="font-size: 40px; color: #ef4444;">🗑️</div>
             <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Choose PDF File</div>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">or drag and drop your file here</p>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">Select document to remove specific page ranges</p>
             <input type="file" id="realDeleteFileInput" accept=".pdf" style="display: none;" onchange="handleSingleFileImport(event)">
         </div>
 
-        <!-- ✅ ADS PLACEMENT 1 -->
-        <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here ]</div>
+        <!-- ✅ ADS PLACEMENT 1 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
         <!-- Progress Component -->
         <div class="premium-card">
@@ -450,7 +506,7 @@
             <div class="meta-data-node"><span>File Size</span><strong id="labelSize">--</strong></div>
             <div class="meta-data-node"><span>Total Pages</span><strong id="labelPages">--</strong></div>
             <div class="meta-data-node"><span>Document Name</span><strong id="labelName">No File Selected</strong></div>
-            <div class="meta-data-node"><span>Type</span><strong style="color:#10b981;">Local Client</strong></div>
+            <div class="meta-data-node"><span>Execution Engine</span><strong style="color:#10b981;">Local Client</strong></div>
         </div>
 
         <!-- ⚙️ Deletion Parameters Panel -->
@@ -465,7 +521,7 @@
                         <option value="even">📄 Delete Even Pages Only</option>
                     </select>
                     
-                    <!-- 🛠️ NEW DUAL INPUTS SYSTEM (START AND ENDING OPTIONS) -->
+                    <!-- 🛠️ DUAL INPUTS SYSTEM (START AND ENDING OPTIONS) -->
                     <div id="customPageRangeContainer" style="display: block;">
                         <div class="range-inputs-wrapper">
                             <div>
@@ -477,7 +533,7 @@
                                 <input type="number" class="config-text-input" id="endPageInput" placeholder="e.g., 5" min="1" oninput="invalidateActiveWorkspace()">
                             </div>
                         </div>
-                        <span style="font-size: 11px; color: var(--text-muted); display: block; margin-top: 10px;">Specify the starting and ending boundaries. The entire range (inclusive) will be wiped out.</span>
+                        <span style="font-size: 11px; color: var(--text-muted); display: block; margin-top: 10px;">Specify starting and ending page numbers. The range (inclusive) will be removed locally.</span>
                     </div>
                 </div>
             </div>
@@ -486,36 +542,65 @@
         <!-- Core Button Action -->
         <button class="btn-delete-action" onclick="executeRealClientDeletion()">Remove Selected Pages</button>
 
-        <!-- Output Downloader Container Workspace -->
-        <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
-        <div class="premium-card" style="text-align: center;">
-            <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
-            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Cleaned PDF Workspace</h3>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Specify the parameters to remove pages above, then download or preview securely.</p>
-            
-            <!-- ✅ ADS PLACEMENT 2 -->
-            <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
+        <!-- 🏠 ALWAYS VISIBLE MAIN BACK TO HOME BUTTON -->
+        <a href="https://pdfgridbox.in" class="btn-large-home" style="margin-bottom: 25px;">🏠 Back to Home Page</a>
 
-            <!-- Primary Buttons Stacked Vertically -->
-            <button class="btn-green-download" onclick="triggerDownload()">📥 Download Cleaned PDF</button>
-            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview New PDF Layout</button>
-            <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
+        <!-- Output Downloader Container Workspace (Hidden Initially) -->
+        <div id="outputPanelWrapper">
+            <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
+            <div class="premium-card" style="text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
+                <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Cleaned PDF Ready</h3>
+                <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Unwanted page nodes removed safely. Download or preview your updated PDF.</p>
+                
+                <!-- ✅ ADS PLACEMENT 2 (ISOLATED WITH STRICT MARGINS) -->
+                <div class="ad-premium-banner adsense-margin-isolated">
+                    <ins class="adsbygoogle"
+                         style="display:block; width:100%;"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+
+                <!-- Primary Workspace Actions Stack -->
+                <button class="btn-green-download" onclick="triggerDownload()">📥 Download Cleaned PDF</button>
+                <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview New PDF Layout</button>
+            </div>
+        </div>
+
+        <!-- 🚀 HIGH-VALUE CONTEXTUAL RICH SEO DATA HUB BELOW THE FOLD -->
+        <div class="block-heading">📖 Private Browser-Based PDF Page Removal</div>
+        <div class="premium-card">
+            <div class="text-content-row">
+                <strong>Why Delete Pages from PDF Files Privately?</strong>
+                <p>Removing blank pages, outdated disclaimers, confidential balance sheets, or duplicate cover letters from PDF documents requires precise handling. Traditional cloud utilities require uploading your sensitive documents across external server networks, exposing proprietary information to unauthorized data logging. Our advanced web sandbox execution engine allows you to delete PDF pages online free with complete data isolation. All byte manipulation operations execute 100% locally within your device browser RAM, ensuring corporate contracts, legal records, and tax filings remain fully secure.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Flexible Custom Page Selection & Boundary Control</strong>
+                <p>Whether you need to remove a single corrupted page or delete entire sections from a multi-page document, custom boundary controls make file organization simple. By entering specific start and ending page parameters, or choosing automated odd/even page filters, you can strip unwanted content instantly. The system dynamically validates inputs against the document's total page count to prevent accidental blank exports, allowing you to streamline presentation decks or financial reports in seconds.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Maintaining Vector Clarity & Formatting Integrity</strong>
+                <p>Converting PDF files to image formats to delete pages often leads to blurry text, broken hyperlinks, and altered document dimensions. Our client-side page deletion engine directly modifies internal structural node references while preserving native vector graphics, embedded typography, and layout formatting. The output document retains original physical dimensions (such as A4 or Letter) and razor-sharp text clarity without compressing image streams or altering metadata layers.</p>
+            </div>
         </div>
 
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
             <div class="text-content-row">
-                <strong>"Double Check Ranges"</strong>
-                <p>Make sure you enter the exact numbers you want to throw away. The tool instantly updates structure arrays without changing resolution quality fields or scrambling fonts.</p>
+                <strong>"Double Check Page Ranges"</strong>
+                <p>Always verify the exact page numbers you want to remove. The engine instantly updates structural arrays without downscaling embedded graphics or scrambling vector fonts.</p>
             </div>
             <div class="text-content-row">
-                <strong>Preserve Document Formatting Elements</strong>
-                <p>Unlike standard image extraction systems, this core process directly modifies page structural references natively. Interactive form configurations, text hyperlinks, embedded vectors, and hidden layouts remain completely undamaged.</p>
+                <strong>Preserve Hyperlinks & Form Elements</strong>
+                <p>By directly modifying native PDF document trees instead of converting pages into raster images, text hyperlinks, interactive forms, and underlying vector layouts remain fully intact.</p>
             </div>
             <div class="text-content-row">
-                <strong>Absolute Server Isolation Matrix</strong>
-                <p>Any corporate, financial, or personal text loaded remains localized within the secure browser instance sandbox. Zero bytes leak out to cloud systems, complying with strict regulatory security laws globally.</p>
+                <strong>Absolute Memory Sandbox Isolation</strong>
+                <p>Zero data bytes leave your local browser thread. Your personal, healthcare, or corporate documents never touch remote cloud servers, ensuring strict privacy compliance.</p>
             </div>
         </div>
 
@@ -524,39 +609,59 @@
         <div class="tools-navigation-grid">
             <a href="https://pdfgridbox.in/pdf-merge" class="tool-link-badge"><div>🧩</div>Merge PDF</a>
             <a href="https://pdfgridbox.in/pdf-split" class="tool-link-badge"><div>✂️</div>Split PDF</a>
-            <a href="https://pdfgridbox.in/sign-pdf" class="tool-link-badge"><div>✍️</div>Sign PDF</a>
             <a href="https://pdfgridbox.in/pdf-rotate" class="tool-link-badge"><div>🔄</div>Rotate PDF</a>
+            <a href="https://pdfgridbox.in/pdf-compress" class="tool-link-badge"><div>🗜️</div>Compress PDF</a>
         </div>
 
-        <!-- ❓ FAQs Layout Component -->
+        <!-- ❓ FAQS CONTENT HUB - ELIMINATING THIN CONTENT SCENARIOS -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
             <div class="text-content-row">
-                <strong>Are my deleted pages stored anywhere on a database?</strong>
-                <p>No. Deletion loops execute entirely inside your device's browser workspace RAM. Since no data is transmitted to an external server infrastructure, files vanish permanently from memory as soon as you exit the tool layout thread.</p>
+                <strong style="color: #fff;">Are my deleted pages stored or recoverable from a server?</strong>
+                <p>No. Deletion loops process entirely inside your device's local browser memory. Since no data is uploaded to external server storage, removed pages vanish permanently from memory as soon as you close or refresh the tab.</p>
             </div>
             <div class="text-content-row">
-                <strong>Can I extract the deleted components out into another file container?</strong>
-                <p>This layout is strictly meant for eliminating specific components entirely to clean up space blocks. If you need to rearrange page blocks or save isolated items separately, you can seamlessly navigate into our dedicated PDF Split utility matrix instead.</p>
+                <strong style="color: #fff;">Can I extract deleted pages into a separate new PDF?</strong>
+                <p>This tool is specifically optimized for permanently removing unwanted pages to trim down file size. If you want to extract and save specific pages into separate standalone files, explore our dedicated PDF Split utility.</p>
             </div>
             <div class="text-content-row">
-                <strong>Will deleting pages compress or reduce the rendering quality fields?</strong>
-                <p>No. The structural bytes are modified organically by dropping the target layout nodes without compressing the internal image arrays or fonts. Your modified PDF will preserve its original ultra-sharp vector rendering setup.</p>
+                <strong style="color: #fff;">Does removing pages degrade the PDF document quality?</strong>
+                <p>Not at all. The underlying byte stream is modified organically by unlinking target page nodes without touching or re-compressing the internal image graphics or font tables. Your cleaned document retains original ultra-sharp vector resolution.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Can I delete all pages from a PDF document?</strong>
+                <p>No, a valid PDF file must contain at least one page. The system enforces a guardrail preventing total document deletion to ensure the final output file remains valid and functional.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">How do I delete only odd or even pages from a scanned document?</strong>
+                <p>Simply select "Delete Odd Pages Only" or "Delete Even Pages Only" from the dropdown option menu. The engine automatically filters page indices across the document tree instantly.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is pdfgridbox's Delete PDF Pages tool completely free?</strong>
+                <p>Yes. All PDF editing tools on pdfgridbox are 100% free with no registration, daily usage limits, or forced promotional watermarks added to output documents.</p>
             </div>
         </div>
 
-        <!-- ✅ ADS PLACEMENT 3 -->
-        <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
+        <!-- ✅ ADS PLACEMENT 3 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
     </div>
 
     <!-- 👑 Royal Unified Ownership Compliance Footer -->
     <footer class="luxury-footer">
         <div class="footer-links">
-            <a href="https://pdfgridbox.in/about">About Us</a>
-            <a href="https://pdfgridbox.in/contact">Contact Us</a>
-            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
-            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
         </div>
         <div class="footer-credits">
             &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
@@ -591,6 +696,7 @@
                 compiledBlobUrl = null;
                 document.getElementById('stateLabel').innerText = "Status: Parameters Changed. Re-run to process.";
                 document.getElementById('trackBarIndicatorFill').style.width = "75%";
+                document.getElementById('outputPanelWrapper').style.display = "none";
             }
         }
 
@@ -609,6 +715,8 @@
             fillerBar.style.width = "30%";
 
             globalFileArrayBuffer = null;
+            document.getElementById('outputPanelWrapper').style.display = "none";
+
             if (compiledBlobUrl) {
                 URL.revokeObjectURL(compiledBlobUrl);
                 compiledBlobUrl = null;
@@ -725,6 +833,8 @@
                 fillerBar.style.width = "100%";
                 labelText.innerText = `STATUS: ${pagesToDeleteIndices.length} PAGE(S) DELETED SUCCESSFULLY!`;
 
+                // Reveal output wrapper panel
+                document.getElementById('outputPanelWrapper').style.display = "block";
                 document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
             } catch (err) {
                 console.error(err);
