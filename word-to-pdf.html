@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TWVBM11KXZ');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- 👑 PRE-CONFIGURED PREMIUM SEO META TAGS -->
     <title>Convert Word to PDF Online Free - DOCX to PDF - pdfgridbox</title>
     <meta name="description" content="Convert DOCX Word documents to PDF instantly in your browser. 100% private client-side processing, no file uploads to servers, maximum security and layout retention.">
+
+    <!-- 🚀 GOOGLE APPLICATION SCHEMA MARKUP FOR FASTER INDEXING -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Convert Word to PDF Online Free - pdfgridbox",
+      "url": "https://pdfgridbox.in/word-to-pdf",
+      "description": "Convert DOCX Word documents to PDF online free with 100% private local browser memory execution and zero server uploads.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 
     <!-- 🚀 Heavy Engines for Client-side Word to PDF Conversion -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
@@ -15,7 +43,7 @@
     <style>
         /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
         :root {
-            --bg-main: #090d16; /* Deep Midnight Luxury Background */
+            --bg-main: #090d16; 
             --bg-card: rgba(22, 29, 45, 0.7);
             --bg-card-hover: rgba(30, 41, 64, 0.9);
             --bg-input: #0b0f19;
@@ -137,18 +165,20 @@
             border-color: var(--gold-primary);
         }
 
+        /* 💰 SAFE ADSENSE CONTAINER */
         .ad-premium-banner {
-            border: 1px dashed rgba(212, 175, 55, 0.2);
-            background: rgba(11, 15, 25, 0.5);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            color: var(--gold-primary);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin: 20px 0;
-            text-transform: uppercase;
+            margin: 30px 0;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Strict gap injection to avoid algorithmic accidental click penalties */
+        .adsense-margin-isolated {
+            margin-top: 150px !important;
+            margin-bottom: 40px !important;
         }
 
         .progress-track {
@@ -217,12 +247,18 @@
             width: 100%;
             cursor: pointer;
             margin-top: 10px;
+            margin-bottom: 12px;
             transition: all 0.2s;
             box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
         }
         .btn-convert-action:hover {
             transform: translateY(-2px);
             filter: brightness(1.1);
+        }
+
+        /* Output Panel initially hidden */
+        #outputPanelWrapper {
+            display: none;
         }
 
         .btn-green-download {
@@ -397,6 +433,27 @@
         #hiddenSandboxRenderArea h1, #hiddenSandboxRenderArea h2 { margin: 20px 0 10px 0; }
         #hiddenSandboxRenderArea table { width: 100%; border-collapse: collapse; margin: 15px 0; }
         #hiddenSandboxRenderArea table, #hiddenSandboxRenderArea th, #hiddenSandboxRenderArea td { border: 1px solid #ddd; padding: 8px; }
+
+        /* 🛠️ PRINT COMPLIANCE STYLES */
+        @media print {
+            .ad-premium-banner, 
+            .btn-convert-action, 
+            .btn-green-download, 
+            .btn-outline-preview,
+            .upload-dashed-container, 
+            .premium-card, 
+            .tools-navigation-grid, 
+            .btn-small-home,
+            .btn-large-home,
+            footer {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -416,12 +473,34 @@
         <div class="upload-dashed-container" onclick="document.getElementById('realWordFileInput').click()">
             <div style="font-size: 40px; color: #dfba6b;">📝</div>
             <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Choose Word File</div>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">Select (.docx) document file asset</p>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">Select (.docx) document file asset or drag and drop here</p>
             <input type="file" id="realWordFileInput" accept=".docx" style="display: none;" onchange="handleSingleFileImport(event)">
         </div>
 
-        <!-- ✅ ADS PLACEMENT 1 -->
-        <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here ]</div>
+        <!-- ✅ ADS PLACEMENT 1 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- ⚙️ Layout Parameter Selection Panel -->
+        <div class="block-heading">⚙️ Page Setup Options</div>
+        <div class="premium-card">
+            <div class="config-inputs-grid">
+                <div>
+                    <div style="font-size:12px; color: var(--text-muted); font-weight: 600;">PDF Page Orientation:</div>
+                    <select class="config-select-field" id="pageOrientationSelect" onchange="invalidateActiveWorkspace()">
+                        <option value="portrait">📐 Portrait (Standard Vertical)</option>
+                        <option value="landscape">📐 Landscape (Horizontal Layout)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
 
         <!-- Progress Component -->
         <div class="premium-card">
@@ -440,37 +519,52 @@
             <div class="meta-data-node"><span>Type</span><strong style="color:#10b981;">Local Client</strong></div>
         </div>
 
-        <!-- ⚙️ Layout Parameter Selection Panel -->
-        <div class="block-heading">⚙️ Page Setup Options</div>
-        <div class="premium-card">
-            <div class="config-inputs-grid">
-                <div>
-                    <div style="font-size:12px; color: var(--text-muted); font-weight: 600;">PDF Page Orientation:</div>
-                    <select class="config-select-field" id="pageOrientationSelect" onchange="invalidateActiveWorkspace()">
-                        <option value="portrait">📐 Portrait (Standard Vertical)</option>
-                        <option value="landscape">📐 Landscape (Horizontal Layout)</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
         <!-- Core Button Action -->
         <button class="btn-convert-action" onclick="executeWordToPdfConversion()">Convert Document To PDF</button>
 
-        <!-- Output Downloader Container Workspace -->
-        <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
-        <div class="premium-card" style="text-align: center;">
-            <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
-            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Converted PDF Workspace</h3>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Extract elements locally, finalize structure mappings, then grab your high-fidelity asset instantly.</p>
-            
-            <!-- ✅ ADS PLACEMENT 2 -->
-            <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
+        <!-- 🏠 ALWAYS VISIBLE MAIN BACK TO HOME BUTTON -->
+        <a href="https://pdfgridbox.in" class="btn-large-home" style="margin-bottom: 25px;">🏠 Back to Home Page</a>
 
-            <!-- Primary Action Buttons Stacked -->
-            <button class="btn-green-download" onclick="triggerDownload()">📥 Download Converted PDF</button>
-            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Output Layout</button>
-            <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
+        <!-- Output Downloader Container Workspace (Hidden Initially) -->
+        <div id="outputPanelWrapper">
+            <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
+            <div class="premium-card" style="text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
+                <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Converted PDF Workspace</h3>
+                <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Word document converted successfully. Preview or download your new PDF file below.</p>
+                
+                <!-- ✅ ADS PLACEMENT 2 (ISOLATED WITH STRICT MARGINS) -->
+                <div class="ad-premium-banner adsense-margin-isolated">
+                    <ins class="adsbygoogle"
+                         style="display:block; width:100%;"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+
+                <!-- Primary Action Buttons Stacked -->
+                <button class="btn-green-download" onclick="triggerDownload()">📥 Download Converted PDF</button>
+                <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Output Layout</button>
+            </div>
+        </div>
+
+        <!-- 🚀 HIGH-VALUE CONTEXTUAL RICH SEO DATA HUB BELOW THE FOLD -->
+        <div class="block-heading">📖 Private Browser-Based Word DOCX to PDF Conversion</div>
+        <div class="premium-card">
+            <div class="text-content-row">
+                <strong>Why Convert Word Documents (DOCX) to PDF Online Privately?</strong>
+                <p>Converting Microsoft Word documents (.docx) to PDF is a common task when sending resumes, legal agreements, corporate reports, or academic assignments. PDF files preserve document formatting across all operating systems and devices, preventing accidental editing or alignment shifts. However, most free online Word-to-PDF converters upload your private documents to cloud servers, creating severe privacy risks. Our client-side conversion engine converts DOCX files 100% locally inside your web browser's RAM memory sandbox. Zero byte streams leave your computer or phone, guaranteeing total document privacy.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Client-Side XML Decompression & Vector HTML5 Rendering</strong>
+                <p>Our converter uses Mammoth.js to unpack raw DOCX XML structures directly inside browser memory, extracting paragraphs, headings, lists, and tables cleanly into standard HTML markup. Next, `html2pdf.js` renders the structured DOM sandbox into a high-fidelity PDF vector layout. This multi-stage client pipeline retains full typography contrast, line spacing, and table formatting without server-side dependencies.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Custom Page Orientation Controls (Portrait vs. Landscape)</strong>
+                <p>Whether you are converting a standard vertical letter resume or a wide horizontal financial spreadsheet document, our tool lets you select your desired PDF page orientation before converting. Toggle between Portrait and Landscape layouts with a single click to ensure your converted PDF prints and renders perfectly on screen.</p>
+            </div>
         </div>
 
         <!-- 💡 Quick Tips Section -->
@@ -478,15 +572,15 @@
         <div class="premium-card">
             <div class="text-content-row">
                 <strong>Advanced XML Node Decompression Architecture</strong>
-                <p>The core converter processes raw DOCX zip packages directly via your local web browser engine. By unpacking text elements, tables, and internal headers without relying on external cloud APIs, your private legal agreements and corporate resumes remain isolated within a strictly guarded execution space.</p>
+                <p>The core converter processes raw DOCX zip packages directly via your local web browser engine. Unpacking text elements and tables locally keeps your private contracts and corporate resumes isolated within your browser sandbox.</p>
             </div>
             <div class="text-content-row">
                 <strong>High-Fidelity Virtual HTML5 Layout Mapping</strong>
-                <p>Before assembling the final vector layout tracker, text configurations are dynamically rendered inside a temporary high-density DOM sandbox. This process structures tabular arrays, standard alignment parameters, and standard page break nodes to maximize layout retention during conversion.</p>
+                <p>Before assembling the final vector PDF layout, text configurations are rendered inside a temporary DOM sandbox to preserve table alignment and line breaks during conversion.</p>
             </div>
             <div class="text-content-row">
                 <strong>Local Typography Rendering Logic</strong>
-                <p>Fonts and text styles mirror your operating system's typography properties. To ensure crisp printing and seamless viewing across distinct high-resolution viewports, the application utilizes direct vector compilation scales that eliminate fuzzy, pixelated text boxes completely.</p>
+                <p>Fonts and text styles mirror standard typography properties. Direct vector compilation scales eliminate fuzzy or pixelated text blocks completely.</p>
             </div>
         </div>
 
@@ -495,39 +589,59 @@
         <div class="tools-navigation-grid">
             <a href="https://pdfgridbox.in/pdf-merge" class="tool-link-badge"><div>🧩</div>Merge PDF</a>
             <a href="https://pdfgridbox.in/pdf-split" class="tool-link-badge"><div>✂️</div>Split PDF</a>
-            <a href="https://pdfgridbox.in/pdf-rotate" class="tool-link-badge"><div>🔄</div>Rotate PDF</a>
+            <a href="https://pdfgridbox.in/rotate-pdf" class="tool-link-badge"><div>🔄</div>Rotate PDF</a>
             <a href="https://pdfgridbox.in/reorder-pages" class="tool-link-badge"><div>🔄</div>Reorder Pages</a>
         </div>
 
-        <!-- ❓ FAQs Layout Component -->
+        <!-- ❓ FAQS CONTENT HUB - ELIMINATING THIN CONTENT SCENARIOS -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
             <div class="text-content-row">
-                <strong>Will my complex multi-column tables or embedded chart outlines deform during conversion?</strong>
-                <p>The processing architecture translates raw XML styles into high-fidelity web nodes using Mammoth.js before passing vectors to html2pdf. Simple and standard layout tables retain their formatting beautifully, but exceptionally complex templates or decorative shapes may experience slight alignment adjustments.</p>
+                <strong style="color: #fff;">Are my private Word documents uploaded to any remote web server?</strong>
+                <p>No. All DOCX parsing, XML extraction, and PDF rendering happen locally inside your web browser's memory using JavaScript. No files are ever uploaded or stored on external servers.</p>
             </div>
             <div class="text-content-row">
-                <strong>Can I load legacy Word documents saved under older binary formats like .DOC?</strong>
-                <p>This localized sandboxed compiler is built to parse open XML structures natively, which means it requires standard modern `.docx` files. If you are handling older `.doc` variants, resave them as a DOCX workbook through any text processor before uploading.</p>
+                <strong style="color: #fff;">Can I convert older binary Word files saved in .DOC format?</strong>
+                <p>Our client-side engine is optimized for modern open XML Word structures (.docx). If you have an older .doc file, simply open and re-save it as .docx in Word, Google Docs, or LibreOffice before converting.</p>
             </div>
             <div class="text-content-row">
-                <strong>Is there an upper file size or total page limit enforced for client-side conversions?</strong>
-                <p>Because the app strips data layers entirely within your browser's RAM workspace and bypasses cloud server pipeline uploads, there are no hard file limits. Overall processing efficiency depends solely on your device's memory performance.</p>
+                <strong style="color: #fff;">Will converting my DOCX file change my document's formatting or fonts?</strong>
+                <p>Standard text, headings, bulleted lists, and basic tables translate smoothly into PDF format. Ultra-complex multi-column templates or specialized custom fonts may adapt slightly to fit web rendering standards.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Can I convert Word documents to Landscape PDF orientation?</strong>
+                <p>Yes. Under 'Page Setup Options', select '📐 Landscape (Horizontal Layout)' before clicking convert to generate a horizontal PDF file.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is there a page or file size limit for converting Word to PDF?</strong>
+                <p>There are no software-imposed file size or page limits on pdfgridbox. Processing speed depends entirely on your device's available RAM memory.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is pdfgridbox's Word to PDF tool completely free to use?</strong>
+                <p>Yes. All PDF utilities on pdfgridbox are 100% free with no account registrations, daily file limits, or forced watermarks added to final output files.</p>
             </div>
         </div>
 
-        <!-- ✅ ADS PLACEMENT 3 -->
-        <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
+        <!-- ✅ ADS PLACEMENT 3 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
     </div>
 
     <!-- 👑 Royal Unified Ownership Compliance Footer -->
     <footer class="luxury-footer">
         <div class="footer-links">
-            <a href="https://pdfgridbox.in/about">About Us</a>
-            <a href="https://pdfgridbox.in/contact">Contact Us</a>
-            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
-            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
         </div>
         <div class="footer-credits">
             &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
@@ -566,6 +680,8 @@
             fillerBar.style.width = "50%";
 
             globalFileArrayBuffer = null;
+            document.getElementById('outputPanelWrapper').style.display = "none";
+
             if (compiledBlobUrl) {
                 URL.revokeObjectURL(compiledBlobUrl);
                 compiledBlobUrl = null;
@@ -596,25 +712,22 @@
                 labelText.innerText = "Status: Decompressing Word XML Nodes...";
                 fillerBar.style.width = "35%";
 
-                // Convert raw docx array buffer layout structures to standard HTML markup natively
                 const mammothResult = await mammoth.convertToHtml({ arrayBuffer: globalFileArrayBuffer });
                 const convertedHtmlText = mammothResult.value; 
                 
-                sandboxElement.innerHTML = convertedHtmlText; // Seed layout structure sandbox area
+                sandboxElement.innerHTML = convertedHtmlText;
 
                 fillerBar.style.width = "65%";
                 labelText.innerText = "Status: Rendering High-Fidelity PDF Vector Grids...";
 
-                // Set up parameters matrix for html2pdf conversion
                 const executionOptions = {
-                    margin: [0.5, 0.5, 0.5, 0.5], // Standard margin structure layouts
+                    margin: [0.5, 0.5, 0.5, 0.5],
                     filename: globalFileName,
                     image: { type: 'jpeg', quality: 0.98 },
                     html2canvas: { scale: 2, useCORS: true, logging: false },
                     jsPDF: { unit: 'in', format: 'a4', orientation: selectedOrientation }
                 };
 
-                // Compile layout to high-fidelity target blob stream
                 const generatedPdfWorker = html2pdf().from(sandboxElement).set(executionOptions);
                 const outputBlob = await generatedPdfWorker.output('blob');
 
@@ -623,12 +736,13 @@
                 }
                 compiledBlobUrl = URL.createObjectURL(outputBlob);
 
-                // Clean up workspace sandbox content variables
                 sandboxElement.innerHTML = "";
 
                 fillerBar.style.width = "100%";
                 labelText.innerText = "STATUS: WORD CONVERTED TO PDF SUCCESSFULLY!";
 
+                // Reveal output wrapper panel
+                document.getElementById('outputPanelWrapper').style.display = "block";
                 document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
             } catch(err) {
                 console.error(err);
