@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-TWVBM11KXZ');
-</script>
+      gtag('config', 'G-TWVBM11KXZ');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- 👑 PRE-CONFIGURED PREMIUM SEO META TAGS -->
     <title>Split PDF Online Free - 100% Private & Fast - pdfgridbox</title>
     <meta name="description" content="Split PDF files online instantly for free. Extract individual pages or custom ranges securely right inside your browser with zero server uploads and 100% quality retention.">
+
+    <!-- 🚀 GOOGLE APPLICATION SCHEMA MARKUP FOR FASTER INDEXING -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Split PDF Online Free - pdfgridbox",
+      "url": "https://pdfgridbox.in/pdf-split",
+      "description": "Split PDF files online free with live page thumbnail previews and 100% private local browser memory processing.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
     
     <!-- 🚀 Engines for Real PDF Rendering and Processing Client-side -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
@@ -24,7 +43,7 @@
     <style>
         /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
         :root {
-            --bg-main: #090d16; /* Deep Midnight Luxury Background */
+            --bg-main: #090d16; 
             --bg-card: rgba(22, 29, 45, 0.7);
             --bg-card-hover: rgba(30, 41, 64, 0.9);
             --bg-input: #0b0f19;
@@ -150,19 +169,20 @@
             border-color: var(--gold-primary);
         }
 
-        /* Gold/Brown Dashed Ads Box Placeholders */
+        /* 💰 SAFE ADSENSE CONTAINER */
         .ad-premium-banner {
-            border: 1px dashed rgba(212, 175, 55, 0.2);
-            background: rgba(11, 15, 25, 0.5);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            color: var(--gold-primary);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin: 20px 0;
-            text-transform: uppercase;
+            margin: 30px 0;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Strict gap injection to avoid algorithmic accidental click penalties */
+        .adsense-margin-isolated {
+            margin-top: 150px !important;
+            margin-bottom: 40px !important;
         }
 
         /* 📈 Dark Theme Progress Bar components */
@@ -281,12 +301,18 @@
             width: 100%;
             cursor: pointer;
             margin-top: 10px;
+            margin-bottom: 12px;
             transition: all 0.2s;
             box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
         }
         .btn-gold-action:hover {
             transform: translateY(-2px);
             filter: brightness(1.1);
+        }
+
+        /* Output Panel initially hidden */
+        #outputPanelWrapper {
+            display: none;
         }
 
         .btn-green-download {
@@ -447,6 +473,27 @@
             display: inline-block;
             margin-top: 4px;
         }
+
+        /* 🛠️ PRINT COMPLIANCE STYLES */
+        @media print {
+            .ad-premium-banner, 
+            .btn-gold-action, 
+            .btn-green-download, 
+            .btn-outline-preview,
+            .upload-dashed-container, 
+            .premium-card, 
+            .tools-navigation-grid, 
+            .btn-small-home,
+            .btn-large-home,
+            footer {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -463,12 +510,20 @@
         <div class="upload-dashed-container" onclick="document.getElementById('realFileInput').click()">
             <div style="font-size: 40px; color: #dfba6b;">✂️</div>
             <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Choose PDF File</div>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">or drag and drop your file here</p>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">Select PDF document to extract or split page ranges</p>
             <input type="file" id="realFileInput" accept=".pdf" style="display: none;" onchange="processAndLoadPDF(event)">
         </div>
 
-        <!-- ✅ ADS PLACEMENT 1 -->
-        <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here to unlock preview ]</div>
+        <!-- ✅ ADS PLACEMENT 1 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
         <!-- 📈 Interactive Live Progress Tracking Engine Component -->
         <div class="premium-card">
@@ -484,7 +539,7 @@
             <div class="meta-data-node"><span>File Size</span><strong id="labelSize">--</strong></div>
             <div class="meta-data-node"><span>Total Pages</span><strong id="labelPages">--</strong></div>
             <div class="meta-data-node"><span>PDF Version</span><strong id="labelVersion">--</strong></div>
-            <div class="meta-data-node"><span>Encrypted</span><strong id="labelEncrypt">--</strong><strong style="color:#10b981; display:none;" id="labelLocalType">Local Client</strong></div>
+            <div class="meta-data-node"><span>Execution Engine</span><strong style="color:#10b981;">Local Client</strong></div>
         </div>
 
         <!-- 📸 Live PDF Preview Component Matrix -->
@@ -513,19 +568,49 @@
         <!-- Core Main Processing Tool Button -->
         <button class="btn-gold-action" onclick="executeRealClientSplit()">Split PDF Instantly</button>
 
-        <!-- Output Downloader Workspace Container -->
-        <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
-        <div class="premium-card" style="text-align: center;">
-            <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
-            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Split PDF Workspace</h3>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Extract your layout configurations above, then download or preview securely.</p>
-            
-            <!-- ✅ ADS PLACEMENT 2 -->
-            <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
+        <!-- 🏠 ALWAYS VISIBLE MAIN BACK TO HOME BUTTON -->
+        <a href="https://pdfgridbox.in" class="btn-large-home" style="margin-bottom: 25px;">🏠 Back to Home Page</a>
 
-            <button class="btn-green-download" onclick="triggerDownload()">📥 Download Split PDF</button>
-            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Split PDF</button>
-            <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
+        <!-- Output Downloader Workspace Container (Hidden Initially) -->
+        <div id="outputPanelWrapper">
+            <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
+            <div class="premium-card" style="text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
+                <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Split PDF Workspace</h3>
+                <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Extracted page ranges compiled natively. Download or preview instantly.</p>
+                
+                <!-- ✅ ADS PLACEMENT 2 (ISOLATED WITH STRICT MARGINS) -->
+                <div class="ad-premium-banner adsense-margin-isolated">
+                    <ins class="adsbygoogle"
+                         style="display:block; width:100%;"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+
+                <!-- Primary Workspace Actions Stack -->
+                <button class="btn-green-download" onclick="triggerDownload()">📥 Download Split PDF</button>
+                <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Split PDF</button>
+            </div>
+        </div>
+
+        <!-- 🚀 HIGH-VALUE CONTEXTUAL RICH SEO DATA HUB BELOW THE FOLD -->
+        <div class="block-heading">📖 Private Browser-Based PDF Document Splitting</div>
+        <div class="premium-card">
+            <div class="text-content-row">
+                <strong>Why Split PDF Files Online Privately?</strong>
+                <p>Extracting specific chapters from large eBooks, separating confidential financial statements, or splitting multi-page legal contracts requires a fast, reliable tool. Standard cloud-based splitting utilities require uploading your sensitive files to external servers, raising data privacy concerns. Our client-side splitting engine operates 100% locally inside your web browser's RAM sandbox. Your personal documents and corporate records remain completely localized to your system, guaranteeing total privacy and zero server footprint.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Visual Page Thumbnail Matrix & Dual Range Selection</strong>
+                <p>Our tool gives you full visual control over document extraction. Upon uploading a PDF, our rendering engine generates high-resolution thumbnail cards for every page. You can visually inspect pages, uncheck unwanted sheets (such as blank pages or cover disclaimers), and set specific page ranges (From/To) simultaneously. This dual control ensures you only extract the exact pages you need in one quick step.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Lossless Quality & Structural Object Preservation</strong>
+                <p>Lower-quality converters often rasterize PDF pages into images, destroying text quality and increasing file size. Our engine modifies internal PDF object trees directly without re-compressing visual elements. Embedded vector fonts, high-resolution charts, clickable hyperlinks, and original page dimensions are preserved perfectly in the output document.</p>
+            </div>
         </div>
 
         <!-- 💡 Quick Tips Section -->
@@ -533,15 +618,15 @@
         <div class="premium-card">
             <div class="text-content-row">
                 <strong>Granular Split Customization</strong>
-                <p>Uncheck any individual page thumbnails you want to drop completely. Only the checked layout cards situated within your specified boundary range fields will be fetched and compiled into the output asset container.</p>
+                <p>Uncheck individual page card thumbnails to omit them from the final file. Only checked page thumbnails within your specified From/To boundary range will be extracted into the new document.</p>
             </div>
             <div class="text-content-row">
                 <strong>Isolate Book Chapters Flawlessly</strong>
-                <p>Extract extensive sections or individual assignment nodes seamlessly. By typing parameters directly into the From/To text inputs, the processing logic reads the low-level tree to copy precise chunks out instantly.</p>
+                <p>Extract specific chapters or assignment sections easily. Type page numbers directly into the From/To inputs, and the engine will instantly isolate that exact page chunk.</p>
             </div>
             <div class="text-content-row">
                 <strong>100% In-Browser Memory Sandbox</strong>
-                <p>Your legal papers, personal tax receipts, or confidential business proposals are manipulated inside the secure sandboxed memory of your local web explorer. Absolutely zero byte arrays are transferred across the open web.</p>
+                <p>Your legal contracts, tax receipts, or business proposals are processed strictly inside your local web browser's memory sandbox. Zero byte arrays leave your device.</p>
             </div>
         </div>
 
@@ -550,39 +635,59 @@
         <div class="tools-navigation-grid">
             <a href="https://pdfgridbox.in/pdf-merge" class="tool-link-badge"><div>🧩</div>Merge PDF</a>
             <a href="https://pdfgridbox.in/pdf-compress" class="tool-link-badge"><div>🗜️</div>Compress PDF</a>
+            <a href="https://pdfgridbox.in/delete-pdf-pages" class="tool-link-badge"><div>🗑️</div>Delete Pages</a>
             <a href="https://pdfgridbox.in/pdf-rotate" class="tool-link-badge"><div>🔄</div>Rotate PDF</a>
-            <a href="https://pdfgridbox.in/pdf-protect" class="tool-link-badge"><div>🔒</div>Protect PDF</a>
         </div>
 
-        <!-- ❓ FAQs Layout Component -->
+        <!-- ❓ FAQS CONTENT HUB - ELIMINATING THIN CONTENT SCENARIOS -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
             <div class="text-content-row">
-                <strong>Is my document data fully secure from corporate tracking layers?</strong>
-                <p>Yes, absolutely. All compilation matrix pipelines operate inside your machine's browser memory loop via HTML5 FileReader blocks. No database logging or cloud scraping occurs, guaranteeing comprehensive data compliance.</p>
+                <strong style="color: #fff;">Are my private PDF documents uploaded to any external server?</strong>
+                <p>No. All PDF splitting operations run strictly inside your local web browser memory using HTML5 APIs. No document bytes are uploaded, stored, or processed on remote web servers.</p>
             </div>
             <div class="text-content-row">
-                <strong>Will splitting large graphics files lower resolution properties?</strong>
-                <p>Not at all. The software handles page tree arrays directly by cloning existing high-resolution streams. Fonts, links, structural layouts, and image densities remain strictly untouched and mathematically identical.</p>
+                <strong style="color: #fff;">Will splitting a PDF file reduce image or text quality?</strong>
+                <p>Not at all. The processing algorithm clones existing high-resolution document streams directly. Vector graphics, text fonts, links, and image densities remain 100% original and sharp.</p>
             </div>
             <div class="text-content-row">
-                <strong>Can I process heavy files containing hundreds of individual sheets?</strong>
-                <p>Our code has no artificial system constraints built-in. Processing velocity relies entirely on your local machine's computing setup and available RAM buffers, rendering sheets fluidly on standard modern platforms.</p>
+                <strong style="color: #fff;">Is there a page limit for splitting large PDF documents?</strong>
+                <p>There are no software-imposed page limits on pdfgridbox. Processing performance depends entirely on your device's available RAM and CPU power.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Can I split password-protected PDF files?</strong>
+                <p>For security compliance, password-protected PDF files must be decrypted before being loaded into the local browser matrix. Remove the password encryption first to split the file.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Can I extract non-consecutive pages while splitting a PDF?</strong>
+                <p>Yes. You can uncheck individual page thumbnails in the Live Pages Preview Matrix to exclude specific pages while extracting your desired page range.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is pdfgridbox's Split PDF tool completely free to use?</strong>
+                <p>Yes. All PDF processing tools on pdfgridbox are 100% free with no registration requirements, daily usage limits, or forced watermarks added to final files.</p>
             </div>
         </div>
 
-        <!-- ✅ ADS PLACEMENT 3 -->
-        <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
+        <!-- ✅ ADS PLACEMENT 3 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
     </div>
 
     <!-- 👑 Royal Unified Ownership Compliance Footer -->
     <footer class="luxury-footer">
         <div class="footer-links">
-            <a href="https://pdfgridbox.in/about">About Us</a>
-            <a href="https://pdfgridbox.in/contact">Contact Us</a>
-            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
-            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
         </div>
         <div class="footer-credits">
             &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
@@ -600,13 +705,14 @@
         let maxPagesDetected = 1;
         let compiledBlobUrl = null; 
 
-        // Helper hook to invalidate memory slots if the workspace variables shift state
+        // Helper hook to invalidate memory slots if workspace variables shift state
         function invalidateActiveWorkspace() {
             if (compiledBlobUrl) {
                 URL.revokeObjectURL(compiledBlobUrl);
                 compiledBlobUrl = null;
                 document.getElementById('stateLabel').innerText = "Status: Settings Modified. Please re-split.";
                 document.getElementById('trackBarIndicatorFill').style.width = "70%";
+                document.getElementById('outputPanelWrapper').style.display = "none";
             }
         }
 
@@ -623,6 +729,8 @@
 
             labelText.innerText = "Status: Inspecting Byte Streams...";
             fillerBar.style.width = "25%";
+            
+            document.getElementById('outputPanelWrapper').style.display = "none";
             matrixGrid.innerHTML = '<p style="color: var(--text-muted); font-size: 13px; grid-column: span 2; text-align: center; padding: 20px 0; width: 100%;">Generating live thumbnails layout...</p>';
 
             globalFileArrayBuffer = null;
@@ -642,7 +750,6 @@
                     maxPagesDetected = pdfDocInstance.numPages;
                     document.getElementById('labelPages').innerText = pdfDocInstance.numPages + " Pages";
                     document.getElementById('labelVersion').innerText = "1.7 (Client SDK)";
-                    document.getElementById('labelEncrypt').innerText = "No";
 
                     // Configure limits parameters metrics elements boundaries
                     const fromInput = document.getElementById('rangeFrom');
@@ -736,7 +843,6 @@
                 const indicesToExtract = [];
                 for (let pageIdx = startRange; pageIdx <= endRange; pageIdx++) {
                     const chkElement = document.getElementById(`page-chk-${pageIdx}`);
-                    // Only push index parameters onto vector stacks if checklist remains checked state true
                     if (!chkElement || chkElement.checked) {
                         indicesToExtract.push(pageIdx - 1); 
                     }
@@ -763,6 +869,8 @@
                 fillerBar.style.width = "100%";
                 labelText.innerText = "Status: Split PDF Ready! Click Download Below.";
 
+                // Reveal output wrapper panel
+                document.getElementById('outputPanelWrapper').style.display = "block";
                 document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
             } catch (err) {
                 console.error(err);
