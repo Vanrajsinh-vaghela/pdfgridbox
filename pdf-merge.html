@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-TWVBM11KXZ');
-</script>
+      gtag('config', 'G-TWVBM11KXZ');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- 👑 PRE-CONFIGURED PREMIUM SEO META TAGS -->
     <title>Merge PDF Files Online Free - 100% Secure & Fast - pdfgridbox</title>
-    <meta name="description" content="Merge multiple PDF files online for free instantly. Combine PDF documents securely right inside your browser with our client-side premium compilation engine.">
-    
+    <meta name="description" content="Merge multiple PDF files online for free instantly. Combine PDF documents securely with live page thumbnail previews right inside your browser. 100% private client-side processing.">
+
+    <!-- 🚀 GOOGLE APPLICATION SCHEMA MARKUP FOR FASTER INDEXING -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Merge PDF Files Online Free - pdfgridbox",
+      "url": "https://pdfgridbox.in/pdf-merge",
+      "description": "Combine multiple PDF files into one document online free with live page thumbnail previews and 100% private local browser memory processing.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
     <!-- 🚀 Heavy Engines for Client-side PDF Processing & Previews -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
@@ -24,7 +43,7 @@
     <style>
         /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
         :root {
-            --bg-main: #090d16; /* Deep Midnight Luxury Background */
+            --bg-main: #090d16; 
             --bg-card: rgba(22, 29, 45, 0.7);
             --bg-card-hover: rgba(30, 41, 64, 0.9);
             --bg-input: #0b0f19;
@@ -146,18 +165,20 @@
             border-color: var(--gold-primary);
         }
 
+        /* 💰 SAFE ADSENSE CONTAINER */
         .ad-premium-banner {
-            border: 1px dashed rgba(212, 175, 55, 0.2);
-            background: rgba(11, 15, 25, 0.5);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            color: var(--gold-primary);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin: 20px 0;
-            text-transform: uppercase;
+            margin: 30px 0;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Strict gap injection to avoid algorithmic accidental click penalties */
+        .adsense-margin-isolated {
+            margin-top: 150px !important;
+            margin-bottom: 40px !important;
         }
 
         .progress-track {
@@ -242,12 +263,18 @@
             width: 100%;
             cursor: pointer;
             margin-top: 10px;
+            margin-bottom: 12px;
             transition: all 0.2s;
             box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
         }
         .btn-gold-action:hover {
             transform: translateY(-2px);
             filter: brightness(1.1);
+        }
+
+        /* Output Panel initially hidden */
+        #outputPanelWrapper {
+            display: none;
         }
 
         .btn-green-download {
@@ -294,7 +321,6 @@
             background: rgba(255, 224, 130, 0.1);
         }
 
-        /* 🏠 Bada Premium Home Button */
         .btn-large-home {
             background: #161d2d;
             color: var(--text-white) !important;
@@ -319,7 +345,25 @@
             border-color: var(--gold-primary);
         }
 
-        /* ⭐ Related Tools Navigation Grid */
+        .text-content-row {
+            margin-bottom: 20px;
+        }
+        .text-content-row:last-child {
+            margin-bottom: 0;
+        }
+        .text-content-row strong {
+            display: block;
+            font-size: 14px;
+            color: var(--accent-yellow);
+            margin-bottom: 6px;
+        }
+        .text-content-row p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
         .tools-navigation-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -345,25 +389,6 @@
         .tool-link-badge div {
             font-size: 24px;
             margin-bottom: 6px;
-        }
-
-        .text-content-row {
-            margin-bottom: 20px;
-        }
-        .text-content-row:last-child {
-            margin-bottom: 0;
-        }
-        .text-content-row strong {
-            display: block;
-            font-size: 14px;
-            color: var(--accent-yellow);
-            margin-bottom: 6px;
-        }
-        .text-content-row p {
-            margin: 0;
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.5;
         }
 
         /* 👑 LUXURY COMPLIANCE FOOTER STYLES */
@@ -408,6 +433,27 @@
             display: inline-block;
             margin-top: 4px;
         }
+
+        /* 🛠️ PRINT COMPLIANCE STYLES */
+        @media print {
+            .ad-premium-banner, 
+            .btn-gold-action, 
+            .btn-green-download, 
+            .btn-outline-preview,
+            .upload-dashed-container, 
+            .premium-card, 
+            .tools-navigation-grid, 
+            .btn-small-home,
+            .btn-large-home,
+            footer {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -428,8 +474,16 @@
             <input type="file" id="realMergeFileInput" accept=".pdf" multiple style="display: none;" onchange="handleMultipleFileImport(event)">
         </div>
 
-        <!-- ✅ ADS PLACEMENT 1 -->
-        <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here to unlock preview ]</div>
+        <!-- ✅ ADS PLACEMENT 1 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
         <!-- Progress Component -->
         <div class="premium-card">
@@ -445,7 +499,7 @@
             <div style="display:flex; flex-direction:column;"><span style="color:var(--text-muted); font-size:11px; text-transform:uppercase;">Total Size</span><strong id="labelTotalSize">--</strong></div>
             <div style="display:flex; flex-direction:column;"><span style="color:var(--text-muted); font-size:11px; text-transform:uppercase;">Total Files</span><strong id="labelTotalFiles">0 Files</strong></div>
             <div style="display:flex; flex-direction:column;"><span style="color:var(--text-muted); font-size:11px; text-transform:uppercase;">Total Pages Loaded</span><strong id="labelTotalPages">0 Pages</strong></div>
-            <div style="display:flex; flex-direction:column;"><span style="color:var(--text-muted); font-size:11px; text-transform:uppercase;">Type</span><strong style="color:#10b981;">Local Client</strong></div>
+            <div style="display:flex; flex-direction:column;"><span style="color:var(--text-muted); font-size:11px; text-transform:uppercase;">Execution Engine</span><strong style="color:#10b981;">Local Client</strong></div>
         </div>
 
         <!-- 📸 Live PDF Preview Workspace Grid Frame -->
@@ -461,20 +515,49 @@
         <!-- Core Button Action -->
         <button class="btn-gold-action" onclick="executeRealClientMerge()">Merge PDFs Instantly</button>
 
-        <!-- Output Downloader Container Workspace -->
-        <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
-        <div class="premium-card" style="text-align: center;">
-            <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
-            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Merged PDF Workspace</h3>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Compile your layout settings above, then download or preview securely.</p>
-            
-            <!-- ✅ ADS PLACEMENT 2 -->
-            <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
+        <!-- 🏠 ALWAYS VISIBLE MAIN BACK TO HOME BUTTON -->
+        <a href="https://pdfgridbox.in" class="btn-large-home" style="margin-bottom: 25px;">🏠 Back to Home Page</a>
 
-            <!-- Primary Buttons Stacked Vertically as Big Elements -->
-            <button class="btn-green-download" onclick="triggerDownload()">📥 Download Merged PDF</button>
-            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Merged PDF</button>
-            <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
+        <!-- Output Downloader Container Workspace (Hidden Initially) -->
+        <div id="outputPanelWrapper">
+            <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
+            <div class="premium-card" style="text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
+                <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Merged PDF Workspace</h3>
+                <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Selected PDF pages compiled natively. Download or preview instantly.</p>
+                
+                <!-- ✅ ADS PLACEMENT 2 (ISOLATED WITH STRICT MARGINS) -->
+                <div class="ad-premium-banner adsense-margin-isolated">
+                    <ins class="adsbygoogle"
+                         style="display:block; width:100%;"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+
+                <!-- Primary Workspace Actions Stack -->
+                <button class="btn-green-download" onclick="triggerDownload()">📥 Download Merged PDF</button>
+                <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Merged PDF</button>
+            </div>
+        </div>
+
+        <!-- 🚀 HIGH-VALUE CONTEXTUAL RICH SEO DATA HUB BELOW THE FOLD -->
+        <div class="block-heading">📖 Private Browser-Based PDF Document Merging</div>
+        <div class="premium-card">
+            <div class="text-content-row">
+                <strong>Why Combine PDF Files Online Privately?</strong>
+                <p>Merging multiple PDF documents into a single organized file is a daily necessity for legal professionals, students, accountants, and businesses. Standard cloud-based PDF merging utilities force users to upload confidential contracts, bank statements, or tax reports to third-party web servers, exposing sensitive information to privacy breaches. Our web-based client-side compilation engine processes all file merging operations 100% locally inside your browser's RAM memory sandbox. Zero bytes leave your device, ensuring maximum confidentiality and global privacy compliance.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Granular Page Control via Live Visual Thumbnail Previews</strong>
+                <p>Not all pages in a document are always needed. Our advanced visual thumbnail matrix renders high-resolution previews for every page across all uploaded PDF files. You can visually inspect individual pages and uncheck unwanted blank pages, cover sheets, or duplicate disclaimers before merging. This granular control allows you to combine and edit your documents simultaneously into a clean, professional output file.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Lossless Quality & Native Vector Object Preservation</strong>
+                <p>Unlike lower-grade PDF tools that convert pages into compressed images—resulting in blurry text and oversized files—our engine modifies low-level PDF object trees directly. High-resolution vector graphics, embedded custom typography, clickable hyperlinks, bookmarks, and document metadata are preserved completely without quality degradation.</p>
+            </div>
         </div>
 
         <!-- 💡 Quick Tips Section -->
@@ -482,15 +565,15 @@
         <div class="premium-card">
             <div class="text-content-row">
                 <strong>Intelligent Granular Page Exclusion</strong>
-                <p>Uncheck any individual page card thumbnail in the preview area to completely remove it from the final merged file compilation. This lets you combine and weed out messy blank sheets simultaneously.</p>
+                <p>Uncheck any page card thumbnail in the preview matrix to exclude it from the merged file. This lets you combine documents and eliminate blank or unwanted pages in one step.</p>
             </div>
             <div class="text-content-row">
-                <strong>Sequential Stitching Logic</strong>
-                <p>Documents are automatically ordered in the sequence you select them from your explorer window. The preview matrix will flag them as F1 (File 1), F2 (File 2) for dynamic sorting control structures.</p>
+                <strong>Sequential Stitching Order</strong>
+                <p>Files are ordered in the exact sequence you select them. The visual matrix flags thumbnails as F1 (File 1) and F2 (File 2) for intuitive page identification.</p>
             </div>
             <div class="text-content-row">
-                <strong>Absolute Sandbox Isolation Architecture</strong>
-                <p>Your business layouts, invoices, and sensitive presentation drafts are integrated natively inside your system's browser thread buffer mapping. Zero server transmission keeps your privacy metrics locked solid.</p>
+                <strong>Absolute Sandbox Memory Isolation</strong>
+                <p>All file binary buffer processing happens locally within your device browser thread. Zero cloud uploads guarantee maximum privacy for financial statements and legal contracts.</p>
             </div>
         </div>
 
@@ -499,39 +582,59 @@
         <div class="tools-navigation-grid">
             <a href="https://pdfgridbox.in/pdf-compress" class="tool-link-badge"><div>🗜️</div>Compress PDF</a>
             <a href="https://pdfgridbox.in/pdf-split" class="tool-link-badge"><div>✂️</div>Split PDF</a>
+            <a href="https://pdfgridbox.in/delete-pdf-pages" class="tool-link-badge"><div>🗑️</div>Delete Pages</a>
             <a href="https://pdfgridbox.in/pdf-rotate" class="tool-link-badge"><div>🔄</div>Rotate PDF</a>
-            <a href="https://pdfgridbox.in/pdf-protect" class="tool-link-badge"><div>🔒</div>Protect PDF</a>
         </div>
 
-        <!-- ❓ FAQs Layout Component -->
+        <!-- ❓ FAQS CONTENT HUB - ELIMINATING THIN CONTENT SCENARIOS -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
             <div class="text-content-row">
-                <strong>Is my sensitive private document architecture secure?</strong>
-                <p>Completely. The data conversion engine builds binary buffer sets strictly via client-side scripts. No documents or text segments are ever uploaded to cloud databases, guaranteeing total legal document isolation.</p>
+                <strong style="color: #fff;">Are my confidential PDF documents uploaded or stored on any server?</strong>
+                <p>No. The merging engine operates entirely inside your local web browser RAM thread. No files or document buffers are ever transmitted to or stored on remote web servers.</p>
             </div>
             <div class="text-content-row">
-                <strong>Will merging large multi-page asset sets reduce reading resolutions?</strong>
-                <p>Not at all. The processing algorithm maps out structural internal element dictionaries natively without recoding content streams. Vectors, distinct layers, text arrays, and embedded objects remain entirely lossless.</p>
+                <strong style="color: #fff;">Will merging multiple PDF files reduce visual text or image quality?</strong>
+                <p>Not at all. The processing algorithm maps out internal structural element dictionaries natively without re-encoding visual content streams. Vector graphics, text layers, and embedded images remain 100% lossless.</p>
             </div>
             <div class="text-content-row">
-                <strong>Can I merge password-encrypted document schemas directly?</strong>
-                <p>For safety compliance protocols, our local canvas libraries require files to be decrypted first. If your PDF is password locked, remove the encryption block before running the multi-stitching workspace compiler loop.</p>
+                <strong style="color: #fff;">Can I merge password-protected PDF files directly?</strong>
+                <p>For safety and security protocol compliance, files must be decrypted before being loaded into the local browser matrix. If your PDF is password-protected, remove the password before merging.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is there a file size or page count limit for merging PDF files?</strong>
+                <p>There are no software-enforced file size or page limits on pdfgridbox. Processing performance depends on your device's available system RAM and CPU power.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Can I exclude specific pages while merging multiple PDF files?</strong>
+                <p>Yes! Simply uncheck the checkbox on any page thumbnail in the Live Pages Preview Matrix, and that specific page will be excluded from the final merged PDF.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is pdfgridbox's Merge PDF tool completely free to use?</strong>
+                <p>Yes. All PDF utilities on pdfgridbox are 100% free with no account registration requirements, daily usage limits, or forced watermarks added to final files.</p>
             </div>
         </div>
 
-        <!-- ✅ ADS PLACEMENT 3 -->
-        <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
+        <!-- ✅ ADS PLACEMENT 3 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
     </div>
 
     <!-- 👑 Royal Unified Ownership Compliance Footer -->
     <footer class="luxury-footer">
         <div class="footer-links">
-            <a href="https://pdfgridbox.in/about">About Us</a>
-            <a href="https://pdfgridbox.in/contact">Contact Us</a>
-            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
-            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
         </div>
         <div class="footer-credits">
             &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
@@ -546,7 +649,7 @@
 
         let filesMemoryQueue = [];
         let totalRenderedPagesCount = 0;
-        let compiledBlobUrl = null; // Staging reference for controlled download hooks
+        let compiledBlobUrl = null; 
 
         async function handleMultipleFileImport(event) {
             const rawFiles = event.target.files;
@@ -559,6 +662,7 @@
             labelText.innerText = "Status: Inspecting Byte Streams...";
             fillerBar.style.width = "20%";
             
+            document.getElementById('outputPanelWrapper').style.display = "none";
             matrixGrid.innerHTML = '<p style="color: var(--text-muted); font-size: 13px; grid-column: span 2; text-align: center; padding: 20px 0; width: 100%;">Generating live thumbnails layout...</p>'; 
             filesMemoryQueue = [];
             totalRenderedPagesCount = 0;
@@ -640,6 +744,7 @@
                             compiledBlobUrl = null;
                             document.getElementById('stateLabel').innerText = "Status: Matrix Updated. Please re-merge.";
                             document.getElementById('trackBarIndicatorFill').style.width = "70%";
+                            document.getElementById('outputPanelWrapper').style.display = "none";
                         }
                     });
 
@@ -715,7 +820,6 @@
                 const finalizedBytesArray = await masterMergedDoc.save();
                 const outputBlob = new Blob([finalizedBytesArray], { type: 'application/pdf' });
                 
-                // Revoke old instance to secure memory mapping
                 if (compiledBlobUrl) {
                     URL.revokeObjectURL(compiledBlobUrl);
                 }
@@ -725,7 +829,8 @@
                 fillerBar.style.width = "100%";
                 labelText.innerText = "Status: Merged PDF Ready! Click Download Below.";
                 
-                // Smooth scroll directly to workspace container so user knows it's compiled
+                // Reveal output wrapper panel
+                document.getElementById('outputPanelWrapper').style.display = "block";
                 document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
                 
             } catch (err) {
