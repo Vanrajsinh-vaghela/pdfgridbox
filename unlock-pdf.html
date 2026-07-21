@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-TWVBM11KXZ');
-</script>
+      gtag('config', 'G-TWVBM11KXZ');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- 👑 PRE-CONFIGURED PREMIUM SEO META TAGS -->
     <title>Unlock PDF Online - Remove PDF Password Free - pdfgridbox</title>
     <meta name="description" content="Remove password protection and restrictions from your PDF files online instantly. 100% secure client-side decryption matrix, zero server data uploads.">
+
+    <!-- 🚀 GOOGLE APPLICATION SCHEMA MARKUP FOR FASTER INDEXING -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Unlock PDF Online Free - pdfgridbox",
+      "url": "https://pdfgridbox.in/unlock-pdf",
+      "description": "Remove password protection and print/edit restrictions from PDF files online free with 100% private local browser memory execution.",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 
     <!-- 🚀 Bulletproof Heavy Engines for Client-Side PDF Decryption & Re-Assembly -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
@@ -24,7 +43,7 @@
     <style>
         /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
         :root {
-            --bg-main: #090d16; /* Deep Midnight Luxury Background */
+            --bg-main: #090d16; 
             --bg-card: rgba(22, 29, 45, 0.7);
             --bg-card-hover: rgba(30, 41, 64, 0.9);
             --bg-input: #0b0f19;
@@ -146,18 +165,20 @@
             border-color: var(--gold-primary);
         }
 
+        /* 💰 SAFE ADSENSE CONTAINER */
         .ad-premium-banner {
-            border: 1px dashed rgba(212, 175, 55, 0.2);
-            background: rgba(11, 15, 25, 0.5);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            color: var(--gold-primary);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin: 20px 0;
-            text-transform: uppercase;
+            margin: 30px 0;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Strict gap injection to avoid algorithmic accidental click penalties */
+        .adsense-margin-isolated {
+            margin-top: 150px !important;
+            margin-bottom: 40px !important;
         }
 
         /* 🔓 Password Input Components */
@@ -236,12 +257,18 @@
             width: 100%;
             cursor: pointer;
             margin-top: 10px;
+            margin-bottom: 12px;
             transition: all 0.2s;
             box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
         }
         .btn-convert-action:hover {
             transform: translateY(-2px);
             filter: brightness(1.1);
+        }
+
+        /* Output Panel initially hidden */
+        #outputPanelWrapper {
+            display: none;
         }
 
         .btn-green-download {
@@ -378,6 +405,26 @@
             display: inline-block;
             margin-top: 4px;
         }
+
+        /* 🛠️ PRINT COMPLIANCE STYLES */
+        @media print {
+            .ad-premium-banner, 
+            .btn-convert-action, 
+            .btn-green-download, 
+            .upload-dashed-container, 
+            .premium-card, 
+            .tools-navigation-grid, 
+            .btn-small-home,
+            .btn-large-home,
+            footer {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -398,8 +445,16 @@
             <input type="file" id="realPdfFileInput" accept=".pdf" style="display: none;" onchange="handleSingleFileImport(event)">
         </div>
 
-        <!-- ✅ ADS PLACEMENT 1 -->
-        <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here ]</div>
+        <!-- ✅ ADS PLACEMENT 1 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
         <!-- ⚙️ Decryption Credentials Input Panel -->
         <div class="block-heading">🔑 Security Credentials Input</div>
@@ -434,19 +489,48 @@
         <!-- Core Action Button -->
         <button class="btn-convert-action" onclick="executePdfDecryptionMatrix()">Decrypt & Unlock PDF</button>
 
-        <!-- Output Downloader Container Workspace -->
-        <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
-        <div class="premium-card" style="text-align: center;">
-            <div style="font-size: 32px; margin-bottom: 8px;">🔓</div>
-            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Unlocked Document Ready</h3>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Encryption layer stripped out natively inside local sandbox cache space safely.</p>
-            
-            <!-- ✅ ADS PLACEMENT 2 -->
-            <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
+        <!-- 🏠 ALWAYS VISIBLE MAIN BACK TO HOME BUTTON -->
+        <a href="https://pdfgridbox.in" class="btn-large-home" style="margin-bottom: 25px;">🏠 Back to Home Page</a>
 
-            <!-- Primary Actions Stacked Vertically -->
-            <button class="btn-green-download" onclick="triggerDownload()">📥 Download Unlocked PDF</button>
-            <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
+        <!-- Output Downloader Container Workspace (Hidden Initially) -->
+        <div id="outputPanelWrapper">
+            <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
+            <div class="premium-card" style="text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 8px;">🔓</div>
+                <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Unlocked Document Ready</h3>
+                <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Encryption layer stripped out natively inside local sandbox cache space safely.</p>
+                
+                <!-- ✅ ADS PLACEMENT 2 (ISOLATED WITH STRICT MARGINS) -->
+                <div class="ad-premium-banner adsense-margin-isolated">
+                    <ins class="adsbygoogle"
+                         style="display:block; width:100%;"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+
+                <!-- Primary Actions Stacked Vertically -->
+                <button class="btn-green-download" onclick="triggerDownload()">📥 Download Unlocked PDF</button>
+            </div>
+        </div>
+
+        <!-- 🚀 HIGH-VALUE CONTEXTUAL RICH SEO DATA HUB BELOW THE FOLD -->
+        <div class="block-heading">📖 Private Browser-Based PDF Password Decryption & Restriction Removal</div>
+        <div class="premium-card">
+            <div class="text-content-row">
+                <strong>Why Unlock PDF Passwords & Remove Restrictions Online Privately?</strong>
+                <p>Dealing with password-protected PDF files that restrict printing, copying text, or editing can hinder daily workflows. Online cloud decryptors require uploading confidential documents—such as tax filings, bank statements, legal contracts, or company briefs—to external web servers, creating serious privacy risks. Our client-side PDF unlocker strips away encryption layers 100% locally inside your web browser's RAM sandbox. Zero file data touches external web servers, guaranteeing complete privacy and data security.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Strict Client-Side Decryption Matrix & Owner Restriction Removal</strong>
+                <p>If your document opens without a password but restricts features like printing or copying, our tool decrypts and generates a completely open copy automatically. If the file requires an open password, simply enter the known password key to decrypt it permanently. Because decryption processing happens entirely on your device, passwords and document contents are never logged or stored anywhere.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>High-Density Double Pixel Matrix Vector Preservation</strong>
+                <p>To ensure vector text, complex tables, signatures, and detailed graphics remain sharp and clear, our rendering pipeline uses a 2.0x double-density scale canvas. This prevents formatting degradation or pixelation, giving you a crisp, fully unrestricted duplicate file that looks identical to the original.</p>
+            </div>
         </div>
 
         <!-- 💡 Quick Tips Section -->
@@ -454,15 +538,15 @@
         <div class="premium-card">
             <div class="text-content-row">
                 <strong>Strict Client-Side Decryption Matrix</strong>
-                <p>The system strips out protection signatures natively inside your current browser instance. Because the operational loops initialize within sandboxed client-side memory slots, your security keys and internal text streams are never exposed to remote trackers or external server logging tools.</p>
+                <p>The system strips out protection signatures natively inside your current browser instance. Because operational loops run inside sandboxed client memory, security keys and text streams are never exposed to external servers.</p>
             </div>
             <div class="text-content-row">
                 <strong>High-Density Pixel Preservation (Scale: 2.0)</strong>
-                <p>To ensure that vector forms, detailed charts, and complex mathematical fonts do not experience formatting degradation or pixelation during decryption re-assembly, the engine renders sheets onto a double-density resolution matrix. This perfectly preserves readability across modern Retina and Ultra-HD monitors.</p>
+                <p>To ensure vector forms, detailed charts, and mathematical fonts retain full sharpness, the engine renders pages onto a double-density resolution matrix (2.0x scale). This preserves crisp rendering across modern 4K and mobile screens.</p>
             </div>
             <div class="text-content-row">
                 <strong>Owner vs. User Open Protections</strong>
-                <p>If your document opens instantly but restricts features like printing, editing, or copying, leaving the password input blank will successfully trigger the layer-stripping sequence. A password is only strictly required if the file demands a passphrase on open initialization.</p>
+                <p>If your document opens instantly but restricts features like printing or editing, leaving the password field blank will successfully trigger restriction removal. An open password is only required if the file demands one upon opening.</p>
             </div>
         </div>
 
@@ -475,35 +559,55 @@
             <a href="https://pdfgridbox.in/pdf-compress" class="tool-link-badge"><div>🗜️</div>Compress PDF</a>
         </div>
 
-        <!-- ❓ FAQs Layout Component -->
+        <!-- ❓ FAQS CONTENT HUB - ELIMINATING THIN CONTENT SCENARIOS -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
             <div class="text-content-row">
-                <strong>Is it possible to unlock a password-protected document if I completely forgot the passphrase?</strong>
-                <p>No. For data privacy standards and architectural integrity, the local sandbox requires the authentic initialization key to decipher the underlying vector streams. This tool does not employ unauthorized brute-force cracking scripts.</p>
+                <strong style="color: #fff;">Is it possible to unlock a PDF file if I completely forgot the password?</strong>
+                <p>No. For data privacy and security standards, the local browser engine requires the authentic initialization password to decipher encrypted document streams. This tool does not perform brute-force password cracking.</p>
             </div>
             <div class="text-content-row">
-                <strong>Will stripping out the password delete my embedded digital signatures or interactive form inputs?</strong>
-                <p>The decoupling process extracts document sheets as clean high-definition structural visual tracks to build a completely open duplicate file. While it guarantees zero quality loss for images and text layers, dynamic form fields and older cryptographic signing structures will be flattened for open editing safety.</p>
+                <strong style="color: #fff;">Are my unlocked PDF files or entered passwords stored on any server?</strong>
+                <p>No. All password decryption and PDF re-assembly take place locally inside your web browser's RAM memory using JavaScript. No files or passwords are ever uploaded or stored on remote web servers.</p>
             </div>
             <div class="text-content-row">
-                <strong>What size limits apply to documents processed inside this secure builder module?</strong>
-                <p>Since this local decryption suite works entirely within browser RAM and bypasses remote web server uploads, there are no fixed tool limits. Performance depends entirely on your device's available memory capacity and processing efficiency.</p>
+                <strong style="color: #fff;">Will unlocking my PDF file reduce text or image quality?</strong>
+                <p>No. Our engine uses a high-density 2.0x vector scale viewport during rendering, ensuring all text layers, embedded fonts, and graphics remain crisp and clear.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Can I remove printing and editing restrictions without entering an open password?</strong>
+                <p>Yes. If the PDF does not require a password to open, but restricts printing or text copying, simply leave the password field blank and click 'Decrypt & Unlock PDF'.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is there a file size limit for unlocking PDFs on pdfgridbox?</strong>
+                <p>There are no software-imposed file size limits on pdfgridbox. Processing speed depends entirely on your device's available RAM memory.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is pdfgridbox's Unlock PDF tool completely free to use?</strong>
+                <p>Yes. All PDF management utilities on pdfgridbox are 100% free with no account signups, daily file limits, or forced watermarks added to final output files.</p>
             </div>
         </div>
 
-        <!-- ✅ ADS PLACEMENT 3 -->
-        <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
+        <!-- ✅ ADS PLACEMENT 3 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
     </div>
 
     <!-- 👑 Royal Unified Ownership Compliance Footer -->
     <footer class="luxury-footer">
         <div class="footer-links">
-            <a href="https://pdfgridbox.in/about">About Us</a>
-            <a href="https://pdfgridbox.in/contact">Contact Us</a>
-            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
-            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
         </div>
         <div class="footer-credits">
             &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
@@ -540,6 +644,8 @@
             fillerBar.style.width = "20%";
 
             globalFileArrayBuffer = null;
+            document.getElementById('outputPanelWrapper').style.display = "none";
+
             if (compiledBlobUrl) {
                 URL.revokeObjectURL(compiledBlobUrl);
                 compiledBlobUrl = null;
@@ -549,7 +655,6 @@
             fileReader.onload = async function() {
                 globalFileArrayBuffer = this.result;
                 
-                // Perform quick pre-load probe matrix to verify if password lock bounds exist
                 try {
                     const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(globalFileArrayBuffer) });
                     const pdfDocInstance = await loadingTask.promise;
@@ -593,7 +698,6 @@
                 labelText.innerText = "Status: Verifying Credentials Decryption Channel...";
                 fillerBar.style.width = "15%";
 
-                // Attempt stream instantiation mapping with input password key
                 const corePdfWorker = pdfjsLib.getDocument({ 
                     data: new Uint8Array(globalFileArrayBuffer),
                     password: currentPassword 
@@ -612,14 +716,12 @@
                 const hiddenCanvas = document.createElement('canvas');
                 const canvasContext = hiddenCanvas.getContext('2d');
 
-                // Extract and dump pages out iteratively onto pure clean unencrypted structures
                 for(let i = 1; i <= totalPages; i++) {
                     labelText.innerText = `Status: Stripping Security Layer Page ${i} of ${totalPages}...`;
                     fillerBar.style.width = Math.floor(30 + ((i / totalPages) * 60)) + "%";
 
                     const srcPage = await srcPdfDoc.getPage(i);
                     
-                    // Render at high-density 2.0x scale viewport matrix to retain full text layer crispness
                     const highResViewport = srcPage.getViewport({ scale: 2.0 });
                     const originalViewport = srcPage.getViewport({ scale: 1.0 });
 
@@ -641,7 +743,6 @@
                             orientation: originalViewport.width > originalViewport.height ? 'l' : 'p',
                             unit: 'pt',
                             format: [originalViewport.width, originalViewport.height]
-                            // Encryption configuration objects left empty to yield full unsecured structural state
                         });
                     } else {
                         unlockedPdfDoc.addPage(
@@ -668,6 +769,8 @@
                 document.getElementById('labelSecurity').innerText = "Decrypted / Free";
                 document.getElementById('labelSecurity').style.color = "#10b981";
 
+                // Reveal output wrapper panel
+                document.getElementById('outputPanelWrapper').style.display = "block";
                 document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
 
             } catch(err) {
