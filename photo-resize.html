@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-TWVBM11KXZ');
-</script>
+      gtag('config', 'G-TWVBM11KXZ');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- 👑 PRE-CONFIGURED PREMIUM SEO META TAGS -->
     <title>Online Photo Resizer Free - Resize Image Dimensions - pdfgridbox</title>
     <meta name="description" content="Resize image dimensions and compress file sizes instantly online. Convert to JPEG, PNG, or WebP locally. 100% secure client-side processing with zero server uploads.">
+
+    <!-- 🚀 GOOGLE APPLICATION SCHEMA MARKUP FOR FASTER INDEXING -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Online Photo Resizer Free - pdfgridbox",
+      "url": "https://pdfgridbox.in/photo-resizer",
+      "description": "Resize image dimensions and compress file sizes online free. Scale JPEG, PNG, and WebP images locally inside browser HTML5 Canvas.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 
     <style>
         /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
@@ -142,18 +161,20 @@
             border-color: var(--gold-primary);
         }
 
+        /* 💰 SAFE ADSENSE CONTAINER */
         .ad-premium-banner {
-            border: 1px dashed rgba(212, 175, 55, 0.2);
-            background: rgba(11, 15, 25, 0.5);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            color: var(--gold-primary);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin: 20px 0;
-            text-transform: uppercase;
+            margin: 30px 0;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Strict gap injection to avoid algorithmic accidental click penalties */
+        .adsense-margin-isolated {
+            margin-top: 150px !important;
+            margin-bottom: 40px !important;
         }
 
         /* 🎛️ Input & Slider Controls Dashboard Layout */
@@ -309,6 +330,7 @@
             width: 100%;
             cursor: pointer;
             margin-top: 10px;
+            margin-bottom: 12px;
             transition: all 0.2s;
             box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
         }
@@ -317,7 +339,7 @@
             filter: brightness(1.1);
         }
 
-        /* 🏁 OUTPUT WORKSPACE PANEL */
+        /* 🏁 OUTPUT WORKSPACE PANEL (Hidden Initially) */
         #outputPanelWrapper {
             display: none;
         }
@@ -456,6 +478,26 @@
             display: inline-block;
             margin-top: 4px;
         }
+
+        /* 🛠️ PRINT COMPLIANCE STYLES */
+        @media print {
+            .ad-premium-banner, 
+            .btn-convert-action, 
+            .btn-green-download, 
+            .upload-dashed-container, 
+            .premium-card, 
+            .tools-navigation-grid, 
+            .btn-small-home,
+            .btn-large-home,
+            footer {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -476,8 +518,16 @@
             <input type="file" id="realImageFileInput" accept="image/jpeg, image/png, image/webp" style="display: none;" onchange="handleImageImportStream(event)">
         </div>
 
-        <!-- ✅ ADS PLACEMENT 1 -->
-        <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here ]</div>
+        <!-- ✅ ADS PLACEMENT 1 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
         <!-- 🖼️ IMAGE LIVE PREVIEW PANEL -->
         <div class="block-heading">👀 Source Preview</div>
@@ -544,6 +594,9 @@
         <!-- Core Action Trigger -->
         <button class="btn-convert-action" onclick="executeClientSideResizing()">Resize Image Asset</button>
 
+        <!-- 🏠 ALWAYS VISIBLE MAIN BACK TO HOME BUTTON -->
+        <a href="https://pdfgridbox.in" class="btn-large-home" style="margin-bottom: 25px;">🏠 Back to Home Page</a>
+
         <!-- Output Downloader Container Workspace (Hidden Initially) -->
         <div id="outputPanelWrapper">
             <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
@@ -552,12 +605,36 @@
                 <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Resized Image Ready</h3>
                 <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Asset re-mapped down to target pixel grids safely inside browser sandbox layout layers.</p>
                 
-                <!-- ✅ ADS PLACEMENT 2 -->
-                <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
+                <!-- ✅ ADS PLACEMENT 2 (ISOLATED WITH STRICT MARGINS) -->
+                <div class="ad-premium-banner adsense-margin-isolated">
+                    <ins class="adsbygoogle"
+                         style="display:block; width:100%;"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
 
                 <!-- Primary Workspace Actions Stack -->
                 <button class="btn-green-download" onclick="triggerDownloadAction()">📥 Download Resized Image</button>
-                <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
+            </div>
+        </div>
+
+        <!-- 🚀 HIGH-VALUE CONTEXTUAL RICH SEO DATA HUB BELOW THE FOLD -->
+        <div class="block-heading">📖 Private Browser-Based Photo Resizing & Dimension Scaling</div>
+        <div class="premium-card">
+            <div class="text-content-row">
+                <strong>Why Resize Image Dimensions & Compress File Sizes Online Privately?</strong>
+                <p>Adjusting photo pixel dimensions and optimizing file sizes is an essential step for uploading passport photos to government forms, embedding images into websites, or shrinking high-resolution camera photos for email attachments. Online image tools often require uploading your personal photos and sensitive documents to external cloud servers, exposing your graphics to tracking and data harvesting. Our client-side photo resizer executes all pixel interpolation 100% locally inside your web browser's RAM sandbox. Zero image data is ever uploaded to remote servers, ensuring total privacy and data residency.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Proportional Aspect Ratio Protection & Multi-Format Export Options</strong>
+                <p>Resizing an image without locking aspect ratios can lead to distorted or stretched graphics. Our scaling engine includes automatic aspect ratio locking that recalculates width or height values dynamically. Furthermore, you can export your resized image into JPEG for universal compatibility, WebP for next-generation web optimization, or lossless PNG to preserve sharp logo outlines and graphic transparency.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>High-Quality Anti-Aliasing Canvas Downsampling Engine</strong>
+                <p>Scaling down high-megapixel smartphone camera captures using poor resizing algorithms can result in pixelated edges or blurry fine text. Our HTML5 Canvas processing pipeline applies high-quality bicubic interpolation algorithms (`imageSmoothingQuality = 'high'`), cleanly blending matrix pixels to ensure that text labels, fine details, and color gradients remain crisp and clear in the resized image.</p>
             </div>
         </div>
 
@@ -566,15 +643,15 @@
         <div class="premium-card">
             <div class="text-content-row">
                 <strong>Proportional Aspect Ratio Protection</strong>
-                <p>Keeping the 'Maintain Aspect Ratio' checkbox flagged guarantees the canvas rendering math automatically cross-checks original width and height variables. This preserves identical scaling proportions fluidly without stretching profiles or causing squeezed distortions.</p>
+                <p>Keeping the 'Maintain Aspect Ratio' checkbox checked guarantees the canvas rendering math automatically calculates matching height or width parameters. This preserves correct proportions without stretching or distorting images.</p>
             </div>
             <div class="text-content-row">
                 <strong>Lossless vs Lossy Optimization Controls</strong>
-                <p>Select PNG output formats when compressing high-contrast screenshots or graphical alpha-channel logos to protect fine typography outlines from artifacts. Choose WebP or JPEG formats to activate adjustable compression sliders, trimming down storage file limits instantly.</p>
+                <p>Select PNG output formats when scaling high-contrast logos or transparent graphics. Choose WebP or JPEG formats to activate compression sliders, reducing overall file size instantly.</p>
             </div>
             <div class="text-content-row">
                 <strong>Secure Device RAM Processing Core</strong>
-                <p>Private portrait captures, official ID photos, and scanning attachments are computed completely within your machine's browser sandbox via secure HTML5 Canvas components. No remote databases log your metadata layers.</p>
+                <p>Private portrait photos, official ID scans, and document photos are processed completely within your machine's browser memory sandbox via HTML5 Canvas components.</p>
             </div>
         </div>
 
@@ -583,39 +660,59 @@
         <div class="tools-navigation-grid">
             <a href="https://pdfgridbox.in/pdf-compress" class="tool-link-badge"><div>🗜️</div>Compress PDF</a>
             <a href="https://pdfgridbox.in/add-watermark" class="tool-link-badge"><div>🏷️</div>Add Watermark</a>
-            <a href="https://pdfgridbox.in/protect-pdf" class="tool-link-badge"><div>🔒</div>Protect PDF</a>
-            <a href="https://pdfgridbox.in/add-page-numbers" class="tool-link-badge"><div>🔢</div>Page Numbers</a>
+            <a href="https://pdfgridbox.in/jpg-to-pdf" class="tool-link-badge"><div>🖼️</div>JPG to PDF</a>
+            <a href="https://pdfgridbox.in/pdf-to-jpg" class="tool-link-badge"><div>📸</div>PDF to JPG</a>
         </div>
 
-        <!-- ❓ FAQs Layout Component -->
+        <!-- ❓ FAQS CONTENT HUB - ELIMINATING THIN CONTENT SCENARIOS -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
             <div class="text-content-row">
-                <strong>Will my uploaded images get stored on cloud trackers during resizing workflows?</strong>
-                <p>Absolutely not. This utility tool runs entirely locally using JavaScript FileReader streams. The pixel calculation grids function inside your current browser page session, providing full security from external scraping arrays.</p>
+                <strong style="color: #fff;">Are my private photos uploaded to any external server during resizing?</strong>
+                <p>No. All pixel scaling and format conversion run strictly inside your local web browser RAM memory using HTML5 Canvas APIs. No image data is ever uploaded or stored on remote web servers.</p>
             </div>
             <div class="text-content-row">
-                <strong>What does the high-quality smoothing setting do for scaled image downsamples?</strong>
-                <p>Our canvas interpolation loop utilizes professional anti-aliasing configurations. When downsizing massive multi-megapixel smartphone captures, it dynamically blends matrix edges to prevent blocky pixelation errors or rendering blurriness.</p>
+                <strong style="color: #fff;">Will resizing a photo blur or distort fine details?</strong>
+                <p>Our canvas interpolation uses high-quality smoothing algorithms (`imageSmoothingQuality = 'high'`). When downsizing multi-megapixel photos, it blends matrix pixels cleanly to prevent pixelation or blurriness.</p>
             </div>
             <div class="text-content-row">
-                <strong>Why is local processing faster than traditional cloud-based resizers?</strong>
-                <p>Traditional image resizers force you to upload large graphic data arrays across internet bands before processing can start. Our offline system accesses local hardware immediately, finishing dense dimension transformations without internet speed limitations.</p>
+                <strong style="color: #fff;">Can I convert my image format while resizing dimensions?</strong>
+                <p>Yes. You can input custom width and height dimensions and simultaneously convert your image format between JPEG, WebP, and PNG formats in a single step.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">How does the compression quality slider work for JPEG and WebP images?</strong>
+                <p>The slider adjusts the image quality percentage (e.g., 85%). Lowering the quality percentage reduces file size significantly while maintaining clear visual detail.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Does this Photo Resizer work on mobile phones and tablets?</strong>
+                <p>Yes. The entire tool is fully responsive and runs smoothly in mobile web browsers on iOS, Android, Windows, and macOS devices.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is pdfgridbox's Photo Resizer completely free to use?</strong>
+                <p>Yes. All image and PDF processing utilities on pdfgridbox are 100% free with no account registrations, daily usage caps, or forced watermarks added to final images.</p>
             </div>
         </div>
 
-        <!-- ✅ ADS PLACEMENT 3 -->
-        <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
+        <!-- ✅ ADS PLACEMENT 3 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
     </div>
 
     <!-- 👑 Royal Unified Ownership Compliance Footer -->
     <footer class="luxury-footer">
         <div class="footer-links">
-            <a href="https://pdfgridbox.in/about">About Us</a>
-            <a href="https://pdfgridbox.in/contact">Contact Us</a>
-            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
-            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
         </div>
         <div class="footer-credits">
             &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
@@ -623,7 +720,7 @@
         </div>
     </footer>
 
-    <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADs -->
+    <!-- 🚀 ENGINE CORE MANAGEMENT EXECUTION THREADS -->
     <script>
         let coreSourceImageObj = new Image();
         let sourceImageLoadedFlag = false;
@@ -637,7 +734,6 @@
             const uploadedRawFile = event.target.files[0];
             if (!uploadedRawFile) return;
 
-            // Generate clean target output file dynamic tag pointers
             const extractedRawName = uploadedRawFile.name.substring(0, uploadedRawFile.name.lastIndexOf('.'));
             finalOutputFileName = `${extractedRawName}_resized.jpg`;
 
@@ -686,7 +782,6 @@
             event.target.value = "";
         }
 
-        // Live calculation formulas engine preserving strict user aspect ratio configurations
         function handleDimensionChange(triggeredInputSource) {
             if (!sourceImageLoadedFlag) return;
             const checkLockActive = document.getElementById('lockAspectRatioCheck').checked;
@@ -706,7 +801,6 @@
             const typeValue = document.getElementById('outputExtensionSelect').value;
             const containerNode = document.getElementById('qualitySliderContainer');
             
-            // PNG is mathematically lossless, it discards standard pixel compression matrices variables
             if (typeValue === 'image/png') {
                 containerNode.style.opacity = "0.3";
                 containerNode.style.pointerEvents = "none";
@@ -739,24 +833,20 @@
                 stateLabelText.innerText = "Status: Processing Canvas Grid Interpolation...";
                 visualProgressIndicator.style.width = "40%";
 
-                // Initialize structural internal canvas hardware compilation framework
                 const processingOffscreenCanvas = document.createElement('canvas');
                 processingOffscreenCanvas.width = targetScaleWidth;
                 processingOffscreenCanvas.height = targetScaleHeight;
                 
                 const renderingContext2D = processingOffscreenCanvas.getContext('2d');
                 
-                // Active high quality filtering algorithms maps parameters
                 renderingContext2D.imageSmoothingEnabled = true;
                 renderingContext2D.imageSmoothingQuality = 'high';
 
-                // Draw operational resource down to target sizes grids coordinates
                 renderingContext2D.drawImage(coreSourceImageObj, 0, 0, targetScaleWidth, targetScaleHeight);
 
                 visualProgressIndicator.style.width = "75%";
                 stateLabelText.innerText = "Status: Packing raw compressed blob streams...";
 
-                // Extract Dynamic Extension Tag Names for file naming arrays downstream safely
                 let targetedFileExtension = ".jpg";
                 if (selectedMimeFormat === 'image/png') targetedFileExtension = ".png";
                 if (selectedMimeFormat === 'image/webp') targetedFileExtension = ".webp";
@@ -779,7 +869,7 @@
                     visualProgressIndicator.style.width = "100%";
                     stateLabelText.innerText = "STATUS: RESIZING MATRIX CALCULATED SUCCESSFULLY!";
 
-                    // Open target download container pane workspace elements cleanly
+                    // Reveal output wrapper panel
                     document.getElementById('outputPanelWrapper').style.display = "block";
                     document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
 
