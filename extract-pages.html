@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-TWVBM11KXZ');
-</script>
+      gtag('config', 'G-TWVBM11KXZ');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- 👑 PRE-CONFIGURED PREMIUM SEO META TAGS -->
     <title>Extract PDF Pages Online Free - 100% Secure & Fast - pdfgridbox</title>
     <meta name="description" content="Extract specific pages or page ranges from your PDF files instantly. 100% private client-side processing with zero file uploads and maximum resolution quality.">
+
+    <!-- 🚀 GOOGLE APPLICATION SCHEMA MARKUP FOR FASTER INDEXING -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Extract PDF Pages Online Free - pdfgridbox",
+      "url": "https://pdfgridbox.in/extract-pdf-pages",
+      "description": "Extract specific pages or custom page ranges from your PDF documents instantly online with complete client-side data privacy.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 
     <!-- 🚀 Heavy Engines for Client-side PDF Processing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
@@ -24,7 +43,7 @@
     <style>
         /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
         :root {
-            --bg-main: #090d16; /* Deep Midnight Luxury Background */
+            --bg-main: #090d16; 
             --bg-card: rgba(22, 29, 45, 0.7);
             --bg-card-hover: rgba(30, 41, 64, 0.9);
             --bg-input: #0b0f19;
@@ -147,18 +166,20 @@
             border-color: var(--gold-primary);
         }
 
+        /* 💰 SAFE ADSENSE CONTAINER */
         .ad-premium-banner {
-            border: 1px dashed rgba(212, 175, 55, 0.2);
-            background: rgba(11, 15, 25, 0.5);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            color: var(--gold-primary);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin: 20px 0;
-            text-transform: uppercase;
+            margin: 30px 0;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Strict gap injection to avoid algorithmic accidental click penalties */
+        .adsense-margin-isolated {
+            margin-top: 150px !important;
+            margin-bottom: 40px !important;
         }
 
         .progress-track {
@@ -241,12 +262,18 @@
             width: 100%;
             cursor: pointer;
             margin-top: 10px;
+            margin-bottom: 12px;
             transition: all 0.2s;
             box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
         }
         .btn-extract-action:hover {
             transform: translateY(-2px);
             filter: brightness(1.1);
+        }
+
+        /* Output Panel initially hidden */
+        #outputPanelWrapper {
+            display: none;
         }
 
         .btn-green-download {
@@ -413,6 +440,27 @@
             display: inline-block;
             margin-top: 4px;
         }
+
+        /* 🛠️ PRINT COMPLIANCE STYLES */
+        @media print {
+            .ad-premium-banner, 
+            .btn-extract-action, 
+            .btn-green-download, 
+            .btn-outline-preview,
+            .upload-dashed-container, 
+            .premium-card, 
+            .tools-navigation-grid, 
+            .btn-small-home,
+            .btn-large-home,
+            footer {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -429,12 +477,20 @@
         <div class="upload-dashed-container" onclick="document.getElementById('realExtractFileInput').click()">
             <div style="font-size: 40px; color: #dfba6b;">📑</div>
             <div style="font-size: 18px; font-weight: 700; margin: 12px 0 4px 0;">Choose PDF File</div>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">or drag and drop your file here</p>
+            <p style="color: var(--text-muted); font-size: 13px; margin: 0;">Select document to extract isolated page sequences</p>
             <input type="file" id="realExtractFileInput" accept=".pdf" style="display: none;" onchange="handleSingleFileImport(event)">
         </div>
 
-        <!-- ✅ ADS PLACEMENT 1 -->
-        <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here ]</div>
+        <!-- ✅ ADS PLACEMENT 1 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
         <!-- Progress Component -->
         <div class="premium-card">
@@ -450,7 +506,7 @@
             <div class="meta-data-node"><span>File Size</span><strong id="labelSize">--</strong></div>
             <div class="meta-data-node"><span>Total Pages</span><strong id="labelPages">--</strong></div>
             <div class="meta-data-node"><span>Document Name</span><strong id="labelName">No File Selected</strong></div>
-            <div class="meta-data-node"><span>Type</span><strong style="color:#10b981;">Local Client</strong></div>
+            <div class="meta-data-node"><span>Execution Engine</span><strong style="color:#10b981;">Local Client</strong></div>
         </div>
 
         <!-- ⚙️ Extraction Parameters Panel -->
@@ -478,14 +534,14 @@
                                 <input type="number" class="config-text-input" id="endPageInput" placeholder="e.g., 5" min="1" oninput="invalidateActiveWorkspace()">
                             </div>
                         </div>
-                        <span style="font-size: 11px; color: var(--text-muted); display: block; margin-top: 10px;">Specify the starting and ending parameters. Only this precise block will be saved.</span>
+                        <span style="font-size: 11px; color: var(--text-muted); display: block; margin-top: 10px;">Specify starting and ending numerical parameters. Only this precise sequence will be extracted.</span>
                     </div>
 
                     <!-- Option B: Custom Text Field Input Selector -->
                     <div id="specificPagesContainer" style="display: none;">
                         <div style="font-size:12px; color: var(--text-muted); margin-top:12px;">Enter Page Numbers to KEEP:</div>
                         <input type="text" class="config-text-input" id="specificPagesTextInput" placeholder="e.g., 1, 3, 7-12" oninput="invalidateActiveWorkspace()">
-                        <span style="font-size: 11px; color: var(--text-muted); display: block; margin-top: 6px;">Use commas for discrete structures and dashes for inner ranges.</span>
+                        <span style="font-size: 11px; color: var(--text-muted); display: block; margin-top: 6px;">Use commas for discrete pages and dashes for inner page ranges.</span>
                     </div>
                 </div>
             </div>
@@ -494,36 +550,65 @@
         <!-- Core Button Action -->
         <button class="btn-extract-action" onclick="executeRealClientExtraction()">Extract Selected Pages</button>
 
-        <!-- Output Downloader Container Workspace -->
-        <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
-        <div class="premium-card" style="text-align: center;">
-            <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
-            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Extracted PDF Workspace</h3>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Configure settings above, hit extract, then download or preview your dynamic asset document instantly.</p>
-            
-            <!-- ✅ ADS PLACEMENT 2 -->
-            <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
+        <!-- 🏠 ALWAYS VISIBLE MAIN BACK TO HOME BUTTON -->
+        <a href="https://pdfgridbox.in" class="btn-large-home" style="margin-bottom: 25px;">🏠 Back to Home Page</a>
 
-            <!-- Primary Buttons Stacked Vertically -->
-            <button class="btn-green-download" onclick="triggerDownload()">📥 Download Extracted PDF</button>
-            <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview New PDF Layout</button>
-            <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
+        <!-- Output Downloader Container Workspace (Hidden Initially) -->
+        <div id="outputPanelWrapper">
+            <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
+            <div class="premium-card" style="text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
+                <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Extracted PDF Ready</h3>
+                <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Target pages isolated into a brand new standalone file. Download or preview instantly.</p>
+                
+                <!-- ✅ ADS PLACEMENT 2 (ISOLATED WITH STRICT MARGINS) -->
+                <div class="ad-premium-banner adsense-margin-isolated">
+                    <ins class="adsbygoogle"
+                         style="display:block; width:100%;"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+
+                <!-- Primary Workspace Actions Stack -->
+                <button class="btn-green-download" onclick="triggerDownload()">📥 Download Extracted PDF</button>
+                <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview New PDF Layout</button>
+            </div>
+        </div>
+
+        <!-- 🚀 HIGH-VALUE CONTEXTUAL RICH SEO DATA HUB BELOW THE FOLD -->
+        <div class="block-heading">📖 Private Browser-Based PDF Page Extraction</div>
+        <div class="premium-card">
+            <div class="text-content-row">
+                <strong>Why Extract Pages from PDF Online Privately?</strong>
+                <p>Isolating specific chapters from heavy eBooks, extracting financial summary pages for tax filing, or separating distinct legal clauses from lengthy contracts requires a reliable extraction utility. Standard cloud-based tools require uploading sensitive files to remote servers, raising privacy concerns regarding confidential data storage. Our web-based sandbox execution matrix lets you extract PDF pages online free with 100% data privacy. By processing all document byte arrays directly inside your local browser memory, your corporate documents and personal records never touch an external cloud server.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Flexible Page Selection: Range Blocks & Custom Lists</strong>
+                <p>Different workflows demand distinct extraction methods. Our tool offers flexible extraction modes to suit every scenario. Choose "Range Selection" to extract continuous page blocks (e.g., pages 5 to 15), or select "Specific Pages List" to mix discrete page numbers and custom sub-ranges (e.g., "1, 4, 8-12"). You can also isolate odd or even pages with a single click. The underlying parser validates page limits in real-time, preventing out-of-bounds errors and ensuring a smooth extraction experience.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Lossless Quality & Structural Vector Preservation</strong>
+                <p>Converting PDF pages into raster image files to extract content often destroys original typography, removes interactive text links, and blurs graphics. Our client-side compilation engine modifies underlying object references directly without re-compressing visual elements. Embedded vector shapes, custom font sets, high-resolution charts, and document page dimensions (such as standard A4 or Letter sizes) are perfectly preserved in the output file without quality loss.</p>
+            </div>
         </div>
 
         <!-- 💡 Quick Tips Section -->
         <div class="block-heading">💡 Quick Tips</div>
         <div class="premium-card">
             <div class="text-content-row">
-                <strong>"Zero Loss Encoding Matrix"</strong>
-                <p>Extraction maps internal pointers seamlessly. Vector formats, heavy fonts, hyperlinked text layers, and structural operational layouts remain completely uncompressed and high-definition.</p>
+                <strong>"Zero Loss Vector Preservation"</strong>
+                <p>Extraction remaps internal object references directly. Vector graphics, heavy font families, clickable text hyperlinks, and document layouts remain 100% sharp and uncompressed.</p>
             </div>
             <div class="text-content-row">
-                <strong>Advanced Flexible Formats Supported</strong>
-                <p>When using the "Specific Pages List", you can mix and match discrete elements easily. For example, typing "1, 4, 8-15" extracts page one, page four, and the entire block from eight to fifteen all together into a brand new document.</p>
+                <strong>Combine Discrete Pages and Sub-Ranges</strong>
+                <p>When using "Specific Pages List", you can combine individual page numbers and ranges easily. For example, typing "1, 4, 8-15" extracts page 1, page 4, and pages 8 through 15 together into a single new document.</p>
             </div>
             <div class="text-content-row">
-                <strong>Complete Browser Workspace Sandboxing</strong>
-                <p>Your highly confidential business records, digital certificates, or creative assets stay localized within your system's temporary memory. Absolute zero network traffic logs mean ultimate client security compliance.</p>
+                <strong>100% Private Memory Sandboxing</strong>
+                <p>All extraction operations execute locally inside your browser thread. Zero bytes leak out to cloud storage systems, meeting global privacy and data protection standards.</p>
             </div>
         </div>
 
@@ -532,39 +617,59 @@
         <div class="tools-navigation-grid">
             <a href="https://pdfgridbox.in/pdf-merge" class="tool-link-badge"><div>🧩</div>Merge PDF</a>
             <a href="https://pdfgridbox.in/pdf-split" class="tool-link-badge"><div>✂️</div>Split PDF</a>
-            <a href="https://pdfgridbox.in/delete-pages" class="tool-link-badge"><div>🗑️</div>Delete Pages</a>
+            <a href="https://pdfgridbox.in/delete-pdf-pages" class="tool-link-badge"><div>🗑️</div>Delete Pages</a>
             <a href="https://pdfgridbox.in/pdf-rotate" class="tool-link-badge"><div>🔄</div>Rotate PDF</a>
         </div>
 
-        <!-- ❓ FAQs Layout Component -->
+        <!-- ❓ FAQS CONTENT HUB - ELIMINATING THIN CONTENT SCENARIOS -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
             <div class="text-content-row">
-                <strong>Does page extraction compress or downscale internal images?</strong>
-                <p>No. Our compilation matrix copies original data stream segments directly without decoding or modifying visual pixels. Your high-resolution charts and graphics look exactly as sharp as the original container asset.</p>
+                <strong style="color: #fff;">Does extracting pages compress or reduce visual image quality?</strong>
+                <p>No. Our compilation matrix copies original document data stream segments directly without decoding or modifying visual pixels. High-resolution images and charts retain their exact original quality.</p>
             </div>
             <div class="text-content-row">
-                <strong>What happens to active forms and annotations during isolation?</strong>
-                <p>Since pdf-lib targets the low-level object tree array structures natively, it maintains interactive form data, metadata keys, and drawn comments on the isolated nodes perfectly, provided they aren't bound to missing elements.</p>
+                <strong style="color: #fff;">What happens to interactive forms and annotations during extraction?</strong>
+                <p>Since our tool modifies low-level PDF object trees natively, interactive form fields, metadata keys, and drawn comments on the isolated pages are fully preserved in the newly extracted document.</p>
             </div>
             <div class="text-content-row">
-                <strong>Is there an absolute limit on file sizes for browser-level rendering?</strong>
-                <p>Our tools are totally unrestricted on the software end. The only bounds are your own device's CPU and available RAM memory allocations. Large files up to several hundred pages stream fluidly on standard modern computers.</p>
+                <strong style="color: #fff;">Is there a file size limit for browser-based PDF page extraction?</strong>
+                <p>There are no software-enforced file size limits on pdfgridbox. Processing speed depends entirely on your device's CPU power and available RAM. Large documents up to several hundred pages process smoothly on modern devices.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Can I extract non-consecutive pages into a single PDF file?</strong>
+                <p>Yes! Choose "Specific Pages List" from the dropdown menu and enter non-consecutive page numbers separated by commas (e.g., "2, 7, 11"). All selected pages will be combined in order into one output file.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Are my original files saved or stored on any server?</strong>
+                <p>No. Operations run entirely within your local web browser sandbox. Your original files and extracted outputs are never uploaded, stored, or indexed on any remote web server.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is pdfgridbox's Extract PDF Pages tool completely free?</strong>
+                <p>Yes, all PDF processing utilities on pdfgridbox are 100% free to use without mandatory user account sign-ups, usage limits, or forced watermarks on output documents.</p>
             </div>
         </div>
 
-        <!-- ✅ ADS PLACEMENT 3 -->
-        <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
+        <!-- ✅ ADS PLACEMENT 3 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
     </div>
 
     <!-- 👑 Royal Unified Ownership Compliance Footer -->
     <footer class="luxury-footer">
         <div class="footer-links">
-            <a href="https://pdfgridbox.in/about">About Us</a>
-            <a href="https://pdfgridbox.in/contact">Contact Us</a>
-            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
-            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
         </div>
         <div class="footer-credits">
             &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
@@ -606,6 +711,7 @@
                 compiledBlobUrl = null;
                 document.getElementById('stateLabel').innerText = "Status: Parameters Changed. Re-run to process.";
                 document.getElementById('trackBarIndicatorFill').style.width = "75%";
+                document.getElementById('outputPanelWrapper').style.display = "none";
             }
         }
 
@@ -624,6 +730,8 @@
             fillerBar.style.width = "30%";
 
             globalFileArrayBuffer = null;
+            document.getElementById('outputPanelWrapper').style.display = "none";
+
             if (compiledBlobUrl) {
                 URL.revokeObjectURL(compiledBlobUrl);
                 compiledBlobUrl = null;
@@ -765,6 +873,8 @@
                 fillerBar.style.width = "100%";
                 labelText.innerText = `STATUS: ${pagesToExtractIndices.length} PAGE(S) EXTRACTED SUCCESSFULLY!`;
 
+                // Reveal output wrapper panel
+                document.getElementById('outputPanelWrapper').style.display = "block";
                 document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
             } catch (err) {
                 console.error(err);
