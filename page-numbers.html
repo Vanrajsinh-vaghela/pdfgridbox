@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWVBM11KXZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-TWVBM11KXZ');
-</script>
+      gtag('config', 'G-TWVBM11KXZ');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- 👑 PRE-CONFIGURED PREMIUM SEO META TAGS -->
     <title>Add Page Numbers to PDF Online Free - 100% Secure - pdfgridbox</title>
-    <meta name="description" content="Add page numbers to your PDF documents instantly online. Customize placement formats locally. 100% private client-side processing with zero server file uploads.">
+    <meta name="description" content="Add page numbers to your PDF documents instantly online. Customize numbering placement, formats (Page X of Y), and skip front cover page. 100% private client-side processing.">
+
+    <!-- 🚀 GOOGLE APPLICATION SCHEMA MARKUP FOR FASTER INDEXING -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Add Page Numbers to PDF Online Free - pdfgridbox",
+      "url": "https://pdfgridbox.in/add-page-numbers",
+      "description": "Add page numbers to PDF files online free. Customize alignment, page ranges, skip cover page, and formats with local browser RAM processing.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 
     <!-- 🚀 Heavy Core Engine for Client-Side Structural PDF Vector Modifications -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
@@ -23,7 +42,7 @@
     <style>
         /* 🌑 CLASSIC ABSOLUTE LUXURY DARK THEME */
         :root {
-            --bg-main: #090d16; /* Deep Midnight Luxury Background */
+            --bg-main: #090d16; 
             --bg-card: rgba(22, 29, 45, 0.7);
             --bg-card-hover: rgba(30, 41, 64, 0.9);
             --bg-input: #0b0f19;
@@ -145,18 +164,20 @@
             border-color: var(--gold-primary);
         }
 
+        /* 💰 SAFE ADSENSE CONTAINER */
         .ad-premium-banner {
-            border: 1px dashed rgba(212, 175, 55, 0.2);
-            background: rgba(11, 15, 25, 0.5);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            color: var(--gold-primary);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin: 20px 0;
-            text-transform: uppercase;
+            margin: 30px 0;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Strict gap injection to avoid algorithmic accidental click penalties */
+        .adsense-margin-isolated {
+            margin-top: 150px !important;
+            margin-bottom: 40px !important;
         }
 
         /* 🎛️ Configuration Layout Input Controls */
@@ -247,12 +268,18 @@
             width: 100%;
             cursor: pointer;
             margin-top: 10px;
+            margin-bottom: 12px;
             transition: all 0.2s;
             box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
         }
         .btn-convert-action:hover {
             transform: translateY(-2px);
             filter: brightness(1.1);
+        }
+
+        /* Output Panel initially hidden */
+        #outputPanelWrapper {
+            display: none;
         }
 
         .btn-green-download {
@@ -275,6 +302,28 @@
         }
         .btn-green-download:hover {
             filter: brightness(1.1);
+        }
+
+        .btn-outline-preview {
+            background: transparent;
+            color: var(--accent-yellow);
+            border: 1px solid var(--accent-yellow);
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+        }
+        .btn-outline-preview:hover {
+            background: rgba(255, 224, 130, 0.1);
         }
 
         .btn-large-home {
@@ -389,6 +438,27 @@
             display: inline-block;
             margin-top: 4px;
         }
+
+        /* 🛠️ PRINT COMPLIANCE STYLES */
+        @media print {
+            .ad-premium-banner, 
+            .btn-convert-action, 
+            .btn-green-download, 
+            .btn-outline-preview,
+            .upload-dashed-container, 
+            .premium-card, 
+            .tools-navigation-grid, 
+            .btn-small-home,
+            .btn-large-home,
+            footer {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -409,15 +479,23 @@
             <input type="file" id="realPdfFileInput" accept=".pdf" style="display: none;" onchange="handleSingleFileImport(event)">
         </div>
 
-        <!-- ✅ ADS PLACEMENT 1 -->
-        <div class="ad-premium-banner">[ 💰 Adsense Preview Banner: Ad will load here ]</div>
+        <!-- ✅ ADS PLACEMENT 1 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
         <!-- ⚙️ Configuration Setup Parameter Control Panel -->
         <div class="block-heading">⚙️ Pagination Setup Parameters</div>
         <div class="premium-card input-group-grid">
             <div>
                 <label class="control-label" for="numPlacementSelect">Number Positioning:</label>
-                <select class="premium-select-dropdown" id="numPlacementSelect">
+                <select class="premium-select-dropdown" id="numPlacementSelect" onchange="invalidateActiveWorkspace()">
                     <option value="bottom-center" selected>Bottom Center (Recommended)</option>
                     <option value="bottom-right">Bottom Right</option>
                     <option value="bottom-left">Bottom Left</option>
@@ -429,14 +507,14 @@
 
             <div>
                 <label class="control-label" for="numFormatSelect">Text Layout Format:</label>
-                <select class="premium-select-dropdown" id="numFormatSelect">
+                <select class="premium-select-dropdown" id="numFormatSelect" onchange="invalidateActiveWorkspace()">
                     <option value="simple" selected>Simple Index (e.g., 1, 2, 3)</option>
                     <option value="of-total">Page X of Y (e.g., Page 1 of 12)</option>
                 </select>
             </div>
 
             <label class="checkbox-container-row">
-                <input type="checkbox" class="premium-checkbox-input" id="skipFirstPageCheck" checked>
+                <input type="checkbox" class="premium-checkbox-input" id="skipFirstPageCheck" checked onchange="invalidateActiveWorkspace()">
                 <span style="font-size: 13px; font-weight: 600; color: var(--text-white);">Skip Front Cover (First Page)</span>
             </label>
         </div>
@@ -461,19 +539,49 @@
         <!-- Core Action Trigger -->
         <button class="btn-convert-action" onclick="executePdfPaginationDrawing()">Apply Page Numbers</button>
 
-        <!-- Output Downloader Container Workspace -->
-        <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
-        <div class="premium-card" style="text-align: center;">
-            <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
-            <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Paginated Document</h3>
-            <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Vector pagination indices drew successfully into your native structure blocks.</p>
-            
-            <!-- ✅ ADS PLACEMENT 2 -->
-            <div class="ad-premium-banner" style="margin: 0 0 15px 0;">[ 💰 Google AdSense Responsive Ad ]</div>
+        <!-- 🏠 ALWAYS VISIBLE MAIN BACK TO HOME BUTTON -->
+        <a href="https://pdfgridbox.in" class="btn-large-home" style="margin-bottom: 25px;">🏠 Back to Home Page</a>
 
-            <!-- Primary Workspace Actions Stack -->
-            <button class="btn-green-download" onclick="triggerDownload()">📥 Download Paginated PDF</button>
-            <a href="https://pdfgridbox.in" class="btn-large-home">🏠 Back to Home Page</a>
+        <!-- Output Downloader Container Workspace (Hidden Initially) -->
+        <div id="outputPanelWrapper">
+            <div class="block-heading" id="outputWorkspaceAnchor">✨ Output Workspace</div>
+            <div class="premium-card" style="text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 8px;">✨</div>
+                <h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 700;">Your Paginated Document Ready</h3>
+                <p style="color: var(--text-muted); font-size: 13px; margin: 0 0 20px 0; line-height: 1.4;">Vector pagination indices injected cleanly. Download or preview instantly.</p>
+                
+                <!-- ✅ ADS PLACEMENT 2 (ISOLATED WITH STRICT MARGINS) -->
+                <div class="ad-premium-banner adsense-margin-isolated">
+                    <ins class="adsbygoogle"
+                         style="display:block; width:100%;"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+
+                <!-- Primary Workspace Actions Stack -->
+                <button class="btn-green-download" onclick="triggerDownload()">📥 Download Paginated PDF</button>
+                <button class="btn-outline-preview" onclick="triggerPreview()">👁️ Preview Paginated PDF</button>
+            </div>
+        </div>
+
+        <!-- 🚀 HIGH-VALUE CONTEXTUAL RICH SEO DATA HUB BELOW THE FOLD -->
+        <div class="block-heading">📖 Private Browser-Based PDF Page Numbering</div>
+        <div class="premium-card">
+            <div class="text-content-row">
+                <strong>Why Add Page Numbers to PDF Files Privately?</strong>
+                <p>Numbering multi-page PDF documents is essential for legal filings, academic papers, research journals, and business reports. Online tools that require cloud uploads can expose your sensitive contracts or financial statements to unauthorized server logging. Our client-side pagination utility adds page numbers to PDF files online free with complete privacy. By processing document byte arrays directly inside your web browser's RAM, your corporate documents and personal records remain 100% private and localized to your hardware device.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Custom Placement, Formatting & Title Cover Exclusion</strong>
+                <p>Our tool gives you complete layout flexibility over your PDF pagination. Choose from 6 strategic placement positions including Bottom Center, Bottom Right, Top Center, or Top Right. You can select clean numbering formats like standard digits ("1, 2, 3") or full context strings ("Page X of Y"). Furthermore, the "Skip Front Cover" feature automatically bypasses index zero, ensuring title pages and cover sheets stay clean without unnecessary page numbers.</p>
+            </div>
+            <div class="text-content-row">
+                <strong>Ultra-Sharp Vector Rendering & Font Scale Preservation</strong>
+                <p>Unlike basic image stamp utilities that reduce document clarity, our engine injects page numbers directly into the PDF's native vector object tree using standard embedded PostScript fonts (Helvetica). This guarantees that numbers remain ultra-sharp at any zoom level or high-resolution printout without altering text readability, hyperlinks, or underlying document layouts.</p>
+            </div>
         </div>
 
         <!-- 💡 Quick Tips Section -->
@@ -481,15 +589,15 @@
         <div class="premium-card">
             <div class="text-content-row">
                 <strong>Advanced Vector Font Scale Protection</strong>
-                <p>Numbers are injected as clean PostScript vector font glyphs natively into your document framework. This guarantees that your customized pagination layouts retain mathematical grid precision and never look blurry on high-end office printouts.</p>
+                <p>Numbers are injected as clean PostScript vector font glyphs directly into your document framework. Custom pagination layouts retain mathematical precision and never look blurry on high-resolution prints.</p>
             </div>
             <div class="text-content-row">
                 <strong>Intelligent Front Cover Sheet Isolation</strong>
-                <p>By enabling the 'Skip Front Cover' toggle control mechanism, the compiler dynamically bypasses index zero inside the page map arrays. This allows formal research journals, corporate presentations, and eBooks to maintain clean unnumbered title sheets.</p>
+                <p>Enabling the 'Skip Front Cover' toggle automatically bypasses index zero inside the page map arrays. Formal research journals, corporate presentations, and eBooks maintain clean unnumbered cover sheets.</p>
             </div>
             <div class="text-content-row">
-                <strong>100% Client-Side Encryption Layouts</strong>
-                <p>Your document structures are streamed and manipulated fully within your device system's local memory parameters. Zero external cloud processing protects highly confidential enterprise balance reports and official legal briefs perfectly.</p>
+                <strong>100% Client-Side Memory Processing</strong>
+                <p>Document structures are loaded and manipulated fully within your browser system RAM. Zero external cloud transfers protect confidential corporate balance sheets and legal briefs.</p>
             </div>
         </div>
 
@@ -502,35 +610,55 @@
             <a href="https://pdfgridbox.in/pdf-compress" class="tool-link-badge"><div>🗜️</div>Compress PDF</a>
         </div>
 
-        <!-- ❓ FAQs Layout Component -->
+        <!-- ❓ FAQS CONTENT HUB - ELIMINATING THIN CONTENT SCENARIOS -->
         <div class="block-heading">❓ FAQ</div>
         <div class="premium-card">
             <div class="text-content-row">
-                <strong>Will injected number matrices cover dense background graphics layers?</strong>
-                <p>No. The mathematical drawing engines register text blocks at the highest index pointer configuration layer. This forces the generated page numbers to stack cleanly on top of existing structural visual canvas objects.</p>
+                <strong style="color: #fff;">Will injected page numbers cover dense background graphics or text?</strong>
+                <p>No. The mathematical drawing engine registers text blocks at top layer object index configurations. Generated page numbers render cleanly over existing visual background layers.</p>
             </div>
             <div class="text-content-row">
-                <strong>Does the numbering process alter embedded hyperlinked contents?</strong>
-                <p>Not at all. The underlying low-level binary structure array remains completely untouched. The layout algorithm simply references standard Helvetica packages to draw clean layout nodes, leaving internal anchor paths 100% functional.</p>
+                <strong style="color: #fff;">Does the page numbering process break interactive hyperlinks?</strong>
+                <p>Not at all. Low-level binary structure arrays remain completely untouched. The layout algorithm simply references standard Helvetica packages to draw clean text nodes, leaving internal anchor paths 100% functional.</p>
             </div>
             <div class="text-content-row">
-                <strong>Is there a total page limit constraint for massive technical books?</strong>
-                <p>Our client-side architecture scales fluidly across documents containing hundreds of elements. Since processing power is drawn directly from your own system RAM allocations, execution remains fast and highly dependable.</p>
+                <strong style="color: #fff;">Is there a total page limit constraint for large documents?</strong>
+                <p>No. Client-side architecture scales fluidly across documents containing hundreds of pages. Execution speed depends entirely on your device's available RAM and processor power.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Can I start page numbering from a specific page number?</strong>
+                <p>Yes. By enabling "Skip Front Cover", numbering starts cleanly on the second page (page index 2) while keeping your cover title sheet completely unnumbered.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Are my PDF files uploaded or saved on any remote server?</strong>
+                <p>No. All pagination operations run locally inside your browser thread memory. Your original files and output documents are never uploaded, stored, or logged on remote servers.</p>
+            </div>
+            <div class="text-content-row">
+                <strong style="color: #fff;">Is pdfgridbox's Add Page Numbers tool completely free to use?</strong>
+                <p>Yes. All PDF utilities on pdfgridbox are 100% free with no registration requirements, daily usage limits, or forced watermarks added to final files.</p>
             </div>
         </div>
 
-        <!-- ✅ ADS PLACEMENT 3 -->
-        <div class="ad-premium-banner">[ 💰 GOOGLE ADSENSE MATCHED CONTENT AD ]</div>
+        <!-- ✅ ADS PLACEMENT 3 (Clean Google AdSense Tag) -->
+        <div class="ad-premium-banner">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
     </div>
 
     <!-- 👑 Royal Unified Ownership Compliance Footer -->
     <footer class="luxury-footer">
         <div class="footer-links">
-            <a href="https://pdfgridbox.in/about">About Us</a>
-            <a href="https://pdfgridbox.in/contact">Contact Us</a>
-            <a href="https://pdfgridbox.in/privacy-policy">Privacy Policy</a>
-            <a href="https://pdfgridbox.in/disclaimer">Disclaimer</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
         </div>
         <div class="footer-credits">
             &copy; 2026 <strong>pdfgridbox.in</strong>. All Rights Reserved.<br>
@@ -544,6 +672,16 @@
         let globalFileName = "Paginated_Document.pdf";
         let totalDocumentPagesCount = 0;
         let compiledBlobUrl = null;
+
+        function invalidateActiveWorkspace() {
+            if (compiledBlobUrl) {
+                URL.revokeObjectURL(compiledBlobUrl);
+                compiledBlobUrl = null;
+                document.getElementById('stateLabel').innerText = "Status: Parameters Changed. Re-apply page numbers.";
+                document.getElementById('trackBarIndicatorFill').style.width = "75%";
+                document.getElementById('outputPanelWrapper').style.display = "none";
+            }
+        }
 
         function handleSingleFileImport(event) {
             const rawFile = event.target.files[0];
@@ -560,6 +698,8 @@
             fillerBar.style.width = "40%";
 
             globalFileArrayBuffer = null;
+            document.getElementById('outputPanelWrapper').style.display = "none";
+
             if (compiledBlobUrl) {
                 URL.revokeObjectURL(compiledBlobUrl);
                 compiledBlobUrl = null;
@@ -669,7 +809,7 @@
                 fillerBar.style.width = "95%";
 
                 const modifiedPdfBytesArray = await nativePdfDoc.save();
-                const outputBlob = new Blob([modifiedPdfBytesArray.buffer], { type: 'application/pdf' });
+                const outputBlob = new Blob([modifiedPdfBytesArray], { type: 'application/pdf' });
 
                 if (compiledBlobUrl) {
                     URL.revokeObjectURL(compiledBlobUrl);
@@ -679,6 +819,8 @@
                 fillerBar.style.width = "100%";
                 labelText.innerText = "STATUS: PAGINATION INJECTED SUCCESSFULLY!";
 
+                // Reveal output wrapper panel
+                document.getElementById('outputPanelWrapper').style.display = "block";
                 document.getElementById('outputWorkspaceAnchor').scrollIntoView({ behavior: 'smooth' });
 
             } catch (err) {
@@ -700,6 +842,14 @@
             document.body.appendChild(dynamicAnchor);
             dynamicAnchor.click();
             document.body.removeChild(dynamicAnchor);
+        }
+
+        function triggerPreview() {
+            if (!compiledBlobUrl) {
+                alert("Output compilation workspace is empty. Apply page numbers first.");
+                return;
+            }
+            window.open(compiledBlobUrl, '_blank');
         }
     </script>
 </body>
