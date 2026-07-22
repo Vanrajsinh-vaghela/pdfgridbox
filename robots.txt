@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://pdfgridbox.in/sitemap.xml
