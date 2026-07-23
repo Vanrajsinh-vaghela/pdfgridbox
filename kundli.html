@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janam Kundli Generator</title>
+    <style>
+        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: #f4f7f6; margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 450px; }
+        h2 { text-align: center; color: #d35400; margin-bottom: 20px; }
+        label { font-weight: bold; display: block; margin-top: 10px; color: #333; }
+        input, select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px; }
+        .btn { background: #e67e22; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; margin-top: 20px; font-size: 16px; font-weight: bold; cursor: pointer; }
+        .btn:hover { background: #d35400; }
+        .price-tag { text-align: center; color: #27ae60; font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>📜 Janam Kundli Generator</h2>
+    <form id="kundliForm">
+        <label>Naam (Full Name):</label>
+        <input type="text" id="name" required placeholder="Apna naam likhein">
+
+        <label>Janam Tarikh (Date of Birth):</label>
+        <input type="date" id="dob" required>
+
+        <label>Janam Samay (Time of Birth):</label>
+        <input type="time" id="tob" required>
+
+        <label>Janam Sthan (Place of Birth):</label>
+        <input type="text" id="place" required placeholder="E.g. Ahmedabad, Delhi">
+
+        <label>Gender:</label>
+        <select id="gender">
+            <option value="Male">Male (Purush)</option>
+            <option value="Female">Female (Mahila)</option>
+        </select>
+
+        <div class="price-tag">Matra ₹11 me Instant PDF Download</div>
+        <button type="button" class="btn" onclick="generateKundli()">Download Kundli PDF (₹11)</button>
+    </form>
+</div>
+
+<script>
+async function generateKundli() {
+    const name = document.getElementById('name').value;
+    const dob = document.getElementById('dob').value;
+    const tob = document.getElementById('tob').value;
+    const place = document.getElementById('place').value;
+
+    if(!name || !dob || !tob || !place) {
+        alert("Kripya saari details bharein!");
+        return;
+    }
+
+    const [year, month, day] = dob.split('-');
+    const [hour, minute] = tob.split(':');
+
+    const payload = {
+        name: name,
+        day: parseInt(day),
+        month: parseInt(month),
+        year: parseInt(year),
+        hour: parseInt(hour || 12),
+        minute: parseInt(minute || 0),
+        lat: 23.0225,
+        lon: 72.5714
+    };
+
+    try {
+        alert("Kundli generate ho rahi hai, wait karein...");
+        
+        const response = await fetch('https://pdfgridbox.onrender.com/calculate-kundli', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        if(response.ok) {
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${name}_Kundli.pdf`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+        } else {
+            alert("Kundli banane me error aaya!");
+        }
+    } catch(err) {
+        console.error(err);
+        alert("Server connection fail ho gaya!");
+    }
+}
+</script>
+
+</body>
+</html>
