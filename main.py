@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Form
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 import swisseph as swe
 import datetime
@@ -19,6 +19,12 @@ app.add_middleware(
 def home():
     return {"status": "Active", "message": "Kundli API Running Successfully!"}
 
+# 🛠️ NAYA ADD KIYA: kundli.html file ko serve karne ke liye routes
+@app.get("/kundli.html")
+@app.get("/kundli")
+def serve_kundli():
+    return FileResponse("kundli.html")
+
 @app.post("/calculate-kundli")
 def calculate_kundli(
     name: str = Form(...),
@@ -36,7 +42,7 @@ def calculate_kundli(
         decimal_time = hh + (mm / 60.0)
         julian_day = swe.julday(y, m, d, decimal_time)
         
-        # Main Planety Positions Calculate karna
+        # Main Planetary Positions Calculate karna
         planets = {
             "Sun": swe.calc_ut(julian_day, swe.SUN)[0][0],
             "Moon": swe.calc_ut(julian_day, swe.MOON)[0][0],
@@ -48,7 +54,7 @@ def calculate_kundli(
             "Rahu": swe.calc_ut(julian_day, swe.MEAN_NODE)[0][0],
         }
         
-        # Planetary degree se Rashi (Sign) nikallna
+        # Planetary degree se Rashi (Sign) nikalna
         zodiac_signs = [
             "Mesha (Aries)", "Vrishabha (Taurus)", "Mithuna (Gemini)", "Karka (Cancer)",
             "Simha (Leo)", "Kanya (Virgo)", "Tula (Libra)", "Vrishchika (Scorpio)",
